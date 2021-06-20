@@ -19,7 +19,7 @@ font:
   bold_italic:
     family: Fira Code
     style: Bold Italic
-  size: 7
+  size: 6.5
   offset:
     x: 0
     y: 0
