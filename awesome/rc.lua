@@ -108,6 +108,7 @@ local browser      = "firefox"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { " DEV ", " WWW ", " CHAT " }
+
 awful.layout.layouts = {
     awful.layout.suit.max,
     awful.layout.suit.tile,
