@@ -85,11 +85,12 @@ awful.spawn.with_shell(
 -- {{{ Variable definitions
 
 local themes = {
-    "multicolor",      -- 1
-    "powerarrow-dark", -- 2
+    "gruvbox",         -- 1
+    "multicolor",      -- 2
+    "powerarrow-dark", -- 3
 }
 
-local chosen_theme = themes[2]
+local chosen_theme = themes[1]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
@@ -99,7 +100,7 @@ local editor       = os.getenv("EDITOR") or "code"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { " DEV ", " WWW ", " CHAT " }
+awful.util.tagnames = { " MAIN ", " DEV ", " WWW ", " CHAT " }
 
 awful.layout.layouts = {
     awful.layout.suit.max,
@@ -787,7 +788,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
-beautiful.useless_gap = 10
-beautiful.notification_icon_size = 10
+beautiful.notification_icon_size = 50
 
-awful.spawn.with_shell("compton")
+awful.spawn.with_shell("picom")

@@ -25,6 +25,14 @@ function install_system_wide() {
     echo
 
     cp -r alacritty/ ~/.config
+
+    echo
+    echo "Backing Up $HOME/.bashrc to $HOME/.bashrc.bak"
+    echo
+
+    cp ~/.bashrc .bashrc.bak
+    cp .bashrc ~
+
 }
 
 function install_locally() {
@@ -53,6 +61,13 @@ function install_locally() {
     echo
 
     cp -r alacritty/ ~/.config
+
+    echo
+    echo "Backing Up $HOME/.bashrc to $HOME/.bashrc.bak"
+    echo
+
+    cp ~/.bashrc ~/.bashrc.bak
+    cp .bashrc ~
 
 }
 
