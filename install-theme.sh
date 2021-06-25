@@ -26,6 +26,16 @@ function install_system_wide() {
 
     cp -r alacritty/ ~/.config
 
+    printf "Install '.bashrc' into '$HOME/.bashrc'(y/N): "
+    read INSTALL_PERMISSIONS
+
+    if [ "$INSTALL_PERMISSIONS" != "y" ]; then
+        if [ "$INSTALL_PERMISSIONS" != "Y" ]; then
+            echo "Aborting."
+            exit
+        fi
+    fi
+
     echo
     echo "Backing Up $HOME/.bashrc to $HOME/.bashrc.bak"
     echo

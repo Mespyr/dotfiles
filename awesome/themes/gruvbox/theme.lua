@@ -30,11 +30,19 @@ theme.fg_normal = "#ebdbb2"
 theme.fg_focus = "#fe8019"
 theme.bg_normal = "#282828"
 theme.bg_focus = "#3c3836"
-
-local gruvbox_fg_colors = {}
-gruvbox_fg_colors.green = "#b8bb26"
-gruvbox_fg_colors.blue = "#83a598"
-
+-- Foreground Text Colors
+theme.fg_colors = {}
+theme.fg_colors.aqua = "#689d6a"
+theme.fg_colors.blue = "#458588"
+-- Panel Widget Colors
+theme.widget_colors = {}
+theme.widget_colors.green = "#b8bb26"
+theme.widget_colors.aqua = "#689d6a"
+theme.widget_colors.purple = "#d3869b"
+theme.widget_colors.blue = "#458588"
+theme.widget_colors.yellow = "#d79921"
+theme.widget_colors.orange = "#d65d0e"
+theme.widget_colors.grey = "#928374"
 -- Borders
 theme.border_width = dpi(2)
 theme.border_normal = "#3f3f3f"
@@ -81,7 +89,7 @@ theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.p
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(10)
+theme.useless_gap = dpi(15)
 
 
 
@@ -220,18 +228,22 @@ local net = lain.widget.net({
     settings = function()
         widget:set_markup(
             markup.font(theme.font,
-                markup(gruvbox_fg_colors.green, " " .. string.format("%06.1f", net_now.received))
+                markup(theme.fg_colors.aqua, " " .. string.format("%06.1f", net_now.received))
                     .. " " ..
-                markup(gruvbox_fg_colors.blue, " " .. string.format("%06.1f", net_now.sent) .. " ")))
+                markup(theme.fg_colors.blue, " " .. string.format("%06.1f", net_now.sent) .. " ")))
     end})
 
 -- Separators
 local spr = wibox.widget.textbox('  ')
-local spr_huge = wibox.widget.textbox('    ')
-local arrl_dl = separators.arrow_left(theme.bg_focus, "alpha")
-local arrl_ld = separators.arrow_left("alpha", theme.bg_focus)
+local small_spr = wibox.widget.textbox(' ')
 
+-- local alpha_to_grey_arrow = separator.arrow_left("alpha", theme.widget_colors.grey)
+local alpha_to_blue_arrow = separators.arrow_left("alpha", theme.widget_colors.blue)
+local blue_to_purple_arrow = separators.arrow_left(theme.widget_colors.blue, theme.widget_colors.purple)
+local purple_to_aqua_arrow = separators.arrow_left(theme.widget_colors.purple, theme.widget_colors.aqua)
+-- local aqua_to_yellow_arrow = separators.arrow_left(theme.widget_colors.aqua, theme.widget_colors.yellow)
 
+local yellow_to_alpha_right_arrow = separators.arrow_right(theme.widget_colors.yellow, "alpha")
 
 
 function theme.at_screen_connect(s)
@@ -260,7 +272,24 @@ function theme.at_screen_connect(s)
                            awful.button({}, 4, function () awful.layout.inc( 1) end),
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
+    -- s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
+    s.mytaglist = awful.widget.taglist {
+        screen  = s,
+        filter  = awful.widget.taglist.filter.all,
+        buttons = awful.util.taglist_buttons,
+        style   = {
+            shape = gears.shape.rounded_rect
+        },
+        layout   = {
+            spacing = 1,
+            -- spacing_widget = {
+            --     color  = '#dddddd',
+            --     shape  = gears.shape.rectangle,
+            --     widget = wibox.widget.separator,
+            -- },
+            layout  = wibox.layout.fixed.horizontal
+        }
+    }
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
@@ -305,51 +334,51 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            --spr,
+            wibox.container.background(small_spr, theme.widget_colors.yellow),
+            wibox.container.background(s.mylayoutbox, theme.widget_colors.yellow),
+            yellow_to_alpha_right_arrow,
+            spr,
+            spr,
             s.mytaglist,
             spr,
             s.mypromptbox,
+            spr,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            spr_huge,
+            spr,
+            spr,
             wibox.widget.systray(),
             -- keyboardlayout,
-            spr_huge,
-            arrl_ld,
-            wibox.container.background(mpdicon, theme.bg_focus),
-            wibox.container.background(theme.mpd.widget, theme.bg_focus),
-            arrl_dl,
-            volicon,
-            theme.volume.widget,
+            spr,
+            spr,
             -- arrl_ld,
-            -- wibox.container.background(mailicon, theme.bg_focus),
-            --wibox.container.background(theme.mail.widget, theme.bg_focus),
-            arrl_dl,
-            memicon,
-            mem.widget,
-            arrl_ld,
-            wibox.container.background(cpuicon, theme.bg_focus),
-            wibox.container.background(cpu.widget, theme.bg_focus),
-            arrl_dl,
+            -- wibox.container.background(mpdicon, theme.widget_colors.aqua),
+            -- wibox.container.background(theme.mpd.widget, theme.bg_focus),
+            alpha_to_blue_arrow,
+            wibox.container.background(volicon, theme.widget_colors.blue),
+            -- volicon,
+            wibox.container.background(theme.volume.widget, theme.widget_colors.blue),
+            blue_to_purple_arrow,
+            -- wibox.container.background(memicon, theme.widget_colors.purple),
+            -- wibox.container.background(mem.widget, theme.widget_colors.purple),
+            -- wibox.container.background(cpuicon, theme.widget_colors.blue),
+            -- wibox.container.background(cpu.widget, theme.widget_colors.blue),
             -- tempicon,
             -- temp.widget,
             -- arrl_ld,
             -- -- wibox.container.background(fsicon, theme.bg_focus),
             -- --wibox.container.background(theme.fs.widget, theme.bg_focus),
             -- arrl_dl,
-            baticon,
-            bat.widget,
-            arrl_ld,
-            wibox.container.background(neticon, theme.bg_focus),
-            wibox.container.background(net.widget, theme.bg_focus),
-            arrl_dl,
-            clock,
-            spr,
-            arrl_ld,
-            wibox.container.background(s.mylayoutbox, theme.bg_focus),
-        },
+            wibox.container.background(baticon, theme.widget_colors.purple),
+            wibox.container.background(bat.widget, theme.widget_colors.purple),
+            purple_to_aqua_arrow,
+            -- wibox.container.background(neticon, theme.widget_colors.yellow),
+            -- wibox.container.background(net.widget, theme.widget_colors.yellow),
+            wibox.container.background(clock, theme.widget_colors.aqua),
+            wibox.container.background(spr, theme.widget_colors.aqua),
+        }
     }
 end
 

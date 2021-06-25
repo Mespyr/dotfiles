@@ -112,6 +112,7 @@ fi
 
 # bash prompt
 PS1="\[\033[46m\]\e[1;37m \w \e[0m\e[0;36m\e[0m "
+PS2="\[\033[45m\] - \e[0m\e[0;35m\e[0m "
 
 
 export PATH=/home/mespyr/.cargo/bin:$PATH
