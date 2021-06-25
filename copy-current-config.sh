@@ -1,3 +1,4 @@
 cp -r ~/.config/alacritty .
 cp -r ~/.config/awesome .
-cp -r ~/.bashrc .
+cp ~/.bashrc .
+cp ~/.config/picom.conf .

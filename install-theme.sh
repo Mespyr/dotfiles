@@ -84,13 +84,9 @@ function install_locally() {
 
 echo "Packages needed to install:"
 echo " - AwesomeWM (awesome)"
-echo " - Compton (compton) or Picom (picom)"
-echo " - Alacritty (alacritty): Default Terminal Emulator"
-echo
-
-echo "Recommended Packages:"
+echo " - Picom (picom)"
+echo " - Alacritty (alacritty)"
 echo " - lxappearance (lxappearance)"
-echo " - VSCode (code): Preferred Code Editer"
 echo
 
 # check if user wants to install
