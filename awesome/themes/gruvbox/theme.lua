@@ -21,28 +21,26 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/gruvbox"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall5.png"
+theme.wallpaper = theme.dir .. "/wall2.png"
 -- Font
 theme.font_name = "Fira Code"
 theme.font = theme.font_name .. " 9"
 -- Colors
-theme.fg_normal = "#ebdbb2"
+theme.fg_normal = "#D2C19F"
 theme.fg_focus = "#fe8019"
-theme.bg_normal = "#282828"
-theme.bg_focus = "#3c3836"
+theme.bg_normal = "#1D2021"
+theme.bg_focus = "#282828"
 -- Foreground Text Colors
 theme.fg_colors = {}
 theme.fg_colors.aqua = "#689d6a"
 theme.fg_colors.blue = "#458588"
 -- Panel Widget Colors
 theme.widget_colors = {}
-theme.widget_colors.green = "#b8bb26"
-theme.widget_colors.aqua = "#689d6a"
-theme.widget_colors.purple = "#d3869b"
-theme.widget_colors.blue = "#458588"
-theme.widget_colors.yellow = "#d79921"
-theme.widget_colors.orange = "#d65d0e"
-theme.widget_colors.grey = "#928374"
+theme.widget_colors.volume = "#F4564A"
+theme.widget_colors.battery = "#a1a529"
+theme.widget_colors.time_cal = "#5D7B74"
+theme.widget_colors.layoutbox = "#dba730"
+
 -- Borders
 theme.border_width = dpi(2)
 theme.border_normal = "#3f3f3f"
@@ -228,9 +226,9 @@ local net = lain.widget.net({
     settings = function()
         widget:set_markup(
             markup.font(theme.font,
-                markup(theme.fg_colors.aqua, " " .. string.format("%06.1f", net_now.received))
+                markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.received))
                     .. " " ..
-                markup(theme.fg_colors.blue, " " .. string.format("%06.1f", net_now.sent) .. " ")))
+                markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.sent) .. " ")))
     end})
 
 -- Separators
@@ -238,12 +236,11 @@ local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
 
 -- local alpha_to_grey_arrow = separator.arrow_left("alpha", theme.widget_colors.grey)
-local alpha_to_blue_arrow = separators.arrow_left("alpha", theme.widget_colors.blue)
-local blue_to_purple_arrow = separators.arrow_left(theme.widget_colors.blue, theme.widget_colors.purple)
-local purple_to_aqua_arrow = separators.arrow_left(theme.widget_colors.purple, theme.widget_colors.aqua)
--- local aqua_to_yellow_arrow = separators.arrow_left(theme.widget_colors.aqua, theme.widget_colors.yellow)
+local alpha_to_volume_arrow = separators.arrow_left("alpha", theme.widget_colors.volume)
+local volume_to_battery_arrow = separators.arrow_left(theme.widget_colors.volume, theme.widget_colors.battery)
+local battery_to_time_cal_arrow = separators.arrow_left(theme.widget_colors.battery, theme.widget_colors.time_cal)
+local time_cal_to_layoutbox_arrow = separators.arrow_left(theme.widget_colors.time_cal, theme.widget_colors.layoutbox)
 
-local yellow_to_alpha_right_arrow = separators.arrow_right(theme.widget_colors.yellow, "alpha")
 
 
 function theme.at_screen_connect(s)
@@ -300,14 +297,14 @@ function theme.at_screen_connect(s)
         style = {
             shape_border_width = 1,
             shape_border_color = '#777777',
-            shape  = gears.shape.rounded_rect
+            shape  = gears.shape.octogon
         },
 
         layout   = {
             spacing = 7,
             -- spacing_widget = {
             --     {
-            --         forced_width = 5,
+            --         forced_width = 10,
             --         shape        = gears.shape.circle,
             --         widget       = wibox.widget.separator
             --     },
@@ -334,14 +331,12 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.container.background(small_spr, theme.widget_colors.yellow),
-            wibox.container.background(s.mylayoutbox, theme.widget_colors.yellow),
-            yellow_to_alpha_right_arrow,
-            spr,
-            spr,
+            -- yellow_to_alpha_right_arrow,
+            -- spr,
+            s.mypromptbox,
+            -- spr,
             s.mytaglist,
             spr,
-            s.mypromptbox,
             spr,
         },
         s.mytasklist, -- Middle widget
@@ -349,35 +344,28 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             spr,
             spr,
-            wibox.widget.systray(),
-            -- keyboardlayout,
+            -- wibox.widget.systray(),
             spr,
             spr,
-            -- arrl_ld,
-            -- wibox.container.background(mpdicon, theme.widget_colors.aqua),
-            -- wibox.container.background(theme.mpd.widget, theme.bg_focus),
-            alpha_to_blue_arrow,
-            wibox.container.background(volicon, theme.widget_colors.blue),
-            -- volicon,
-            wibox.container.background(theme.volume.widget, theme.widget_colors.blue),
-            blue_to_purple_arrow,
-            -- wibox.container.background(memicon, theme.widget_colors.purple),
-            -- wibox.container.background(mem.widget, theme.widget_colors.purple),
-            -- wibox.container.background(cpuicon, theme.widget_colors.blue),
-            -- wibox.container.background(cpu.widget, theme.widget_colors.blue),
-            -- tempicon,
-            -- temp.widget,
-            -- arrl_ld,
-            -- -- wibox.container.background(fsicon, theme.bg_focus),
-            -- --wibox.container.background(theme.fs.widget, theme.bg_focus),
-            -- arrl_dl,
-            wibox.container.background(baticon, theme.widget_colors.purple),
-            wibox.container.background(bat.widget, theme.widget_colors.purple),
-            purple_to_aqua_arrow,
-            -- wibox.container.background(neticon, theme.widget_colors.yellow),
-            -- wibox.container.background(net.widget, theme.widget_colors.yellow),
-            wibox.container.background(clock, theme.widget_colors.aqua),
-            wibox.container.background(spr, theme.widget_colors.aqua),
+
+            -- Volume Widget
+            alpha_to_volume_arrow,
+            wibox.container.background(volicon, theme.widget_colors.volume),
+            wibox.container.background(theme.volume.widget, theme.widget_colors.volume),
+            volume_to_battery_arrow,
+
+            -- Battery Widget
+            wibox.container.background(baticon, theme.widget_colors.battery),
+            wibox.container.background(bat.widget, theme.widget_colors.battery),
+            battery_to_time_cal_arrow,
+
+            -- Time/Calander Widget
+            wibox.container.background(clock, theme.widget_colors.time_cal),
+            wibox.container.background(spr, theme.widget_colors.time_cal),
+
+            -- Layoutbox Widget
+            time_cal_to_layoutbox_arrow,
+            wibox.container.background(s.mylayoutbox, theme.widget_colors.layoutbox),
         }
     }
 end
