@@ -50,7 +50,7 @@ theme.border_marked = "#cc9393"
 theme.menu_height = dpi(23)
 theme.menu_width = dpi(130)
 -- Panel
-theme.panel_height = dpi(27)
+theme.panel_height = dpi(28)
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
