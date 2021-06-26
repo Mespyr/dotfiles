@@ -116,7 +116,6 @@ PS2="\[\033[45m\] - \e[0m\e[0;35m\e[0m "
 
 
 export PATH=~/.cargo/bin:$PATH
-export PATH=~/.local/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -126,4 +125,4 @@ alias ga='git add .'
 alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
-
+alias ..='cd ..'

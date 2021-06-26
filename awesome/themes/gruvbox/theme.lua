@@ -21,13 +21,13 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/gruvbox"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall3.png"
+theme.wallpaper = theme.dir .. "/gruv_wall4.png"
 -- Font
 theme.font_name = "Fira Code"
 theme.font = theme.font_name .. " 9"
 -- Colors
-theme.fg_normal = "#D2C19F"
-theme.fg_focus = "#fe8019"
+theme.fg_normal = "#ebdbb2"
+theme.fg_focus = "#8ec07c"
 theme.bg_normal = "#211f1d"
 theme.bg_focus = "#282828"
 -- Foreground Text Colors
@@ -36,11 +36,11 @@ theme.bg_focus = "#282828"
 -- theme.fg_colors.blue = "#458588"
 -- Panel Widget Colors
 theme.widget_colors = {}
-theme.widget_colors.volume = "#F4564A"
-theme.widget_colors.battery = "#a1a529"
-theme.widget_colors.time_cal = "#5D7B74"
-theme.widget_colors.layoutbox = "#dba730"
-
+theme.widget_colors.volume = "#689d6a"
+theme.widget_colors.battery = "#689d6a"
+theme.widget_colors.time_cal = "#689d6a"
+theme.widget_colors.layoutbox = "#689d6a"
+-- #8ec07c
 -- Borders
 theme.border_width = dpi(2)
 theme.border_normal = "#3f3f3f"
@@ -50,7 +50,7 @@ theme.border_marked = "#cc9393"
 theme.menu_height = dpi(23)
 theme.menu_width = dpi(130)
 -- Panel
-theme.panel_height = dpi(28)
+theme.panel_height = dpi(30)
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -87,7 +87,7 @@ theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.p
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(10)
+theme.useless_gap = dpi(15)
 
 
 
@@ -278,7 +278,7 @@ function theme.at_screen_connect(s)
             shape = gears.shape.rectangle
         },
         layout   = {
-            spacing = 1,
+            spacing = 0,
             -- spacing_widget = {
             --     color  = '#dddddd',
             --     shape  = gears.shape.rectangle,
@@ -326,8 +326,10 @@ function theme.at_screen_connect(s)
         position = "top", 
         screen = s, 
         height = theme.panel_height, 
+        -- width = dpi(1200),
         bg = theme.bg_normal, 
-        fg = theme.fg_normal 
+        fg = theme.fg_normal,
+        border_width = dpi(15)
     })
 
     -- Add widgets to the wibox
@@ -337,7 +339,6 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             -- yellow_to_alpha_right_arrow,
             -- spr,
-            s.mypromptbox,
             -- spr,
             s.mytaglist,
             spr,

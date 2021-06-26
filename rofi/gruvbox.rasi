@@ -31,14 +31,11 @@
 #window {
     background-color: transparent;
     border: 2;
-    border-radius: 30px;
-    margin: 90px 60px 60px 60px;
-    fullscreen: false;
+    margin: 55px 70% 15px 15px;
+    fullscreen: true;
     anchor:   north;
     orientation: horizontal;
     location: north;
-    width: 50em;
-    height: 40em;
 }
 
 #mainbox {

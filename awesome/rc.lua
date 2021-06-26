@@ -169,25 +169,25 @@ beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv
 
 -- {{{ Menu
 
--- Create a launcher widget and a main menu
-local myawesomemenu = {
-   { "Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "Manual", string.format("%s -e man awesome", terminal) },
-   { "Edit config", string.format("%s -e %s %s", terminal, editor, awesome.conffile) },
-   { "Restart", awesome.restart },
-   { "Quit", function() awesome.quit() end },
-}
+-- -- Create a launcher widget and a main menu
+-- local myawesomemenu = {
+--    { "Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+--    { "Manual", string.format("%s -e man awesome", terminal) },
+--    { "Edit config", string.format("%s -e %s %s", terminal, editor, awesome.conffile) },
+--    { "Restart", awesome.restart },
+--    { "Quit", function() awesome.quit() end },
+-- }
 
-local mymainmenu = freedesktop.menu.build {
-    before = {
-        { "Awesome", myawesomemenu, beautiful.awesome_icon },
-        -- other triads can be put here
-    },
-    after = {
-        { "Open terminal", terminal },
-        -- other triads can be put here
-    }
-}
+-- local mymainmenu = freedesktop.menu.build {
+--     before = {
+--         { "Awesome", myawesomemenu, beautiful.awesome_icon },
+--         -- other triads can be put here
+--     },
+--     after = {
+--         { "Open terminal", terminal },
+--         -- other triads can be put here
+--     }
+-- }
 
 -- hide menu when mouse leaves it
 --mymainmenu.wibox:connect_signal("mouse::leave", function() mymainmenu:hide() end)
@@ -232,7 +232,7 @@ awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) 
 -- {{{ Mouse bindings
 
 root.buttons(mytable.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
+    -- awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
