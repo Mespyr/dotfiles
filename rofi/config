@@ -1,0 +1,3 @@
+rofi.modi: window,drun,run
+rofi.kb-cancel: Escape
+rofi.theme: gruvbox.rasi

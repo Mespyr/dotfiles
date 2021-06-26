@@ -21,19 +21,19 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/gruvbox"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall2.png"
+theme.wallpaper = theme.dir .. "/wall3.png"
 -- Font
 theme.font_name = "Fira Code"
 theme.font = theme.font_name .. " 9"
 -- Colors
 theme.fg_normal = "#D2C19F"
 theme.fg_focus = "#fe8019"
-theme.bg_normal = "#1D2021"
+theme.bg_normal = "#211f1d"
 theme.bg_focus = "#282828"
 -- Foreground Text Colors
-theme.fg_colors = {}
-theme.fg_colors.aqua = "#689d6a"
-theme.fg_colors.blue = "#458588"
+-- theme.fg_colors = {}
+-- theme.fg_colors.aqua = "#689d6a"
+-- theme.fg_colors.blue = "#458588"
 -- Panel Widget Colors
 theme.widget_colors = {}
 theme.widget_colors.volume = "#F4564A"
@@ -87,7 +87,7 @@ theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.p
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(15)
+theme.useless_gap = dpi(10)
 
 
 
@@ -114,61 +114,61 @@ theme.cal = lain.widget.cal({
     }
 })
 
--- MPD
-local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
-local mpdicon = wibox.widget.imagebox(theme.widget_music)
-mpdicon:buttons(
-    my_table.join(
-        awful.button({ modkey }, 1, 
-            function() 
-                awful.spawn.with_shell(musicplr) 
-            end),
-        awful.button({ }, 1, 
-            function()
-                os.execute("mpc prev")
-                theme.mpd.update()
-            end),
-        awful.button({ }, 2, 
-            function()
-                os.execute("mpc toggle")
-                theme.mpd.update()
-            end),
-        awful.button({ }, 3, 
-            function ()
-                os.execute("mpc next")
-                theme.mpd.update()
-            end)))
-theme.mpd = lain.widget.mpd({
-    settings = function()
-        if mpd_now.state == "play" then
-            artist = " " .. mpd_now.artist .. " "
-            title  = mpd_now.title  .. " "
-            mpdicon:set_image(theme.widget_music_on)
-        elseif mpd_now.state == "pause" then
-            artist = " mpd "
-            title  = "paused "
-        else
-            artist = ""
-            title  = ""
-            mpdicon:set_image(theme.widget_music)
-        end
+-- -- MPD
+-- local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
+-- local mpdicon = wibox.widget.imagebox(theme.widget_music)
+-- mpdicon:buttons(
+--     my_table.join(
+--         awful.button({ modkey }, 1, 
+--             function() 
+--                 awful.spawn.with_shell(musicplr) 
+--             end),
+--         awful.button({ }, 1, 
+--             function()
+--                 os.execute("mpc prev")
+--                 theme.mpd.update()
+--             end),
+--         awful.button({ }, 2, 
+--             function()
+--                 os.execute("mpc toggle")
+--                 theme.mpd.update()
+--             end),
+--         awful.button({ }, 3, 
+--             function ()
+--                 os.execute("mpc next")
+--                 theme.mpd.update()
+--             end)))
+-- theme.mpd = lain.widget.mpd({
+--     settings = function()
+--         if mpd_now.state == "play" then
+--             artist = " " .. mpd_now.artist .. " "
+--             title  = mpd_now.title  .. " "
+--             mpdicon:set_image(theme.widget_music_on)
+--         elseif mpd_now.state == "pause" then
+--             artist = " mpd "
+--             title  = "paused "
+--         else
+--             artist = ""
+--             title  = ""
+--             mpdicon:set_image(theme.widget_music)
+--         end
 
-        widget:set_markup(markup.font(theme.font, markup("#EA6F81", artist) .. title))
-    end})
+--         widget:set_markup(markup.font(theme.font, markup("#EA6F81", artist) .. title))
+--     end})
 
--- MEM
-local memicon = wibox.widget.imagebox(theme.widget_mem)
-local mem = lain.widget.mem({
-    settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. mem_now.used .. "MB "))
-    end})
+-- -- MEM
+-- local memicon = wibox.widget.imagebox(theme.widget_mem)
+-- local mem = lain.widget.mem({
+--     settings = function()
+--         widget:set_markup(markup.font(theme.font, " " .. mem_now.used .. "MB "))
+--     end})
 
--- CPU
-local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
-local cpu = lain.widget.cpu({
-    settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
-    end})
+-- -- CPU
+-- local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
+-- local cpu = lain.widget.cpu({
+--     settings = function()
+--         widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
+--     end})
 
 -- Battery
 local baticon = wibox.widget.imagebox(theme.widget_battery)
@@ -220,16 +220,16 @@ theme.volume.widget:buttons(
                     theme.volume.update()
             end)))
 
--- Net
-local neticon = wibox.widget.imagebox(theme.widget_net)
-local net = lain.widget.net({
-    settings = function()
-        widget:set_markup(
-            markup.font(theme.font,
-                markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.received))
-                    .. " " ..
-                markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.sent) .. " ")))
-    end})
+-- -- Net
+-- local neticon = wibox.widget.imagebox(theme.widget_net)
+-- local net = lain.widget.net({
+--     settings = function()
+--         widget:set_markup(
+--             markup.font(theme.font,
+--                 markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.received))
+--                     .. " " ..
+--                 markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.sent) .. " ")))
+--     end})
 
 -- Separators
 local spr = wibox.widget.textbox('  ')
@@ -275,7 +275,7 @@ function theme.at_screen_connect(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         style   = {
-            shape = gears.shape.rounded_rect
+            shape = gears.shape.rectangle
         },
         layout   = {
             spacing = 1,
@@ -317,6 +317,10 @@ function theme.at_screen_connect(s)
 
     }
 
+    local filler_widget = wibox.widget.separator {
+        layout  = wibox.layout.flex.horizontal,
+    }
+
     -- Create the wibox
     s.mywibox = awful.wibar({ 
         position = "top", 
@@ -339,7 +343,8 @@ function theme.at_screen_connect(s)
             spr,
             spr,
         },
-        s.mytasklist, -- Middle widget
+        -- filler_widget, -- Middle widget
+        s.mytasklist,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             spr,

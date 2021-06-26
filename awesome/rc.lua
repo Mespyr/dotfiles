@@ -86,8 +86,6 @@ awful.spawn.with_shell(
 
 local themes = {
     "gruvbox",         -- 1
-    "multicolor",      -- 2
-    "powerarrow-dark", -- 3
 }
 
 local chosen_theme = themes[1]
@@ -246,12 +244,12 @@ root.buttons(mytable.join(
 globalkeys = mytable.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
-              {description = "take a screenshot", group = "hotkeys"}),
+    -- awful.key({ altkey }, "p", function() os.execute("screenshot") end,
+    --           {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
-              {description = "lock screen", group = "hotkeys"}),
+    -- awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
+    --           {description = "lock screen", group = "hotkeys"}),
 
     -- Show help
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -312,7 +310,7 @@ globalkeys = mytable.join(
         {description = "focus right", group = "client"}),
 
     -- Menu
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    awful.key({ modkey,           }, "w", function () os.execute("rofi -show drun") end,
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
@@ -523,7 +521,7 @@ globalkeys = mytable.join(
         {description = "show rofi", group = "launcher"}),
     --]]
     -- Prompt
-    awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey }, "r", function () os.execute("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
