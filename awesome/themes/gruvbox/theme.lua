@@ -42,7 +42,7 @@ theme.widget_colors.time_cal = "#689d6a"
 theme.widget_colors.layoutbox = "#689d6a"
 -- #8ec07c
 -- Borders
-theme.border_width = dpi(2)
+theme.border_width = dpi(3)
 theme.border_normal = "#3f3f3f"
 theme.border_focus = "#689d6a"
 theme.border_marked = "#cc9393"
@@ -276,46 +276,37 @@ function theme.at_screen_connect(s)
         buttons = awful.util.taglist_buttons,
         style   = {
             shape = gears.shape.rectangle
-        },
-        layout   = {
-            spacing = 0,
-            -- spacing_widget = {
-            --     color  = '#dddddd',
-            --     shape  = gears.shape.rectangle,
-            --     widget = wibox.widget.separator,
-            -- },
-            layout  = wibox.layout.fixed.horizontal
         }
     }
 
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s, 
-        filter  = awful.widget.tasklist.filter.currenttags, 
-        buttons = awful.util.tasklist_buttons,
+    -- s.mytasklist = awful.widget.tasklist {
+    --     screen  = s, 
+    --     filter  = awful.widget.tasklist.filter.currenttags, 
+    --     buttons = awful.util.tasklist_buttons,
 
-        style = {
-            shape_border_width = 1,
-            shape_border_color = '#777777',
-            shape  = gears.shape.octogon
-        },
+    --     style = {
+    --         shape_border_width = 1,
+    --         shape_border_color = '#777777',
+    --         shape  = gears.shape.octogon
+    --     },
 
-        layout   = {
-            spacing = 7,
-            -- spacing_widget = {
-            --     {
-            --         forced_width = 10,
-            --         shape        = gears.shape.circle,
-            --         widget       = wibox.widget.separator
-            --     },
-            --     valign = 'center',
-            --     halign = 'center',
-            --     widget = wibox.container.place,
-            -- },
-            layout  = wibox.layout.flex.horizontal
-        }
+    --     layout   = {
+    --         spacing = 7,
+    --         -- spacing_widget = {
+    --         --     {
+    --         --         forced_width = 10,
+    --         --         shape        = gears.shape.circle,
+    --         --         widget       = wibox.widget.separator
+    --         --     },
+    --         --     valign = 'center',
+    --         --     halign = 'center',
+    --         --     widget = wibox.container.place,
+    --         -- },
+    --         layout  = wibox.layout.flex.horizontal
+    --     }
 
-    }
+    -- }
 
     local filler_widget = wibox.widget.separator {
         layout  = wibox.layout.flex.horizontal,
@@ -326,31 +317,35 @@ function theme.at_screen_connect(s)
         position = "top", 
         screen = s, 
         height = theme.panel_height, 
-        -- width = dpi(1200),
+        width = dpi(1200),
         bg = theme.bg_normal, 
         fg = theme.fg_normal,
-        border_width = dpi(15)
+        -- border_width = dpi(15)
+        -- x = 100
     })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            -- yellow_to_alpha_right_arrow,
-            -- spr,
-            -- spr,
-            s.mytaglist,
-            spr,
-            spr,
-        },
-        -- filler_widget, -- Middle widget
-        s.mytasklist,
+        -- { -- Left widgets
+        --     layout = wibox.layout.fixed.horizontal,
+        --     -- yellow_to_alpha_right_arrow,
+        --     -- spr,
+        --     -- spr,
+        --     
+        --     spr,
+        --     spr,
+        -- },
+        -- s.mytasklist,
+        nil,
+        nil,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             spr,
             spr,
             -- wibox.widget.systray(),
+            s.mytaglist,
+
             spr,
             spr,
 

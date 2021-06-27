@@ -1,172 +1,104 @@
+
+configuration {
+    show-icons:                     false;
+    display-drun: 					"";
+    drun-display-format:            " {name}";
+    disable-history:                false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
 * {
-    active-background: @background-alt;
-    active-foreground: @background;
-    normal-background: transparent;
-    normal-foreground: @foreground;
-    urgent-background: #c7c4b8;
-    urgent-foreground: @foreground;
+    bg:                             #1D2021;
+    fg:                             #FBF1C7;
+    ac:                             #689d6a;
 
-    alternate-active-background: transparent;
-    alternate-active-foreground: @foreground;
-    alternate-normal-background: transparent;
-    alternate-normal-foreground: @foreground;
-    alternate-urgent-background: @background;
-    alternate-urgent-foreground: @foreground;
-
-    selected-active-background: @background-alt;
-    selected-active-foreground: @background;
-    selected-normal-background: @foreground;
-    selected-normal-foreground: @background;
-    selected-urgent-background: @foreground;
-    selected-urgent-foreground: @background-alt;
-
-    background-color: transparent;
-    background: #211f1d;
-    foreground: #D2C19F;
-    background-alt: #fe8019;
-    border-color: #3f3f3f;
-    spacing: 2;
+    background-color:               @bg;
+    text-color:                     @fg;
+    alt-bg:                         #282828;
 }
 
-#window {
-    background-color: transparent;
-    border: 2;
-    margin: 55px 70% 15px 15px;
-    fullscreen: true;
-    anchor:   north;
-    orientation: horizontal;
-    location: north;
+window {    
+	width:							40%;
+    border-radius:                  10px;
 }
 
-#mainbox {
-    background-color: @background;
-    expand: true;
-    border: 0;
-    padding: 0px;
+prompt {
+    enabled: 						true;
+	padding: 						0 0 0 0;
+    margin:                         1px;
+	background-color: 				#282828;
+	text-color: 					@fg;
+	font:							"Fira Code 12";
 }
 
-#message {
-    border: 2px 2px 2px;
-    border-color: @border-color;
-    padding: 1px;
-}
-
-#textbox {
-    text-color: @foreground;
+entry {
+    background-color:               @alt-bg;
+    text-color:                     @fg;
+    placeholder-color:              @fg;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Type to search...";
+    padding:                        0% 0% 0% 0%;
+    margin:                         0.3% 0 0 0;
+    blink:                          true;
 }
 
 inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+	children: 						[ prompt, entry ];
+    background-color:               @alt-bg;
+    text-color:                     @bg;
+    expand:                         false;
+	border:							0% 0% 0% 0%;
+    border-radius:                  10px;
+	border-color:					@ac;
+    margin:                         0% 0% 0% 0%;
+    padding:                        1%;
 }
 
-textbox-prompt-colon {
-    expand: false;
-    str: ":";
-    padding: 15px 0px 15px 0px;
-    text-color: @normal-foreground;
+listview {
+    background-color:               @al;
+    padding:                        10px;
+    columns:                        4;
+    lines:                          3;
+    spacing:                        0%;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
 }
 
-#listview {
-    fixed-height: 0;
-    border: 2px 0px 0px;
-    border-color: @border-color;
-    spacing: 2px;
-    scrollbar: false;
-    padding: 2px 0px 0px;
+mainbox {
+    background-color:               @bg;
+	border:							0% 0% 0% 0%;
+    border-radius:                  0% 0% 0% 0%;
+	border-color:					@bg;
+    children:                       [ inputbar, listview ];
+    spacing:                       	0%;
+    padding:                        10px;
 }
 
-#element {
-    border: 0;
-    padding: 15px 10px 15px 10px;
+element {
+    background-color:               @al;
+    text-color:                     @fg;
+    orientation:                    vertical;
+    border-radius:                  0%;
+    padding:                        2% 0% 2% 0%;
 }
 
-#element.normal.normal {
-    background-color: @normal-background;
-    text-color: @normal-foreground;
+element-icon {
+    size:                           49px;
+    border:                         0px;
 }
 
-#element.normal.urgent {
-    background-color: @urgent-background;
-    text-color: @urgent-foreground;
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         0.5% 0.5% -0.5% 0.5%;
 }
 
-#element.normal.active {
-    background-color: @active-background;
-    text-color: @active-foreground;
-}
-
-#element.selected.normal {
-    background-color: @selected-normal-background;
-    text-color: @selected-normal-foreground;
-}
-
-#element.selected.urgent {
-    background-color: @selected-urgent-background;
-    text-color: @selected-urgent-foreground;
-}
-
-#element.selected.active {
-    background-color: @selected-active-background;
-    text-color: @selected-active-foreground;
-}
-
-#element.alternate.normal {
-    background-color: @alternate-normal-background;
-    text-color: @alternate-normal-foreground;
-}
-
-#element.alternate.urgent {
-    background-color: @alternate-urgent-background;
-    text-color: @alternate-urgent-foreground;
-}
-
-#element.alternate.active {
-    background-color: @alternate-active-background;
-    text-color: @alternate-active-foreground;
-}
-
-#scrollbar {
-    width: 4px;
-    border: 0;
-    handle-width: 8px;
-    padding: 0;
-}
-
-#sidebar {
-    border: 2px 0px 0px;
-    border-color: @border-color;
-}
-
-#button {
-    text-color: @normal-foreground;
-}
-
-#button.selected {
-    background-color: @selected-normal-background;
-    text-color: @selected-normal-foreground;
-}
-
-#inputbar {
-    spacing: 0;
-    text-color: @normal-foreground;
-    padding: 1px;
-}
-
-#case-indicator {
-    spacing: 0;
-    text-color: @normal-foreground;
-}
-
-#entry {
-    spacing: 0;
-    padding: 15px 10px 15px 10px;
-    width: 30em;
-    text-color: @normal-foreground;
-}
-
-#prompt {
-    spacing: 0;
-
-    padding: 15px 10px 15px 10px;
-    text-color: @normal-foreground;
+element selected {
+    background-color:               @ac;
+    text-color:                     @bg;
+    border-radius:                  10px;
 }
