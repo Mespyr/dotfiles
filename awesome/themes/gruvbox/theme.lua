@@ -28,7 +28,7 @@ theme.font = theme.font_name .. " 9"
 -- Colors
 theme.fg_normal = "#ebdbb2"
 theme.fg_focus = "#8ec07c"
-theme.bg_normal = "#211f1d"
+theme.bg_normal = "#1d2021"
 theme.bg_focus = "#282828"
 -- Foreground Text Colors
 -- theme.fg_colors = {}
