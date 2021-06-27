@@ -21,7 +21,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/gruvbox"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/gruv_wall4.png"
+theme.wallpaper = theme.dir .. "/wall.png"
 -- Font
 theme.font_name = "Fira Code"
 theme.font = theme.font_name .. " 9"
@@ -308,46 +308,34 @@ function theme.at_screen_connect(s)
 
     -- }
 
-    local filler_widget = wibox.widget.separator {
-        layout  = wibox.layout.flex.horizontal,
-    }
+    -- local filler_widget = wibox.widget.separator {
+    --     layout  = wibox.layout.flex.horizontal,
+    -- }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ 
+    s.mywibox = awful.wibar { 
         position = "top", 
         screen = s, 
         height = theme.panel_height, 
-        width = dpi(1200),
+        width = dpi(1300),
         bg = theme.bg_normal, 
         fg = theme.fg_normal,
         -- border_width = dpi(15)
-        -- x = 100
-    })
+    }
+
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        -- { -- Left widgets
-        --     layout = wibox.layout.fixed.horizontal,
-        --     -- yellow_to_alpha_right_arrow,
-        --     -- spr,
-        --     -- spr,
-        --     
-        --     spr,
-        --     spr,
-        -- },
-        -- s.mytasklist,
-        nil,
-        nil,
-        { -- Right widgets
+        { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             spr,
             spr,
-            -- wibox.widget.systray(),
-            s.mytaglist,
-
-            spr,
-            spr,
+            s.mytaglist
+        },
+        nil,
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
 
             -- Volume Widget
             alpha_to_volume_arrow,
@@ -367,6 +355,7 @@ function theme.at_screen_connect(s)
             -- Layoutbox Widget
             time_cal_to_layoutbox_arrow,
             wibox.container.background(s.mylayoutbox, theme.widget_colors.layoutbox),
+            wibox.container.background(spr, theme.widget_colors.layoutbox)
         }
     }
 end
