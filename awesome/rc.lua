@@ -16,9 +16,9 @@ local awful         = require("awful")
                       require("awful.autofocus")
 local wibox         = require("wibox")
 local beautiful     = require("beautiful")
--- local naughty       = require("naughty")
+local naughty       = require("naughty")
 local lain          = require("lain")
---local menubar       = require("menubar")
+local menubar       = require("menubar")
 local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
@@ -31,11 +31,11 @@ local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    -- naughty.notify {
-    --     preset = naughty.config.presets.critical,
-    --     title = "Oops, there were errors during startup!",
-    --     text = awesome.startup_errors
-    -- }
+    naughty.notify {
+        preset = naughty.config.presets.critical,
+        title = "Oops, there were errors during startup!",
+        text = awesome.startup_errors
+    }
 end
 
 -- Handle runtime errors after startup
@@ -47,11 +47,11 @@ do
 
         in_error = true
 
-        -- naughty.notify {
-        --     preset = naughty.config.presets.critical,
-        --     title = "Oops, an error happened!",
-        --     text = tostring(err)
-        -- }
+        naughty.notify {
+            preset = naughty.config.presets.critical,
+            title = "Oops, an error happened!",
+            text = tostring(err)
+        }
 
         in_error = false
     end)
@@ -371,8 +371,8 @@ globalkeys = mytable.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+    -- awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+    --           {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -484,7 +484,7 @@ globalkeys = mytable.join(
                 beautiful.mpd.timer:start()
                 common.text = common.text .. lain.util.markup.bold("ON")
             end
-            -- naughty.notify(common)
+            naughty.notify(common)
         end,
         {description = "mpc on/off", group = "widgets"}),
 
@@ -495,15 +495,11 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
               {description = "copy gtk to terminal", group = "hotkeys"}),
 
-    -- User programs
-    awful.key({ modkey }, "q", function () awful.spawn(browser) end,
-              {description = "run browser", group = "launcher"}),
+    awful.key({ modkey }, "q", function () os.execute("bash ~/.config/rofi/scripts/powermenu.sh") end,
+              {description = "power menu", group = "launcher"}),
 
     -- Default
-    --[[ Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
-    --]]
+
     --[[ dmenu
     awful.key({ modkey }, "x", function ()
             os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
@@ -521,19 +517,19 @@ globalkeys = mytable.join(
         {description = "show rofi", group = "launcher"}),
     --]]
     -- Prompt
-    awful.key({ modkey }, "r", function () os.execute("rofi -show run") end,
-              {description = "run prompt", group = "launcher"}),
+    awful.key({ modkey }, "x", function () os.execute("rofi -show run") end,
+              {description = "run prompt", group = "launcher"})
 
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"})
+    -- awful.key({ modkey }, "x",
+    --           function ()
+    --               awful.prompt.run {
+    --                 prompt       = "Run Lua code: ",
+    --                 textbox      = awful.screen.focused().mypromptbox.widget,
+    --                 exe_callback = awful.util.eval,
+    --                 history_path = awful.util.get_cache_dir() .. "/history_eval"
+    --               }
+    --           end,
+    --           {description = "lua execute prompt", group = "awesome"})
     --]]
 )
 
@@ -789,4 +785,3 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.notification_icon_size = 50
 
 awful.spawn.with_shell("picom")
-awful.spawn.with_shell("dunst")

@@ -20,7 +20,6 @@ configuration {
 
 window {    
 	width:							40%;
-    border-radius:                  10px;
 }
 
 prompt {
@@ -59,8 +58,8 @@ inputbar {
 listview {
     background-color:               @al;
     padding:                        10px;
-    columns:                        4;
-    lines:                          3;
+    columns:                        3;
+    lines:                          4;
     spacing:                        0%;
     cycle:                          false;
     dynamic:                        true;
@@ -70,7 +69,6 @@ listview {
 mainbox {
     background-color:               @bg;
 	border:							0% 0% 0% 0%;
-    border-radius:                  0% 0% 0% 0%;
 	border-color:					@bg;
     children:                       [ inputbar, listview ];
     spacing:                       	0%;
@@ -81,7 +79,6 @@ element {
     background-color:               @al;
     text-color:                     @fg;
     orientation:                    vertical;
-    border-radius:                  0%;
     padding:                        2% 0% 2% 0%;
 }
 
