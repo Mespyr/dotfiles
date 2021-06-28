@@ -49,8 +49,6 @@ theme.border_marked = "#cc9393"
 -- Menu
 theme.menu_height = dpi(23)
 theme.menu_width = dpi(130)
--- Panel
-theme.panel_height = dpi(30)
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -236,7 +234,7 @@ local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
 
 -- local alpha_to_grey_arrow = separator.arrow_left("alpha", theme.widget_colors.grey)
-local alpha_to_volume_arrow = separators.arrow_left("alpha", theme.widget_colors.volume)
+local alpha_to_volume_arrow = separators.arrow_left(theme.bg_normal, theme.widget_colors.volume)
 local volume_to_battery_arrow = separators.arrow_left(theme.widget_colors.volume, theme.widget_colors.battery)
 local battery_to_time_cal_arrow = separators.arrow_left(theme.widget_colors.battery, theme.widget_colors.time_cal)
 local time_cal_to_layoutbox_arrow = separators.arrow_left(theme.widget_colors.time_cal, theme.widget_colors.layoutbox)
@@ -308,16 +306,16 @@ function theme.at_screen_connect(s)
 
     -- }
 
-    -- local filler_widget = wibox.widget.separator {
-    --     layout  = wibox.layout.flex.horizontal,
-    -- }
+    local filler_widget = wibox.widget.separator {
+        layout  = wibox.layout.flex.horizontal,
+    }
 
     -- Create the wibox
     s.mywibox = awful.wibar { 
         position = "top", 
         screen = s, 
-        height = theme.panel_height, 
-        width = dpi(1200),
+        height = dpi(30), 
+       	-- width = dpi(1200),
         bg = theme.bg_normal, 
         fg = theme.fg_normal,
         -- border_width = dpi(15)
@@ -333,28 +331,29 @@ function theme.at_screen_connect(s)
             spr,
             s.mytaglist
         },
-        nil,
+        spr,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 
             -- Volume Widget
-            alpha_to_volume_arrow,
-            wibox.container.background(volicon, theme.widget_colors.volume),
-            wibox.container.background(theme.volume.widget, theme.widget_colors.volume),
-            volume_to_battery_arrow,
+            alpha_to_volume_arrow,  
+            wibox.container.background(volicon, theme.widget_colors.volume), 
+            wibox.container.background(theme.volume.widget, theme.widget_colors.volume), 
 
             -- Battery Widget
-            wibox.container.background(baticon, theme.widget_colors.battery),
-            wibox.container.background(bat.widget, theme.widget_colors.battery),
-            battery_to_time_cal_arrow,
+            volume_to_battery_arrow, 
+            wibox.container.background(baticon, theme.widget_colors.battery), 
+            wibox.container.background(bat.widget, theme.widget_colors.battery), 
+            
 
             -- Time/Calander Widget
-            wibox.container.background(clock, theme.widget_colors.time_cal),
-            wibox.container.background(spr, theme.widget_colors.time_cal),
+            battery_to_time_cal_arrow, 
+            wibox.container.background(clock, theme.widget_colors.time_cal), 
+            wibox.container.background(spr, theme.widget_colors.time_cal), 
 
             -- Layoutbox Widget
-            time_cal_to_layoutbox_arrow,
-            wibox.container.background(s.mylayoutbox, theme.widget_colors.layoutbox),
+            time_cal_to_layoutbox_arrow, 
+            wibox.container.background(s.mylayoutbox, theme.widget_colors.layoutbox), 
             wibox.container.background(spr, theme.widget_colors.layoutbox)
         }
     }
