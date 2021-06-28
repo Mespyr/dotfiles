@@ -21,15 +21,15 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/gruvbox"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall3.png"
+theme.wallpaper = theme.dir .. "/wall6.jpg"
 -- Font
 theme.font_name = "Fira Code"
 theme.font = theme.font_name .. " 9"
 -- Colors
 theme.fg_normal = "#ebdbb2"
 theme.fg_focus = "#8ec07c"
-theme.bg_normal = "#1d202180"
-theme.bg_focus = "#28282880"
+theme.bg_normal = "#1d2021"
+theme.bg_focus = "#282828"
 -- Foreground Text Colors
 -- theme.fg_colors = {}
 -- theme.fg_colors.aqua = "#689d6a"
@@ -87,7 +87,7 @@ theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.p
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(10)
+theme.useless_gap = dpi(15)
 
 
 
@@ -275,7 +275,7 @@ function theme.at_screen_connect(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         style   = {
-            shape = gears.shape.rectangle
+            shape = gears.shape.rectangle,
         }
     }
 
@@ -331,7 +331,6 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             spr,
             spr,
-	    spr,
             s.mytaglist
         },
         nil,

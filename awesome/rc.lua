@@ -16,7 +16,7 @@ local awful         = require("awful")
                       require("awful.autofocus")
 local wibox         = require("wibox")
 local beautiful     = require("beautiful")
-local naughty       = require("naughty")
+-- local naughty       = require("naughty")
 local lain          = require("lain")
 --local menubar       = require("menubar")
 local freedesktop   = require("freedesktop")
@@ -31,11 +31,11 @@ local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    naughty.notify {
-        preset = naughty.config.presets.critical,
-        title = "Oops, there were errors during startup!",
-        text = awesome.startup_errors
-    }
+    -- naughty.notify {
+    --     preset = naughty.config.presets.critical,
+    --     title = "Oops, there were errors during startup!",
+    --     text = awesome.startup_errors
+    -- }
 end
 
 -- Handle runtime errors after startup
@@ -47,11 +47,11 @@ do
 
         in_error = true
 
-        naughty.notify {
-            preset = naughty.config.presets.critical,
-            title = "Oops, an error happened!",
-            text = tostring(err)
-        }
+        -- naughty.notify {
+        --     preset = naughty.config.presets.critical,
+        --     title = "Oops, an error happened!",
+        --     text = tostring(err)
+        -- }
 
         in_error = false
     end)
@@ -484,7 +484,7 @@ globalkeys = mytable.join(
                 beautiful.mpd.timer:start()
                 common.text = common.text .. lain.util.markup.bold("ON")
             end
-            naughty.notify(common)
+            -- naughty.notify(common)
         end,
         {description = "mpc on/off", group = "widgets"}),
 
@@ -789,3 +789,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.notification_icon_size = 50
 
 awful.spawn.with_shell("picom")
+awful.spawn.with_shell("dunst")
