@@ -19,11 +19,11 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 -- Theme
 local theme = {}
-theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/gruvbox"
+theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/forest"
 -- Wallpaper
 theme.wallpaper = theme.dir .. "/wall.jpg"
 -- Font
-theme.font_name = "Fira Code"
+theme.font_name = "Cascadia Code"
 theme.font = theme.font_name .. " 9"
 -- Colors
 theme.fg_normal = "#ebdbb2"
@@ -44,6 +44,7 @@ theme.widget_colors.layoutbox = "#689d6a"
 -- Panel
 theme.panel_height = dpi(30)
 theme.panel_margin = dpi(5)
+theme.panel_width = dpi(1366 - theme.panel_margin * 2)   -- Replace 1366 with your screen width
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#3f3f3f"
@@ -101,7 +102,7 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
     "date +'%a %d %b %R'", 60,
     function(widget, stdout)
-        widget:set_markup(" " .. markup.font(theme.font, stdout))
+        widget:set_markup(" " .. markup.font(theme.font_name .. " 10", stdout))
     end
 )
 
@@ -334,7 +335,7 @@ function theme.at_screen_connect(s)
         position = "top", 
         screen = s, 
         height = theme.panel_height + theme.panel_margin, 
-       	width = dpi(1350),
+       	width = theme.panel_width,
         bg = "#00000000", 
         fg = theme.fg_normal,
         -- border_width = dpi(15)
@@ -374,10 +375,6 @@ function theme.at_screen_connect(s)
             wibox.container.margin(battery_to_time_cal_arrow, 0, 0, theme.panel_margin, 0),
             wibox.container.margin(wibox.container.background(clock, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
             wibox.container.margin(wibox.container.background(spr, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
-
-            wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),
-            wibox.container.margin(wibox.container.background(mpdicon, theme.widget_colors.layoutbox), 0, 0, theme.panel_margin, 0),
-
 
             -- Layoutbox Widget
             wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),

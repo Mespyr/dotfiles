@@ -85,10 +85,11 @@ awful.spawn.with_shell(
 -- {{{ Variable definitions
 
 local themes = {
-    "gruvbox",         -- 1
+    "forest",         -- 1
+    "dark_blue"       -- 2
 }
 
-local chosen_theme = themes[1]
+local chosen_theme = themes[2]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
@@ -98,7 +99,7 @@ local editor       = os.getenv("EDITOR") or "code"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { " MAIN ", " DEV ", " WWW ", " CHAT " }
+awful.util.tagnames = { " MAIN ", " DEV ", " WWW ", " CHAT ", " OTHER " }
 
 awful.layout.layouts = {
     awful.layout.suit.max,

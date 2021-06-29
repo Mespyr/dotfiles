@@ -20,7 +20,7 @@ window {
     margin:                         0 0 0 0;
     border-width:                   3px;
     border-radius:                  10px;
-    margin:                         45px 0 0 10px;
+    margin:                         42px 0 0 10px;
 }
 
 prompt {
@@ -29,7 +29,7 @@ prompt {
     margin:                         1px;
 	background-color: 				@alt-bg;
 	text-color: 		          	@fg;
-	font:							"Fira Code 10";
+	font:							"Cascadia Code 10";
 }
 
 entry {
@@ -69,8 +69,8 @@ listview {
 
 mainbox {
     background-color:               @bg;
-	border:							3px;
-	border-color:					@alt-bg;
+	border:							2px;
+	border-color:					@ac;
     border-radius:                  10px;
     children:                       [ listview ];
     spacing:                       	0%;
