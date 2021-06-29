@@ -2,6 +2,7 @@
 configuration {
     show-icons:                     false;
     display-drun: 					":";
+    display-run:                    ":";
     drun-display-format:            " {name}";
     disable-history:                false;
 	hide-scrollbar: 				true;
@@ -29,6 +30,7 @@ prompt {
 	background-color: 				#282828;
 	text-color: 					@fg;
 	font:							"Fira Code 12";
+    placeholder: "Search..";
 }
 
 entry {
@@ -37,7 +39,7 @@ entry {
     placeholder-color:              @fg;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Type to search...";
+    placeholder:                    "Search..";
     padding:                        0% 0% 0% 0%;
     margin:                         0.3% 0 0 0;
     blink:                          true;
@@ -58,8 +60,8 @@ inputbar {
 listview {
     background-color:               @al;
     padding:                        10px;
-    columns:                        3;
-    lines:                          4;
+    columns:                        1;
+    lines:                          6;
     spacing:                        0%;
     cycle:                          false;
     dynamic:                        true;

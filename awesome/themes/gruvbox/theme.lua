@@ -41,6 +41,9 @@ theme.widget_colors.battery = "#689d6a"
 theme.widget_colors.time_cal = "#689d6a"
 theme.widget_colors.layoutbox = "#689d6a"
 -- #8ec07c
+-- Panel
+theme.panel_height = dpi(30)
+theme.panel_margin = dpi(5)
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#3f3f3f"
@@ -85,7 +88,7 @@ theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.p
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(15)
+theme.useless_gap = dpi(10)
 
 
 
@@ -113,7 +116,7 @@ theme.cal = lain.widget.cal({
 })
 
 -- -- MPD
--- local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
+-- local musicplr = awful.util.terminal .. " -e ncmpcpp"
 -- local mpdicon = wibox.widget.imagebox(theme.widget_music)
 -- mpdicon:buttons(
 --     my_table.join(
@@ -229,9 +232,25 @@ theme.volume.widget:buttons(
 --                 markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.sent) .. " ")))
 --     end})
 
+-- local power_menu = wibox.widget.textbox('@')
+-- power_menu.widget:buttons(
+--     awful.util.table.join(
+--         awful.button({}, 1, 
+--             function()
+--                 os.execute("bash ~/.config/rofi/scripts/powermenu.sh")
+--             end),
+--         awful.button({}, 2, 
+--             function()
+--                 os.execute("bash ~/.config/rofi/scripts/powermenu.sh")
+--             end)
+--         ))
+
+
 -- Separators
 local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
+-- local partially_rounded_spr = gears.shape.partially_rounded_rect(cr, 70, 70, true, true, false, true, 30)
+
 
 -- local alpha_to_grey_arrow = separator.arrow_left("alpha", theme.widget_colors.grey)
 local alpha_to_volume_arrow = separators.arrow_left(theme.bg_normal, theme.widget_colors.volume)
@@ -306,55 +325,64 @@ function theme.at_screen_connect(s)
 
     -- }
 
-    local filler_widget = wibox.widget.separator {
-        layout  = wibox.layout.flex.horizontal,
-    }
+    -- local filler_widget = wibox.widget.separator {
+    --     layout  = wibox.layout.flex.horizontal,
+    -- }
 
     -- Create the wibox
     s.mywibox = awful.wibar { 
         position = "top", 
         screen = s, 
-        height = dpi(35), 
+        height = theme.panel_height + theme.panel_margin, 
        	width = dpi(1350),
         bg = "#00000000", 
         fg = theme.fg_normal,
         -- border_width = dpi(15)
     }
 
+    local curved_spr = wibox.widget {
+        shape  = gears.shape.rounded_rect,
+        widget = wibox.widget.separator,
+        color = theme.bg_normal
+    }
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(s.mytaglist, theme.bg_normal), 0, 0, 5, 0)
+            wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(s.mytaglist, theme.bg_normal), 0, 0, theme.panel_margin, 0)
         },
-        wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, 5, 0),
+        wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, theme.panel_margin, 0),
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 
             -- Volume Widget
-            wibox.container.margin(alpha_to_volume_arrow, 0, 0, 5, 0), 
-            wibox.container.margin(wibox.container.background(volicon, theme.widget_colors.volume), 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(theme.volume.widget, theme.widget_colors.volume), 0, 0, 5, 0),
+            wibox.container.margin(alpha_to_volume_arrow, 0, 0, theme.panel_margin, 0), 
+            wibox.container.margin(wibox.container.background(volicon, theme.widget_colors.volume), 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(theme.volume.widget, theme.widget_colors.volume), 0, 0, theme.panel_margin, 0),
 
             -- Battery Widget
-            wibox.container.margin(volume_to_battery_arrow, 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(baticon, theme.widget_colors.battery), 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(bat.widget, theme.widget_colors.battery), 0, 0, 5, 0),
+            wibox.container.margin(volume_to_battery_arrow, 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(baticon, theme.widget_colors.battery), 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(bat.widget, theme.widget_colors.battery), 0, 0, theme.panel_margin, 0),
             
 
             -- Time/Calander Widget
-            wibox.container.margin(battery_to_time_cal_arrow, 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(clock, theme.widget_colors.time_cal), 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(spr, theme.widget_colors.time_cal), 0, 0, 5, 0),
+            wibox.container.margin(battery_to_time_cal_arrow, 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(clock, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(spr, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
+
+            wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(mpdicon, theme.widget_colors.layoutbox), 0, 0, theme.panel_margin, 0),
+
 
             -- Layoutbox Widget
-            wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(s.mylayoutbox, theme.widget_colors.layoutbox), 0, 0, 5, 0),
-            wibox.container.margin(wibox.container.background(spr, theme.widget_colors.layoutbox), 0, 0, 5, 0)
+            wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(s.mylayoutbox, theme.widget_colors.layoutbox), 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(spr, theme.widget_colors.layoutbox), 0, 0, theme.panel_margin, 0)
         }
     }
 end

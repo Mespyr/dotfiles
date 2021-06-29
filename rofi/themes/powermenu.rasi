@@ -9,7 +9,11 @@
 }
 
 window {    
-	width:							20%;
+	width:							15%;
+    margin:                         45px 0 0 10px;
+    border-radius:                  10px;
+    border-width:                   5px;
+    border-color:                   @alt-bg;
 }
 
 prompt {
@@ -18,7 +22,7 @@ prompt {
   margin:                         1px;
 	background-color: 				      @alt-bg;
 	text-color: 				          	@fg;
-	font:							              "Fira Code 12";
+	font:							              "Fira Code 10";
 }
 
 entry {
@@ -47,7 +51,7 @@ inputbar {
 
 listview {
     background-color:               @al;
-    padding:                        10px;
+    padding:                        0px;
     columns:                        1;
     lines:                          5;
     spacing:                        0%;
@@ -59,17 +63,17 @@ listview {
 mainbox {
     background-color:               @bg;
 	border:							0% 0% 0% 0%;
-	border-color:					@bg;
-    children:                       [ inputbar, listview ];
+	border-color:					@alt-bg;
+    children:                       [ listview ];
     spacing:                       	0%;
-    padding:                        10px;
+    padding:                        7px;
 }
 
 element {
     background-color:               @al;
     text-color:                     @fg;
     orientation:                    vertical;
-    padding:                        2% 0% 2% 0%;
+    padding:                        10px 0% 10px 0%;
 }
 
 element-icon {
