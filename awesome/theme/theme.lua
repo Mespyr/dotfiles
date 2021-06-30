@@ -26,8 +26,8 @@ theme.wallpaper = theme.dir .. "/wall.jpg"
 theme.font_name = "Cascadia Code"
 theme.font = theme.font_name .. " 9"
 -- Colors
-theme.fg_normal = "#ebdbb2"
-theme.fg_focus = "#8ec07c"
+theme.fg_normal = "#FFEFE5"
+theme.fg_focus = "#19232F"
 theme.bg_normal = "#19232F"
 theme.bg_focus = "#556877"
 -- Foreground Text Colors
@@ -48,7 +48,7 @@ theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- Replace 1366 with 
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#3f3f3f"
-theme.border_focus = "#BF5104"
+theme.border_focus = "#1FA379"
 theme.border_marked = "#cc9393"
 -- Menu
 theme.menu_height = dpi(23)
@@ -102,7 +102,7 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
     "date +'%a %d %b %R'", 60,
     function(widget, stdout)
-        widget:set_markup(" " .. markup.font(theme.font_name .. " 10", stdout))
+        widget:set_markup(" " .. markup.font(theme.font, stdout))
     end
 )
 
@@ -389,6 +389,7 @@ function theme.at_screen_connect(s)
 
             -- Time/Calander Widget
             wibox.container.margin(battery_to_time_cal_arrow, 0, 0, theme.panel_margin, 0),
+            wibox.container.margin(wibox.container.background(clockicon, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
             wibox.container.margin(wibox.container.background(clock, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
             wibox.container.margin(wibox.container.background(spr, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
 
