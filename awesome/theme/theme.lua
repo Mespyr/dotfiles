@@ -21,34 +21,34 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.jpeg"
+theme.wallpaper = theme.dir .. "/wall.jpg"
 -- Font
 theme.font_name = "Cascadia Code"
 theme.font = theme.font_name .. " 9"
 -- Colors
 theme.fg_normal = "#ebdbb2"
 theme.fg_focus = "#8ec07c"
-theme.bg_normal = "#1d2021"
-theme.bg_focus = "#282828"
+theme.bg_normal = "#19232F"
+theme.bg_focus = "#556877"
 -- Foreground Text Colors
 -- theme.fg_colors = {}
 -- theme.fg_colors.aqua = "#689d6a"
 -- theme.fg_colors.blue = "#458588"
 -- Panel Widget Colors
 theme.widget_colors = {}
-theme.widget_colors.volume = "#689d6a"
-theme.widget_colors.battery = "#689d6a"
-theme.widget_colors.time_cal = "#689d6a"
-theme.widget_colors.layoutbox = "#689d6a"
+theme.widget_colors.volume = "#983049"
+theme.widget_colors.battery = "#983049"
+theme.widget_colors.time_cal = "#983049"
+theme.widget_colors.layoutbox = "#983049"
 -- #8ec07c
 -- Panel
-theme.panel_height = dpi(30)
-theme.panel_margin = dpi(5)
-theme.panel_width = dpi(1366 - theme.panel_margin * 2)   -- Replace 1366 with your screen width
+theme.panel_height = dpi(25)
+theme.panel_margin = dpi(3)
+theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- Replace 1366 with your screen width
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#3f3f3f"
-theme.border_focus = "#689d6a"
+theme.border_focus = "#BF5104"
 theme.border_marked = "#cc9393"
 -- Menu
 theme.menu_height = dpi(23)
@@ -89,7 +89,7 @@ theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.p
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(10)
+theme.useless_gap = dpi(5)
 
 
 
@@ -334,6 +334,8 @@ function theme.at_screen_connect(s)
     s.mywibox = awful.wibox { 
         position = "top", 
         screen = s, 
+        -- x = 10,
+        -- y = 10,
         -- type = "desktop",
         height = theme.panel_height + theme.panel_margin, 
        	width = theme.panel_width,
@@ -342,20 +344,33 @@ function theme.at_screen_connect(s)
         -- border_width = dpi(15)
     }
 
-    local curved_spr = wibox.widget {
-        shape  = gears.shape.rounded_rect,
-        widget = wibox.widget.separator,
-        color = theme.bg_normal
-    }
+    -- local curved_spr = wibox.widget {
+    --     shape  = gears.shape.rounded_rect,
+    --     widget = wibox.widget.separator,
+    --     color = theme.bg_normal
+    -- }
+
+    local add_margin = function(widget)
+        return wibox.container.margin(
+            wibox.container.background(
+                widget, 
+                theme.bg_normal
+            ), 
+            0, 0, theme.panel_margin, 0
+        )
+    end
+
+
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, theme.panel_margin, 0),
-            wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, theme.panel_margin, 0),
-            wibox.container.margin(wibox.container.background(s.mytaglist, theme.bg_normal), 0, 0, theme.panel_margin, 0)
+            add_margin(spr),
+            add_margin(spr),
+            add_margin(spr),
+            add_margin(s.mytaglist)
         },
         wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, theme.panel_margin, 0),
         { -- Right widgets
