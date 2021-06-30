@@ -1,6 +1,6 @@
 --[[
 
-    Gruvbox Theme for AwesomeWM
+    Theme for AwesomeWM
     github.com/Mespyr
 
 --]]
