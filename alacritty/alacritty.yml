@@ -9,16 +9,16 @@ background_opacity: 1
 window.dynamic_title: true
 font:
   normal:
-    family: Cascadia Code
+    family: Fira Code
     style: Regular
   bold:
-    family: Cascadia Code
+    family: Fira Code
     style: Bold
   italic:
-    family: Cascadia Code
+    family: Fira Code
     style: Italic
   bold_italic:
-    family: Cascadia Code
+    family: Fira Code
     style: Bold Italic
   size: 7
   offset:
