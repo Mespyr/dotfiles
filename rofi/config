@@ -1,3 +1,3 @@
 rofi.modi: window,drun,run
 rofi.kb-cancel: Escape
-rofi.theme: themes/forest/main.rasi
+rofi.theme: theme/main.rasi

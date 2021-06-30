@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-rofi_command="rofi -p : -theme themes/forest/powermenu.rasi"
+rofi_command="rofi -p : -theme theme/powermenu.rasi"
 
 # Options
 shutdown=" Shutdown"

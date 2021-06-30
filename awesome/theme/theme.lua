@@ -19,9 +19,9 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 -- Theme
 local theme = {}
-theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/forest"
+theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.jpg"
+theme.wallpaper = theme.dir .. "/wall.jpeg"
 -- Font
 theme.font_name = "Cascadia Code"
 theme.font = theme.font_name .. " 9"
@@ -331,9 +331,10 @@ function theme.at_screen_connect(s)
     -- }
 
     -- Create the wibox
-    s.mywibox = awful.wibar { 
+    s.mywibox = awful.wibox { 
         position = "top", 
         screen = s, 
+        -- type = "desktop",
         height = theme.panel_height + theme.panel_margin, 
        	width = theme.panel_width,
         bg = "#00000000", 
