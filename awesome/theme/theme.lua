@@ -46,8 +46,8 @@ theme.panel_height = dpi(25)
 theme.panel_margin = dpi(3)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- Replace 1366 with your screen width
 -- Borders
-theme.border_width = dpi(3)
-theme.border_normal = "#3f3f3f"
+theme.border_width = dpi(4)
+theme.border_normal = "#556877"
 theme.border_focus = "#1FA379"
 theme.border_marked = "#cc9393"
 -- Menu
@@ -367,12 +367,12 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            add_margin(spr),
+            -- add_margin(spr),
             add_margin(spr),
             add_margin(spr),
             add_margin(s.mytaglist)
         },
-        wibox.container.margin(wibox.container.background(spr, theme.bg_normal), 0, 0, theme.panel_margin, 0),
+        add_margin(spr),
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 

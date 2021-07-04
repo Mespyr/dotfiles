@@ -111,8 +111,19 @@ if ! shopt -oq posix; then
 fi
 
 # bash prompt
-PS1="\[\033[44m\]\e[1;37m \w \e[0m\e[0;34m\e[0m "
-PS2="\[\033[46m\] - \e[0m\e[0;36m\e[0m "
+PROMPT_ARROW=
+
+FONT_FG="\e[1;37m"
+USERNAME_BG="\[\033[46m\]"
+USERNAME_FG="\e[0;36m"
+
+DIR_BG="\[\033[44m\]"
+DIR_FG="\e[0;34m"
+
+RESET="\e[0m"
+
+PS1="$USERNAME_BG$FONT_FG \u $USERNAME_FG$DIR_BG$PROMPT_ARROW$FONT_FG \w $RESET$DIR_FG$PROMPT_ARROW$RESET "
+PS2="\[\033[46m\]  \e[0m\e[0;36m$PROMPT_ARROW\e[0m "
 
 
 export PATH=~/.cargo/bin:$PATH

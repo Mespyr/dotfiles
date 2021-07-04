@@ -32,6 +32,7 @@ echo " - AwesomeWM (awesome)"
 echo " - Picom (picom)"
 echo " - Alacritty (alacritty)"
 echo " - lxappearance (lxappearance)"
+echo " - Cascadia Code (fonts-cascadia-code)"
 echo
 
 # check if user wants to install
@@ -45,24 +46,18 @@ if [ "$INSTALL_PERMISSIONS" != "y" ]; then
 fi
 
 
-header "Installing Gruvbox Theme and Icons."
+header "Installing Vimix Beryl Theme."
 
-git clone https://github.com/sainnhe/gruvbox-material-gtk
+git clone https://github.com/vinceliuice/vimix-gtk-themes.git
+cd vimix-gtk-themes
+./install.sh -t beryl -s laptop 
+cd ..
 
-# check if running with root permissions
-if [ `id -u` == 0 ]; then
-    # install theme
-    cp -r gruvbox-material-gtk/themes/* -t /usr/share/themes/
-    # install icons
-    cp -r gruvbox-material-gtk/icons/* -t /usr/share/icons/
-else
-    # install theme
-    mkdir ~/.themes
-    cp -r gruvbox-material-gtk/themes/* -t ~/.themes
-    # install icons
-    mkdir ~/.icons
-    cp -r gruvbox-material-gtk/icons/* -t ~/.icons
-fi
+header "Installing Vimix Beryl Icons."
+
+git clone https://github.com/vinceliuice/vimix-icon-theme.git
+cd vimix-icon-theme
+./install.sh Beryl 
+cd  ..
 
 install_config
-

@@ -93,7 +93,7 @@ local editor       = os.getenv("EDITOR") or "code"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { " MAIN ", " DEV ", " WWW ", " CHAT ", " OTHER " }
+awful.util.tagnames = { " DEV ", " WWW ", " CHAT ", " FILES ", " GIMP ", " OTHER " }
 
 awful.layout.layouts = {
     awful.layout.suit.max,

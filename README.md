@@ -2,7 +2,7 @@
 My config files.
 
 # Sources
-The [GruvBox Material GTK](https://github.com/sainnhe/gruvbox-material-gtk) Theme and Icons.
+The [Vimix GTK Theme](https://github.com/vinceliuice/vimix-gtk-themes) and [Icon Theme](https://github.com/vinceliuice/vimix-icon-theme)
 
 My Rofi Config is from [here](https://github.com/TheRealKizu/dotfiles)
 
