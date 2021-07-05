@@ -1,26 +1,26 @@
 
 configuration {
-    location: 1;
+    location: 3;
 	hide-scrollbar: 				true;
 	sidebar-mode: 					false;
 }
 
 * {
-    bg:                             #1D2021;
-    fg:                             #FBF1C7;
-    ac:                             #689d6a;
+    bg:                             #19232F;
+    fg:                             #FFEFE5;
+    ac:                             #556877;
 
     background-color:               @bg;
     text-color:                     @fg;
-    alt-bg:                         #282828;
+    alt-bg:                         #39434D;
 }
 
 window {    
 	width:							15%;
     margin:                         0 0 0 0;
     border-width:                   3px;
-    border-radius:                  10px;
-    margin:                         42px 0 0 10px;
+    border-radius:                  0px;
+    margin:                         42px 12px 0 0px;
 }
 
 prompt {
@@ -50,7 +50,7 @@ inputbar {
     text-color:                     @fg;
     expand:                         false;
 	border:							0% 0% 0% 0%;
-    border-radius:                  10px;
+    border-radius:                  0px;
 	border-color:					@ac;
     margin:                         0% 0% 0% 0%;
     padding:                        1%;
@@ -71,7 +71,7 @@ mainbox {
     background-color:               @bg;
 	border:							2px;
 	border-color:					@ac;
-    border-radius:                  10px;
+    border-radius:                  0px;
     children:                       [ listview ];
     spacing:                       	0%;
     padding:                        7px;
@@ -99,5 +99,5 @@ element-text {
 element selected {
     background-color:               @ac;
     text-color:                     @bg;
-    border-radius:                  10px;
+    border-radius:                  0px;
 }

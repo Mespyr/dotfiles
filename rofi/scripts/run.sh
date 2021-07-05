@@ -1,0 +1,1 @@
+rofi -show run -theme theme/main.rasi

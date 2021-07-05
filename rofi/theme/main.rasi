@@ -1,9 +1,6 @@
 
 configuration {
-    location: 1;
     show-icons:                     false;
-    display-drun: 					":";
-    display-run:                    ":";
     drun-display-format:            " {name}";
     disable-history:                false;
 	hide-scrollbar: 				true;
@@ -11,26 +8,26 @@ configuration {
 }
 
 * {
-    bg:                             #1D2021;
-    fg:                             #FBF1C7;
-    ac:                             #689d6a;
+    bg:                             #19232F;
+    fg:                             #FFEFE5;
+    ac:                             #556877;
 
     background-color:               @bg;
     text-color:                     @fg;
-    alt-bg:                         #282828;
+    alt-bg:                         #39434D;
 }
 
 window {    
-	width:							30%;
+	width:							500px;
     margin:                         42px 0 0 10px;
-    border-radius:                  10px;
+    border-radius:                  0px;
 }
 
 prompt {
     enabled: 						true;
-	padding: 						0 0 0 0;
+	padding: 						5px 5px 5px 5px;
     margin:                         0px;
-	background-color: 				#282828;
+	background-color: 				@ac;
 	text-color: 					@fg;
 	font:							"Cascadia Code 10";
 }
@@ -42,7 +39,7 @@ entry {
     expand:                         true;
     horizontal-align:               0;
     padding:                        0% 0% 0% 0%;
-    margin:                         0.3% 0 0 0;
+    margin:                         5px 0 0 5px;
     blink:                          true;
 }
 
@@ -52,18 +49,18 @@ inputbar {
     text-color:                     @bg;
     expand:                         false;
 	border:							0% 0% 0% 0%;
-    border-radius:                  10px;
+    border-radius:                  0px;
 	border-color:					@ac;
     margin:                         5px;
-    padding:                        1%;
+    padding:                        5px;
 }
 
 listview {
-    background-color:               @al;
-    padding:                        2px 5px 2px 5px;
+    background-color:               @bg;
+    padding:                        2px 2px 2px 2px;
     columns:                        1;
-    lines:                          13;
-    spacing:                        3px;
+    lines:                          10;
+    spacing:                        2px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
@@ -73,7 +70,7 @@ mainbox {
     background-color:               @bg;
 	border:							2px;
 	border-color:					@ac;
-    border-radius:                  10px;
+    border-radius:                  0px;
     children:                       [ inputbar, listview ];
     spacing:                       	0%;
 }
@@ -82,7 +79,7 @@ element {
     background-color:               @al;
     text-color:                     @fg;
     orientation:                    vertical;
-    padding:                        2% 0% 2% 0%;
+    padding:                        10px 0px 10px 0px;
 }
 
 element-icon {
@@ -92,13 +89,13 @@ element-icon {
 
 element-text {
     expand:                         true;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
+    horizontal-align:               0px;
+    vertical-align:                 0px;
     margin:                         0;
 }
 
 element selected {
     background-color:               @ac;
     text-color:                     @bg;
-    border-radius:                  10px;
+    border-radius:                  0px;
 }

@@ -93,7 +93,7 @@ local editor       = os.getenv("EDITOR") or "code"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { " DEV ", " WWW ", " CHAT ", " FILES ", " GIMP ", " OTHER " }
+awful.util.tagnames = { " DEV ", " WWW ", " CHAT ", " FILE ", " GIMP ", " ANY " }
 
 awful.layout.layouts = {
     awful.layout.suit.max,
@@ -305,7 +305,7 @@ globalkeys = mytable.join(
         {description = "focus right", group = "client"}),
 
     -- Menu
-    awful.key({ modkey,           }, "w", function () os.execute("rofi -show drun") end,
+    awful.key({ modkey,           }, "w", function () os.execute("sh ~/.config/rofi/scripts/drun.sh") end,
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
@@ -512,7 +512,7 @@ globalkeys = mytable.join(
         {description = "show rofi", group = "launcher"}),
     --]]
     -- Prompt
-    awful.key({ modkey }, "x", function () os.execute("rofi -show run") end,
+    awful.key({ modkey }, "e", function () os.execute("sh ~/.config/rofi/scripts/run.sh") end,
               {description = "run prompt", group = "launcher"})
 
     -- awful.key({ modkey }, "x",
