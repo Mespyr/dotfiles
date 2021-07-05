@@ -22,7 +22,7 @@ function install_config() {
 
     header "Backing Up $HOME/.bashrc to $HOME/.bashrc.bak"
 
-    cp ~/.bashrc .bashrc.bak
+    cp ~/.bashrc ~/.bashrc.bak
     cp .bashrc ~
 }
 
@@ -49,7 +49,7 @@ fi
 header "Installing GTK Theme"
 
 git clone https://github.com/Mespyr/blue-vimix-gtk-theme.git
-cd vimix-gtk-themes
+cd blue-vimix-gtk-theme
 sh install.sh
 cd ..
 

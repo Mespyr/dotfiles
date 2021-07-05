@@ -2,7 +2,7 @@
 My config files.
 
 # Sources
-The [Vimix GTK Theme](https://github.com/vinceliuice/vimix-gtk-themes) and [Icon Theme](https://github.com/vinceliuice/vimix-icon-theme)
+[My GTK Theme](https://github.com/Mespyr/blue-vimix-gtk-theme) and [The Vimix Icon Theme](https://github.com/vinceliuice/vimix-icon-theme)
 
 My Rofi Config is from [here](https://github.com/TheRealKizu/dotfiles)
 
