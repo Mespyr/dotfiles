@@ -46,11 +46,11 @@ if [ "$INSTALL_PERMISSIONS" != "y" ]; then
 fi
 
 
-header "Installing Vimix Beryl Theme."
+header "Installing GTK Theme"
 
-git clone https://github.com/vinceliuice/vimix-gtk-themes.git
+git clone https://github.com/Mespyr/blue-vimix-gtk-theme.git
 cd vimix-gtk-themes
-./install.sh -t beryl -s laptop 
+sh install.sh
 cd ..
 
 header "Installing Vimix Beryl Icons."

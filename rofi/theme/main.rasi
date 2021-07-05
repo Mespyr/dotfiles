@@ -48,19 +48,17 @@ inputbar {
     background-color:               @alt-bg;
     text-color:                     @bg;
     expand:                         false;
-	border:							0% 0% 0% 0%;
-    border-radius:                  0px;
-	border-color:					@ac;
-    margin:                         5px;
-    padding:                        5px;
+	border:							0px;
+    margin:                         2px 2px 2px 2px;
+    padding:                        0px;
 }
 
 listview {
     background-color:               @bg;
-    padding:                        2px 2px 2px 2px;
+    padding:                        0px 2px 2px 2px;
     columns:                        1;
     lines:                          10;
-    spacing:                        2px;
+    spacing:                        5px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
