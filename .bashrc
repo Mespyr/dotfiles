@@ -124,14 +124,14 @@ DIR_FG="\e[0;34m"
 
 RESET="\e[0m"
 
-USERNAME_POWERLINE="$USERNAME_BG$PROMPT_ARROW$FONT_FG \u "
+USERNAME_POWERLINE="$USERNAME_BG$PROMPT_ARROW$FONT_FG      "
 DIR_POWERLINE="$DIR_BG$PROMPT_ARROW$FONT_FG \w "
 END_POWERLINE="$PROMPT_ARROW$RESET"
 
 
 
 PS1="$TERM_BG_AS_FG$DIR_POWERLINE$RESET$DIR_FG$END_POWERLINE "
-PS2="\[\033[44m\]  \e[0m\e[0;34m$PROMPT_ARROW\e[0m "
+PS2="$TERM_BG_AS_FG$USERNAME_BG$USERNAME_POWERLINE $USERNAME_FG$END_POWERLINE "
 
 
 export PATH=~/.cargo/bin:$PATH
@@ -144,5 +144,3 @@ alias ga='git add .'
 alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
-alias ..='cd ..'
-. "$HOME/.cargo/env"

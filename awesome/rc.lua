@@ -512,7 +512,7 @@ globalkeys = mytable.join(
         {description = "show rofi", group = "launcher"}),
     --]]
     -- Prompt
-    awful.key({ modkey }, "e", function () os.execute("sh ~/.config/rofi/scripts/run.sh") end,
+    awful.key({ modkey }, "r", function () os.execute("sh ~/.config/rofi/scripts/run.sh") end,
               {description = "run prompt", group = "launcher"})
 
     -- awful.key({ modkey }, "x",
@@ -698,8 +698,18 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Firefox" },
+        properties = { screen = 1, tag = " WWW " } },
+
+    { rule = { class = "Nemo" },
+        properties = { screen = 1, tag = " FILE " } },
+
+    { rule = { class = "Gimp-2.10" },
+        properties = { screen = 1, tag = " IMG " } },
+    
+    { rule = { class = "discord" },
+        properties = { screen = 1, tag = " CHAT " } },
+
 }
 
 -- }}}
