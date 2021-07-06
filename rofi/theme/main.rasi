@@ -2,6 +2,7 @@
 configuration {
     show-icons:                     false;
     drun-display-format:            " {name}";
+    run-display-format:             " {name}";
     disable-history:                false;
 	hide-scrollbar: 				true;
 	sidebar-mode: 					false;
@@ -19,7 +20,7 @@ configuration {
 
 window {    
 	width:							500px;
-    margin:                         42px 0 0 10px;
+    margin:                         0px;
     border-radius:                  0px;
 }
 
@@ -49,7 +50,7 @@ inputbar {
     text-color:                     @bg;
     expand:                         false;
 	border:							0px;
-    margin:                         2px 2px 2px 2px;
+    margin:                         2px;
     padding:                        0px;
 }
 
@@ -58,7 +59,7 @@ listview {
     padding:                        0px 2px 2px 2px;
     columns:                        1;
     lines:                          10;
-    spacing:                        5px;
+    spacing:                        3px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
@@ -77,7 +78,7 @@ element {
     background-color:               @al;
     text-color:                     @fg;
     orientation:                    vertical;
-    padding:                        10px 0px 10px 0px;
+    padding:                        9px 0px 9px 0px;
 }
 
 element-icon {
