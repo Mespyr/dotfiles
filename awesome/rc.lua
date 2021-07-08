@@ -698,17 +698,17 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    { rule = { class = "Firefox" },
-        properties = { screen = 1, tag = " WWW " } },
+   -- { rule = { class = "Firefox" },
+   --     properties = { screen = 1, tag = " WWW " } },
 
-    { rule = { class = "Nemo" },
-        properties = { screen = 1, tag = " FILE " } },
+   -- { rule = { class = "Nemo" },
+   --     properties = { screen = 1, tag = " FILE " } },
 
-    { rule = { class = "Gimp-2.10" },
-        properties = { screen = 1, tag = " IMG " } },
+   -- { rule = { class = "Gimp-2.10" },
+   --     properties = { screen = 1, tag = " IMG " } },
     
-    { rule = { class = "discord" },
-        properties = { screen = 1, tag = " CHAT " } },
+   -- { rule = { class = "discord" },
+   --     properties = { screen = 1, tag = " CHAT " } },
 
 }
 

@@ -139,8 +139,32 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+init_cpp_project() {
+    echo "Initilizing stuff"
+    [ ! -f README.md ] && touch README.md
+    mkdir src/ build/ include/ 
+    touch CMakeLists.txt src/main.cpp 
+    echo "cmake_minimum_required(VERSION 3.10)
+
+project(project)
+
+include_directories(include/)
+
+file(GLOB_RECURSE SOURCE_FILES
+    \${CMAKE_SOURCE_DIR}/src/*.cpp)
+
+file(GLOB_RECURSE HEADER_FILES
+    \${CMAKE_SOURCE_DIR}/src/*.hpp)
+add_executable(\${PROJECT_NAME} \${HEADER_FILES} \${SOURCE_FILES})" > CMakeLists.txt
+}
+
+
 # git aliases
 alias ga='git add .'
 alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
+
+# Welcome myself
+cowsay -f /usr/share/cowsay/cows/tux.cow "Hello, $USER" | lolcat

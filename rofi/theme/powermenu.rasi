@@ -1,6 +1,9 @@
 
 configuration {
-    location: 3;
+    show-icons:                     false;
+    drun-display-format:            " {name}";
+    run-display-format:             " {name}";
+    disable-history:                false;
 	hide-scrollbar: 				true;
 	sidebar-mode: 					false;
 }
@@ -16,19 +19,17 @@ configuration {
 }
 
 window {    
-	width:							15%;
-    margin:                         0 0 0 0;
-    border-width:                   3px;
+	width:							500px;
+    margin:                         0px;
     border-radius:                  0px;
-    margin:                         42px 12px 0 0px;
 }
 
 prompt {
     enabled: 						true;
-	padding: 		                0 0 0 0;
-    margin:                         1px;
-	background-color: 				@alt-bg;
-	text-color: 		          	@fg;
+	padding: 						5px 5px 5px 5px;
+    margin:                         0px;
+	background-color: 				@ac;
+	text-color: 					@fg;
 	font:							"Cascadia Code 10";
 }
 
@@ -38,30 +39,27 @@ entry {
     placeholder-color:              @fg;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Type to search...";
     padding:                        0% 0% 0% 0%;
-    margin:                         0.3% 0 0 0;
+    margin:                         5px 0 0 5px;
     blink:                          true;
 }
 
 inputbar {
-	children: 						[ entry ];
+	children: 						[ prompt, entry ];
     background-color:               @alt-bg;
-    text-color:                     @fg;
+    text-color:                     @bg;
     expand:                         false;
-	border:							0% 0% 0% 0%;
-    border-radius:                  0px;
-	border-color:					@ac;
-    margin:                         0% 0% 0% 0%;
-    padding:                        1%;
+	border:							0px;
+    margin:                         2px;
+    padding:                        0px;
 }
 
 listview {
-    background-color:               @al;
-    padding:                        0px;
+    background-color:               @bg;
+    padding:                        2px 2px 2px 2px;
     columns:                        1;
     lines:                          5;
-    spacing:                        0%;
+    spacing:                        3px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
@@ -74,14 +72,13 @@ mainbox {
     border-radius:                  0px;
     children:                       [ listview ];
     spacing:                       	0%;
-    padding:                        7px;
 }
 
 element {
     background-color:               @al;
     text-color:                     @fg;
     orientation:                    vertical;
-    padding:                        10px 0% 10px 0%;
+    padding:                        9px 0px 9px 0px;
 }
 
 element-icon {
@@ -91,8 +88,8 @@ element-icon {
 
 element-text {
     expand:                         true;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
+    horizontal-align:               0px;
+    vertical-align:                 0px;
     margin:                         0;
 }
 
