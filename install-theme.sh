@@ -24,6 +24,10 @@ function install_config() {
 
     cp ~/.bashrc ~/.bashrc.bak
     cp .bashrc ~
+
+    header "Installing neovim config"
+
+    cp nvim/ ~/.config
 }
 
 
@@ -33,6 +37,7 @@ echo " - Picom (picom)"
 echo " - Alacritty (alacritty)"
 echo " - lxappearance (lxappearance)"
 echo " - Cascadia Code (fonts-cascadia-code)"
+echo " - Neovim (neovim)"
 echo
 
 # check if user wants to install
