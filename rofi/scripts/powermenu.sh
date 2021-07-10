@@ -20,7 +20,7 @@ case $chosen in
         reboot
         ;;
     $lock)
-        lxlock
+        i3lock
         ;;
     $suspend)
         systemctl suspend

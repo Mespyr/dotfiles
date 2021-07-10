@@ -37,7 +37,9 @@ echo " - Picom (picom)"
 echo " - Alacritty (alacritty)"
 echo " - lxappearance (lxappearance)"
 echo " - Cascadia Code (fonts-cascadia-code)"
+echo " - Fira Code (fonts-firacode) for terminal."
 echo " - Neovim (neovim)"
+echo " - i3lock (i3lock)"
 echo
 
 # check if user wants to install
