@@ -119,8 +119,8 @@ USERNAME_FG="\e[0;36m"
 
 TERM_BG_AS_FG="\e[0;30m"
 
-DIR_BG="\[\033[44m\]"
-DIR_FG="\e[0;34m"
+DIR_BG="\[\033[41m\]"
+DIR_FG="\e[0;31m"
 
 RESET="\e[0m"
 
@@ -138,27 +138,6 @@ export PATH=~/.cargo/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-init_cpp_project() {
-    echo "Initilizing stuff"
-    [ ! -f README.md ] && touch README.md
-    mkdir src/ build/ include/ 
-    touch CMakeLists.txt src/main.cpp 
-    echo "cmake_minimum_required(VERSION 3.10)
-
-project(project)
-
-include_directories(include/)
-
-file(GLOB_RECURSE SOURCE_FILES
-    \${CMAKE_SOURCE_DIR}/src/*.cpp)
-
-file(GLOB_RECURSE HEADER_FILES
-    \${CMAKE_SOURCE_DIR}/src/*.hpp)
-add_executable(\${PROJECT_NAME} \${HEADER_FILES} \${SOURCE_FILES})" > CMakeLists.txt
-}
-
 
 # git aliases
 alias ga='git add .'
