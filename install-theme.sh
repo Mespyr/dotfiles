@@ -55,16 +55,16 @@ fi
 
 header "Installing GTK Theme"
 
-git clone https://github.com/Mespyr/blue-vimix-gtk-theme.git
-cd blue-vimix-gtk-theme
+git clone https://github.com/Mespyr/ruby-dark-gtk-theme/ gtk-theme/
+cd gtk-theme
 sh install.sh
 cd ..
 
-header "Installing Vimix Beryl Icons."
+header "Installing Vimix Ruby Icons."
 
 git clone https://github.com/vinceliuice/vimix-icon-theme.git
 cd vimix-icon-theme
-./install.sh Beryl 
+./install.sh Ruby 
 cd  ..
 
 install_config
