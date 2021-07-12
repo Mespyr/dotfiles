@@ -1,11 +1,20 @@
 COPY() {
-	# argv: $1 = filename; $2 = file location 
-	[ -d $1 ] && cp -r $1 .bak/
-	[ -f $1 ] && cp $1 .bak
+	echo "Copying $1 from $2"
+	
+	mv $1 bak
 	cp -r $2$1 .
-	[ -d .bak ] && rm -r .bak/
-	[ -f .bak ] && rm .bak
+	rm -r bak
 }
+
+
+if [ -d bak ]; then
+	rm -r bak/
+fi
+
+if [ -f bak ]; then
+	rm bak
+fi
+
 
 COPY alacritty ~/.config/
 COPY awesome ~/.config/
