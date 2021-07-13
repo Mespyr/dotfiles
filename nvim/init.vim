@@ -10,4 +10,9 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
 endfor
 
 " keybindings
+
+" delete line
 nmap - dd
+" delete word and enter insert mode
+noremap s <Nop>
+nmap s dwi

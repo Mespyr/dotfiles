@@ -27,9 +27,9 @@ theme.font_name = "Cascadia Code"
 theme.font = theme.font_name .. " 9"
 -- Colors
 theme.fg_normal = "#FFEFE5"
-theme.fg_focus = "#19232F"
-theme.bg_normal = "#19232F"
-theme.bg_focus = "#556877"
+theme.fg_focus = "#0E1319"
+theme.bg_normal = "#0E1319"
+theme.bg_focus = "#AE5540"
 -- Foreground Text Colors
 -- theme.fg_colors = {}
 -- theme.fg_colors.aqua = "#689d6a"
@@ -48,9 +48,8 @@ theme.panel_margin = dpi(7)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- Replace 1366 with your screen width
 -- Borders
 theme.border_width = dpi(3)
-theme.border_normal = "#556877"
-theme.border_focus = "#1FA379"
-theme.border_marked = "#cc9393"
+theme.border_normal = "#131820"
+theme.border_focus = "#AE5540"
 -- Menu
 theme.menu_height = dpi(23)
 theme.menu_width = dpi(130)

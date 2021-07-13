@@ -9,17 +9,17 @@ configuration {
 }
 
 * {
-    bg:                             #19232F;
+    bg:                             #0E1319;
     fg:                             #FFEFE5;
-    ac:                             #556877;
+    ac:                             #AE5540;
 
     background-color:               @bg;
     text-color:                     @fg;
-    alt-bg:                         #39434D;
+    alt-bg:                         #131820;
 }
 
 window {    
-	width:							500px;
+    width:			    400px;
     margin:                         0px;
     border-radius:                  0px;
 }
