@@ -12,7 +12,7 @@ endfor
 " keybindings
 
 " delete line
-nmap - dd
+nmap - dd 
 " delete word and enter insert mode
-noremap s <Nop>
-nmap s dwi
+noremap f <Nop>
+nmap f dwi 
