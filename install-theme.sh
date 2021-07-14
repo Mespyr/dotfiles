@@ -27,7 +27,11 @@ function install_config() {
 
     header "Installing neovim config"
 
-    cp nvim/ ~/.config
+    cp -r nvim/ ~/.config
+
+    header "Installing picom config"
+
+    cp -r picom.conf ~/.config
 }
 
 
@@ -54,6 +58,8 @@ fi
 
 
 header "Installing GTK Theme"
+
+mkdir ~/.themes/
 
 git clone https://github.com/Mespyr/ruby-dark-gtk-theme/ gtk-theme/
 cd gtk-theme
