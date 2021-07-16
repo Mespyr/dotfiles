@@ -32,6 +32,10 @@ function install_config() {
     header "Installing picom config"
 
     cp -r picom.conf ~/.config
+    
+    header "Installing scripts"
+
+    cp -r scripts/ ~/.config
 }
 
 
