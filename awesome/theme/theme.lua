@@ -368,11 +368,11 @@ function theme.at_screen_connect(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             add_margin(small_spr, "alpha"),
-            add_margin(spr, theme.bg_normal),
+            -- add_margin(spr, theme.bg_normal),
             add_margin(spr, theme.bg_normal),
             add_margin(s.mytaglist, theme.bg_normal),
             add_margin(spr, theme.bg_normal),
-            add_margin(spr, theme.bg_normal),
+            -- add_margin(spr, theme.bg_normal),
         },
         add_margin(spr, "alpha"),
         { -- Right widgets
