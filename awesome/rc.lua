@@ -68,7 +68,7 @@ local function run_once(cmd_arr)
     end
 end
 
--- run_once({ "urxvtd", "unclutter -root" }) -- comma-separated entries
+run_once({ "~/.config/scripts/moniter.sh" }) -- comma-separated entries
 
 -- This function implements the XDG autostart specification
 --[[
@@ -756,6 +756,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
-beautiful.notification_icon_size = 50
+-- Autostart
 
 awful.spawn.with_shell("picom")
