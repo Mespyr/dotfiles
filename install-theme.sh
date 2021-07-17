@@ -60,10 +60,10 @@ if [ "$INSTALL_PERMISSIONS" != "y" ]; then
     fi
 fi
 
+mkdir etc/
+cd etc/
 
 header "Installing GTK Theme"
-
-mkdir ~/.themes/
 
 git clone https://github.com/Mespyr/ruby-dark-gtk-theme/ gtk-theme/
 cd gtk-theme
@@ -75,6 +75,6 @@ header "Installing Vimix Ruby Icons."
 git clone https://github.com/vinceliuice/vimix-icon-theme.git
 cd vimix-icon-theme
 ./install.sh Ruby 
-cd  ..
+cd  ../..
 
 install_config
