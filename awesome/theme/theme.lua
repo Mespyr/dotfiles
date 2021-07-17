@@ -25,6 +25,8 @@ theme.wallpaper = theme.dir .. "/wall-darker.png"
 -- Font
 theme.font_name = "Cascadia Code"
 theme.font = theme.font_name .. " 9"
+-- useless gap
+theme.useless_gap = dpi(5)
 -- Colors
 theme.fg_normal = "#FFEFE5"
 theme.fg_focus = "#0E1319"
@@ -40,16 +42,14 @@ theme.widget_colors.volume = theme.bg_normal
 theme.widget_colors.battery = theme.bg_normal
 theme.widget_colors.time_cal = theme.bg_normal
 theme.widget_colors.layoutbox = theme.bg_normal
--- ORIGINAL COLOR: #983049
--- #8ec07c
--- Panel
-theme.panel_height = dpi(25)
-theme.panel_margin = dpi(7)
-theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- Replace 1366 with your screen width
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#131820"
 theme.border_focus = "#AE5540"
+-- Panel
+theme.panel_height = dpi(25)
+theme.panel_margin = dpi(theme.useless_gap + theme.border_width)
+theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- for 720p screens
 -- Menu
 theme.menu_height = dpi(23)
 theme.menu_width = dpi(130)
@@ -86,10 +86,10 @@ theme.widget_vol_no                             = theme.dir .. "/icons/vol_no.pn
 theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.png"
 theme.widget_mail                               = theme.dir .. "/icons/mail.png"
 theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.png"
+theme.widget_power_btn                          = theme.dir .. "/icons/power.png"
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-theme.useless_gap = dpi(5)
 
 
 
@@ -173,23 +173,30 @@ theme.cal = lain.widget.cal({
 --     end})
 
 -- Battery
-local baticon = wibox.widget.imagebox(theme.widget_battery)
+local baticon = wibox.widget {
+	{
+		widget = wibox.widget.imagebox,
+		image = theme.widget_battery,
+	},
+	margins = 4,
+	widget = wibox.container.margin,
+}
 local bat = lain.widget.bat({
     settings = function()
         if bat_now.status and bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
-                baticon:set_image(theme.widget_ac)
+                baticon.widget:set_image(theme.widget_ac)
             elseif not bat_now.perc and tonumber(bat_now.perc) <= 5 then
-                baticon:set_image(theme.widget_battery_empty)
+                baticon.widget:set_image(theme.widget_battery_empty)
             elseif not bat_now.perc and tonumber(bat_now.perc) <= 15 then
-                baticon:set_image(theme.widget_battery_low)
+                baticon.widget:set_image(theme.widget_battery_low)
             else
-                baticon:set_image(theme.widget_battery)
+                baticon.widget:set_image(theme.widget_battery)
             end
             widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
         else
             widget:set_markup(markup.font(theme.font, " AC "))
-            baticon:set_image(theme.widget_ac)
+            baticon.widget:set_image(theme.widget_ac)
         end
     end})
 
@@ -246,8 +253,21 @@ theme.volume.widget:buttons(
 --             end)
 --         ))
 
+-- power menu
+local power_button = wibox.widget{
+	{
+		{
+			widget = wibox.widget.imagebox,
+			image = theme.widget_power_btn,	
+		},
+		widget = wibox.container.margin,
+		margins = 6
+	},
+	widget = wibox.container.background
+}
+power_button:connect_signal("mouse::enter", function(c) c:set_bg("#000000") end)
+power_button:connect_signal("mouse::leave", function(c) c:set_bg(theme.widget_colors.layoutbox) end)
 
--- Separators
 local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
 -- local partially_rounded_spr = gears.shape.partially_rounded_rect(cr, 70, 70, true, true, false, true, 30)
@@ -331,17 +351,13 @@ function theme.at_screen_connect(s)
     -- }
 
     -- Create the wibox
-    s.mywibox = awful.wibox { 
+    s.mywibox = awful.wibar { 
         position = "top", 
         screen = s, 
-        -- x = 10,
-        -- y = 10,
-        -- type = "desktop",
         height = theme.panel_height + theme.panel_margin, 
        	width = theme.panel_width,
         bg = "#00000000", 
         fg = theme.fg_normal,
-        -- border_width = dpi(15)
     }
 
     -- local curved_spr = wibox.widget {
@@ -367,12 +383,10 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            add_margin(small_spr, "alpha"),
-            -- add_margin(spr, theme.bg_normal),
+            --add_margin(small_spr, "alpha"),
             add_margin(spr, theme.bg_normal),
             add_margin(s.mytaglist, theme.bg_normal),
             add_margin(spr, theme.bg_normal),
-            -- add_margin(spr, theme.bg_normal),
         },
         add_margin(spr, "alpha"),
         { -- Right widgets
@@ -405,7 +419,6 @@ function theme.at_screen_connect(s)
             add_margin(spr, theme.widget_colors.time_cal),
             add_margin(spr, theme.widget_colors.time_cal),
             add_margin(spr, "alpha"),
-            add_margin(spr, "alpha"),
 
             -- Layoutbox Widget 
             -- wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),
@@ -413,7 +426,8 @@ function theme.at_screen_connect(s)
             add_margin(s.mylayoutbox, theme.widget_colors.layoutbox),
             add_margin(small_spr, theme.widget_colors.layoutbox),
             add_margin(spr, "alpha"),
-            -- add_margin(spr, "alpha"),
+            --add_margin(spr, "alpha"),
+	    add_margin(power_button, theme.widget_colors.layoutbox), 
         }
     }
 end
