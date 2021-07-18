@@ -42,6 +42,7 @@ theme.widget_colors.volume = theme.bg_normal
 theme.widget_colors.battery = theme.bg_normal
 theme.widget_colors.time_cal = theme.bg_normal
 theme.widget_colors.layoutbox = theme.bg_normal
+theme.widget_colors.power_btn = theme.bg_focus
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#131820"
@@ -261,12 +262,14 @@ local power_button = wibox.widget{
 			image = theme.widget_power_btn,	
 		},
 		widget = wibox.container.margin,
-		margins = 6
+		margins = 7
 	},
 	widget = wibox.container.background
 }
-power_button:connect_signal("mouse::enter", function(c) c:set_bg("#000000") end)
-power_button:connect_signal("mouse::leave", function(c) c:set_bg(theme.widget_colors.layoutbox) end)
+power_button:connect_signal("button::press", function(c, _, _, button) 
+	if button == 1 then os.execute('sh ~/.config/rofi/scripts/powermenu.sh') end
+end)
+
 
 local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
@@ -296,7 +299,7 @@ function theme.at_screen_connect(s)
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
 
     -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt()
+    -- s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
@@ -319,7 +322,7 @@ function theme.at_screen_connect(s)
 
     -- Create a tasklist widget
     -- s.mytasklist = awful.widget.tasklist {
-    --     screen  = s, 
+    --    screen  = s, 
     --     filter  = awful.widget.tasklist.filter.currenttags, 
     --     buttons = awful.util.tasklist_buttons,
 
@@ -331,16 +334,16 @@ function theme.at_screen_connect(s)
 
     --     layout   = {
     --         spacing = 7,
-    --         -- spacing_widget = {
-    --         --     {
-    --         --         forced_width = 10,
-    --         --         shape        = gears.shape.circle,
-    --         --         widget       = wibox.widget.separator
-    --         --     },
-    --         --     valign = 'center',
-    --         --     halign = 'center',
-    --         --     widget = wibox.container.place,
-    --         -- },
+            -- spacing_widget = {
+            --     {
+            --         forced_width = 10,
+             --         shape        = gears.shape.circle,
+             --         widget       = wibox.widget.separator
+             --     },
+             --     valign = 'center',
+             --     halign = 'center',
+             --     widget = wibox.container.place,
+             -- },
     --         layout  = wibox.layout.flex.horizontal
     --     }
 
@@ -356,7 +359,7 @@ function theme.at_screen_connect(s)
         screen = s, 
         height = theme.panel_height + theme.panel_margin, 
        	width = theme.panel_width,
-        bg = "#00000000", 
+        bg = "alpha", 
         fg = theme.fg_normal,
     }
 
@@ -389,7 +392,7 @@ function theme.at_screen_connect(s)
             add_margin(spr, theme.bg_normal),
         },
         add_margin(spr, "alpha"),
-        { -- Right widgets
+	{ -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 
             -- Volume Widget
@@ -425,9 +428,13 @@ function theme.at_screen_connect(s)
             add_margin(small_spr, theme.widget_colors.layoutbox),
             add_margin(s.mylayoutbox, theme.widget_colors.layoutbox),
             add_margin(small_spr, theme.widget_colors.layoutbox),
+	    
+            -- Power Button
             add_margin(spr, "alpha"),
-            --add_margin(spr, "alpha"),
-	    add_margin(power_button, theme.widget_colors.layoutbox), 
+            add_margin(spr, "alpha"),
+	    add_margin(spr, theme.widget_colors.power_btn), 
+	    add_margin(power_button, theme.widget_colors.power_btn), 
+	    add_margin(spr, theme.widget_colors.power_btn), 
         }
     }
 end
