@@ -49,7 +49,7 @@ theme.border_normal = "#131820"
 theme.border_focus = "#AE5540"
 -- Panel
 theme.panel_height = dpi(25)
-theme.panel_margin = dpi(theme.useless_gap + theme.border_width)
+theme.panel_margin = dpi(7)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- for 720p screens
 -- Menu
 theme.menu_height = dpi(23)
@@ -375,7 +375,7 @@ function theme.at_screen_connect(s)
                 widget, 
                 bg
             ), 
-            0, 0, theme.panel_margin, 0
+            0, 0, theme.panel_margin,0 --theme.panel_margin
         )
     end
 
@@ -386,7 +386,7 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            --add_margin(small_spr, "alpha"),
+            add_margin(spr, "alpha"),
             add_margin(spr, theme.bg_normal),
             add_margin(s.mytaglist, theme.bg_normal),
             add_margin(spr, theme.bg_normal),
@@ -435,6 +435,7 @@ function theme.at_screen_connect(s)
 	    add_margin(spr, theme.widget_colors.power_btn), 
 	    add_margin(power_button, theme.widget_colors.power_btn), 
 	    add_margin(spr, theme.widget_colors.power_btn), 
+	    add_margin(spr, "alpha")
         }
     }
 end
