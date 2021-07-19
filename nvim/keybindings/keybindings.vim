@@ -6,5 +6,8 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
 endfor
 
 " keybindings
-nmap - dd 
-nmap f dwi
+  " deleting
+  nmap - dd 
+  nmap f dw
+  nmap z d$
+

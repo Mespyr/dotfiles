@@ -45,11 +45,11 @@ theme.widget_colors.layoutbox = theme.bg_normal
 theme.widget_colors.power_btn = theme.bg_focus
 -- Borders
 theme.border_width = dpi(3)
-theme.border_normal = "#131820"
-theme.border_focus = "#AE5540"
+theme.border_normal = theme.bg_normal
+theme.border_focus = theme.bg_focus
 -- Panel
 theme.panel_height = dpi(25)
-theme.panel_margin = dpi(7)
+theme.panel_margin = dpi(5)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- for 720p screens
 -- Menu
 theme.menu_height = dpi(23)
@@ -309,8 +309,10 @@ function theme.at_screen_connect(s)
                            awful.button({}, 3, function () awful.layout.inc(-1) end),
                            awful.button({}, 4, function () awful.layout.inc( 1) end),
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
+
+    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, 3, 3, 3, 3)
+    
     -- Create a taglist widget
-    -- s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
@@ -321,19 +323,19 @@ function theme.at_screen_connect(s)
     }
 
     -- Create a tasklist widget
-    -- s.mytasklist = awful.widget.tasklist {
-    --    screen  = s, 
-    --     filter  = awful.widget.tasklist.filter.currenttags, 
-    --     buttons = awful.util.tasklist_buttons,
+    	-- s.mytasklist = awful.widget.tasklist {
+    	--    screen  = s, 
+    	--     filter  = awful.widget.tasklist.filter.currenttags, 
+    	--     buttons = awful.util.tasklist_buttons,
 
-    --     style = {
-    --         shape_border_width = 1,
-    --         shape_border_color = '#777777',
-    --         shape  = gears.shape.octogon
-    --     },
+    	--     style = {
+    	--         shape_border_width = 1,
+    	--         shape_border_color = '#777777',
+    	--         shape  = gears.shape.octogon
+    	--     },
 
-    --     layout   = {
-    --         spacing = 7,
+    	--     layout   = {
+    	--         spacing = 7,
             -- spacing_widget = {
             --     {
             --         forced_width = 10,
@@ -344,14 +346,11 @@ function theme.at_screen_connect(s)
              --     halign = 'center',
              --     widget = wibox.container.place,
              -- },
-    --         layout  = wibox.layout.flex.horizontal
-    --     }
+    	--         layout  = wibox.layout.flex.horizontal
+    	--     }
 
-    -- }
+    	-- }
 
-    -- local filler_widget = wibox.widget.separator {
-    --     layout  = wibox.layout.flex.horizontal,
-    -- }
 
     -- Create the wibox
     s.mywibox = awful.wibar { 
@@ -386,7 +385,7 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            add_margin(spr, "alpha"),
+            --add_margin(spr, "alpha"),
             add_margin(spr, theme.bg_normal),
             add_margin(s.mytaglist, theme.bg_normal),
             add_margin(spr, theme.bg_normal),
@@ -435,7 +434,7 @@ function theme.at_screen_connect(s)
 	    add_margin(spr, theme.widget_colors.power_btn), 
 	    add_margin(power_button, theme.widget_colors.power_btn), 
 	    add_margin(spr, theme.widget_colors.power_btn), 
-	    add_margin(spr, "alpha")
+	    --add_margin(spr, "alpha")
         }
     }
 end
