@@ -143,4 +143,4 @@ alias gc='git commit -m'
 alias gp='git push'
 
 # Welcome myself
-cowsay -f /usr/share/cows/tux.cow "Hello, $USER" | lolcat
+# cowsay -f /usr/share/cows/tux.cow "Hello, $USER" | lolcat

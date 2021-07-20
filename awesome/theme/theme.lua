@@ -23,7 +23,7 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
 theme.wallpaper = theme.dir .. "/wall-darker.png"
 -- Font
-theme.font_name = "Cascadia Code"
+theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
 -- useless gap
 theme.useless_gap = dpi(5)
@@ -48,11 +48,11 @@ theme.border_width = dpi(3)
 theme.border_normal = theme.bg_normal
 theme.border_focus = theme.bg_focus
 -- Panel
-theme.panel_height = dpi(25)
+theme.panel_height = dpi(23)
 theme.panel_margin = dpi(5)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- for 720p screens
 -- Menu
-theme.menu_height = dpi(23)
+theme.menu_height = dpi(24)
 theme.menu_width = dpi(130)
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
@@ -262,7 +262,7 @@ local power_button = wibox.widget{
 			image = theme.widget_power_btn,	
 		},
 		widget = wibox.container.margin,
-		margins = 7
+		margins = 6
 	},
 	widget = wibox.container.background
 }
