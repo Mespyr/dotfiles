@@ -1,3 +1,7 @@
 " add line numbers
 set number 
-set numberwidth=3
+set numberwidth=5
+		
+" airline 
+let g:airline_theme = 'deus'
+

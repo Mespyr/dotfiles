@@ -133,11 +133,8 @@ END_POWERLINE="$PROMPT_ARROW$RESET"
 PS1="$TERM_BG_AS_FG$DIR_POWERLINE$RESET$DIR_FG$END_POWERLINE "
 PS2="$TERM_BG_AS_FG$USERNAME_BG$USERNAME_POWERLINE $USERNAME_FG$END_POWERLINE "
 
-
 export PATH=~/.cargo/bin:$PATH
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=~/.local/bin:$PATH
 
 # git aliases
 alias ga='git add .'
