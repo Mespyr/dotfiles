@@ -429,7 +429,7 @@ function theme.at_screen_connect(s)
             add_margin(small_spr, theme.widget_colors.layoutbox),
 	    
             -- Power Button
-            add_margin(spr, "alpha"),
+            --add_margin(spr, "alpha"),
             add_margin(spr, "alpha"),
 	    add_margin(spr, theme.widget_colors.power_btn), 
 	    add_margin(power_button, theme.widget_colors.power_btn), 
