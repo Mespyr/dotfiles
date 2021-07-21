@@ -8,7 +8,7 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
 endfor
 
 " deleting
-nmap - dd 
+nmap e dd 
 nmap f dw
 nmap z d$
 
