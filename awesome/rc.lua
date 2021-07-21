@@ -93,7 +93,8 @@ local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { " DEV ", " WWW ", " CHAT ", " FILE ", " IMG ", " ETC " }
+-- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  " }
+awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 
 awful.layout.layouts = {
     awful.layout.suit.max,

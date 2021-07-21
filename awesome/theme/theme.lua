@@ -48,11 +48,11 @@ theme.border_width = dpi(3)
 theme.border_normal = theme.bg_normal
 theme.border_focus = theme.bg_focus
 -- Panel
-theme.panel_height = dpi(23)
+theme.panel_height = dpi(25)
 theme.panel_margin = dpi(5)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- for 720p screens
 -- Menu
-theme.menu_height = dpi(24)
+theme.menu_height = dpi(23)
 theme.menu_width = dpi(130)
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
@@ -262,7 +262,7 @@ local power_button = wibox.widget{
 			image = theme.widget_power_btn,	
 		},
 		widget = wibox.container.margin,
-		margins = 6
+		margins = 7
 	},
 	widget = wibox.container.background
 }
@@ -310,7 +310,7 @@ function theme.at_screen_connect(s)
                            awful.button({}, 4, function () awful.layout.inc( 1) end),
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
 
-    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, 3, 3, 3, 3)
+    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, 1, 1, 1, 1)
     
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
@@ -318,8 +318,9 @@ function theme.at_screen_connect(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         style   = {
-            shape = gears.shape.rectangle,
-        }
+            shape = gears.shape.rectangle, 
+            -- font = theme.font_name .. " 16"
+        },
     }
 
     -- Create a tasklist widget
@@ -424,12 +425,14 @@ function theme.at_screen_connect(s)
 
             -- Layoutbox Widget 
             -- wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),
+            add_margin(spr, "alpha"),
+            add_margin(spr, "alpha"),
             add_margin(small_spr, theme.widget_colors.layoutbox),
             add_margin(s.mylayoutbox, theme.widget_colors.layoutbox),
             add_margin(small_spr, theme.widget_colors.layoutbox),
 	    
             -- Power Button
-            --add_margin(spr, "alpha"),
+            add_margin(spr, "alpha"),
             add_margin(spr, "alpha"),
 	    add_margin(spr, theme.widget_colors.power_btn), 
 	    add_margin(power_button, theme.widget_colors.power_btn), 
