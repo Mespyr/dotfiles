@@ -59,7 +59,7 @@ listview {
     padding:                        0px 2px 2px 2px;
     columns:                        1;
     lines:                          10;
-    spacing:                        3px;
+    spacing:                        5px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
