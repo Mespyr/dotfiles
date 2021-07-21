@@ -425,19 +425,16 @@ function theme.at_screen_connect(s)
 
             -- Layoutbox Widget 
             -- wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),
-            add_margin(spr, "alpha"),
-            add_margin(spr, "alpha"),
             add_margin(small_spr, theme.widget_colors.layoutbox),
             add_margin(s.mylayoutbox, theme.widget_colors.layoutbox),
             add_margin(small_spr, theme.widget_colors.layoutbox),
 	    
             -- Power Button
             add_margin(spr, "alpha"),
-            add_margin(spr, "alpha"),
-	    add_margin(spr, theme.widget_colors.power_btn), 
-	    add_margin(power_button, theme.widget_colors.power_btn), 
-	    add_margin(spr, theme.widget_colors.power_btn), 
-	    --add_margin(spr, "alpha")
+	        add_margin(spr, theme.widget_colors.power_btn), 
+	        add_margin(power_button, theme.widget_colors.power_btn), 
+	        add_margin(spr, theme.widget_colors.power_btn), 
+	        --add_margin(spr, "alpha")
         }
     }
 end

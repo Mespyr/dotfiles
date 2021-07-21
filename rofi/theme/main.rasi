@@ -30,7 +30,7 @@ prompt {
     margin:                         0px;
 	background-color: 				@ac;
 	text-color: 					@fg;
-	font:							"Cascadia Code 10";
+	font:							"UbuntuMono Nerd Font Mono 11";
 }
 
 entry {
