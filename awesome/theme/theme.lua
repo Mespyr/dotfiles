@@ -21,7 +21,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall-darker.png"
+theme.wallpaper = theme.dir .. "/wall.png"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
@@ -254,35 +254,29 @@ theme.volume.widget:buttons(
 --             end)
 --         ))
 
+local spr = wibox.widget.textbox('  ')
+local small_spr = wibox.widget.textbox(' ')
+
 -- power menu
 local power_button = wibox.widget{
 	{
-		{
-			widget = wibox.widget.imagebox,
-			image = theme.widget_power_btn,	
-		},
-		widget = wibox.container.margin,
-		margins = 7
-	},
+        layout = wibox.layout.fixed.horizontal,
+        spr,
+        {
+    		{
+    			widget = wibox.widget.imagebox,
+    			image = theme.widget_power_btn,	
+    		},
+    		widget = wibox.container.margin,
+    		margins = 7
+    	},
+        spr,
+    },
 	widget = wibox.container.background
 }
 power_button:connect_signal("button::press", function(c, _, _, button) 
 	if button == 1 then os.execute('sh ~/.config/rofi/scripts/powermenu.sh') end
 end)
-
-
-local spr = wibox.widget.textbox('  ')
-local small_spr = wibox.widget.textbox(' ')
--- local partially_rounded_spr = gears.shape.partially_rounded_rect(cr, 70, 70, true, true, false, true, 30)
-
-
--- local alpha_to_grey_arrow = separator.arrow_left("alpha", theme.widget_colors.grey)
--- local alpha_to_volume_arrow = separators.arrow_left(theme.bg_normal, theme.widget_colors.volume)
--- local volume_to_battery_arrow = separators.arrow_left(theme.widget_colors.volume, theme.widget_colors.battery)
--- local battery_to_time_cal_arrow = separators.arrow_left(theme.widget_colors.battery, theme.widget_colors.time_cal)
--- local time_cal_to_layoutbox_arrow = separators.arrow_left(theme.widget_colors.time_cal, theme.widget_colors.layoutbox)
-
-
 
 function theme.at_screen_connect(s)
     -- Quake application
@@ -392,7 +386,7 @@ function theme.at_screen_connect(s)
             add_margin(spr, theme.bg_normal),
         },
         add_margin(spr, "alpha"),
-	{ -- Right widgets
+    	{ -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 
             -- Volume Widget
@@ -431,9 +425,9 @@ function theme.at_screen_connect(s)
 	    
             -- Power Button
             add_margin(spr, "alpha"),
-	        add_margin(spr, theme.widget_colors.power_btn), 
+	        --add_margin(spr, theme.widget_colors.power_btn), 
 	        add_margin(power_button, theme.widget_colors.power_btn), 
-	        add_margin(spr, theme.widget_colors.power_btn), 
+	        --add_margin(spr, theme.widget_colors.power_btn), 
 	        --add_margin(spr, "alpha")
         }
     }
