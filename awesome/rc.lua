@@ -1,16 +1,13 @@
 --[[
 
-     Awesome WM configuration template
-     github.com/lcpz
+     Awesome WM config
+     github.com/Mespyr
 
 --]]
 
--- {{{ Required libraries
 
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
+-- Import Awesome Libraries
 pcall(require, "luarocks.loader")
-
 local gears         = require("gears")
 local awful         = require("awful")
                       require("awful.autofocus")
@@ -24,12 +21,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 
--- }}}
 
--- {{{ Error handling
-
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
+-- Awesome Errors on startup
 if awesome.startup_errors then
     naughty.notify {
         preset = naughty.config.presets.critical,
@@ -38,52 +31,33 @@ if awesome.startup_errors then
     }
 end
 
--- Handle runtime errors after startup
 do
     local in_error = false
-
     awesome.connect_signal("debug::error", function (err)
         if in_error then return end
-
         in_error = true
-
         naughty.notify {
             preset = naughty.config.presets.critical,
             title = "Oops, an error happened!",
             text = tostring(err)
         }
-
         in_error = false
     end)
 end
 
--- }}}
 
--- {{{ Autostart windowless processes
 
--- This function will run once every time Awesome is started
+-- Autostart. This function will run once every time Awesome is started
 local function run_once(cmd_arr)
     for _, cmd in ipairs(cmd_arr) do
         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
     end
 end
 
-run_once({ "~/.config/scripts/moniter.sh" }) -- comma-separated entries
+run_once({ "~/.config/scripts/moniter.sh" }) -- Moniter setup
 
--- This function implements the XDG autostart specification
---[[
-awful.spawn.with_shell(
-    'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;' ..
-    'xrdb -merge <<< "awesome.started:true";' ..
-    -- list each of your autostart commands, followed by ; inside single quotes, followed by ..
-    'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
-)
---]]
 
--- }}}
-
--- {{{ Variable definitions
-
+-- Variables
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
@@ -161,11 +135,9 @@ awful.util.tasklist_buttons = mytable.join(
 
 beautiful.init(string.format("%s/.config/awesome/theme/theme.lua", os.getenv("HOME")))
 
--- }}}
+-- Menu
 
--- {{{ Menu
-
--- -- Create a launcher widget and a main menu
+-- Create a launcher widget and a main menu
 local myawesomemenu = {
    { "Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "Manual", string.format("%s -e man awesome", terminal) },
@@ -185,15 +157,8 @@ local mymainmenu = freedesktop.menu.build {
     }
 }
 
--- hide menu when mouse leaves it
-mymainmenu.wibox:connect_signal("mouse::leave", function() mymainmenu:hide() end)
 
--- Set the Menubar terminal for applications that require it
---menubar.utils.terminal = terminal
-
--- }}}
-
--- {{{ Screen
+-- Screen
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", function(s)
@@ -208,15 +173,10 @@ screen.connect_signal("property::geometry", function(s)
     end
 end)
 
--- No borders when rearranging only 1 non-floating or maximized client
 screen.connect_signal("arrange", function (s)
     local only_one = #s.tiled_clients == 1
     for _, c in pairs(s.clients) do
-        -- if only_one and not c.floating or c.maximized then
-            -- c.border_width = 0
-        -- else
             c.border_width = beautiful.border_width
-        -- end
     end
 end)
 
@@ -228,9 +188,9 @@ awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) 
 -- {{{ Mouse bindings
 
 root.buttons(mytable.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
+    -- awful.button({ }, 4, awful.tag.viewnext),
+    -- awful.button({ }, 5, awful.tag.viewprev)
 ))
 
 -- }}}
