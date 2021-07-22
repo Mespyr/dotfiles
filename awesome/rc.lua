@@ -158,8 +158,6 @@ local mymainmenu = freedesktop.menu.build {
 }
 
 
--- Screen
-
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", function(s)
     -- Wallpaper
@@ -183,9 +181,8 @@ end)
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 
--- }}}
 
--- {{{ Mouse bindings
+-- Mouse bindings
 
 root.buttons(mytable.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end)
@@ -193,81 +190,39 @@ root.buttons(mytable.join(
     -- awful.button({ }, 5, awful.tag.viewprev)
 ))
 
--- }}}
 
--- {{{ Key bindings
+-- Key bindings
 
 globalkeys = mytable.join(
-    -- Take a screenshot
-    -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    -- awful.key({ altkey }, "p", function() os.execute("screenshot") end,
-    --           {description = "take a screenshot", group = "hotkeys"}),
-
-    -- X screen locker
-    -- awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
-    --           {description = "lock screen", group = "hotkeys"}),
-
     -- Show help
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+    awful.key({ modkey }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
 
+
     -- Tag browsing
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({ modkey }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    
+    awful.key({ modkey }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+    
+    awful.key({ modkey }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    -- Non-empty tag browsing
-    awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
-              {description = "view  previous nonempty", group = "tag"}),
-    awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
-              {description = "view  previous nonempty", group = "tag"}),
 
     -- Default client focus
-    awful.key({ altkey,           }, "j",
+    awful.key({ modkey }, "j",
         function ()
             awful.client.focus.byidx( 1)
         end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ altkey,           }, "k",
+        {description = "focus next by index", group = "client"}),
+        
+    awful.key({ modkey }, "k",
         function ()
             awful.client.focus.byidx(-1)
         end,
-        {description = "focus previous by index", group = "client"}
-    ),
+        {description = "focus previous by index", group = "client"}),
 
-    -- By-direction client focus
-    awful.key({ modkey }, "j",
-        function()
-            awful.client.focus.global_bydirection("down")
-            if client.focus then client.focus:raise() end
-        end,
-        {description = "focus down", group = "client"}),
-    awful.key({ modkey }, "k",
-        function()
-            awful.client.focus.global_bydirection("up")
-            if client.focus then client.focus:raise() end
-        end,
-        {description = "focus up", group = "client"}),
-    awful.key({ modkey }, "h",
-        function()
-            awful.client.focus.global_bydirection("left")
-            if client.focus then client.focus:raise() end
-        end,
-        {description = "focus left", group = "client"}),
-    awful.key({ modkey }, "l",
-        function()
-            awful.client.focus.global_bydirection("right")
-            if client.focus then client.focus:raise() end
-        end,
-        {description = "focus right", group = "client"}),
-
-    -- Menu
-    awful.key({ modkey,           }, "w", function () os.execute("sh ~/.config/rofi/scripts/drun.sh") end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -293,6 +248,7 @@ globalkeys = mytable.join(
         end,
         {description = "cycle with previous/go back", group = "client"}),
 
+
     -- Show/hide wibox
     awful.key({ modkey }, "b", function ()
             for s in screen do
@@ -304,11 +260,13 @@ globalkeys = mytable.join(
         end,
         {description = "toggle wibox", group = "awesome"}),
 
+
     -- On-the-fly useless gaps change
     awful.key({ altkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
               {description = "decrement useless gaps", group = "tag"}),
+
 
     -- Dynamic tagging
     awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
@@ -321,6 +279,7 @@ globalkeys = mytable.join(
               {description = "move tag to the right", group = "tag"}),
     awful.key({ modkey, "Shift" }, "d", function () lain.util.delete_tag() end,
               {description = "delete tag", group = "tag"}),
+
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
@@ -356,13 +315,6 @@ globalkeys = mytable.join(
             end
         end, 
         {description = "restore minimized", group = "client"}),
-
-
-    -- Screen brightness
-        awful.key({ modkey, }, "+", function () os.execute("xbacklight -inc 10") end,
-              {description = "+10%", group = "hotkeys"}),
-        awful.key({ modkey, }, "-", function () os.execute("xbacklight -dec 10") end,
-              {description = "-10%", group = "hotkeys"}),
 
 
     -- ALSA volume control
@@ -446,10 +398,15 @@ globalkeys = mytable.join(
 
 
     -- Menus 
-        -- Rofi Run prompt 
-        awful.key({ modkey }, "e", function () os.execute("sh ~/.config/rofi/scripts/run.sh") end,
+        -- Rofi Run menu 
+        awful.key({ modkey }, "r", function () os.execute("sh ~/.config/rofi/scripts/run.sh") end,
               {description = "run prompt", group = "launcher"}),
-   
+      
+        -- Rofi Drun menu
+        awful.key({ modkey }, "e", function () os.execute("sh ~/.config/rofi/scripts/drun.sh") end,
+              {description = "show main menu", group = "awesome"}),
+
+
         -- Power Menu
         awful.key({ modkey }, "q", function () os.execute("bash ~/.config/rofi/scripts/powermenu.sh") end,
               {description = "power menu", group = "launcher"})

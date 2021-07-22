@@ -11,4 +11,4 @@ endfor
 nmap e 0i<Tab><esc>
 
 " move rest of line to next line
-nmap w i<Enter><esc>0
+nmap w ddp
