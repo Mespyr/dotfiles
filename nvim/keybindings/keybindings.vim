@@ -6,3 +6,9 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
 	exec 'inoremap' key '<Nop>'
 	" exec 'cnoremap' key '<Nop>'
 endfor
+
+" tab line over
+nmap e 0i<Tab><esc>
+
+" move rest of line to next line
+nmap w i<Enter><esc>0
