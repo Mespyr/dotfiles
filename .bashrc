@@ -110,30 +110,49 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# bash prompt
+# #################################################################################
+#                         Custom Stuff
+# #################################################################################
+
+# Bash Prompt
+
+# prompt shapes 
 PROMPT_ARROW=
+PROMPT_ARROW_BACK=
+
+# prompt colors
 RESET="\e[0m"
 FONT_FG="\e[1;37m"
 
 DIRECTORY_BG="\[\033[41m\]"
-DIRECTORY_FG_AS_BG="\e[1;31m"
-DIRECTORY="$DIRECTORY_BG$FONT_FG \w "
+DIRECTORY_BG_FOR_SHAPES="\e[1;31m"
 
-END_POWERLINE="$PROMPT_ARROW$RESET"
+USERNAME_BG="\[\033[43m\]"
+USERNAME_BG_FOR_SHAPES="\e[1;33m"
 
-PS1="$DIRECTORY_FG_AS_BG$DIRECTORY$RESET$DIRECTORY_FG_AS_BG$END_POWERLINE "
+# prompt sections
+USERNAME_SECTION="$USERNAME_BG$FONT_FG \u "
+DIRECTORY_SECTION="$DIRECTORY_BG$FONT_FG \w "
+
+START="$USERNAME_BG_FOR_SHAPES$PROMPT_ARROW_BACK$RESET"
+USERNAME_PROMPT="$USERNAME_SECTION$USERNAME_BG_FOR_SHAPES$DIRECTORY_BG$PROMPT_ARROW$RESET"
+DIRECTORY_PROMPT="$DIRECTORY_SECTION"
+END="$RESET$DIRECTORY_BG_FOR_SHAPES$PROMPT_ARROW$RESET "
+
+PS1="$START$USERNAME_PROMPT$DIRECTORY_PROMPT$END"
 PS2=""
 
-#PS1="$DIR_FG[$USERNAME_FG\w$DIR_FG]$RESET-> "
+
+# Path
 
 export PATH=~/.cargo/bin:$PATH
 export PATH=~/.local/bin:$PATH
 
-# git aliases
+
+# aliases
+
 alias ga='git add .'
 alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
 
-# Welcome myself
-# cowsay -f /usr/share/cows/tux.cow "Hello, $USER" | lolcat
