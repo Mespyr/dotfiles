@@ -8,6 +8,7 @@ set tabstop=4
 set shiftwidth=0
 set expandtab
 
-" airline 
-let g:airline_theme = 'supernova'
-
+" lightline.vim theme
+let g:lightline = {
+            \'colorscheme': 'srcery_drk',
+            \}

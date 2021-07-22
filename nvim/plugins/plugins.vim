@@ -1,12 +1,7 @@
 " Plugins
 call plug#begin(stdpath('data') . '/plugged')
 
-" airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}    " Coc
 
 call plug#end()
