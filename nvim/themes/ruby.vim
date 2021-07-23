@@ -1,12 +1,8 @@
-" Name:       sunbather.vim
+" Name:       ruby.vim
 " Version:    0.1.0
-" Maintainer: github.com/nikolvs
-" License:    The MIT License (MIT)
+" Maintainer: github.com/Mespyr
 "
-" A minimal pink colorscheme for Vim.
-"
-" Forked from paramount:
-" https://github.com/owickstrom/vim-colors-paramount
+" A minimal dark-red colorscheme for Vim.
 "
 """
 hi clear
@@ -15,7 +11,7 @@ if exists('syntax on')
     syntax reset
 endif
 
-let g:colors_name='sunbather'
+let g:colors_name='ruby'
 
 let s:black           = { "gui": "#070A10", "cterm": "232" }
 let s:medium_gray     = { "gui": "#767676", "cterm": "243" }
@@ -28,7 +24,7 @@ let s:light_gray      = { "gui": "#A8A8A8", "cterm": "248" }
 let s:lighter_gray    = { "gui": "#C6C6C6", "cterm": "251" }
 let s:lightest_gray   = { "gui": "#EEEEEE", "cterm": "255" }
 let s:dark_pink       = { "gui": "#ff5f87", "cterm": "204" }
-let s:light_pink      = { "gui": "#d75f87", "cterm": "168" }
+let s:light_pink      = { "gui": "#AE5540", "cterm": "168" }
 let s:dark_red        = { "gui": "#C30771", "cterm": "1"   }
 let s:light_red       = { "gui": "#E32791", "cterm": "1"   }
 let s:orange          = { "gui": "#D75F5F", "cterm": "167" }

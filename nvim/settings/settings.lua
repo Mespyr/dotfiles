@@ -14,9 +14,4 @@ opt.tabstop = 4
 opt.shiftwidth = 0
 opt.expandtab = true
 
---[[
-" lightline.vim theme
-let g:lightline = {
-            \'colorscheme': 'srcery_drk',
-            \}
-]]--
+

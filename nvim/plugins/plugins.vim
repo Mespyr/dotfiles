@@ -1,8 +1,7 @@
-" Plugins
+" plugins
 call plug#begin(stdpath('data') . '/plugged')
 
-    " Plug 'itchyny/lightline.vim'                       " Lightline statusbar
     Plug 'neoclide/coc.nvim', {'branch': 'release'}    " Coc
+    Plug 'itchyny/lightline.vim'     " lightline 
 
 call plug#end()
-
