@@ -1,8 +1,8 @@
-# Config
-My config files.
+# Dotfiles
+My dotfiles.
 
-# Sources
-[My GTK Theme](https://github.com/Mespyr/ruby-dark-gtk-theme) and [The Vimix Icon Theme](https://github.com/vinceliuice/vimix-icon-theme)
+# GTK themes
+[My GTK Theme](https://github.com/Mespyr/ruby-dark-gtk-theme) and [the Vimix Icon Theme](https://github.com/vinceliuice/vimix-icon-theme)
 
 # Other Stuff
 Alacritty, Picom, Rofi, Neovim, lxappearance, [Wallpapers](wall/)
