@@ -1,7 +1,17 @@
 -- Settings
-
 local opt = vim.opt
 local g = vim.g
+
+vim.cmd [[
+
+    set nowrap
+    set nobackup
+    set nowritebackup
+    set noerrorbells
+    set noswapfile
+
+]]
+
 
 -- UI settings
 opt.number = true

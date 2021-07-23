@@ -10,5 +10,3 @@ endfor
 " tab line over
 nmap e 0i<Tab><esc>h^
 
-" move rest of line to next line
-nmap w ddp
