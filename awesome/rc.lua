@@ -403,7 +403,7 @@ globalkeys = mytable.join(
               {description = "run prompt", group = "launcher"}),
       
         -- Rofi Drun menu
-        awful.key({ modkey }, "e", function () os.execute("sh ~/.config/rofi/scripts/drun.sh") end,
+        awful.key({ modkey }, "w", function () os.execute("sh ~/.config/rofi/scripts/drun.sh") end,
               {description = "show main menu", group = "awesome"}),
 
 
