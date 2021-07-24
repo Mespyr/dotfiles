@@ -1,13 +1,4 @@
 
-configuration {
-    show-icons:                     false;
-    drun-display-format:            " {name}";
-    run-display-format:             " {name}";
-    disable-history:                false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
-}
-
 * {
     bg:                             #0E1319;
     fg:                             #FFEFE5;
@@ -19,19 +10,11 @@ configuration {
 }
 
 window {    
-    width:			    300px;
+    width:			                300px;
     margin:                         0px;
     border-radius:                  0px;
 }
 
-prompt {
-    enabled: 						true;
-	padding: 						5px 5px 5px 5px;
-    margin:                         0px;
-	background-color: 				@ac;
-	text-color: 					@fg;
-	font:							"Cascadia Code 10";
-}
 
 entry {
     background-color:               @alt-bg;
@@ -44,15 +27,6 @@ entry {
     blink:                          true;
 }
 
-inputbar {
-	children: 						[ prompt, entry ];
-    background-color:               @alt-bg;
-    text-color:                     @bg;
-    expand:                         false;
-	border:							0px;
-    margin:                         2px;
-    padding:                        0px;
-}
 
 listview {
     background-color:               @bg;

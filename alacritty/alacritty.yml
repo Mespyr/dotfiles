@@ -1,12 +1,9 @@
-#################################
-#         _  _                  #
-#        | V  \                 #
-#       |_/V\_\                 #
-#       Alacritty config        #
-#       github.com/Mespyr       #
-#                               #
-#################################
-
+#
+#
+#       Alacritty config       
+#       github.com/Mespyr       
+#
+#
 
 window:
   padding:

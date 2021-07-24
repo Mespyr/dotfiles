@@ -1,7 +1,5 @@
 --[[
-          _  _
-         | V  \
-        |_/V\_\
+
         Awesome WM theme config
         github.com/Mespyr
 

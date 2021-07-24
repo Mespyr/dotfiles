@@ -1,7 +1,5 @@
 --[[
-       _  _
-      | V  \
-     |_/V\_\
+
      Awesome WM config
      github.com/Mespyr
 
@@ -49,16 +47,6 @@ end
 
 
 
--- Autostart. This function will run once every time Awesome is started
-local function run_once(cmd_arr)
-    for _, cmd in ipairs(cmd_arr) do
-        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
-    end
-end
-
-run_once({ "~/.config/scripts/moniter.sh" }) -- Moniter setup
-
-
 -- Variables
 local modkey       = "Mod4"
 local altkey       = "Mod1"
@@ -69,14 +57,14 @@ local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
--- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  " }
+--awful.util.tagnames = { "  ", "  ", "  ", "  ", "  " }
 awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 
 awful.layout.layouts = {
-    awful.layout.suit.max,
     awful.layout.suit.tile,
-    -- awful.layout.suit.floating,
     awful.layout.suit.tile.left,
+    awful.layout.suit.max,
+    awful.layout.suit.floating,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
@@ -109,17 +97,19 @@ lain.layout.cascade.tile.ncol          = 2
 
 awful.util.taglist_buttons = mytable.join(
     awful.button({ }, 1, function(t) t:view_only() end),
-    awful.button({ modkey }, 1, function(t)
-        if client.focus then client.focus:move_to_tag(t) end
-    end),
-    awful.button({ }, 3, awful.tag.viewtoggle),
-    awful.button({ modkey }, 3, function(t)
-        if client.focus then client.focus:toggle_tag(t) end
-    end),
-    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+    --awful.button({ modkey }, 1, function(t)
+    --    if client.focus then client.focus:move_to_tag(t) end
+    --end),
+    awful.button({ }, 3, awful.tag.viewtoggle)
+    --awful.button({ modkey }, 3, function(t)
+    --    if client.focus then client.focus:toggle_tag(t) end
+    --end),
+    --awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
+    --awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
 
+
+--[[
 awful.util.tasklist_buttons = mytable.join(
      awful.button({ }, 1, function(c)
          if c == client.focus then
@@ -134,7 +124,7 @@ awful.util.tasklist_buttons = mytable.join(
      awful.button({ }, 4, function() awful.client.focus.byidx(1) end),
      awful.button({ }, 5, function() awful.client.focus.byidx(-1) end)
 )
-
+]]--
 beautiful.init(string.format("%s/.config/awesome/theme/theme.lua", os.getenv("HOME")))
 
 -- Menu
@@ -644,9 +634,20 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart
 
+-- This function will run once every time Awesome is started
+local function run_once(cmd_arr)
+    for _, cmd in ipairs(cmd_arr) do
+        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
+    end
+end
+
+-- Moniter setup
+run_once({ "~/.config/scripts/moniter.sh" }) 
+
+
 -- Disable caps lock
 os.execute('setxkbmap -option ctrl:nocaps')
 
--- run picom
+-- Picom
 os.execute('killall -q picom')
 awful.spawn.with_shell("picom")

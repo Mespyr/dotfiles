@@ -1,10 +1,6 @@
-"
-"        _  _                  
-"       | V  \                 
-"      |_/V\_\                
+"               
 "      Neovim config         
 "      github.com/Mespyr    
-"                           
 "
 
 
