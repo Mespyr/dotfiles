@@ -1,5 +1,7 @@
 --[[
-
+       _  _
+      | V  \
+     |_/V\_\
      Awesome WM config
      github.com/Mespyr
 
@@ -641,5 +643,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart
-
+os.execute('killall -q picom')
 awful.spawn.with_shell("picom")

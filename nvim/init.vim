@@ -1,3 +1,13 @@
+"
+"        _  _                  
+"       | V  \                 
+"      |_/V\_\                
+"      Neovim config         
+"      github.com/Mespyr    
+"                           
+"
+
+
 " Keybindings
 source $HOME/.config/nvim/keybindings/keybindings.vim
 

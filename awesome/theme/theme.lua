@@ -1,9 +1,11 @@
 --[[
+          _  _
+         | V  \
+        |_/V\_\
+        Awesome WM theme config
+        github.com/Mespyr
 
-    Theme for AwesomeWM
-    github.com/Mespyr
-
---]]
+-]]
 
 
 -- Imports
