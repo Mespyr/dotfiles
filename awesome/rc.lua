@@ -643,5 +643,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart
+
+-- Disable caps lock
+os.execute('setxkbmap -option ctrl:nocaps')
+
+-- run picom
 os.execute('killall -q picom')
 awful.spawn.with_shell("picom")
