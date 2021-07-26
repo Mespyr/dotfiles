@@ -1,4 +1,3 @@
 let g:lightline = {
-      \ 'colorscheme': 'material',
+      \ 'colorscheme': 'deus',
       \ }
-

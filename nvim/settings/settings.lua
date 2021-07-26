@@ -9,7 +9,7 @@ vim.cmd [[
     set nowritebackup
     set noerrorbells
     set noswapfile
-
+    set noshowmode
 ]]
 
 
@@ -23,5 +23,3 @@ opt.termguicolors = true
 opt.tabstop = 4
 opt.shiftwidth = 0
 opt.expandtab = true
-
-
