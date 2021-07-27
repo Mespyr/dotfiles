@@ -41,7 +41,7 @@ theme.widget_colors = {}
 theme.widget_colors.volume = theme.bg_normal
 theme.widget_colors.battery = theme.bg_normal
 theme.widget_colors.time_cal = theme.bg_normal
-theme.widget_colors.layoutbox = theme.bg_normal
+theme.widget_colors.layoutbox = theme.bg_focus 
 theme.widget_colors.power_btn = theme.bg_focus
 -- Borders
 theme.border_width = dpi(3)
@@ -380,10 +380,17 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            --add_margin(spr, "alpha"),
-            add_margin(spr, theme.bg_normal),
+                        add_margin(spr, theme.bg_normal),
             add_margin(s.mytaglist, theme.bg_normal),
             add_margin(spr, theme.bg_normal),
+            add_margin(spr, "alpha"),
+
+            add_margin(small_spr, theme.widget_colors.layoutbox),
+            add_margin(s.mylayoutbox, theme.widget_colors.layoutbox),
+            add_margin(small_spr, theme.widget_colors.layoutbox),
+            add_margin(spr, "alpha"),
+
+
         },
         add_margin(spr, "alpha"),
     	{ -- Right widgets
@@ -419,12 +426,7 @@ function theme.at_screen_connect(s)
 
             -- Layoutbox Widget 
             -- wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),
-            add_margin(small_spr, theme.widget_colors.layoutbox),
-            add_margin(s.mylayoutbox, theme.widget_colors.layoutbox),
-            add_margin(small_spr, theme.widget_colors.layoutbox),
-	    
-            -- Power Button
-            add_margin(spr, "alpha"),
+                       -- Power Button
 	        --add_margin(spr, theme.widget_colors.power_btn), 
 	        add_margin(power_button, theme.widget_colors.power_btn), 
 	        --add_margin(spr, theme.widget_colors.power_btn), 
