@@ -390,17 +390,17 @@ globalkeys = mytable.join(
 
 
     -- Menus 
-        -- Rofi Run menu 
-        awful.key({ modkey }, "r", function () os.execute("sh ~/.config/rofi/scripts/run.sh") end,
+        -- Run menu 
+        awful.key({ modkey }, "r", function () os.execute("sh ~/.config/scripts/run.sh") end,
               {description = "run prompt", group = "launcher"}),
       
         -- Rofi Drun menu
-        awful.key({ modkey }, "w", function () os.execute("sh ~/.config/rofi/scripts/drun.sh") end,
-              {description = "show main menu", group = "awesome"}),
+        -- awful.key({ modkey }, "w", function () os.execute("sh ~/.config/rofi/scripts/drun.sh") end,
+        --       {description = "show main menu", group = "awesome"}),
 
 
         -- Power Menu
-        awful.key({ modkey }, "q", function () os.execute("bash ~/.config/rofi/scripts/powermenu.sh") end,
+        awful.key({ modkey }, "q", function () os.execute("bash ~/.config/scripts/powermenu.sh") end,
               {description = "power menu", group = "launcher"})
 )
 

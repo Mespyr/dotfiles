@@ -5,7 +5,7 @@ My dotfiles.
 [My GTK Theme](https://github.com/Mespyr/ruby-dark-gtk-theme) and [the Vimix Icon Theme](https://github.com/vinceliuice/vimix-icon-theme)
 
 # Other Stuff
-Alacritty, Picom, Rofi, Neovim, lxappearance, [Wallpapers](wall/)
+Alacritty, Picom, [dmenu](https://github.com/Mespyr/dmenu), Neovim, lxappearance, [Wallpapers](wall/)
 
 
 # Neovim packages 
