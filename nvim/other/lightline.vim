@@ -1,3 +1,3 @@
 let g:lightline = {
-      \ 'colorscheme': 'ayu_dark',
+      \ 'colorscheme': 'deus',
       \ }

@@ -18,7 +18,7 @@ fi
 
 COPY alacritty ~/.config/
 COPY awesome ~/.config/
-COPY rofi ~/.config/
+#COPY rofi ~/.config/
 COPY .bashrc ~/ 
 COPY picom.conf ~/.config/
 COPY nvim ~/.config/

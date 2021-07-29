@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-rofi_command="dmenu"
+rofi_command="dmenu -p power"
 
 # Options
 shutdown="Shutdown"
