@@ -50,7 +50,7 @@ theme.border_focus = theme.bg_focus
 -- Panel
 theme.panel_height = dpi(25)
 theme.panel_margin = dpi(5)
-theme.panel_width = dpi(1366 - (theme.panel_margin * 2))   -- for 720p screens
+theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
 -- Menu
 theme.menu_height = dpi(23)
 theme.menu_width = dpi(130)
@@ -275,7 +275,7 @@ local power_button = wibox.widget{
 	widget = wibox.container.background
 }
 power_button:connect_signal("button::press", function(c, _, _, button) 
-	if button == 1 then os.execute('sh ~/.config/rofi/scripts/powermenu.sh') end
+	if button == 1 then os.execute('sh ~/.config/scripts/powermenu.sh') end
 end)
 
 function theme.at_screen_connect(s)
