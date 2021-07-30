@@ -21,7 +21,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.png"
+theme.wallpaper = theme.dir .. "/wall.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
@@ -41,7 +41,7 @@ theme.widget_colors = {}
 theme.widget_colors.volume = theme.bg_normal
 theme.widget_colors.battery = theme.bg_normal
 theme.widget_colors.time_cal = theme.bg_normal
-theme.widget_colors.layoutbox = theme.bg_focus 
+theme.widget_colors.layoutbox = theme.bg_normal
 theme.widget_colors.power_btn = theme.bg_focus
 -- Borders
 theme.border_width = dpi(3)
@@ -304,7 +304,7 @@ function theme.at_screen_connect(s)
                            awful.button({}, 4, function () awful.layout.inc( 1) end),
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
 
-    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, 1, 1, 1, 1)
+    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, 2, 2, 2, 2)
     
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
@@ -378,13 +378,13 @@ function theme.at_screen_connect(s)
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        { -- Left widgets
+        { -- Left widgets 
             layout = wibox.layout.fixed.horizontal,
-                        add_margin(spr, theme.bg_normal),
+            add_margin(spr, theme.bg_normal),
             add_margin(s.mytaglist, theme.bg_normal),
             add_margin(spr, theme.bg_normal),
             add_margin(spr, "alpha"),
-
+ 
             add_margin(small_spr, theme.widget_colors.layoutbox),
             add_margin(s.mylayoutbox, theme.widget_colors.layoutbox),
             add_margin(small_spr, theme.widget_colors.layoutbox),
