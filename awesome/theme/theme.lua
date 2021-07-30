@@ -21,7 +21,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.jpg"
+theme.wallpaper = theme.dir .. "/wall.jpeg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
@@ -29,9 +29,11 @@ theme.font = theme.font_name .. " 9"
 theme.useless_gap = dpi(5)
 -- Colors
 theme.fg_normal = "#FFEFE5"
-theme.fg_focus = "#0E1319"
-theme.bg_normal = "#0E1319"
+theme.fg_focus = "#070A10"
+theme.bg_normal = "#070A10"
 theme.bg_focus = "#AE5540"
+-- #0E1319
+
 -- Foreground Text Colors
 -- theme.fg_colors = {}
 -- theme.fg_colors.aqua = "#689d6a"
@@ -45,7 +47,7 @@ theme.widget_colors.layoutbox = theme.bg_normal
 theme.widget_colors.power_btn = theme.bg_focus
 -- Borders
 theme.border_width = dpi(3)
-theme.border_normal = theme.bg_normal
+theme.border_normal = "#0E1319"
 theme.border_focus = theme.bg_focus
 -- Panel
 theme.panel_height = dpi(25)

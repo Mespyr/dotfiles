@@ -394,9 +394,9 @@ globalkeys = mytable.join(
         awful.key({ modkey }, "r", function () os.execute("sh ~/.config/scripts/run.sh") end,
               {description = "run prompt", group = "launcher"}),
       
-        -- Rofi Drun menu
-        -- awful.key({ modkey }, "w", function () os.execute("sh ~/.config/rofi/scripts/drun.sh") end,
-        --       {description = "show main menu", group = "awesome"}),
+        -- bookmarks menu
+        awful.key({ modkey }, "w", function () os.execute("sh ~/.config/scripts/bookmarks.sh") end,
+              {description = "show bookmarked applications", group = "awesome"}),
 
 
         -- Power Menu
