@@ -425,6 +425,7 @@ function theme.at_screen_connect(s)
             add_margin(spr, theme.widget_colors.time_cal),
             add_margin(spr, theme.widget_colors.time_cal),
             add_margin(spr, "alpha"),
+            add_margin(spr, "alpha"),
 
             -- Layoutbox Widget 
             -- wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),

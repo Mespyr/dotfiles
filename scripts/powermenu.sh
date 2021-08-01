@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-rofi_command="dmenu -p power"
+command="dmenu -p power"
 
 # Options
-shutdown="Shutdown"
-reboot="Reboot"
-lock="Lock"
-suspend="Suspend"
-logout="Logout"
+shutdown=" Shutdown "
+reboot=" Reboot "
+lock=" Lock "
+suspend=" Suspend "
+logout=" Logout "
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | $rofi_command )"
+chosen="$(echo -e "$options" | $command )"
 case $chosen in
     $shutdown)
         poweroff
