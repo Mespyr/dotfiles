@@ -1,4 +1,6 @@
 pulseaudio
 pavucontrol
 nm-connection-editor
-neovim
+discord
+exa
+bat
