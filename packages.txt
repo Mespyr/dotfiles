@@ -1,0 +1,6 @@
+# packages i might need not listed in README
+
+pulseaudio
+pavucontrol
+nm-connection-editor
+neovim
