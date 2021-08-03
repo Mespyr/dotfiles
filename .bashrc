@@ -145,3 +145,5 @@ alias autoremove='sudo pacman -Rsn $(pacman -Qdtq)'
 
 alias ls="exa -lahb -s type"
 alias cat="bat"
+
+alias v="nvim"
