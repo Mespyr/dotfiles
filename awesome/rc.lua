@@ -242,7 +242,7 @@ globalkeys = mytable.join(
 
 
     -- Show/hide wibox
-    awful.key({ modkey }, "b", function ()
+    awful.key({ modkey }, "t", function ()
             for s in screen do
                 s.mywibox.visible = not s.mywibox.visible
                 if s.mybottomwibox then

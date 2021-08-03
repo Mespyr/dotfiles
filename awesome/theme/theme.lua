@@ -315,7 +315,6 @@ function theme.at_screen_connect(s)
         buttons = awful.util.taglist_buttons,
         style   = {
             shape = gears.shape.rectangle, 
-            -- font = theme.font_name .. " 16"
         },
     }
 
@@ -401,7 +400,7 @@ function theme.at_screen_connect(s)
             -- Volume Widget
             -- wibox.container.margin(alpha_to_volume_arrow, 0, 0, theme.panel_margin, 0), 
             add_margin(spr, theme.widget_colors.volume),
-            add_margin(volicon, theme.widget_colors.volume),
+            add_margin(wibox.container.margin(volicon, 4, 0, 4, 4), theme.widget_colors.volume),
             add_margin(theme.volume.widget, theme.widget_colors.volume),
             add_margin(spr, theme.widget_colors.volume),
             add_margin(spr, "alpha"),
