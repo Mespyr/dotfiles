@@ -313,7 +313,7 @@ function theme.at_screen_connect(s)
         buttons = awful.util.taglist_buttons,
         style   = {
             shape = rounded_shape(theme.widget_border_radius),
-            spacing = 10,
+            spacing = 7,
         },
     }
 
