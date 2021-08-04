@@ -7,8 +7,8 @@
 
 window:
   padding:
-    x: 7
-    y: 7
+    x: 3
+    y: 3
 scrolling:
   history: 10000
   multiplier: 3

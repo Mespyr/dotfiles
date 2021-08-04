@@ -6,7 +6,7 @@
 -]]
 
 
--- Imports
+-- ##################### Imports ###############################################################################
 local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
@@ -15,9 +15,12 @@ local dpi   = require("beautiful.xresources").apply_dpi
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
+-- #############################################################################################################
 
 
--- Theme
+
+
+-- ######################## Theme ##############################################################################
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
@@ -33,11 +36,6 @@ theme.fg_focus = "#070A10"
 theme.bg_normal = "#070A10"
 theme.bg_focus = "#AE5540"
 -- #0E1319
-
--- Foreground Text Colors
--- theme.fg_colors = {}
--- theme.fg_colors.aqua = "#689d6a"
--- theme.fg_colors.blue = "#458588"
 -- Panel Widget Colors
 theme.widget_colors = {}
 theme.widget_colors.volume = theme.bg_normal
@@ -51,8 +49,9 @@ theme.border_normal = "#0E1319"
 theme.border_focus = theme.bg_focus
 -- Panel
 theme.panel_height = dpi(25)
-theme.panel_margin = dpi(5)
+theme.panel_margin = dpi(7)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
+theme.widget_border_radius = dpi(5)
 -- Menu
 theme.menu_height = dpi(23)
 theme.menu_width = dpi(130)
@@ -93,12 +92,39 @@ theme.widget_power_btn                          = theme.dir .. "/icons/power.png
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
+-- #############################################################################################################
 
 
 
--- Widgets
+
+-- ######################## Util ###############################################################################
+local rounded_shape = function(radius)
+    return function(cr, width, height)
+        gears.shape.rounded_rect(cr, width, height, radius)
+    end
+end
+
+local add_styling = function(widget, bg)
+    return wibox.container.margin(
+        wibox.container.background(
+            widget,
+            bg,
+            rounded_shape(theme.widget_border_radius)
+        ),
+        0, 0, theme.panel_margin, 0 --theme.panel_margin
+    )
+end
+-- #############################################################################################################
+
+
+
+
+-- ############################## Widgets ######################################################################
 local markup = lain.util.markup
 local separators = lain.util.separators
+
+local spr = wibox.widget.textbox('  ')
+local small_spr = wibox.widget.textbox(' ')
 
 -- Textclock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
@@ -108,6 +134,16 @@ local clock = awful.widget.watch(
         widget:set_markup(" " .. markup.font(theme.font, stdout))
     end
 )
+local clock = wibox.widget{
+	{
+        layout = wibox.layout.fixed.horizontal,
+        spr,
+        clock,
+        spr,
+        spr,
+    },
+	widget = wibox.container.background
+}
 
 -- Calendar
 theme.cal = lain.widget.cal({
@@ -118,48 +154,6 @@ theme.cal = lain.widget.cal({
         bg   = theme.bg_normal
     }
 })
-
--- -- MPD
--- local musicplr = awful.util.terminal .. " -e ncmpcpp"
--- local mpdicon = wibox.widget.imagebox(theme.widget_music)
--- mpdicon:buttons(
---     my_table.join(
---         awful.button({ modkey }, 1, 
---             function() 
---                 awful.spawn.with_shell(musicplr) 
---             end),
---         awful.button({ }, 1, 
---             function()
---                 os.execute("mpc prev")
---                 theme.mpd.update()
---             end),
---         awful.button({ }, 2, 
---             function()
---                 os.execute("mpc toggle")
---                 theme.mpd.update()
---             end),
---         awful.button({ }, 3, 
---             function ()
---                 os.execute("mpc next")
---                 theme.mpd.update()
---             end)))
--- theme.mpd = lain.widget.mpd({
---     settings = function()
---         if mpd_now.state == "play" then
---             artist = " " .. mpd_now.artist .. " "
---             title  = mpd_now.title  .. " "
---             mpdicon:set_image(theme.widget_music_on)
---         elseif mpd_now.state == "pause" then
---             artist = " mpd "
---             title  = "paused "
---         else
---             artist = ""
---             title  = ""
---             mpdicon:set_image(theme.widget_music)
---         end
-
---         widget:set_markup(markup.font(theme.font, markup("#EA6F81", artist) .. title))
---     end})
 
 -- -- MEM
 -- local memicon = wibox.widget.imagebox(theme.widget_mem)
@@ -202,6 +196,16 @@ local bat = lain.widget.bat({
             baticon.widget:set_image(theme.widget_ac)
         end
     end})
+local bat = wibox.widget{
+	{
+        layout = wibox.layout.fixed.horizontal,
+        spr,
+        baticon,
+        bat,
+        spr,
+    },
+	widget = wibox.container.background
+}
 
 -- ALSA volume
 local volicon = wibox.widget.imagebox(theme.widget_vol)
@@ -231,33 +235,16 @@ theme.volume.widget:buttons(
                     awful.util.spawn("amixer set Master 1%-")
                     theme.volume.update()
             end)))
-
--- -- Net
--- local neticon = wibox.widget.imagebox(theme.widget_net)
--- local net = lain.widget.net({
---     settings = function()
---         widget:set_markup(
---             markup.font(theme.font,
---                 markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.received))
---                     .. " " ..
---                 markup(theme.fg_normal, " " .. string.format("%06.1f", net_now.sent) .. " ")))
---     end})
-
--- local power_menu = wibox.widget.textbox('@')
--- power_menu.widget:buttons(
---     awful.util.table.join(
---         awful.button({}, 1, 
---             function()
---                 os.execute("bash ~/.config/rofi/scripts/powermenu.sh")
---             end),
---         awful.button({}, 2, 
---             function()
---                 os.execute("bash ~/.config/rofi/scripts/powermenu.sh")
---             end)
---         ))
-
-local spr = wibox.widget.textbox('  ')
-local small_spr = wibox.widget.textbox(' ')
+local volume = wibox.widget {
+	{
+        layout = wibox.layout.fixed.horizontal,
+        spr,
+        wibox.container.margin(volicon, 4, 0, 4, 4),
+        theme.volume,
+        spr,
+    },
+	widget = wibox.container.background
+}
 
 -- power menu
 local power_button = wibox.widget{
@@ -276,14 +263,16 @@ local power_button = wibox.widget{
     },
 	widget = wibox.container.background
 }
+
 power_button:connect_signal("button::press", function(c, _, _, button) 
 	if button == 1 then os.execute('sh ~/.config/scripts/powermenu.sh') end
 end)
+-- #############################################################################################################
 
+
+
+-- screen
 function theme.at_screen_connect(s)
-    -- Quake application
-    s.quake = lain.util.quake({ app = awful.util.terminal })
-
     -- If wallpaper is a function, call it with the screen
     local wallpaper = theme.wallpaper
     if type(wallpaper) == "function" then
@@ -294,10 +283,7 @@ function theme.at_screen_connect(s)
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
 
-    -- Create a promptbox for each screen
-    -- s.mypromptbox = awful.widget.prompt()
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
+    -- layout box
     s.mylayoutbox = awful.widget.layoutbox(s)
     s.mylayoutbox:buttons(my_table.join(
                            awful.button({}, 1, function () awful.layout.inc( 1) end),
@@ -306,15 +292,24 @@ function theme.at_screen_connect(s)
                            awful.button({}, 4, function () awful.layout.inc( 1) end),
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
 
-    s.mylayoutbox = wibox.container.margin(s.mylayoutbox, 2, 2, 2, 2)
-    
+    s.mylayoutbox = wibox.widget {
+    	{
+            layout = wibox.layout.fixed.horizontal,
+            spr,
+            wibox.container.margin(s.mylayoutbox, 2, 2, 2, 2),
+            spr,
+        },
+    	widget = wibox.container.background
+    }    
+
+
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         style   = {
-            shape = gears.shape.rectangle, 
+            shape = rounded_shape(5)
         },
     }
 
@@ -358,81 +353,37 @@ function theme.at_screen_connect(s)
         fg = theme.fg_normal,
     }
 
-    -- local curved_spr = wibox.widget {
-    --     shape  = gears.shape.rounded_rect,
-    --     widget = wibox.widget.separator,
-    --     color = theme.bg_normal
-    -- }
 
-    local add_margin = function(widget, bg)
-        return wibox.container.margin(
-            wibox.container.background(
-                widget, 
-                bg
-            ), 
-            0, 0, theme.panel_margin,0 --theme.panel_margin
-        )
-    end
-
-
-
-    -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets 
             layout = wibox.layout.fixed.horizontal,
-            add_margin(spr, theme.bg_normal),
-            add_margin(s.mytaglist, theme.bg_normal),
-            add_margin(spr, theme.bg_normal),
-            add_margin(spr, "alpha"),
- 
-            add_margin(small_spr, theme.widget_colors.layoutbox),
-            add_margin(s.mylayoutbox, theme.widget_colors.layoutbox),
-            add_margin(small_spr, theme.widget_colors.layoutbox),
-            add_margin(spr, "alpha"),
 
+            add_styling(s.mytaglist, theme.bg_normal),
+            
+            spr,
 
+            add_styling (s.mylayoutbox, theme.widget_colors.layoutbox),
         },
-        add_margin(spr, "alpha"),
+        spr,
     	{ -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 
             -- Volume Widget
-            -- wibox.container.margin(alpha_to_volume_arrow, 0, 0, theme.panel_margin, 0), 
-            add_margin(spr, theme.widget_colors.volume),
-            add_margin(wibox.container.margin(volicon, 4, 0, 4, 4), theme.widget_colors.volume),
-            add_margin(theme.volume.widget, theme.widget_colors.volume),
-            add_margin(spr, theme.widget_colors.volume),
-            add_margin(spr, "alpha"),
+            add_styling (volume, theme.widget_colors.volume),
+            spr,
 
             -- Battery Widget
-            -- wibox.container.margin(volume_to_battery_arrow, 0, 0, theme.panel_margin, 0),
-            add_margin(spr, theme.widget_colors.battery),
-            add_margin(baticon, theme.widget_colors.battery),
-            add_margin(bat.widget, theme.widget_colors.battery),
-            add_margin(spr, theme.widget_colors.battery),
-            add_margin(spr, "alpha"),
-            
+            add_styling (bat, theme.widget_colors.battery),
+            spr, 
 
             -- Time/Calander Widget
-            -- wibox.container.margin(battery_to_time_cal_arrow, 0, 0, theme.panel_margin, 0),
-            -- wibox.container.margin(wibox.container.background(clockicon, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
-            -- wibox.container.margin(wibox.container.background(clock, theme.widget_colors.time_cal), 0, 0, theme.panel_margin, 0),
-            add_margin(spr, theme.widget_colors.time_cal),
-            add_margin(clockicon, theme.widget_colors.time_cal),
-            add_margin(clock, theme.widget_colors.time_cal),
-            add_margin(spr, theme.widget_colors.time_cal),
-            add_margin(spr, theme.widget_colors.time_cal),
-            add_margin(spr, "alpha"),
-            add_margin(spr, "alpha"),
+            add_styling (clock, theme.widget_colors.time_cal),
+            spr,
+            spr,
 
             -- Layoutbox Widget 
-            -- wibox.container.margin(time_cal_to_layoutbox_arrow, 0, 0, theme.panel_margin, 0),
-                       -- Power Button
-	        --add_margin(spr, theme.widget_colors.power_btn), 
-	        add_margin(power_button, theme.widget_colors.power_btn), 
-	        --add_margin(spr, theme.widget_colors.power_btn), 
-	        --add_margin(spr, "alpha")
+	        add_styling (power_button, theme.widget_colors.power_btn), 
         }
     }
 end
