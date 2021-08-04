@@ -1,6 +1,6 @@
 -- Settings
 local opt = vim.opt
-local g = vim.g
+--local g = vim.g
 
 vim.cmd [[
 
@@ -10,12 +10,19 @@ vim.cmd [[
     set noerrorbells
     set noswapfile
     set noshowmode
+    set autoindent
+    set smartindent
+    set ignorecase
+    set smartcase
+    set cursorline
+
+    syntax on
 ]]
 
 
 -- UI settings
 opt.number = true
-opt.numberwidth = 4 
+opt.numberwidth = 4
 opt.cursorline = true
 opt.termguicolors = true
 

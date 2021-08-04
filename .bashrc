@@ -147,3 +147,4 @@ alias ls="exa -lahb -s type"
 alias cat="bat"
 
 alias v="nvim"
+alias py="python3"

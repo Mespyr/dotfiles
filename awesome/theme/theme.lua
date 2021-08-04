@@ -7,6 +7,7 @@
 
 
 -- ##################### Imports ###############################################################################
+
 local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
@@ -15,12 +16,14 @@ local dpi   = require("beautiful.xresources").apply_dpi
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
+
 -- #############################################################################################################
 
 
 
 
 -- ######################## Theme ##############################################################################
+
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
@@ -92,6 +95,7 @@ theme.widget_power_btn                          = theme.dir .. "/icons/power.png
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
+
 -- #############################################################################################################
 
 
@@ -121,14 +125,13 @@ end
 
 -- ############################## Widgets ######################################################################
 local markup = lain.util.markup
-local separators = lain.util.separators
+-- local separators = lain.util.separators
 
 local spr = wibox.widget.textbox('  ')
-local small_spr = wibox.widget.textbox(' ')
+-- local small_spr = wibox.widget.textbox(' ')
 
 -- Textclock
-local clockicon = wibox.widget.imagebox(theme.widget_clock)
-local clock = awful.widget.watch(
+local clocktext = awful.widget.watch(
     "date +'%a %d %b %R'", 60,
     function(widget, stdout)
         widget:set_markup(" " .. markup.font(theme.font, stdout))
@@ -138,7 +141,7 @@ local clock = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        clock,
+        clocktext,
         spr,
         spr,
     },
@@ -178,7 +181,7 @@ local baticon = wibox.widget {
 	margins = 4,
 	widget = wibox.container.margin,
 }
-local bat = lain.widget.bat({
+local battery = lain.widget.bat({
     settings = function()
         if bat_now.status and bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
@@ -201,7 +204,7 @@ local bat = wibox.widget{
         layout = wibox.layout.fixed.horizontal,
         spr,
         baticon,
-        bat,
+        battery,
         spr,
     },
 	widget = wibox.container.background
@@ -225,12 +228,12 @@ theme.volume = lain.widget.alsa({
     end})
 theme.volume.widget:buttons(
     awful.util.table.join(
-        awful.button({}, 4, 
+        awful.button({}, 4,
             function()
                 awful.util.spawn("amixer set Master 1%+")
                 theme.volume.update()
             end),
-        awful.button({}, 5, 
+        awful.button({}, 5,
             function()
                     awful.util.spawn("amixer set Master 1%-")
                     theme.volume.update()
@@ -254,7 +257,7 @@ local power_button = wibox.widget{
         {
     		{
     			widget = wibox.widget.imagebox,
-    			image = theme.widget_power_btn,	
+    			image = theme.widget_power_btn,
     		},
     		widget = wibox.container.margin,
     		margins = 7
@@ -264,7 +267,7 @@ local power_button = wibox.widget{
 	widget = wibox.container.background
 }
 
-power_button:connect_signal("button::press", function(c, _, _, button) 
+power_button:connect_signal("button::press", function(c, _, _, button)
 	if button == 1 then os.execute('sh ~/.config/scripts/powermenu.sh') end
 end)
 -- #############################################################################################################
@@ -296,11 +299,11 @@ function theme.at_screen_connect(s)
     	{
             layout = wibox.layout.fixed.horizontal,
             spr,
-            wibox.container.margin(s.mylayoutbox, 2, 2, 2, 2),
+            wibox.container.margin(s.mylayoutbox, 3, 3, 3, 3),
             spr,
         },
     	widget = wibox.container.background
-    }    
+    }
 
 
     -- Create a taglist widget
@@ -309,14 +312,28 @@ function theme.at_screen_connect(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         style   = {
-            shape = rounded_shape(5)
+            shape = rounded_shape(theme.widget_border_radius),
+            spacing = 10,
         },
     }
 
+    s.mytaglist = wibox.widget {
+    	{
+            layout = wibox.layout.fixed.horizontal,
+            spr,
+            spr,
+            s.mytaglist,
+            spr,
+            spr,
+        },
+    	widget = wibox.container.background
+    }
+
+
     -- Create a tasklist widget
     	-- s.mytasklist = awful.widget.tasklist {
-    	--    screen  = s, 
-    	--     filter  = awful.widget.tasklist.filter.currenttags, 
+    	--    screen  = s,
+    	--     filter  = awful.widget.tasklist.filter.currenttags,
     	--     buttons = awful.util.tasklist_buttons,
 
     	--     style = {
@@ -344,23 +361,24 @@ function theme.at_screen_connect(s)
 
 
     -- Create the wibox
-    s.mywibox = awful.wibar { 
-        position = "top", 
-        screen = s, 
-        height = theme.panel_height + theme.panel_margin, 
+    s.mywibox = awful.wibar {
+        position = "top",
+        screen = s,
+        height = theme.panel_height + theme.panel_margin,
        	width = theme.panel_width,
-        bg = "alpha", 
+        bg = "alpha",
         fg = theme.fg_normal,
     }
 
 
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        { -- Left widgets 
+        { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
 
             add_styling(s.mytaglist, theme.bg_normal),
-            
+
+            spr,
             spr,
 
             add_styling (s.mylayoutbox, theme.widget_colors.layoutbox),
@@ -375,15 +393,15 @@ function theme.at_screen_connect(s)
 
             -- Battery Widget
             add_styling (bat, theme.widget_colors.battery),
-            spr, 
+            spr,
 
             -- Time/Calander Widget
             add_styling (clock, theme.widget_colors.time_cal),
             spr,
             spr,
 
-            -- Layoutbox Widget 
-	        add_styling (power_button, theme.widget_colors.power_btn), 
+            -- Layoutbox Widget
+	        add_styling (power_button, theme.widget_colors.power_btn),
         }
     }
 end
