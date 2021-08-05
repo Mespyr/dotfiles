@@ -32,7 +32,7 @@ theme.wallpaper = theme.dir .. "/wall.jpeg"
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
 -- useless gap
-theme.useless_gap = dpi(5)
+theme.useless_gap = dpi(7)
 -- Colors
 theme.fg_normal = "#FFEFE5"
 theme.fg_focus = "#070A10"
@@ -313,7 +313,7 @@ function theme.at_screen_connect(s)
         buttons = awful.util.taglist_buttons,
         style   = {
             shape = rounded_shape(theme.widget_border_radius),
-            spacing = 7,
+            spacing = 6,
         },
     }
 
