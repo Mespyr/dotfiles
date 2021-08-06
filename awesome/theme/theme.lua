@@ -27,7 +27,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.jpeg"
+theme.wallpaper = theme.dir .. "/wall.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
@@ -379,13 +379,14 @@ function theme.at_screen_connect(s)
             add_styling(s.mytaglist, theme.bg_normal),
 
             spr,
-            spr,
 
             add_styling (s.mylayoutbox, theme.widget_colors.layoutbox),
         },
         spr,
     	{ -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            add_styling (clock, theme.widget_colors.time_cal),
+            spr,
 
             -- Volume Widget
             add_styling (volume, theme.widget_colors.volume),
@@ -396,8 +397,6 @@ function theme.at_screen_connect(s)
             spr,
 
             -- Time/Calander Widget
-            add_styling (clock, theme.widget_colors.time_cal),
-            spr,
             spr,
 
             -- Layoutbox Widget
