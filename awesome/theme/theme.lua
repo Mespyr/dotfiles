@@ -128,7 +128,7 @@ local markup = lain.util.markup
 -- local separators = lain.util.separators
 
 local spr = wibox.widget.textbox('  ')
--- local small_spr = wibox.widget.textbox(' ')
+local small_spr = wibox.widget.textbox(' ')
 
 -- Textclock
 local clocktext = awful.widget.watch(
@@ -298,9 +298,9 @@ function theme.at_screen_connect(s)
     s.mylayoutbox = wibox.widget {
     	{
             layout = wibox.layout.fixed.horizontal,
-            spr,
+            small_spr,
             wibox.container.margin(s.mylayoutbox, 3, 3, 3, 3),
-            spr,
+            small_spr,
         },
     	widget = wibox.container.background
     }

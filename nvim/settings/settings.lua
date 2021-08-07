@@ -1,6 +1,17 @@
 -- Settings
 local opt = vim.opt
---local g = vim.g
+local g = vim.g
+
+-- UI settings
+opt.number = true
+opt.numberwidth = 4
+opt.cursorline = true
+opt.termguicolors = true
+
+-- tab size
+opt.tabstop = 4
+opt.shiftwidth = 0
+opt.expandtab = true
 
 vim.cmd [[
 
@@ -15,18 +26,7 @@ vim.cmd [[
     set ignorecase
     set smartcase
     set cursorline
-
+    
     syntax on
+    colorscheme onedark
 ]]
-
-
--- UI settings
-opt.number = true
-opt.numberwidth = 4
-opt.cursorline = true
-opt.termguicolors = true
-
--- tab size
-opt.tabstop = 4
-opt.shiftwidth = 0
-opt.expandtab = true

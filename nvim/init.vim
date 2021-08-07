@@ -3,17 +3,16 @@
 "      github.com/Mespyr    
 "
 
+
 " Keybindings
-source $HOME/.config/nvim/keybindings/keybindings.vim
+source $HOME/.config/nvim/keybindings.vim
 
 " Plugins and settings
-source $HOME/.config/nvim/plugins/plugins.vim
+source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/settings/settings.lua
 
 " Theme
-source $HOME/.config/nvim/themes/ruby.vim
-source $HOME/.config/nvim/other/lightline.vim 
-
+source $HOME/.config/nvim/settings/statusline.lua
 
 " Lazyloading stuff
 lua << EOF
