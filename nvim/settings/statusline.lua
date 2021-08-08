@@ -82,7 +82,7 @@ section.left[2] = {
         t = nord_colors.red
       }
       cmd("hi GalaxyViMode guifg=" .. mode_color[fn.mode()])
-      return "    "
+      return "  "
     end,
     highlight = {nord_colors.red, nord_colors.line_bg, "bold"}
   }

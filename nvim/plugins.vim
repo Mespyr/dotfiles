@@ -1,13 +1,15 @@
 " plugins
 call plug#begin(stdpath('data') . '/plugged')
 
-    " Plug 'itchyny/lightline.vim'                                  " lightline 
+    " theming stuff
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-    Plug 'kyazdani42/nvim-web-devicons' " lua
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'Mespyr/onedark.vim'
 
+    " coding stuff
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}   " treesitter
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe' 
-    Plug 'Mespyr/onedark.vim'
+    Plug 'tpope/vim-commentary'
 
 call plug#end()

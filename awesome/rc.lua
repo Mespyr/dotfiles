@@ -11,11 +11,11 @@ pcall(require, "luarocks.loader")
 local gears         = require("gears")
 local awful         = require("awful")
                       require("awful.autofocus")
-local wibox         = require("wibox")
+--local wibox         = require("wibox")
 local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 local lain          = require("lain")
-local menubar       = require("menubar")
+--local menubar       = require("menubar")
 local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
@@ -51,10 +51,10 @@ end
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
-local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
+-- local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
-local browser      = "firefox"
+-- local browser      = "firefox"
 
 awful.util.terminal = terminal
 --awful.util.tagnames = { "  ", "  ", "  ", "  ", "  " }
@@ -63,8 +63,8 @@ awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
+    -- awful.layout.suit.floating,
     awful.layout.suit.max,
-    awful.layout.suit.floating,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     --awful.layout.suit.fair,

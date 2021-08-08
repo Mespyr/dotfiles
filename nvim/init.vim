@@ -11,7 +11,7 @@ source $HOME/.config/nvim/keybindings.vim
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/settings/settings.lua
 
-" Theme
+" statusline
 source $HOME/.config/nvim/settings/statusline.lua
 
 " Lazyloading stuff
