@@ -101,8 +101,6 @@ fi
 # Bash Prompt
 
 # prompt shapes 
-PROMPT_ARROW=
-PROMPT_ARROW_BACK=
 
 # prompt colors
 RESET="\e[0m"
@@ -115,26 +113,29 @@ USERNAME_BG="\[\033[43m\]"
 USERNAME_BG_FOR_SHAPES="\e[1;33m"
 
 # prompt sections
-USERNAME_SECTION="$USERNAME_BG$FONT_FG \u "
-DIRECTORY_SECTION="$DIRECTORY_BG$FONT_FG \w "
+USERNAME_SECTION="$USERNAME_BG$FONT_FG  \u  "
+DIRECTORY_SECTION="$DIRECTORY_BG$FONT_FG  \w  "
 
-START="$USERNAME_BG_FOR_SHAPES$PROMPT_ARROW_BACK$RESET"
-USERNAME_PROMPT="$USERNAME_SECTION$USERNAME_BG_FOR_SHAPES$DIRECTORY_BG$PROMPT_ARROW$RESET"
+START="$USERNAME_BG_FOR_SHAPES$RESET"
+
+USERNAME_PROMPT="$USERNAME_SECTION$USERNAME_BG_FOR_SHAPES$DIRECTORY_BG$RESET"
 DIRECTORY_PROMPT="$DIRECTORY_SECTION"
-END="$RESET$DIRECTORY_BG_FOR_SHAPES$PROMPT_ARROW$RESET "
+
+END="$RESET$DIRECTORY_BG_FOR_SHAPES$RESET "
 
 PS1="$START$USERNAME_PROMPT$DIRECTORY_PROMPT$END"
 PS2=""
 
+# PS1="\e[1;31m┌[\w]\n└ \e[0m"
+
 
 # Path
-
 export PATH=~/.cargo/bin:$PATH
 export PATH=~/.local/bin:$PATH
 
 
-# aliases
 
+# aliases
 alias ga='git add .'
 alias gs='git status'
 alias gc='git commit -m'
@@ -144,6 +145,7 @@ alias autoremove='sudo pacman -Rsn $(pacman -Qdtq)'
 
 alias ls="exa -lahb -s type"
 alias cat="bat"
+alias rm="rm -i"
 
 alias v="nvim"
 alias py="python3"
