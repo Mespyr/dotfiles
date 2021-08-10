@@ -7,7 +7,6 @@
 
 
 -- ##################### Imports ###############################################################################
-
 local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
@@ -16,18 +15,15 @@ local dpi   = require("beautiful.xresources").apply_dpi
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
-
 -- #############################################################################################################
 
 
 
-
 -- ######################## Theme ##############################################################################
-
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/theme"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.jpg"
+theme.wallpaper = theme.dir .. "/wall2.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
@@ -95,9 +91,7 @@ theme.widget_power_btn                          = theme.dir .. "/icons/power.png
 
 theme.tasklist_plain_task_name = true
 theme.tasklist_disable_icon = true
-
 -- #############################################################################################################
-
 
 
 
@@ -395,8 +389,6 @@ function theme.at_screen_connect(s)
             -- Battery Widget
             add_styling (bat, theme.widget_colors.battery),
             spr,
-
-            -- Time/Calander Widget
             spr,
 
             -- Layoutbox Widget
