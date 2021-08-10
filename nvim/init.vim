@@ -12,7 +12,7 @@ source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/settings/settings.lua
 
 " statusline
-source $HOME/.config/nvim/settings/statusline.lua
+source $HOME/.config/nvim/other/statusline.lua
 
 " Lazyloading stuff
 lua << EOF
@@ -20,6 +20,9 @@ vim.defer_fn(function()
     vim.cmd [[
         source $HOME/.config/nvim/other/treesitter.lua
         source $HOME/.config/nvim/other/lsp.lua
+
+        source $HOME/.config/nvim/other/presence.lua
+
         LspStart
     ]]
     end, 70)

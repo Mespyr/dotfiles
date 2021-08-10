@@ -63,7 +63,7 @@ awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    -- awful.layout.suit.floating,
+    --awful.layout.suit.floating,
     awful.layout.suit.max,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
@@ -391,7 +391,7 @@ globalkeys = mytable.join(
 
     -- Menus 
         -- Run menu 
-        awful.key({ modkey }, "r", function () os.execute("sh ~/.config/scripts/run.sh") end,
+        awful.key({ modkey }, "d", function () os.execute("sh ~/.config/scripts/run.sh") end,
               {description = "run prompt", group = "launcher"}),
       
         -- bookmarks menu
