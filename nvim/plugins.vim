@@ -12,7 +12,4 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'hrsh7th/nvim-compe' 
     Plug 'tpope/vim-commentary'
 
-    " other
-    Plug 'andweeb/presence.nvim'
-
 call plug#end()
