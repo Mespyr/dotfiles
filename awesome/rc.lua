@@ -13,6 +13,8 @@ local awful         = require("awful")
                       require("awful.autofocus")
 --local wibox         = require("wibox")
 local beautiful     = require("beautiful")
+local dpi   = require("beautiful.xresources").apply_dpi
+
 local naughty       = require("naughty")
 local lain          = require("lain")
 --local menubar       = require("menubar")
@@ -21,14 +23,22 @@ local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 
+-- Notifications
+naughty.config.padding = dpi(10)
+naughty.config.spacing = dpi(5)
+
+naughty.config.defaults.margin = dpi(5)
+naughty.config.defaults.border_width = dpi(1)
+-- naughty.config.defaults.width            = 230
 
 -- Awesome Errors on startup
 if awesome.startup_errors then
-    naughty.notify {
-        preset = naughty.config.presets.critical,
-        title = "Oops, there were errors during startup!",
-        text = awesome.startup_errors
-    }
+    -- naughty.notify {
+    --     preset = naughty.config.presets.critical,
+    --     title = "Oops, there were errors during startup!",
+    --     text = awesome.startup_errors
+    -- }
+    awful.spawn.with_shell("notify-send -u critical 'Oops, there were errors during startup!' '" .. awesome.startup_errors)
 end
 
 do
@@ -36,11 +46,13 @@ do
     awesome.connect_signal("debug::error", function (err)
         if in_error then return end
         in_error = true
-        naughty.notify {
-            preset = naughty.config.presets.critical,
-            title = "Oops, an error happened!",
-            text = tostring(err)
-        }
+        -- naughty.notify {
+        --     preset = naughty.config.presets.critical,
+        --     title = "Oops, an error happened!",
+        --     text = tostring(err)
+        -- }
+
+        awful.spawn.with_shell("notify-send -u critical 'Oops, an error happened!' '" .. tostring(err))
         in_error = false
     end)
 end
@@ -63,8 +75,8 @@ awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    --awful.layout.suit.floating,
     awful.layout.suit.max,
+    awful.layout.suit.floating,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
@@ -573,8 +585,11 @@ local function run_once(cmd_arr)
     end
 end
 
+
+beautiful.notification_icon_size = 80
+
 -- Moniter setup
-run_once({ "~/.config/scripts/moniter.sh" }) 
+run_once({ "~/.config/scripts/moniter.sh" })
 
 
 -- Disable caps lock
