@@ -397,7 +397,7 @@ function theme.at_screen_connect(s)
     }
 
     -- screenshots
-    -- s.padding = 100
+    -- s.padding = 120
 
 end
 

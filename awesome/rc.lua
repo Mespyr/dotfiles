@@ -25,7 +25,7 @@ local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 -- Notifications
 naughty.config.padding = dpi(10)
-naughty.config.spacing = dpi(5)
+naughty.config.spacing = dpi(10)
 
 naughty.config.defaults.margin = dpi(5)
 naughty.config.defaults.border_width = dpi(1)
@@ -38,7 +38,7 @@ if awesome.startup_errors then
     --     title = "Oops, there were errors during startup!",
     --     text = awesome.startup_errors
     -- }
-    awful.spawn.with_shell("notify-send -u critical 'Oops, there were errors during startup!' '" .. awesome.startup_errors)
+    awful.spawn.with_shell("notify-send -u critical 'Oops, there were errors during startup!' '" .. awesome.startup_errors .. "'")
 end
 
 do
@@ -52,7 +52,7 @@ do
         --     text = tostring(err)
         -- }
 
-        awful.spawn.with_shell("notify-send -u critical 'Oops, an error happened!' '" .. tostring(err))
+        awful.spawn.with_shell("notify-send -u critical 'Oops, an error happened!' '" .. tostring(err) .. "'")
         in_error = false
     end)
 end
@@ -69,14 +69,14 @@ local editor       = os.getenv("EDITOR") or "nvim"
 -- local browser      = "firefox"
 
 awful.util.terminal = terminal
---awful.util.tagnames = { "  ", "  ", "  ", "  ", "  " }
+-- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  " }
 awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    awful.layout.suit.max,
     awful.layout.suit.floating,
+    awful.layout.suit.max,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
@@ -417,6 +417,10 @@ globalkeys = mytable.join(
 )
 
 clientkeys = mytable.join(
+    awful.key({ modkey, "Shift"   }, "-",   function (c) c:relative_move( 20,  20, -40, -40) end),
+    awful.key({ modkey, "Shift"   }, "=",  function (c) c:relative_move(-20, -20,  40,  40) end),
+
+
     awful.key({ altkey, "Shift"   }, "m",      lain.util.magnify_client,
               {description = "magnify client", group = "client"}),
     awful.key({ modkey,           }, "f",
