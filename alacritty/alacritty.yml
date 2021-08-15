@@ -57,6 +57,10 @@ colors:
     magenta: "#C97DA6"
     cyan: "#C69C98"
     white: "#E7E1E0"
+
+
+
+
 cursor:
   style:
     shape: Block

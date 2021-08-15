@@ -14,6 +14,10 @@ source $HOME/.config/nvim/settings/settings.lua
 " statusline
 source $HOME/.config/nvim/other/statusline.lua
 
+" NERDTree
+source $HOME/.config/nvim/other/nerdtree.vim
+
+
 " Lazyloading stuff
 lua << EOF
 vim.defer_fn(function()

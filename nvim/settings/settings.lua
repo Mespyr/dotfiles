@@ -1,6 +1,6 @@
 -- Settings
 local opt = vim.opt
-local g = vim.g
+-- local g = vim.g
 
 -- UI settings
 opt.number = true
@@ -29,4 +29,5 @@ vim.cmd [[
     
     syntax on
     colorscheme onedark
+
 ]]

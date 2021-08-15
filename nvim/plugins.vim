@@ -11,5 +11,6 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe' 
     Plug 'tpope/vim-commentary'
+    Plug 'preservim/nerdtree'
 
 call plug#end()
