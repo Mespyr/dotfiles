@@ -70,7 +70,7 @@ local editor       = os.getenv("nvim") or "nvim"
 
 awful.util.terminal = terminal
 -- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  " }
-awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " sys ", " img ", " etc " }
+awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " sys ", " img " }
 
 awful.layout.layouts = {
     awful.layout.suit.tile,
@@ -397,10 +397,6 @@ globalkeys = mytable.join(
 )
 
 clientkeys = mytable.join(
-    awful.key({ modkey, "Shift"   }, "-",   function (c) c:relative_move( 20,  20, -40, -40) end),
-    awful.key({ modkey, "Shift"   }, "=",  function (c) c:relative_move(-20, -20,  40,  40) end),
-
-
     awful.key({ altkey, "Shift"   }, "m",      lain.util.magnify_client,
               {description = "magnify client", group = "client"}),
     awful.key({ modkey,           }, "f",
@@ -579,8 +575,10 @@ end
 
 beautiful.notification_icon_size = 80
 
--- Moniter setup
-run_once({ "~/.config/scripts/moniter.sh" })
+run_once({
+    "~/.config/scripts/moniter.sh", -- moniter setup
+    "sh ~/.config/scripts/mouse.sh" -- mouse setup
+})
 
 -- Disable caps lock
 awful.spawn.with_shell('setxkbmap -option ctrl:nocaps')
