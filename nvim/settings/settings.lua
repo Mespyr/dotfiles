@@ -26,7 +26,8 @@ vim.cmd [[
     set ignorecase
     set smartcase
     set cursorline
-    
+    set mouse=a
+
     syntax on
     colorscheme onedark
 

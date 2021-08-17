@@ -7,13 +7,13 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
 	" exec 'cnoremap' key '<Nop>'
 endfor
 
+" NERDTree
+nnoremap <C-n> :NvimTreeOpen<CR>
+nnoremap <C-t> :NvimTreeToggle<CR>
+nnoremap <C-f> :NvimTreeFocus<CR>
+
+
 """ Text manipulation
 
 " tab line over
 nmap e 0i<Tab><esc>h^
-
-" NERDTree
-" nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>

@@ -281,24 +281,21 @@ function theme.at_screen_connect(s)
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
 
     -- layout box
-    s.mylayoutbox = awful.widget.layoutbox(s)
+    s.mylayoutbox = wibox.widget {
+    	{
+            layout = wibox.layout.fixed.horizontal,
+            small_spr,
+            wibox.container.margin(awful.widget.layoutbox(s), 3, 3, 3, 3),
+            small_spr,
+        },
+    	widget = wibox.container.background
+    }
     s.mylayoutbox:buttons(my_table.join(
                            awful.button({}, 1, function () awful.layout.inc( 1) end),
                            awful.button({}, 2, function () awful.layout.set( awful.layout.layouts[1] ) end),
                            awful.button({}, 3, function () awful.layout.inc(-1) end),
                            awful.button({}, 4, function () awful.layout.inc( 1) end),
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
-
-    s.mylayoutbox = wibox.widget {
-    	{
-            layout = wibox.layout.fixed.horizontal,
-            small_spr,
-            wibox.container.margin(s.mylayoutbox, 3, 3, 3, 3),
-            small_spr,
-        },
-    	widget = wibox.container.background
-    }
-
 
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {

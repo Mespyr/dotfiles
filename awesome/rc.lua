@@ -25,10 +25,10 @@ local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 -- Notifications
 naughty.config.padding = dpi(10)
-naughty.config.spacing = dpi(10)
+naughty.config.spacing = dpi(5)
 
 naughty.config.defaults.margin = dpi(5)
-naughty.config.defaults.border_width = dpi(1)
+naughty.config.defaults.border_width = dpi(2)
 -- naughty.config.defaults.width            = 230
 
 -- Awesome Errors on startup
@@ -70,7 +70,7 @@ local editor       = os.getenv("nvim") or "nvim"
 
 awful.util.terminal = terminal
 -- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  " }
-awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " sys ", " img " }
+awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 
 awful.layout.layouts = {
     awful.layout.suit.tile,
