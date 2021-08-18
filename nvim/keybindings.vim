@@ -7,11 +7,16 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
 	" exec 'cnoremap' key '<Nop>'
 endfor
 
-" NERDTree
+" NvimTree
 nnoremap <C-n> :NvimTreeOpen<CR>
-nnoremap <C-t> :NvimTreeToggle<CR>
-nnoremap <C-f> :NvimTreeFocus<CR>
+nnoremap <C-e> :NvimTreeToggle<CR>
+nnoremap <C-f> :NvimTreeFindFile<CR>
 
+lua <<EOF
+    vim.g.nvim_tree_bindings = { 
+    
+        }
+EOF
 
 """ Text manipulation
 

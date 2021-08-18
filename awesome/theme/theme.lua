@@ -48,7 +48,7 @@ theme.border_normal = "#0E1319"
 theme.border_focus = theme.bg_focus
 -- Panel
 theme.panel_height = dpi(25)
-theme.panel_margin = dpi(7)
+theme.panel_margin = theme.useless_gap
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
 theme.widget_border_radius = dpi(5)
 -- Menu

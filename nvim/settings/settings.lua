@@ -27,6 +27,7 @@ vim.cmd [[
     set smartcase
     set cursorline
     set mouse=a
+    set fillchars+=vert:\▏
 
     syntax on
     colorscheme onedark
