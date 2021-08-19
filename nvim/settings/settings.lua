@@ -4,7 +4,7 @@ local opt = vim.opt
 
 -- UI settings
 opt.number = true
-opt.numberwidth = 6
+opt.numberwidth = 5
 opt.cursorline = true
 opt.termguicolors = true
 
