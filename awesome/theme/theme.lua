@@ -28,7 +28,7 @@ theme.wallpaper = theme.dir .. "/wall.jpg"
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
 -- useless gap
-theme.useless_gap = dpi(7)
+theme.useless_gap = dpi(4)
 -- Colors
 theme.fg_normal = "#FFEFE5"
 theme.fg_focus = "#070A10"
@@ -48,7 +48,7 @@ theme.border_normal = "#0E1319"
 theme.border_focus = theme.bg_focus
 -- Panel
 theme.panel_height = dpi(25)
-theme.panel_margin = theme.useless_gap
+theme.panel_margin = dpi(7)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
 theme.widget_border_radius = dpi(5)
 -- Menu
@@ -109,7 +109,7 @@ local add_styling = function(widget, bg)
             bg,
             rounded_shape(theme.widget_border_radius)
         ),
-        0, 0, theme.panel_margin, 0 --theme.panel_margin
+        0, 0, theme.panel_margin, 0 -- theme.panel_margin
     )
 end
 -- #############################################################################################################
@@ -168,36 +168,33 @@ theme.cal = lain.widget.cal({
 
 -- Battery
 local baticon = wibox.widget {
-	{
-		widget = wibox.widget.imagebox,
-		image = theme.widget_battery,
-	},
-	margins = 4,
-	widget = wibox.container.margin,
+	widget = wibox.widget.imagebox,
+	image = theme.widget_battery,
 }
+
 local battery = lain.widget.bat({
     settings = function()
         if bat_now.status and bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
-                baticon.widget:set_image(theme.widget_ac)
+                baticon:set_image(theme.widget_ac)
             elseif not bat_now.perc and tonumber(bat_now.perc) <= 5 then
-                baticon.widget:set_image(theme.widget_battery_empty)
+                baticon:set_image(theme.widget_battery_empty)
             elseif not bat_now.perc and tonumber(bat_now.perc) <= 15 then
-                baticon.widget:set_image(theme.widget_battery_low)
+                baticon:set_image(theme.widget_battery_low)
             else
-                baticon.widget:set_image(theme.widget_battery)
+                baticon:set_image(theme.widget_battery)
             end
             widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
         else
             widget:set_markup(markup.font(theme.font, " AC "))
-            baticon.widget:set_image(theme.widget_ac)
+            baticon:set_image(theme.widget_ac)
         end
     end})
 local bat = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        baticon,
+        wibox.container.margin(baticon, 5, 1, 5, 5),
         battery,
         spr,
     },
@@ -236,7 +233,7 @@ local volume = wibox.widget {
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        wibox.container.margin(volicon, 4, 0, 4, 4),
+        wibox.container.margin(volicon, 5, 0, 5, 5),
         theme.volume,
         spr,
     },
@@ -304,7 +301,7 @@ function theme.at_screen_connect(s)
         buttons = awful.util.taglist_buttons,
         style   = {
             shape =  rounded_shape(10),
-            spacing = 6,
+            spacing = 2,
         },
     }
 
@@ -312,9 +309,9 @@ function theme.at_screen_connect(s)
     	{
             layout = wibox.layout.fixed.horizontal,
             spr,
-            spr,
+            small_spr,
             s.mytaglist,
-            spr,
+            small_spr,
             spr,
         },
     	widget = wibox.container.background
@@ -374,7 +371,7 @@ function theme.at_screen_connect(s)
             add_styling (s.mylayoutbox, theme.widget_colors.layoutbox),
         },
         spr,
-    	{ -- Right widgets
+        { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             add_styling (clock, theme.widget_colors.time_cal),
             spr,
@@ -388,8 +385,9 @@ function theme.at_screen_connect(s)
             spr,
             spr,
 
-            -- Layoutbox Widget
+            -- Power Button Widget
 	        add_styling (power_button, theme.widget_colors.power_btn),
+
         }
     }
 
