@@ -28,7 +28,7 @@ theme.wallpaper = theme.dir .. "/wall.jpg"
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 9"
 -- useless gap
-theme.useless_gap = dpi(4)
+theme.useless_gap = dpi(5)
 -- Colors
 theme.fg_normal = "#FFEFE5"
 theme.fg_focus = "#070A10"
