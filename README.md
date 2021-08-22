@@ -1,19 +1,6 @@
 # Dotfiles
 My dotfiles.
 
-# GTK themes
-[My GTK Theme](https://github.com/Mespyr/ruby-dark-gtk-theme) and [the Vimix Icon Theme](https://github.com/vinceliuice/vimix-icon-theme)
-
-# Package stuff
-- Alacritty 
-- Picom
-- [dmenu](https://github.com/Mespyr/dmenu)
-- Neovim
-- lxappearance 
-- [Wallpapers](wall/) 
-- Awesome
-- [other](packages.txt)
-
 # Neovim packages 
 Neovim needs the following packages. 
 - [pyright](https://github.com/microsoft/pyright)
