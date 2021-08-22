@@ -1,1 +1,0 @@
-rofi -show drun -theme theme/main.rasi
