@@ -35,25 +35,15 @@ theme.fg_focus = "#070A10"
 theme.bg_normal = "#070A10"
 theme.bg_focus = "#AE5540"
 -- #0E1319
--- Panel Widget Colors
-theme.widget_colors = {}
-theme.widget_colors.volume = theme.bg_normal
-theme.widget_colors.battery = theme.bg_normal
-theme.widget_colors.time_cal = theme.bg_normal
-theme.widget_colors.layoutbox = theme.bg_normal
-theme.widget_colors.power_btn = theme.bg_focus
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#0E1319"
 theme.border_focus = theme.bg_focus
 -- Panel
-theme.panel_height = dpi(25)
-theme.panel_margin = dpi(7)
+theme.panel_height = dpi(27)
+theme.panel_margin = dpi(4)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
 theme.widget_border_radius = dpi(5)
--- Menu
-theme.menu_height = dpi(23)
-theme.menu_width = dpi(130)
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -88,9 +78,6 @@ theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.
 theme.widget_mail                               = theme.dir .. "/icons/mail.png"
 theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.png"
 theme.widget_power_btn                          = theme.dir .. "/icons/power.png"
-
-theme.tasklist_plain_task_name = true
-theme.tasklist_disable_icon = true
 -- #############################################################################################################
 
 
@@ -106,8 +93,7 @@ local add_styling = function(widget, bg)
     return wibox.container.margin(
         wibox.container.background(
             widget,
-            bg,
-            rounded_shape(theme.widget_border_radius)
+            bg
         ),
         0, 0, theme.panel_margin, 0 -- theme.panel_margin
     )
@@ -202,65 +188,65 @@ local bat = wibox.widget{
 }
 
 -- ALSA volume
-local volicon = wibox.widget.imagebox(theme.widget_vol)
-theme.volume = lain.widget.alsa({
-    settings = function()
-        if volume_now.status == "off" then
-            volicon:set_image(theme.widget_vol_mute)
-        elseif tonumber(volume_now.level) == 0 then
-            volicon:set_image(theme.widget_vol_no)
-        elseif tonumber(volume_now.level) <= 50 then
-            volicon:set_image(theme.widget_vol_low)
-        else
-            volicon:set_image(theme.widget_vol)
-        end
+-- local volicon = wibox.widget.imagebox(theme.widget_vol)
+-- theme.volume = lain.widget.alsa({
+--     settings = function()
+--         if volume_now.status == "off" then
+--             volicon:set_image(theme.widget_vol_mute)
+--         elseif tonumber(volume_now.level) == 0 then
+--             volicon:set_image(theme.widget_vol_no)
+--         elseif tonumber(volume_now.level) <= 50 then
+--             volicon:set_image(theme.widget_vol_low)
+--         else
+--             volicon:set_image(theme.widget_vol)
+--         end
 
-        widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
-    end})
-theme.volume.widget:buttons(
-    awful.util.table.join(
-        awful.button({}, 4,
-            function()
-                awful.util.spawn("amixer set Master 1%+")
-                theme.volume.update()
-            end),
-        awful.button({}, 5,
-            function()
-                    awful.util.spawn("amixer set Master 1%-")
-                    theme.volume.update()
-            end)))
-local volume = wibox.widget {
-	{
-        layout = wibox.layout.fixed.horizontal,
-        spr,
-        wibox.container.margin(volicon, 5, 0, 5, 5),
-        theme.volume,
-        spr,
-    },
-	widget = wibox.container.background
-}
+--         widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
+--     end})
+-- theme.volume.widget:buttons(
+--     awful.util.table.join(
+--         awful.button({}, 4,
+--             function()
+--                 awful.util.spawn("amixer set Master 1%+")
+--                 theme.volume.update()
+--             end),
+--         awful.button({}, 5,
+--             function()
+--                     awful.util.spawn("amixer set Master 1%-")
+--                     theme.volume.update()
+--             end)))
+-- local volume = wibox.widget {
+-- 	{
+--         layout = wibox.layout.fixed.horizontal,
+--         spr,
+--         wibox.container.margin(volicon, 5, 0, 5, 5),
+--         theme.volume,
+--         spr,
+--     },
+-- 	widget = wibox.container.background
+-- }
 
 -- power menu
-local power_button = wibox.widget{
-	{
-        layout = wibox.layout.fixed.horizontal,
-        spr,
-        {
-    		{
-    			widget = wibox.widget.imagebox,
-    			image = theme.widget_power_btn,
-    		},
-    		widget = wibox.container.margin,
-    		margins = 7
-    	},
-        spr,
-    },
-	widget = wibox.container.background
-}
+-- local power_button = wibox.widget{
+-- 	{
+--         layout = wibox.layout.fixed.horizontal,
+--         spr,
+--         {
+--     		{
+--     			widget = wibox.widget.imagebox,
+--     			image = theme.widget_power_btn,
+--     		},
+--     		widget = wibox.container.margin,
+--     		margins = 7
+--     	},
+--         spr,
+--     },
+-- 	widget = wibox.container.background
+-- }
 
-power_button:connect_signal("button::press", function(c, _, _, button)
-	if button == 1 then os.execute('sh ~/.config/scripts/powermenu.sh') end
-end)
+-- power_button:connect_signal("button::press", function(c, _, _, button)
+-- 	if button == 1 then os.execute('sh ~/.config/scripts/powermenu.sh') end
+-- end)
 -- #############################################################################################################
 
 
@@ -300,7 +286,7 @@ function theme.at_screen_connect(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         style   = {
-            shape =  rounded_shape(10),
+            -- shape =  rounded_shape(10),
             spacing = 2,
         },
     }
@@ -353,7 +339,7 @@ function theme.at_screen_connect(s)
         position = "top",
         screen = s,
         height = theme.panel_height + theme.panel_margin,
-       	width = theme.panel_width,
+       	-- width = theme.panel_width,
         bg = "alpha",
         fg = theme.fg_normal,
     }
@@ -361,34 +347,41 @@ function theme.at_screen_connect(s)
 
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        { -- Left widgets
+        expand = "outside",
+        -- { -- Left widgets
+        --     layout = wibox.layout.fixed.horizontal,
+        --     spr,
+        --     add_styling(s.mytaglist, theme.bg_normal),
+
+        --     spr,
+
+        --     add_styling (s.mylayoutbox, theme.bg_normal),
+        -- },
+        spr,
+        {
             layout = wibox.layout.fixed.horizontal,
-
             add_styling(s.mytaglist, theme.bg_normal),
-
-            spr,
-
-            add_styling (s.mylayoutbox, theme.widget_colors.layoutbox),
         },
         spr,
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            add_styling (clock, theme.widget_colors.time_cal),
-            spr,
+        -- { -- Right widgets
+        --     layout = wibox.layout.fixed.horizontal,
+        --     add_styling (clock, theme.bg_normal),
+        --     spr,
 
-            -- Volume Widget
-            add_styling (volume, theme.widget_colors.volume),
-            spr,
+        --     -- Volume Widget
+        --     -- add_styling (volume, theme.widget_colors.volume),
+        --     -- spr,
 
-            -- Battery Widget
-            add_styling (bat, theme.widget_colors.battery),
-            spr,
-            spr,
+        --     -- Battery Widget
+        --     add_styling (bat, theme.bg_normal),
+        --     -- spr,
+        --     -- spr,
 
-            -- Power Button Widget
-	        add_styling (power_button, theme.widget_colors.power_btn),
+        --     spr,
+        --     -- Power Button Widget
+	        -- -- add_styling (power_button, theme.widget_colors.power_btn),
 
-        }
+        -- }
     }
 
     -- screenshots

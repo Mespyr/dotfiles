@@ -12,7 +12,7 @@ pcall(require, "luarocks.loader")
 local gears         = require("gears")
 local awful         = require("awful")
                       require("awful.autofocus")
--- local wibox         = require("wibox")
+local wibox         = require("wibox")
 local beautiful     = require("beautiful")
 local dpi           = require("beautiful.xresources").apply_dpi
 
@@ -75,9 +75,9 @@ awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 --Layouts
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.floating,
+    -- awful.layout.suit.tile.left,
     awful.layout.suit.max,
+    awful.layout.suit.floating,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
@@ -478,16 +478,70 @@ client.connect_signal("manage", function (c)
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
+
+    -- make new windows have titlebars if in floating mode
+    -- https://www.reddit.com/r/awesomewm/comments/bki1md/show_titlebar_only_when_window_is_floating/
+    if c.floating or c.first_tag.layout.name == "floating" then
+        awful.titlebar.show(c)
+    else
+        awful.titlebar.hide(c)
+    end
+
 end)
 
 
+
+-- make clients have titlebars when in floating mode
+-- https://www.reddit.com/r/awesomewm/comments/bki1md/show_titlebar_only_when_window_is_floating/
+tag.connect_signal("property::layout", function(t)
+    local clients = t:clients()
+    for k,c in pairs(clients) do
+        if c.floating or c.first_tag.layout.name == "floating" then
+            awful.titlebar.show(c)
+        else
+            awful.titlebar.hide(c)
+        end
+    end
+end)
+
+
+
+-- Add a titlebar if titlebars_enabled is set to true in the rules.
+client.connect_signal("request::titlebars", function(c)
+    -- Custom
+    if beautiful.titlebar_fun then
+        beautiful.titlebar_fun(c)
+        return
+    end
+
+    -- Default
+    -- buttons for the titlebar
+    local buttons = mytable.join(
+        awful.button({ }, 1, function()
+            c:emit_signal("request::activate", "titlebar", {raise = true})
+            awful.mouse.client.move(c)
+        end),
+        awful.button({ }, 3, function()
+            c:emit_signal("request::activate", "titlebar", {raise = true})
+            awful.mouse.client.resize(c)
+        end)
+    )
+
+    awful.titlebar(c, { size = 15 }) : setup {
+        buttons = buttons,
+        layout = wibox.layout.align.horizontal
+    }
+end)
+
+
+
+-- set border color
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- }}}
+
 
 -- Autostart
-
 -- This function will run once every time Awesome is started
 local function run_once(cmd_arr)
     for _, cmd in ipairs(cmd_arr) do
