@@ -68,7 +68,8 @@ local terminal     = "alacritty"
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("nvim") or "nvim"
 awful.util.terminal = terminal
-awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
+-- awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
+awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  " }
 
 
 
@@ -460,7 +461,7 @@ awful.rules.rules = {
         rule_any = {
             type = { "normal", "dialog" }
         },
-        properties = { titlebars_enabled = true }
+        properties = { titlebars_enabled = false }
     },
 }
 
@@ -479,29 +480,6 @@ client.connect_signal("manage", function (c)
         awful.placement.no_offscreen(c)
     end
 
-    -- make new windows have titlebars if in floating mode
-    -- https://www.reddit.com/r/awesomewm/comments/bki1md/show_titlebar_only_when_window_is_floating/
-    if c.floating or c.first_tag.layout.name == "floating" then
-        awful.titlebar.show(c)
-    else
-        awful.titlebar.hide(c)
-    end
-
-end)
-
-
-
--- make clients have titlebars when in floating mode
--- https://www.reddit.com/r/awesomewm/comments/bki1md/show_titlebar_only_when_window_is_floating/
-tag.connect_signal("property::layout", function(t)
-    local clients = t:clients()
-    for k,c in pairs(clients) do
-        if c.floating or c.first_tag.layout.name == "floating" then
-            awful.titlebar.show(c)
-        else
-            awful.titlebar.hide(c)
-        end
-    end
 end)
 
 

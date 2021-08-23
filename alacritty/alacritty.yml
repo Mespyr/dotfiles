@@ -37,30 +37,26 @@ font:
 draw_bold_text_with_bright_colors: true
 colors:
   primary:
-    background: "#070A10"
-    foreground: "#A19D9C"
+    background: "#12191d"
+    foreground: "#f1e6d7"
   normal:
-    black: "#070A10" 
-    red: "#AE5540"
-    green: "#DAB25D" 
-    yellow: "#5D7682"
-    blue: "#BF6DB1"
-    magenta: "#C97DA6"
-    cyan: "#C69C98"
-    white: "#E7E1E0"
+    black: "#12191d"
+    red: "#A88D74"
+    green: "#EC9475"
+    yellow: "#B2A08A"
+    blue: "#D2B191"
+    magenta: "#E0C5A2"
+    cyan: "#EBD0AB"
+    white: "#f1e6d7"
   bright:
-    black: "#A19D9C"
-    red: "#AE5540"
-    green: "#DAB25D"
-    yellow: "#5D7682"
-    blue: "#BF6DB1"
-    magenta: "#C97DA6"
-    cyan: "#C69C98"
-    white: "#E7E1E0"
-
-
-
-
+    black: "#a8a196"
+    red: "#A88D74"
+    green: "#EC9475"
+    yellow: "#B2A08A"
+    blue: "#D2B191"
+    magenta: "#E0C5A2"
+    cyan: "#EBD0AB"
+    white: "#f1e6d7"
 cursor:
   style:
     shape: Block

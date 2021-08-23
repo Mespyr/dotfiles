@@ -26,24 +26,24 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome"
 theme.wallpaper = theme.dir .. "/wall.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
-theme.font = theme.font_name .. " 9"
+theme.font = theme.font_name .. " 10"
 -- useless gap
 theme.useless_gap = dpi(5)
 -- Colors
+theme.bg_normal = "#12191d"
+theme.bg_focus = "#a8a196"
 theme.fg_normal = "#FFEFE5"
-theme.fg_focus = "#070A10"
-theme.bg_normal = "#070A10"
-theme.bg_focus = "#AE5540"
+theme.fg_focus = theme.bg_normal
 -- #0E1319
 -- Borders
 theme.border_width = dpi(3)
-theme.border_normal = "#0E1319"
+theme.border_normal = theme.bg_normal
 theme.border_focus = theme.bg_focus
 -- Panel
-theme.panel_height = dpi(27)
-theme.panel_margin = dpi(4)
+theme.panel_height = dpi(23)
+theme.panel_margin = dpi(3)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
-theme.widget_border_radius = dpi(5)
+theme.widget_border_radius = dpi(10)
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -93,7 +93,8 @@ local add_styling = function(widget, bg)
     return wibox.container.margin(
         wibox.container.background(
             widget,
-            bg
+            bg,
+            rounded_shape(theme.widget_border_radius)
         ),
         0, 0, theme.panel_margin, 0 -- theme.panel_margin
     )
@@ -286,8 +287,8 @@ function theme.at_screen_connect(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         style   = {
-            -- shape =  rounded_shape(10),
-            spacing = 2,
+            shape =  rounded_shape(10),
+            spacing = 6,
         },
     }
 
