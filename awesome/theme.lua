@@ -23,12 +23,12 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.jpg"
+theme.wallpaper = theme.dir .. "/wall2.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 10"
 -- useless gap
-theme.useless_gap = dpi(5)
+theme.useless_gap = dpi(3)
 -- Colors
 theme.bg_normal = "#12191d"
 theme.bg_focus = "#a8a196"
@@ -288,7 +288,7 @@ function theme.at_screen_connect(s)
         buttons = awful.util.taglist_buttons,
         style   = {
             shape =  rounded_shape(10),
-            spacing = 6,
+            spacing = 5,
         },
     }
 
