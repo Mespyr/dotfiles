@@ -23,7 +23,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall2.jpg"
+theme.wallpaper = theme.dir .. "/wall4.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 10"
@@ -44,6 +44,9 @@ theme.panel_height = dpi(23)
 theme.panel_margin = dpi(3)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
 theme.widget_border_radius = dpi(10)
+-- Tag Style
+local l = awful.layout.layouts
+theme.tag_styles = { l[0], l[1], l[1], l[1], l[1], l[1], l[1], l[1], l[1] }
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -287,7 +290,7 @@ function theme.at_screen_connect(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         style   = {
-            shape =  rounded_shape(10),
+            shape =  rounded_shape(30),
             spacing = 5,
         },
     }
