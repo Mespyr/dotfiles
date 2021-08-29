@@ -23,7 +23,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall4.jpg"
+theme.wallpaper = theme.dir .. "/wall5.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 10"
@@ -44,9 +44,6 @@ theme.panel_height = dpi(23)
 theme.panel_margin = dpi(3)
 theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
 theme.widget_border_radius = dpi(10)
--- Tag Style
-local l = awful.layout.layouts
-theme.tag_styles = { l[0], l[1], l[1], l[1], l[1], l[1], l[1], l[1], l[1] }
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -99,7 +96,7 @@ local add_styling = function(widget, bg)
             bg,
             rounded_shape(theme.widget_border_radius)
         ),
-        0, 0, theme.panel_margin, 0 -- theme.panel_margin
+        0, 0, theme.panel_margin, theme.panel_margin
     )
 end
 -- #############################################################################################################
@@ -342,9 +339,9 @@ function theme.at_screen_connect(s)
     s.mywibox = awful.wibar {
         position = "top",
         screen = s,
-        height = theme.panel_height + theme.panel_margin,
+        height = theme.panel_height + theme.panel_margin * 2,
        	-- width = theme.panel_width,
-        bg = "alpha",
+        bg = "#252f35",
         fg = theme.fg_normal,
     }
 
