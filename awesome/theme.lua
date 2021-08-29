@@ -23,7 +23,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall2.jpg"
+theme.wallpaper = theme.dir .. "/wall5.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 10"
@@ -34,17 +34,13 @@ theme.bg_normal = "#12191d"
 theme.bg_focus = "#a8a196"
 theme.fg_normal = "#FFEFE5"
 theme.fg_focus = theme.bg_normal
--- #0E1319
+theme.widget_bg = "#2f3c42"
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#2f3c42"
 theme.border_focus = theme.bg_focus
 -- Panel
-theme.panel_height = dpi(23)
-theme.panel_margin = dpi(4)
-theme.panel_width = dpi(1366 - (theme.panel_margin * 2)) -- calculate width of wibar
-theme.widget_border_radius = dpi(10)
-theme.panel_color = "#2f3c42"
+theme.panel_height = dpi(20)
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -84,20 +80,10 @@ theme.widget_power_btn                          = theme.dir .. "/icons/power.png
 
 
 -- ######################## Util ###############################################################################
-local rounded_shape = function(radius)
-    return function(cr, width, height)
-        gears.shape.rounded_rect(cr, width, height, radius)
-    end
-end
-
-local add_styling = function(widget, bg)
-    return wibox.container.margin(
-        wibox.container.background(
-            widget,
-            bg,
-            rounded_shape(theme.widget_border_radius)
-        ),
-        0, 0, theme.panel_margin, theme.panel_margin
+local add_styling = function(widget)
+    return wibox.container.background(
+        widget,
+        theme.widget_bg
     )
 end
 -- #############################################################################################################
@@ -131,28 +117,14 @@ local clock = wibox.widget{
 }
 
 -- Calendar
-theme.cal = lain.widget.cal({
-    attach_to = { clock },
-    notification_preset = {
-        font = theme.font_name .. " 10",
-        fg   = theme.fg_normal,
-        bg   = theme.bg_normal
-    }
-})
-
--- -- MEM
--- local memicon = wibox.widget.imagebox(theme.widget_mem)
--- local mem = lain.widget.mem({
---     settings = function()
---         widget:set_markup(markup.font(theme.font, " " .. mem_now.used .. "MB "))
---     end})
-
--- -- CPU
--- local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
--- local cpu = lain.widget.cpu({
---     settings = function()
---         widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
---     end})
+-- theme.cal = lain.widget.cal({
+--     attach_to = { clock },
+--     notification_preset = {
+--         font = theme.font_name .. " 10",
+--         fg   = theme.fg_normal,
+--         bg   = theme.bg_normal
+--     }
+-- })
 
 -- Battery
 local baticon = wibox.widget {
@@ -287,20 +259,15 @@ function theme.at_screen_connect(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
-        style   = {
-            shape =  rounded_shape(30),
-            spacing = 2,
-        },
+        -- style   = {
+        --     shape =  rounded_shape(5),
+        -- },
     }
 
     s.mytaglist = wibox.widget {
     	{
             layout = wibox.layout.fixed.horizontal,
-            spr,
-            small_spr,
             s.mytaglist,
-            small_spr,
-            spr,
         },
     	widget = wibox.container.background
     }
@@ -340,9 +307,8 @@ function theme.at_screen_connect(s)
     s.mywibox = awful.wibar {
         position = "top",
         screen = s,
-        height = theme.panel_height + theme.panel_margin * 2,
-       	-- width = theme.panel_width,
-        bg = theme.panel_color,
+        height = theme.panel_height,
+        bg = theme.bg_normal,
         fg = theme.fg_normal,
     }
 
@@ -350,44 +316,13 @@ function theme.at_screen_connect(s)
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         expand = "outside",
-        -- { -- Left widgets
-        --     layout = wibox.layout.fixed.horizontal,
-        --     spr,
-        --     add_styling(s.mytaglist, theme.bg_normal),
-
-        --     spr,
-
-        --     add_styling (s.mylayoutbox, theme.bg_normal),
-        -- },
         spr,
         {
             layout = wibox.layout.fixed.horizontal,
-            add_styling(s.mytaglist, theme.bg_normal),
+            add_styling(s.mytaglist),
         },
         spr,
-        -- { -- Right widgets
-        --     layout = wibox.layout.fixed.horizontal,
-        --     add_styling (clock, theme.bg_normal),
-        --     spr,
-
-        --     -- Volume Widget
-        --     -- add_styling (volume, theme.widget_colors.volume),
-        --     -- spr,
-
-        --     -- Battery Widget
-        --     add_styling (bat, theme.bg_normal),
-        --     -- spr,
-        --     -- spr,
-
-        --     spr,
-        --     -- Power Button Widget
-	        -- -- add_styling (power_button, theme.widget_colors.power_btn),
-
-        -- }
     }
-
-    -- screenshots
-    -- s.padding = 120
 
 end
 
