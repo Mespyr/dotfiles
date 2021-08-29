@@ -136,16 +136,6 @@ end)
 
 
 
--- set border width for clients
-screen.connect_signal("arrange", function (s)
-    local only_one = #s.tiled_clients == 1
-    for _, c in pairs(s.clients) do
-            c.border_width = beautiful.border_width
-    end
-end)
-
-
-
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 
@@ -484,32 +474,32 @@ end)
 
 
 
--- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c)
-    -- Custom
-    if beautiful.titlebar_fun then
-        beautiful.titlebar_fun(c)
-        return
-    end
+-- -- Add a titlebar if titlebars_enabled is set to true in the rules.
+-- client.connect_signal("request::titlebars", function(c)
+--     -- Custom
+--     if beautiful.titlebar_fun then
+--         beautiful.titlebar_fun(c)
+--         return
+--     end
 
-    -- Default
-    -- buttons for the titlebar
-    local buttons = mytable.join(
-        awful.button({ }, 1, function()
-            c:emit_signal("request::activate", "titlebar", {raise = true})
-            awful.mouse.client.move(c)
-        end),
-        awful.button({ }, 3, function()
-            c:emit_signal("request::activate", "titlebar", {raise = true})
-            awful.mouse.client.resize(c)
-        end)
-    )
+--     -- Default
+--     -- buttons for the titlebar
+--     local buttons = mytable.join(
+--         awful.button({ }, 1, function()
+--             c:emit_signal("request::activate", "titlebar", {raise = true})
+--             awful.mouse.client.move(c)
+--         end),
+--         awful.button({ }, 3, function()
+--             c:emit_signal("request::activate", "titlebar", {raise = true})
+--             awful.mouse.client.resize(c)
+--         end)
+--     )
 
-    awful.titlebar(c, { size = 15 }) : setup {
-        buttons = buttons,
-        layout = wibox.layout.align.horizontal
-    }
-end)
+--     awful.titlebar(c, { size = 15 }) : setup {
+--         buttons = buttons,
+--         layout = wibox.layout.align.horizontal
+--     }
+-- end)
 
 
 
