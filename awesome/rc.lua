@@ -242,65 +242,6 @@ globalkeys = mytable.join(
                     c:emit_signal("request::activate", "key.unminimize", {raise = true})
                 end
             end, {description = "restore minimized", group = "client"}),
-    -- ALSA volume control
-    awful.key({ altkey }, "Up",
-            function ()
-                os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
-                beautiful.volume.update()
-            end, {description = "volume up", group = "hotkeys"}),
-    awful.key({ altkey }, "Down",
-            function ()
-                os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
-                beautiful.volume.update()
-            end, {description = "volume down", group = "hotkeys"}),
-    awful.key({ altkey }, "m",
-            function ()
-                os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-                beautiful.volume.update()
-            end, {description = "toggle mute", group = "hotkeys"}),
-    awful.key({ altkey, "Control" }, "m",
-            function ()
-                os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-                beautiful.volume.update()
-            end, {description = "volume 100%", group = "hotkeys"}),
-    awful.key({ altkey, "Control" }, "0",
-            function ()
-                os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
-                beautiful.volume.update()
-            end, {description = "volume 0%", group = "hotkeys"}),
-    -- MPD control
-    awful.key({ altkey, "Control" }, "Up",
-            function ()
-                os.execute("mpc toggle")
-                beautiful.mpd.update()
-            end, {description = "mpc toggle", group = "widgets"}),
-    awful.key({ altkey, "Control" }, "Down",
-            function ()
-                os.execute("mpc stop")
-                beautiful.mpd.update()
-            end, {description = "mpc stop", group = "widgets"}),
-    awful.key({ altkey, "Control" }, "Left",
-            function ()
-                os.execute("mpc prev")
-                beautiful.mpd.update()
-            end, {description = "mpc prev", group = "widgets"}),
-    awful.key({ altkey, "Control" }, "Right",
-            function ()
-                os.execute("mpc next")
-                beautiful.mpd.update()
-            end, {description = "mpc next", group = "widgets"}),
-    awful.key({ altkey }, "0",
-        function ()
-            local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
-            if beautiful.mpd.timer.started then
-                beautiful.mpd.timer:stop()
-                common.text = common.text .. lain.util.markup.bold("OFF")
-            else
-                beautiful.mpd.timer:start()
-                common.text = common.text .. lain.util.markup.bold("ON")
-            end
-            naughty.notify(common)
-        end, {description = "mpc on/off", group = "widgets"}),
     -- Menus
     -- Run menu
     awful.key({ modkey }, "d", function () os.execute("sh ~/.config/scripts/run.sh") end,
@@ -340,17 +281,7 @@ clientkeys = mytable.join(
         function (c)
             c.maximized = not c.maximized
             c:raise()
-        end, {description = "(un)maximize", group = "client"}),
-    awful.key({ modkey, "Control" }, "m",
-        function (c)
-            c.maximized_vertical = not c.maximized_vertical
-            c:raise()
-        end, {description = "(un)maximize vertically", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "m",
-        function (c)
-            c.maximized_horizontal = not c.maximized_horizontal
-            c:raise()
-        end, {description = "(un)maximize horizontally", group = "client"})
+        end, {description = "(un)maximize", group = "client"})
 )
 
 
@@ -472,34 +403,6 @@ client.connect_signal("manage", function (c)
 
 end)
 
-
-
--- -- Add a titlebar if titlebars_enabled is set to true in the rules.
--- client.connect_signal("request::titlebars", function(c)
---     -- Custom
---     if beautiful.titlebar_fun then
---         beautiful.titlebar_fun(c)
---         return
---     end
-
---     -- Default
---     -- buttons for the titlebar
---     local buttons = mytable.join(
---         awful.button({ }, 1, function()
---             c:emit_signal("request::activate", "titlebar", {raise = true})
---             awful.mouse.client.move(c)
---         end),
---         awful.button({ }, 3, function()
---             c:emit_signal("request::activate", "titlebar", {raise = true})
---             awful.mouse.client.resize(c)
---         end)
---     )
-
---     awful.titlebar(c, { size = 15 }) : setup {
---         buttons = buttons,
---         layout = wibox.layout.align.horizontal
---     }
--- end)
 
 
 
