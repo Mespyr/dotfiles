@@ -12,7 +12,7 @@ local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
-
+-- local center = require("center")
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 -- #############################################################################################################
@@ -93,7 +93,6 @@ end
 
 -- ############################## Widgets ######################################################################
 local markup = lain.util.markup
--- local separators = lain.util.separators
 
 local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
@@ -102,9 +101,10 @@ local small_spr = wibox.widget.textbox(' ')
 local clocktext = awful.widget.watch(
     "date +'%a %d %b %R'", 60,
     function(widget, stdout)
-        widget:set_markup(" " .. markup.font(theme.font, stdout))
+        widget:set_markup(" " .. markup.font(theme.font_name .. " 9", stdout))
     end
 )
+
 local clock = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
@@ -115,16 +115,6 @@ local clock = wibox.widget{
     },
 	widget = wibox.container.background
 }
-
--- Calendar
--- theme.cal = lain.widget.cal({
---     attach_to = { clock },
---     notification_preset = {
---         font = theme.font_name .. " 10",
---         fg   = theme.fg_normal,
---         bg   = theme.bg_normal
---     }
--- })
 
 -- Battery
 local baticon = wibox.widget {
@@ -150,6 +140,7 @@ local battery = lain.widget.bat({
             baticon:set_image(theme.widget_ac)
         end
     end})
+
 local bat = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
@@ -161,66 +152,6 @@ local bat = wibox.widget{
 	widget = wibox.container.background
 }
 
--- ALSA volume
--- local volicon = wibox.widget.imagebox(theme.widget_vol)
--- theme.volume = lain.widget.alsa({
---     settings = function()
---         if volume_now.status == "off" then
---             volicon:set_image(theme.widget_vol_mute)
---         elseif tonumber(volume_now.level) == 0 then
---             volicon:set_image(theme.widget_vol_no)
---         elseif tonumber(volume_now.level) <= 50 then
---             volicon:set_image(theme.widget_vol_low)
---         else
---             volicon:set_image(theme.widget_vol)
---         end
-
---         widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
---     end})
--- theme.volume.widget:buttons(
---     awful.util.table.join(
---         awful.button({}, 4,
---             function()
---                 awful.util.spawn("amixer set Master 1%+")
---                 theme.volume.update()
---             end),
---         awful.button({}, 5,
---             function()
---                     awful.util.spawn("amixer set Master 1%-")
---                     theme.volume.update()
---             end)))
--- local volume = wibox.widget {
--- 	{
---         layout = wibox.layout.fixed.horizontal,
---         spr,
---         wibox.container.margin(volicon, 5, 0, 5, 5),
---         theme.volume,
---         spr,
---     },
--- 	widget = wibox.container.background
--- }
-
--- power menu
--- local power_button = wibox.widget{
--- 	{
---         layout = wibox.layout.fixed.horizontal,
---         spr,
---         {
---     		{
---     			widget = wibox.widget.imagebox,
---     			image = theme.widget_power_btn,
---     		},
---     		widget = wibox.container.margin,
---     		margins = 7
---     	},
---         spr,
---     },
--- 	widget = wibox.container.background
--- }
-
--- power_button:connect_signal("button::press", function(c, _, _, button)
--- 	if button == 1 then os.execute('sh ~/.config/scripts/powermenu.sh') end
--- end)
 -- #############################################################################################################
 
 
@@ -241,9 +172,9 @@ function theme.at_screen_connect(s)
     s.mylayoutbox = wibox.widget {
     	{
             layout = wibox.layout.fixed.horizontal,
-            small_spr,
-            wibox.container.margin(awful.widget.layoutbox(s), 3, 3, 3, 3),
-            small_spr,
+            spr,
+            wibox.container.margin(awful.widget.layoutbox(s), 0, 0, 1, 1),
+            spr,
         },
     	widget = wibox.container.background
     }
@@ -259,9 +190,6 @@ function theme.at_screen_connect(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
-        -- style   = {
-        --     shape =  rounded_shape(5),
-        -- },
     }
 
     s.mytaglist = wibox.widget {
@@ -271,37 +199,6 @@ function theme.at_screen_connect(s)
         },
     	widget = wibox.container.background
     }
-
-
-    -- Create a tasklist widget
-    	-- s.mytasklist = awful.widget.tasklist {
-    	--    screen  = s,
-    	--     filter  = awful.widget.tasklist.filter.currenttags,
-    	--     buttons = awful.util.tasklist_buttons,
-
-    	--     style = {
-    	--         shape_border_width = 1,
-    	--         shape_border_color = '#777777',
-    	--         shape  = gears.shape.octogon
-    	--     },
-
-    	--     layout   = {
-    	--         spacing = 7,
-            -- spacing_widget = {
-            --     {
-            --         forced_width = 10,
-             --         shape        = gears.shape.circle,
-             --         widget       = wibox.widget.separator
-             --     },
-             --     valign = 'center',
-             --     halign = 'center',
-             --     widget = wibox.container.place,
-             -- },
-    	--         layout  = wibox.layout.flex.horizontal
-    	--     }
-
-    	-- }
-
 
     -- Create the wibox
     s.mywibox = awful.wibar {
@@ -316,7 +213,12 @@ function theme.at_screen_connect(s)
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         expand = "outside",
-        spr,
+        {
+            layout = wibox.layout.fixed.horizontal,
+            add_styling(s.mylayoutbox),
+            -- spr,
+            -- add_styling(clock)
+        },
         {
             layout = wibox.layout.fixed.horizontal,
             add_styling(s.mytaglist),
