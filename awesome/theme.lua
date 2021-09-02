@@ -39,6 +39,8 @@ theme.widget_bg = "#2f3c42"
 theme.border_width = dpi(3)
 theme.border_normal = "#2f3c42"
 theme.border_focus = theme.bg_focus
+theme.titlebar_bg_focus = theme.bg_focus
+theme.titlebar_bg_normal = theme.border_normal
 -- Panel
 theme.panel_height = dpi(20)
 -- Icons

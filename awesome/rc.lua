@@ -382,7 +382,7 @@ awful.rules.rules = {
         rule_any = {
             type = { "normal", "dialog" }
         },
-        properties = { titlebars_enabled = false }
+        properties = { titlebars_enabled = true }
     },
 }
 
@@ -403,7 +403,32 @@ client.connect_signal("manage", function (c)
 
 end)
 
+-- Add a titlebar if titlebars_enabled is set to true in the rules.
+client.connect_signal("request::titlebars", function(c)
+    -- Custom
+    if beautiful.titlebar_fun then
+        beautiful.titlebar_fun(c)
+        return
+    end
 
+    -- Default
+    -- buttons for the titlebar
+    local buttons = mytable.join(
+        awful.button({ }, 1, function()
+            c:emit_signal("request::activate", "titlebar", {raise = true})
+            awful.mouse.client.move(c)
+        end),
+        awful.button({ }, 3, function()
+            c:emit_signal("request::activate", "titlebar", {raise = true})
+            awful.mouse.client.resize(c)
+        end)
+    )
+
+    awful.titlebar(c, { size = 15 }) : setup {
+        buttons = buttons,
+        layout = wibox.layout.align.horizontal
+    }
+end)
 
 -- set border color
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)

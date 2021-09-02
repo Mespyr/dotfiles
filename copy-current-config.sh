@@ -24,3 +24,4 @@ COPY picom.conf ~/.config/
 COPY bookmarks ~/.config/
 COPY nvim ~/.config/
 COPY scripts ~/.config/
+COPY neofetch ~/.config/
