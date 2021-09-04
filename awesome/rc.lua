@@ -424,7 +424,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c, { size = 16 }) : setup {
+    awful.titlebar(c, { size = 13 }) : setup {
         buttons = buttons,
         layout = wibox.layout.align.horizontal
     }

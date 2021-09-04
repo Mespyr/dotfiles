@@ -23,7 +23,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall5.jpg"
+theme.wallpaper = theme.dir .. "/wall6.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 10"
@@ -101,7 +101,7 @@ local small_spr = wibox.widget.textbox(' ')
 
 -- Textclock
 local clocktext = awful.widget.watch(
-    "date +'%a %d %b %R'", 60,
+    "date +'%a %I:%M'", 60,
     function(widget, stdout)
         widget:set_markup(" " .. markup.font(theme.font_name .. " 9", stdout))
     end
@@ -218,8 +218,9 @@ function theme.at_screen_connect(s)
         {
             layout = wibox.layout.fixed.horizontal,
             add_styling(s.mylayoutbox),
-            -- spr,
-            -- add_styling(clock)
+            spr,
+            spr,
+            add_styling(clock)
         },
         {
             layout = wibox.layout.fixed.horizontal,

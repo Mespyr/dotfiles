@@ -14,7 +14,7 @@ source $HOME/.config/nvim/settings/settings.lua
 " statusline
 source $HOME/.config/nvim/other/statusline.lua
 
-" NERDTree
+" NvimTree
 source $HOME/.config/nvim/other/tree.vim
 
 " Lazyloading stuff
