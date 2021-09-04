@@ -4,7 +4,7 @@ call plug#begin(stdpath('data') . '/plugged')
     " theming stuff
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'Mespyr/onedark.vim'
+    Plug 'sainnhe/gruvbox-material'
 
     " coding stuff
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}   " treesitter
@@ -12,5 +12,6 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'hrsh7th/nvim-compe' 
     Plug 'tpope/vim-commentary'
     Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'onsails/lspkind-nvim'
 
 call plug#end()

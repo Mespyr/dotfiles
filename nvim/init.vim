@@ -23,7 +23,6 @@ vim.defer_fn(function()
     vim.cmd [[
         source $HOME/.config/nvim/other/treesitter.lua
         source $HOME/.config/nvim/other/lsp.lua
-
         LspStart
     ]]
     end, 70)

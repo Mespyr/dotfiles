@@ -30,6 +30,8 @@ vim.cmd [[
     set fillchars+=vert:\▏
 
     syntax on
-    colorscheme onedark
+
+    colorscheme gruvbox-material
 
 ]]
+
