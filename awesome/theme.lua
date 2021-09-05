@@ -136,7 +136,7 @@ local battery = lain.widget.bat({
             else
                 baticon:set_image(theme.widget_battery)
             end
-            widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
+            widget:set_markup(markup.font(theme.fontname .. " 9", " " .. bat_now.perc .. "% "))
         else
             widget:set_markup(markup.font(theme.font, " AC "))
             baticon:set_image(theme.widget_ac)
@@ -147,7 +147,7 @@ local bat = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        wibox.container.margin(baticon, 5, 1, 5, 5),
+        wibox.container.margin(baticon, 5, 1, 2, 1),
         battery,
         spr,
     },
@@ -220,8 +220,11 @@ function theme.at_screen_connect(s)
             add_styling(s.mylayoutbox),
             spr,
             spr,
-            add_styling(clock)
-        },
+            add_styling(clock),
+            spr,
+            spr,
+            add_styling(bat)
+       },
         {
             layout = wibox.layout.fixed.horizontal,
             add_styling(s.mytaglist),
