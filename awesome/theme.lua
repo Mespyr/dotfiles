@@ -136,9 +136,9 @@ local battery = lain.widget.bat({
             else
                 baticon:set_image(theme.widget_battery)
             end
-            widget:set_markup(markup.font(theme.fontname .. " 9", " " .. bat_now.perc .. "% "))
+            widget:set_markup(markup.font(theme.font_name .. " 9", " " .. bat_now.perc .. "% "))
         else
-            widget:set_markup(markup.font(theme.font, " AC "))
+            widget:set_markup(markup.font(theme.font_name .. " 9", " AC "))
             baticon:set_image(theme.widget_ac)
         end
     end})

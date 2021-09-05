@@ -1,21 +1,24 @@
 "               
 "      Neovim config         
+"
 "      github.com/Mespyr    
 "
-
-
-" Keybindings
-source $HOME/.config/nvim/keybindings.vim
 
 " Plugins and settings
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/settings/settings.lua
+
+" colorscheme
+source $HOME/.config/nvim/colors.vim
 
 " statusline
 source $HOME/.config/nvim/other/statusline.lua
 
 " NvimTree
 source $HOME/.config/nvim/other/tree.vim
+
+" Keybindings
+source $HOME/.config/nvim/keybindings.vim
 
 " Lazyloading stuff
 lua << EOF

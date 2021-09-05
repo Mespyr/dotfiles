@@ -2,9 +2,9 @@
 call plug#begin(stdpath('data') . '/plugged')
 
     " theming stuff
-    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    Plug 'famiu/feline.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'sainnhe/gruvbox-material'
+    " Plug 'sainnhe/gruvbox-material'
 
     " coding stuff
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}   " treesitter
