@@ -18,17 +18,15 @@ local components = {
 local colors = {
   bg = '#12191d',
   black = '#12191d',
-  yellow = '#d8a657',
-  cyan = '#89b482',
-  oceanblue = '#45707a',
-  green = '#a9b665',
-  orange = '#e78a4e',
-  violet = '#d3869b',
-  magenta = '#c14a4a',
-  white = '#a89984',
-  fg = '#a89984',
-  skyblue = '#7daea3',
-  red = '#ea6962',
+  yellow = '#EDAF76',
+  cyan = '#8B9CB2',
+  green = '#9CB28B',
+  orange = '#eda676',
+  violet = '#7D6B97',
+  white = '#F1E6D7',
+  fg = '#F1E6D7',
+  skyblue = '#A2C1CE',
+  red = '#EC9475',
 }
 
 local vi_mode_colors = {

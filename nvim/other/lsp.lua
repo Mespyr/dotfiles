@@ -28,6 +28,7 @@ require'compe'.setup {
         treesitter = true;
     };
 }
+
 -- Set tab to accept the autocompletion
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)

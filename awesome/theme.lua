@@ -28,7 +28,7 @@ theme.wallpaper = theme.dir .. "/wall6.jpg"
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 10"
 -- useless gap
-theme.useless_gap = dpi(3)
+theme.useless_gap = dpi(4)
 -- Colors
 theme.bg_normal = "#12191d"
 theme.bg_focus = "#a8a196"
@@ -39,7 +39,7 @@ theme.widget_bg = "#2f3c42"
 theme.border_width = dpi(3)
 theme.border_normal = "#2f3c42"
 theme.border_focus = theme.bg_focus
-theme.titlebar_bg_focus = theme.bg_focus
+theme.titlebar_bg_focus = theme.border_focus
 theme.titlebar_bg_normal = theme.border_normal
 -- Panel
 theme.panel_height = dpi(20)
@@ -147,7 +147,7 @@ local bat = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        wibox.container.margin(baticon, 5, 1, 2, 1),
+        wibox.container.margin(baticon, 3, 1, 2, 2),
         battery,
         spr,
     },
