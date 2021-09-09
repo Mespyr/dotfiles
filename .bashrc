@@ -109,8 +109,6 @@ fi
     # DIRECTORY_PROMPT="$FONT_FG$DIRECTORY_BG  \w  $RESET"
     # PS1="$USERNAME_PROMPT$DIRECTORY_PROMPT$RESET "
     # PS2="$DIRECTORY_BG  $RESET "
-EDITOR="nvim"
-
 RESET="\e[0m"
 BRACKET_COLOR="\e[1;33m"
 DIR_COLOR="\e[1;31m"
@@ -138,3 +136,5 @@ alias rm="rm -i"
 
 alias v="nvim"
 alias py="python3"
+
+export EDITOR="nvim"

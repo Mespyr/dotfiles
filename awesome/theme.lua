@@ -43,6 +43,10 @@ theme.titlebar_bg_focus = theme.border_focus
 theme.titlebar_bg_normal = theme.border_normal
 -- Panel
 theme.panel_height = dpi(20)
+theme.taglist_bg_occupied                       = theme.widget_bg
+theme.taglist_fg_occupied                       = theme.fg_focus
+theme.taglist_bg_empty                          = theme.widget_bg
+theme.taglist_fg_empty                          = theme.fg_normal
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -168,7 +172,7 @@ function theme.at_screen_connect(s)
     gears.wallpaper.maximized(wallpaper, s, true)
 
     -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts)
+    awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
     -- layout box
     s.mylayoutbox = wibox.widget {
@@ -214,7 +218,7 @@ function theme.at_screen_connect(s)
 
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        expand = "outside",
+        expand = "none",
         {
             layout = wibox.layout.fixed.horizontal,
             add_styling(s.mylayoutbox),
@@ -224,12 +228,15 @@ function theme.at_screen_connect(s)
             spr,
             spr,
             add_styling(bat)
-       },
+        },
         {
             layout = wibox.layout.fixed.horizontal,
             add_styling(s.mytaglist),
         },
-        spr,
+        {
+            layout = wibox.layout.fixed.horizontal,
+            spr
+        }
     }
 
 end
