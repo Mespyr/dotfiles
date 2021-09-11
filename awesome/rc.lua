@@ -448,3 +448,5 @@ awful.spawn.with_shell('setxkbmap -option ctrl:nocaps')
 -- Picom
 os.execute('killall -q picom')
 awful.spawn.with_shell("picom")
+
+awful.spawn.with_shell("nm-applet")
