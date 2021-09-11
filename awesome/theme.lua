@@ -23,7 +23,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall9.jpg"
+theme.wallpaper = theme.dir .. "/wall10.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
 theme.font = theme.font_name .. " 10"
@@ -36,15 +36,16 @@ theme.fg_normal = "#FFEFE5"
 theme.fg_focus = theme.bg_normal
 theme.widget_bg = "#2f3c42"
 -- Borders
-theme.border_width = dpi(3)
+theme.border_width = dpi(2)
 theme.border_normal = "#2f3c42"
-theme.border_focus = theme.bg_focus
+theme.border_focus = "#A88D74"
+-- theme.border_focus = theme.bg_focus
 theme.titlebar_bg_focus = theme.border_focus
 theme.titlebar_bg_normal = theme.border_normal
 -- Panel
 theme.panel_height = dpi(20)
 theme.taglist_bg_occupied                       = theme.widget_bg
-theme.taglist_fg_occupied                       = theme.fg_focus
+theme.taglist_fg_occupied                       = theme.fg_normal
 theme.taglist_bg_empty                          = theme.widget_bg
 theme.taglist_fg_empty                          = theme.fg_normal
 -- Icons
@@ -101,7 +102,7 @@ end
 local markup = lain.util.markup
 
 local spr = wibox.widget.textbox('  ')
-local small_spr = wibox.widget.textbox(' ')
+-- local small_spr = wibox.widget.textbox(' ')
 
 -- Textclock
 local clocktext = awful.widget.watch(
