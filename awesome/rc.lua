@@ -68,8 +68,9 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("nvim") or "nvim"
 awful.util.terminal = terminal
 -- awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
-awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
+-- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
 -- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
+awful.util.tagnames = { " ", " ", " ", " ", " ", " ", " ", " ", " ", }
 
 
 

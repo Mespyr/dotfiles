@@ -23,10 +23,10 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall10.jpg"
+theme.wallpaper = theme.dir .. "/wall9.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
-theme.font = theme.font_name .. " 10"
+theme.font = theme.font_name .. " 9"
 -- useless gap
 theme.useless_gap = dpi(4)
 -- Colors
@@ -44,14 +44,17 @@ theme.titlebar_bg_focus = theme.border_focus
 theme.titlebar_bg_normal = theme.border_normal
 -- Panel
 theme.panel_height = dpi(20)
-theme.taglist_bg_occupied                       = theme.widget_bg
-theme.taglist_fg_occupied                       = theme.fg_normal
+
+theme.taglist_bg_occupied                       = theme.border_focus
+theme.taglist_fg_occupied                       = theme.border_focus
 theme.taglist_bg_empty                          = theme.widget_bg
 theme.taglist_fg_empty                          = theme.fg_normal
+theme.taglist_bg_focus                          = theme.bg_focus
+theme.taglist_fg_focus                          = theme.fg_focus
+theme.taglist_bg_volatile = theme.widget_bg
+theme.taglist_fg_volatile = theme.widget_bg
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
-theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
-theme.taglist_squares_unsel                     = theme.dir .. "/icons/square_unsel.png"
 theme.layout_tile                               = theme.dir .. "/icons/tile.png"
 theme.layout_tileleft                           = theme.dir .. "/icons/tileleft.png"
 theme.layout_tilebottom                         = theme.dir .. "/icons/tilebottom.png"
@@ -192,11 +195,22 @@ function theme.at_screen_connect(s)
                            awful.button({}, 4, function () awful.layout.inc( 1) end),
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
 
+    -- local box = function(cr, width, height)
+    --     return gears.shape.rectangle(cr, width, height, 2)
+    -- end
+
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
+        -- style = {
+        --     shape = gears.shape.rounded_rect
+        -- },
+        layout = {
+            spacing = 2,
+            layout  = wibox.layout.fixed.horizontal
+        }
     }
 
     s.mytaglist = wibox.widget {

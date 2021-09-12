@@ -27,7 +27,7 @@ font:
   bold_italic:
     family: UbuntuMono Nerd Font Mono
     style: Bold Italic
-  size: 8
+  size: 10
   offset:
     x: 0
     y: 0
