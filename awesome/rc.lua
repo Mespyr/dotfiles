@@ -414,7 +414,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c, { size = 16, position = "left" }) : setup {
+    awful.titlebar(c, { size = 18, position = "left" }) : setup {
         buttons = buttons,
         layout = wibox.layout.align.horizontal
     }
@@ -423,8 +423,6 @@ end)
 -- set border color
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
-
 
 -- Autostart
 -- This function will run once every time Awesome is started
@@ -448,5 +446,3 @@ awful.spawn.with_shell('setxkbmap -option ctrl:nocaps')
 -- Picom
 os.execute('killall -q picom')
 awful.spawn.with_shell("picom")
-
-awful.spawn.with_shell("nm-applet")
