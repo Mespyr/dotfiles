@@ -70,7 +70,7 @@ awful.util.terminal = terminal
 -- awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 -- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
 -- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
-awful.util.tagnames = { " ", " ", " ", " ", " ", " ", " ", " ", " ", }
+awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
 
 
 
