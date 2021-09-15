@@ -41,7 +41,7 @@ hi Define guifg=#edaf76 guibg=NONE
 hi MoreMsg guifg=#edaf76 guibg=NONE
 hi Tag guifg=#edaf76 guibg=NONE
 hi String guifg=#edaf76 guibg=NONE
-hi MatchParen guifg=#edaf76 guibg=NONE
+hi MatchParen guifg=#edaf76 guibg=NONE gui=underline
 hi Macro guifg=#edaf76 guibg=NONE
 hi DiffChange guifg=#edaf76 guibg=NONE
 hi GitGutterChange guifg=#edaf76 guibg=NONE
@@ -67,8 +67,8 @@ hi NonText guifg=#4b4a49 guibg=#12191d
 hi Comment guifg=#4b4a49 gui=italic
 hi SpecialComment guifg=#4b4a49 gui=italic guibg=NONE
 hi CursorLine guibg=#192328
-hi TabLineFill gui=NONE guibg=#192329
-hi TabLine guifg=#bb8741 guibg=#192329 gui=NONE
+hi TabLineFill gui=underline guibg=#192329 guifg=#B2A08A
+hi TabLine guifg=#edaf76 guibg=#192329 gui=underline
 hi StatusLine gui=bold guibg=#192329 guifg=#f1e6d7
 hi StatusLineNC gui=NONE guibg=#12191d guifg=#f1e6d7
 hi Search guibg=#4b4a49 guifg=#f1e6d7

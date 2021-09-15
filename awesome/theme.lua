@@ -51,8 +51,6 @@ theme.taglist_bg_empty                          = theme.widget_bg
 theme.taglist_fg_empty                          = theme.fg_normal
 theme.taglist_bg_focus                          = theme.bg_focus
 theme.taglist_fg_focus                          = theme.fg_focus
-theme.taglist_bg_volatile = theme.widget_bg
-theme.taglist_fg_volatile = theme.widget_bg
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.layout_tile                               = theme.dir .. "/icons/tile.png"
@@ -111,7 +109,7 @@ local spr = wibox.widget.textbox('  ')
 local clocktext = awful.widget.watch(
     "date +'%a %I:%M'", 60,
     function(widget, stdout)
-        widget:set_markup(" " .. markup.font(theme.font_name .. " 9", stdout))
+        widget:set_markup(" " .. markup.font(theme.font, stdout))
     end
 )
 
@@ -144,9 +142,9 @@ local battery = lain.widget.bat({
             else
                 baticon:set_image(theme.widget_battery)
             end
-            widget:set_markup(markup.font(theme.font_name .. " 9", " " .. bat_now.perc .. "% "))
+            widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
         else
-            widget:set_markup(markup.font(theme.font_name .. " 9", " AC "))
+            widget:set_markup(markup.font(theme.font, " AC "))
             baticon:set_image(theme.widget_ac)
         end
     end})
