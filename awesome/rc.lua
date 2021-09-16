@@ -26,10 +26,10 @@ local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 
 -- Notifications
-naughty.config.spacing = dpi(3)
-naughty.config.defaults.margin = dpi(10)
+naughty.config.spacing = dpi(4)
+naughty.config.defaults.margin = dpi(8)
 naughty.config.defaults.border_width = dpi(1)
-naughty.config.padding = dpi(3)
+naughty.config.padding = dpi(4)
 -- naughty.config.defaults.width            = 230
 
 
@@ -415,15 +415,15 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c, { size = 18, position = "left" }) : setup {
+    awful.titlebar(c, { size = 24, position = "left" }) : setup {
         buttons = buttons,
         layout = wibox.layout.align.horizontal
     }
 end)
 
 -- set border color
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+-- client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Autostart
 -- This function will run once every time Awesome is started

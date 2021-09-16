@@ -36,7 +36,7 @@ theme.fg_normal = "#FFEFE5"
 theme.fg_focus = theme.bg_normal
 theme.widget_bg = "#2f3c42"
 -- Borders
-theme.border_width = dpi(1)
+theme.border_width = dpi(0)
 theme.border_normal = "#2f3c42"
 theme.border_focus = "#A88D74"
 -- theme.border_focus = theme.bg_focus
