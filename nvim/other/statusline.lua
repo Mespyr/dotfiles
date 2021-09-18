@@ -16,7 +16,7 @@ local components = {
 }
 
 local colors = {
-  bg = '#12191d',
+  bg = '#182025',
   black = '#12191d',
   yellow = '#EDAF76',
   cyan = '#8B9CB2',
@@ -128,7 +128,7 @@ components.left.active[2] = {
   end,
   hl = {
     fg = 'white',
-    bg = 'black',
+    bg = 'bg',
     style = 'bold'
   },
   right_sep = ''

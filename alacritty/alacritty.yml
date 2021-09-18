@@ -16,18 +16,18 @@ background_opacity: 1.0
 window.dynamic_title: true
 font:
   normal:
-    family: UbuntuMono Nerd Font Mono
+    family: Hermit
     style: Regular
   bold:
-    family: UbuntuMono Nerd Font Mono
+    family: Hermit
     style: Bold
   italic:
-    family: UbuntuMono Nerd Font Mono
+    family: Hermit
     style: Italic
   bold_italic:
-    family: UbuntuMono Nerd Font Mono
+    family: Hermit
     style: Bold Italic
-  size: 10
+  size: 9
   offset:
     x: 0
     y: 0
