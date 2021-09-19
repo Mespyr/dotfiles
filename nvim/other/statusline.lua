@@ -108,6 +108,10 @@ properties.force_inactive.buftypes = {
 --   right_sep = ' '
 -- }
 -- vi-symbol
+
+
+
+
 components.left.active[1] = {
   provider = function()
     return vi_mode_text[vi_mode_utils.get_vim_mode()]
@@ -119,7 +123,8 @@ components.left.active[1] = {
     val.style = 'bold'
     return val
   end,
-  right_sep = ' '
+  -- right_sep = ' ',
+  left_sep = ' '
 }
 -- filename
 components.left.active[2] = {
@@ -131,7 +136,8 @@ components.left.active[2] = {
     bg = 'bg',
     style = 'bold'
   },
-  right_sep = ''
+  right_sep = ' ',
+  left_sep = ' '
 }
 -- -- gitBranch
 -- components.left.active[4] = {
@@ -320,6 +326,34 @@ components.right.active[1] = {
   },
   right_sep = ' '
 }
+components.right.active[2] = {
+  provider = 'file_type',
+  hl = {
+    fg = 'black',
+    bg = 'cyan',
+    style = 'bold'
+  },
+  left_sep = {
+    str = ' ',
+    hl = {
+      fg = 'NONE',
+      bg = 'cyan'
+    }
+  },
+  right_sep = {
+    {
+      str = ' ',
+      hl = {
+        fg = 'NONE',
+        bg = 'cyan'
+      }
+    },
+    ' '
+  }
+}
+
+
+
 -- -- linePercent
 -- components.right.active[2] = {
 --   provider = 'line_percentage',
