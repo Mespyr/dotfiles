@@ -124,7 +124,7 @@ components.left.active[1] = {
     return val
   end,
   -- right_sep = ' ',
-  left_sep = ' '
+  -- left_sep = ' '
 }
 -- filename
 components.left.active[2] = {
@@ -348,7 +348,6 @@ components.right.active[2] = {
         bg = 'cyan'
       }
     },
-    ' '
   }
 }
 
