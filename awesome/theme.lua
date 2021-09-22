@@ -26,7 +26,7 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome"
 theme.wallpaper = theme.dir .. "/wall9.jpg"
 -- Font
 theme.font_name = "UbuntuMono Nerd Font Mono"
-theme.font = theme.font_name .. " 9"
+theme.font = theme.font_name .. " 8"
 -- useless gap
 theme.useless_gap = dpi(4)
 -- Colors
@@ -46,7 +46,7 @@ theme.titlebar_bg_normal = theme.border_normal
 theme.panel_height = dpi(20)
 
 theme.taglist_bg_occupied                       = theme.border_focus
-theme.taglist_fg_occupied                       = theme.border_focus
+theme.taglist_fg_occupied                       = theme.fg_focus
 theme.taglist_bg_empty                          = theme.widget_bg
 theme.taglist_fg_empty                          = theme.fg_normal
 theme.taglist_bg_focus                          = theme.bg_focus
@@ -234,9 +234,9 @@ function theme.at_screen_connect(s)
         expand = "none",
         {
             layout = wibox.layout.fixed.horizontal,
-            add_styling(s.mylayoutbox),
-            spr,
-            spr,
+            -- add_styling(s.mylayoutbox),
+            -- spr,
+            -- spr,
             add_styling(clock),
             spr,
             spr,
@@ -248,7 +248,7 @@ function theme.at_screen_connect(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            spr
+            add_styling(s.mylayoutbox),
         }
     }
 
