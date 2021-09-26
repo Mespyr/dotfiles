@@ -5,6 +5,7 @@ My dotfiles.
 Neovim needs the following packages. 
 - [pyright](https://github.com/microsoft/pyright)
 - [lua-language-server](https://github.com/sumneko/lua-language-server)
+- [clang](https://clangd.llvm.org/) (comes with clangd)
 - [vim-plug](https://github.com/junegunn/vim-plug) 
 
 ## Fonts
