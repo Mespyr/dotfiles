@@ -67,9 +67,9 @@ local terminal     = "alacritty"
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("nvim") or "nvim"
 awful.util.terminal = terminal
--- awful.util.tagnames = { " DEV ", " WWW ", " CHAT ", " FILE ", " IMG ", " ETC " }
+-- awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
 -- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
--- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
+-- awful.util.tagnames = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", }
 awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
 
 

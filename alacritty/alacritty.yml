@@ -27,7 +27,7 @@ font:
   bold_italic:
     family: Hermit
     style: Bold Italic
-  size: 9
+  size: 8
   offset:
     x: 0
     y: 0
