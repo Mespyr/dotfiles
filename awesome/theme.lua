@@ -28,7 +28,7 @@ theme.wallpaper = theme.dir .. "/wall9.jpg"
 theme.font_name = "Hermit"
 theme.font = theme.font_name .. " 7"
 -- useless gap
-theme.useless_gap = dpi(4)
+theme.useless_gap = dpi(0)
 -- Colors
 theme.bg_normal = "#12191d"
 theme.bg_focus = "#a8a196"
@@ -206,7 +206,7 @@ function theme.at_screen_connect(s)
         --     shape = gears.shape.rounded_rect
         -- },
         layout = {
-            spacing = 3,
+            spacing = 2,
             layout  = wibox.layout.fixed.horizontal
         }
     }

@@ -26,10 +26,10 @@ local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 
 -- Notifications
-naughty.config.spacing = dpi(4)
+naughty.config.spacing = dpi(10)
 naughty.config.defaults.margin = dpi(8)
 naughty.config.defaults.border_width = dpi(1)
-naughty.config.padding = dpi(4)
+naughty.config.padding = dpi(10)
 -- naughty.config.defaults.width            = 230
 
 

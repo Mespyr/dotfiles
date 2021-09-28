@@ -88,6 +88,9 @@ lspconfig.pyright.setup{
       }
     }
 }
+
+lspconfig.clangd.setup{}
+
 require('lspkind').init({
     -- enables text annotations
     --
