@@ -14,7 +14,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-buffer'
 
-    " Plug 'onsails/lspkind-nvim'
+    Plug 'onsails/lspkind-nvim'
 
     Plug 'tpope/vim-commentary'
     Plug 'kyazdani42/nvim-tree.lua'

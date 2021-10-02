@@ -67,8 +67,8 @@ hi NonText guifg=#4b4a49 guibg=#12191d
 hi Comment guifg=#4b4a49 gui=italic
 hi SpecialComment guifg=#4b4a49 gui=italic guibg=NONE
 hi CursorLine guibg=#182025
-hi TabLineFill gui=underline guibg=#182025 guifg=#B2A08A
-hi TabLine guifg=#edaf76 guibg=#182025 gui=underline
+hi TabLineFill gui=NONE guibg=#12191d guifg=#B2A08A
+hi TabLine guifg=#edaf76 guibg=#182025 gui=NONE
 hi StatusLine gui=bold guibg=#182025 guifg=#f1e6d7
 hi StatusLineNC gui=NONE guibg=#12191d guifg=#f1e6d7
 hi Search guibg=#4b4a49 guifg=#f1e6d7
