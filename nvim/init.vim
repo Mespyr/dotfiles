@@ -11,14 +11,15 @@ source $HOME/.config/nvim/settings/settings.lua
 " colorscheme
 source $HOME/.config/nvim/colors.vim
 
+" Keybindings
+source $HOME/.config/nvim/keybindings.vim
+
+
 " statusline
 source $HOME/.config/nvim/other/statusline.lua
 
 " NvimTree
-source $HOME/.config/nvim/other/tree.vim
-
-" Keybindings
-source $HOME/.config/nvim/keybindings.vim
+source $HOME/.config/nvim/other/tree.lua
 
 " Lazyloading stuff
 lua << EOF
