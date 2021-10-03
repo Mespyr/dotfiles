@@ -28,7 +28,7 @@ export EDITOR="nvim"
 # aliases
 alias ga='git add .'
 alias gs='git status'
-alias gcm='git commit -m'
+alias gc='git commit -m'
 alias gp='git push'
 alias autoremove='sudo pacman -Rsn $(pacman -Qdtq)'
 alias ls="exa -lahbs type"

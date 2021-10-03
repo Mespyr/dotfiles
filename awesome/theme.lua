@@ -23,7 +23,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall9.jpg"
+theme.wallpaper = theme.dir .. "/wall7.jpg"
 -- Font
 theme.font_name = "Hermit"
 theme.font = theme.font_name .. " 7"
@@ -31,13 +31,13 @@ theme.font = theme.font_name .. " 7"
 theme.useless_gap = dpi(0)
 -- Colors
 theme.bg_normal = "#12191d"
-theme.bg_focus = "#a8a196"
+theme.bg_focus = "#757676"
 theme.fg_normal = "#FFEFE5"
 theme.fg_focus = theme.bg_normal
-theme.widget_bg = "#2f3c42"
+theme.widget_bg = "#33383B"
 -- Borders
 theme.border_width = dpi(0)
-theme.border_normal = "#2f3c42"
+theme.border_normal = "#33383B"
 theme.border_focus = "#A88D74"
 -- theme.border_focus = theme.bg_focus
 theme.titlebar_bg_focus = theme.border_focus
@@ -45,12 +45,12 @@ theme.titlebar_bg_normal = theme.border_normal
 -- Panel
 theme.panel_height = dpi(20)
 
-theme.taglist_bg_occupied                       = theme.border_focus
+theme.taglist_bg_occupied                       = "#7d6b97"
 theme.taglist_fg_occupied                       = theme.fg_focus
-theme.taglist_bg_empty                          = theme.widget_bg
-theme.taglist_fg_empty                          = theme.fg_normal
-theme.taglist_bg_focus                          = theme.bg_focus
-theme.taglist_fg_focus                          = theme.fg_focus
+theme.taglist_bg_empty                          = theme.bg_focus
+theme.taglist_fg_empty                          = theme.bg_focus
+theme.taglist_bg_focus                          = theme.border_focus
+theme.taglist_fg_focus                          = theme.border_focus
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.layout_tile                               = theme.dir .. "/icons/tile.png"
@@ -202,11 +202,11 @@ function theme.at_screen_connect(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
-        -- style = {
-        --     shape = gears.shape.rounded_rect
-        -- },
+        style = {
+            shape = gears.shape.rounded_rect
+        },
         layout = {
-            spacing = 2,
+            spacing = 8,
             layout  = wibox.layout.fixed.horizontal
         }
     }
@@ -214,7 +214,9 @@ function theme.at_screen_connect(s)
     s.mytaglist = wibox.widget {
     	{
             layout = wibox.layout.fixed.horizontal,
-            s.mytaglist
+            spr,
+            wibox.container.margin(s.mytaglist, 3, 3, 3, 3),
+            spr
         },
     	widget = wibox.container.background
     }
