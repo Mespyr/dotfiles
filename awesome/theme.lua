@@ -103,7 +103,7 @@ end
 local markup = lain.util.markup
 
 local spr = wibox.widget.textbox('  ')
--- local small_spr = wibox.widget.textbox(' ')
+local small_spr = wibox.widget.textbox(' ')
 
 -- Textclock
 local clocktext = awful.widget.watch(
@@ -119,7 +119,7 @@ local clock = wibox.widget{
         spr,
         clocktext,
         spr,
-        spr,
+        small_spr
     },
 	widget = wibox.container.background
 }
@@ -181,7 +181,7 @@ function theme.at_screen_connect(s)
     	{
             layout = wibox.layout.fixed.horizontal,
             spr,
-            wibox.container.margin(awful.widget.layoutbox(s), 0, 0, 1, 1),
+            wibox.container.margin(awful.widget.layoutbox(s), 1, 1, 3, 3),
             spr,
         },
     	widget = wibox.container.background
@@ -206,7 +206,7 @@ function theme.at_screen_connect(s)
             shape = gears.shape.rounded_rect
         },
         layout = {
-            spacing = 8,
+            spacing = 10,
             layout  = wibox.layout.fixed.horizontal
         }
     }
@@ -215,7 +215,9 @@ function theme.at_screen_connect(s)
     	{
             layout = wibox.layout.fixed.horizontal,
             spr,
-            wibox.container.margin(s.mytaglist, 3, 3, 3, 3),
+            spr,
+            wibox.container.margin(s.mytaglist, 6, 6, 6, 6),
+            spr,
             spr
         },
     	widget = wibox.container.background
