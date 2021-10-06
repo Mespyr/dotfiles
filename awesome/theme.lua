@@ -181,7 +181,9 @@ function theme.at_screen_connect(s)
     	{
             layout = wibox.layout.fixed.horizontal,
             spr,
+            small_spr,
             wibox.container.margin(awful.widget.layoutbox(s), 1, 1, 3, 3),
+            small_spr,
             spr,
         },
     	widget = wibox.container.background
@@ -206,7 +208,7 @@ function theme.at_screen_connect(s)
             shape = gears.shape.rounded_rect
         },
         layout = {
-            spacing = 10,
+            spacing = 12,
             layout  = wibox.layout.fixed.horizontal
         }
     }

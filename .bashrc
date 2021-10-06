@@ -33,7 +33,7 @@ alias gp='git push'
 alias autoremove='sudo pacman -Rsn $(pacman -Qdtq)'
 alias ls="exa -lahbs type"
 alias cat="bat"
-alias rm="rm -i"
+alias rm="rm -I"
 alias v="nvim"
 alias py="python3"
 alias img="mpv --loop=inf --pause"
