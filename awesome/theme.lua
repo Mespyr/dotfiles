@@ -26,7 +26,7 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome"
 theme.wallpaper = theme.dir .. "/wall7.jpg"
 -- Font
 theme.font_name = "Hermit"
-theme.font = theme.font_name .. " 7"
+theme.font = theme.font_name .. " 6"
 -- useless gap
 theme.useless_gap = dpi(0)
 -- Colors
@@ -153,7 +153,7 @@ local bat = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        wibox.container.margin(baticon, 4, 1, 2, 3),
+        wibox.container.margin(baticon, 4, 1, 3, 3),
         battery,
         spr,
     },
@@ -208,7 +208,7 @@ function theme.at_screen_connect(s)
             shape = gears.shape.rounded_rect
         },
         layout = {
-            spacing = 12,
+            spacing = 10,
             layout  = wibox.layout.fixed.horizontal
         }
     }
@@ -216,11 +216,11 @@ function theme.at_screen_connect(s)
     s.mytaglist = wibox.widget {
     	{
             layout = wibox.layout.fixed.horizontal,
-            spr,
+            small_spr,
             spr,
             wibox.container.margin(s.mytaglist, 6, 6, 6, 6),
             spr,
-            spr
+            small_spr
         },
     	widget = wibox.container.background
     }
