@@ -23,10 +23,10 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall7.jpg"
+theme.wallpaper = theme.dir .. "/wall15.jpg"
 -- Font
 theme.font_name = "Hermit"
-theme.font = theme.font_name .. " 6"
+theme.font = theme.font_name .. " 7"
 -- useless gap
 theme.useless_gap = dpi(0)
 -- Colors
@@ -117,9 +117,10 @@ local clock = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
+        small_spr,
         clocktext,
         spr,
-        small_spr
+        spr
     },
 	widget = wibox.container.background
 }
@@ -153,9 +154,11 @@ local bat = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        wibox.container.margin(baticon, 4, 1, 3, 3),
+        small_spr,
+        wibox.container.margin(baticon, 4, 1, 3, 4),
         battery,
         spr,
+        small_spr
     },
 	widget = wibox.container.background
 }
@@ -246,7 +249,7 @@ function theme.at_screen_connect(s)
             add_styling(clock),
             spr,
             spr,
-            add_styling(bat)
+            add_styling(bat),
         },
         {
             layout = wibox.layout.fixed.horizontal,
