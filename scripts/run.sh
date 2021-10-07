@@ -1,1 +1,1 @@
-dmenu_run -p run
+dmenu_run -p " run "
