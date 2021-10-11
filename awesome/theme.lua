@@ -192,9 +192,9 @@ function theme.at_screen_connect(s)
     	{
             layout = wibox.layout.fixed.horizontal,
             spr,
-            spr,
+            small_spr,
             wibox.container.margin(awful.widget.layoutbox(s), 1, 1, 3, 3),
-            spr,
+            small_spr,
             spr,
         },
     	widget = wibox.container.background
@@ -262,9 +262,7 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             add_styling(bat, true),
             spr,
-            spr,
             add_styling(clock, true),
-            spr,
             spr,
             add_styling(s.mylayoutbox, true),
             spr
