@@ -26,7 +26,7 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome"
 theme.wallpaper = theme.dir .. "/wall15.jpg"
 -- Font
 theme.font_name = "Hermit"
-theme.font = theme.font_name .. " 7"
+theme.font = theme.font_name .. " 6"
 -- useless gap
 theme.useless_gap = dpi(0)
 -- Colors
@@ -88,12 +88,20 @@ theme.widget_power_btn                          = theme.dir .. "/icons/power.png
 
 
 -- ######################## Util ###############################################################################
-local add_styling = function(widget)
+local add_styling = function(widget, is_curved)
+    if is_curved then
+        return wibox.container.background(
+            widget,
+            theme.widget_bg,
+            gears.shape.rounded_rect
+        )
+    end
     return wibox.container.background(
         widget,
         theme.widget_bg
     )
 end
+
 -- #############################################################################################################
 
 
@@ -120,7 +128,7 @@ local clock = wibox.widget{
         small_spr,
         clocktext,
         spr,
-        spr
+        spr,
     },
 	widget = wibox.container.background
 }
@@ -155,7 +163,7 @@ local bat = wibox.widget{
         layout = wibox.layout.fixed.horizontal,
         spr,
         small_spr,
-        wibox.container.margin(baticon, 4, 1, 3, 4),
+        wibox.container.margin(baticon, 4, 1, 3, 3),
         battery,
         spr,
         small_spr
@@ -184,9 +192,9 @@ function theme.at_screen_connect(s)
     	{
             layout = wibox.layout.fixed.horizontal,
             spr,
-            small_spr,
+            spr,
             wibox.container.margin(awful.widget.layoutbox(s), 1, 1, 3, 3),
-            small_spr,
+            spr,
             spr,
         },
     	widget = wibox.container.background
@@ -245,19 +253,21 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             -- add_styling(s.mylayoutbox),
             -- spr,
-            -- spr,
-            add_styling(clock),
-            spr,
-            spr,
-            add_styling(bat),
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            add_styling(s.mytaglist),
+            add_styling(s.mytaglist, true),
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            add_styling(s.mylayoutbox),
+            add_styling(bat, true),
+            spr,
+            spr,
+            add_styling(clock, true),
+            spr,
+            spr,
+            add_styling(s.mylayoutbox, true),
+            spr
         }
     }
 

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-command="dmenu -p power"
-
 # Options
 shutdown=" Shutdown "
 reboot=" Reboot "
@@ -11,7 +9,7 @@ logout=" Logout "
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | $command )"
+chosen="$(echo -e "$options" | dmenu -p " power " )"
 case $chosen in
     $shutdown)
         poweroff
