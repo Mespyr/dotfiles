@@ -251,8 +251,8 @@ function theme.at_screen_connect(s)
         expand = "none",
         {
             layout = wibox.layout.fixed.horizontal,
-            -- add_styling(s.mylayoutbox),
-            -- spr,
+            add_styling(clock),
+            spr,
         },
         {
             layout = wibox.layout.fixed.horizontal,
@@ -260,15 +260,11 @@ function theme.at_screen_connect(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            add_styling(bat, true),
+            add_styling(bat),
             spr,
-            add_styling(clock, true),
-            spr,
-            add_styling(s.mylayoutbox, true),
-            spr
+            add_styling(s.mylayoutbox),
         }
     }
-
 end
 
 return theme

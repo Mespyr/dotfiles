@@ -79,7 +79,8 @@ awful.util.tagnames = { "", "", "", "", "", "", "", "", "", }
 
 --Layouts
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.tile,
     -- awful.layout.suit.tile.left,
     awful.layout.suit.max,
     awful.layout.suit.floating,
@@ -88,7 +89,6 @@ awful.layout.layouts = {
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
-    --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
@@ -417,7 +417,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c, { size = 26, position = "left" }) : setup {
+    awful.titlebar(c, { size = 20, position = "bottom" }) : setup {
         buttons = buttons,
         layout = wibox.layout.align.horizontal
     }
