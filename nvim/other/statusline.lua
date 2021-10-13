@@ -29,7 +29,7 @@ local colors = {
   white = '#F1E6D7',
   fg = '#F1E6D7',
   skyblue = '#A2C1CE',
-  red = '#EC9475',
+  red = '#ed7f76',
 }
 
 local vi_mode_colors = {

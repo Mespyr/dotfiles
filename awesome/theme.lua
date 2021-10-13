@@ -36,12 +36,12 @@ theme.fg_normal = "#FFEFE5"
 theme.fg_focus = theme.bg_normal
 theme.widget_bg = "#33383B"
 -- Borders
-theme.border_width = dpi(0)
+theme.border_width = dpi(3)
 theme.border_normal = "#33383B"
 theme.border_focus = "#A88D74"
 -- theme.border_focus = theme.bg_focus
-theme.titlebar_bg_focus = theme.border_focus
-theme.titlebar_bg_normal = theme.border_normal
+-- theme.titlebar_bg_focus = theme.border_focus
+-- theme.titlebar_bg_normal = theme.border_normal
 -- Panel
 theme.panel_height = dpi(20)
 

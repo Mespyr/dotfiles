@@ -5,19 +5,19 @@ set background=dark
 set t_Co=256
 hi Normal guifg=#f1e6d7 ctermbg=NONE guibg=#12191d gui=NONE
 
-hi DiffText guifg=#ec9475 guibg=NONE
-hi ErrorMsg guifg=#ec9475 guibg=NONE
-hi WarningMsg guifg=#ec9475 guibg=NONE
-hi PreProc guifg=#ec9475 guibg=NONE
-hi Exception guifg=#ec9475 guibg=NONE
-hi Error guifg=#ec9475 guibg=NONE
-hi DiffDelete guifg=#ec9475 guibg=NONE
-hi GitGutterDelete guifg=#ec9475 guibg=NONE
-hi GitGutterChangeDelete guifg=#ec9475 guibg=NONE
-hi cssIdentifier guifg=#ec9475 guibg=NONE
-hi cssImportant guifg=#ec9475 guibg=NONE
-hi Type guifg=#ec9475 guibg=NONE
-hi Identifier guifg=#ec9475 guibg=NONE
+hi DiffText guifg=#ed7f76 guibg=NONE
+hi ErrorMsg guifg=#ed7f76 guibg=NONE
+hi WarningMsg guifg=#ed7f76 guibg=NONE
+hi PreProc guifg=#ed7f76 guibg=NONE
+hi Exception guifg=#ed7f76 guibg=NONE
+hi Error guifg=#ed7f76 guibg=NONE
+hi DiffDelete guifg=#ed7f76 guibg=NONE
+hi GitGutterDelete guifg=#ed7f76 guibg=NONE
+hi GitGutterChangeDelete guifg=#ed7f76 guibg=NONE
+hi cssIdentifier guifg=#ed7f76 guibg=NONE
+hi cssImportant guifg=#ed7f76 guibg=NONE
+hi Type guifg=#ed7f76 guibg=NONE
+hi Identifier guifg=#ed7f76 guibg=NONE
 hi PMenuSel guifg=#9cb28b guibg=NONE
 hi Constant guifg=#9cb28b guibg=NONE
 hi Repeat guifg=#9cb28b guibg=NONE
@@ -47,16 +47,16 @@ hi DiffChange guifg=#edaf76 guibg=NONE
 hi GitGutterChange guifg=#edaf76 guibg=NONE
 hi cssColor guifg=#edaf76 guibg=NONE
 hi Function guifg=#8b9cb2 guibg=NONE
-hi Directory guifg=#7d6b97 guibg=NONE
-hi markdownLinkText guifg=#7d6b97 guibg=NONE
-hi javaScriptBoolean guifg=#7d6b97 guibg=NONE
-hi Include guifg=#7d6b97 guibg=NONE
-hi Storage guifg=#7d6b97 guibg=NONE
-hi cssClassName guifg=#7d6b97 guibg=NONE
-hi cssClassNameDot guifg=#7d6b97 guibg=NONE
-hi Statement guifg=#a2c1ce guibg=NONE
-hi Operator guifg=#a2c1ce guibg=NONE
-hi cssAttr guifg=#a2c1ce guibg=NONE
+hi Directory guifg=#a68bb3 guibg=NONE
+hi markdownLinkText guifg=#a68bb3 guibg=NONE
+hi javaScriptBoolean guifg=#a68bb3 guibg=NONE
+hi Include guifg=#a68bb3 guibg=NONE
+hi Storage guifg=#a68bb3 guibg=NONE
+hi cssClassName guifg=#a68bb3 guibg=NONE
+hi cssClassNameDot guifg=#a68bb3 guibg=NONE
+hi Statement guifg=#8bb3b0 guibg=NONE
+hi Operator guifg=#8bb3b0 guibg=NONE
+hi cssAttr guifg=#8bb3b0 guibg=NONE
 
 
 hi Pmenu guifg=#f1e6d7 guibg=#282E31

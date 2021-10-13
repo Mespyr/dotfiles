@@ -41,21 +41,21 @@ colors:
     foreground: "#f1e6d7"
   normal:
     black: "#12191d"
-    red: "#ec9475"
+    red: "#ed7f76"
     green: "#9cb28b"
     yellow: "#edaf76"
     blue: "#8b9cb2"
-    magenta: "#7d6b97"
-    cyan: "#a2c1ce"
+    magenta: "#a68bb3"
+    cyan: "#8bb3b0"
     white: "#f1e6d7"
   bright:
     black: "#f1e6d7"
-    red: "#ec9475"
+    red: "#ed7f76"
     green: "#9cb28b"
     yellow: "#edaf76"
     blue: "#8b9cb2"
-    magenta: "#7d6b97"
-    cyan: "#a2c1ce"
+    magenta: "#a68bb3"
+    cyan: "#8bb3b0"
     white: "#f1e6d7"
 cursor:
   style:
