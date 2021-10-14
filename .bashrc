@@ -14,10 +14,8 @@ shopt -s histappend
 HISTSIZE=500
 HISTFILESIZE=1000
 HISTFILE=~/.config/history
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# update the values of LINES and COLUMNS on window resize
 shopt -s checkwinsize
-
 # Other
 PS1='\033[1;35m\W/ \e[0m'
 # Path

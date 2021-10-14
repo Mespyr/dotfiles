@@ -23,7 +23,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall15.jpg"
+theme.wallpaper = theme.dir .. "/wall19.jpg"
 -- Font
 theme.font_name = "Hermit"
 theme.font = theme.font_name .. " 6"
@@ -38,14 +38,15 @@ theme.widget_bg = "#33383B"
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#33383B"
-theme.border_focus = "#A88D74"
+theme.border_focus = "#edaf76"
+-- theme.border_marked = theme.border_focus
 -- theme.border_focus = theme.bg_focus
 -- theme.titlebar_bg_focus = theme.border_focus
 -- theme.titlebar_bg_normal = theme.border_normal
 -- Panel
 theme.panel_height = dpi(20)
 
-theme.taglist_bg_occupied                       = "#7d6b97"
+theme.taglist_bg_occupied                       = "#ed7f76"
 theme.taglist_fg_occupied                       = theme.fg_focus
 theme.taglist_bg_empty                          = theme.bg_focus
 theme.taglist_fg_empty                          = theme.bg_focus
