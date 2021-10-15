@@ -20,3 +20,6 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
+
+source $HOME/.config/nvim/plugins/lua/feline.lua
+source $HOME/.config/nvim/plugins/lua/nvim-tree.lua
