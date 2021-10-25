@@ -6,6 +6,7 @@ local lspconfig = require'lspconfig'
 vim.o.completeopt = "menuone,noselect"
 
 local cmp = require 'cmp'
+
 -- Set tab to accept the autocompletion
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -33,11 +34,11 @@ cmp.setup {
         end
     },
     mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-Tab>'] = cmp.mapping.select_prev_item(),
+        ['<S-Tab>'] = cmp.mapping.select_next_item(),
+        -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        -- ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
@@ -101,48 +102,48 @@ lspconfig.pyright.setup{
 
 lspconfig.clangd.setup{}
 
---require('lspkind').init({
---    -- enables text annotations
---    --
---    -- default: true
---    with_text = true,
+require('lspkind').init({
+    -- enables text annotations
+    --
+    -- default: true
+    with_text = true,
 
---    -- default symbol map
---    -- can be either 'default' (requires nerd-fonts font) or
---    -- 'codicons' for codicon preset (requires vscode-codicons font)
---    --
---    -- default: 'default'
---    -- preset = 'codicons',
+    -- default symbol map
+    -- can be either 'default' (requires nerd-fonts font) or
+    -- 'codicons' for codicon preset (requires vscode-codicons font)
+    --
+    -- default: 'default'
+    -- preset = 'codicons',
 
---    -- override preset symbols
---    --
---    -- default: {}
---    symbol_map = {
---      Text = "",
---      Method = "",
---      Function = "",
---      Constructor = "",
---      Field = "ﰠ",
---      Variable = "",
---      Class = "ﴯ",
---      Interface = "",
---      Module = "",
---      Property = "ﰠ",
---      Unit = "塞",
---      Value = "",
---      Enum = "",
---      Keyword = "",
---      Snippet = "",
---      Color = "",
---      File = "",
---      Reference = "",
---      Folder = "",
---      EnumMember = "",
---      Constant = "",
---      Struct = "פּ",
---      Event = "",
---      Operator = "",
---      TypeParameter = ""
---    },
---})
+    -- override preset symbols
+    --
+    -- default: {}
+    symbol_map = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "ﰠ",
+      Variable = "",
+      Class = "ﴯ",
+      Interface = "",
+      Module = "",
+      Property = "ﰠ",
+      Unit = "塞",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "פּ",
+      Event = "",
+      Operator = "",
+      TypeParameter = ""
+    },
+})
 

@@ -10,7 +10,7 @@ Neovim needs the following packages.
 
 ## Fonts
 - [otf-hermit](https://archlinux.org/packages/community/any/otf-hermit/)
-- [nerd-fonts-ubuntu-mono](https://aur.archlinux.org/packages/nerd-fonts-ubuntu-mono/)
+- ttf-jetbrains-mono
 
 ## Wallpapers
 For my current wallpaper, I might need a [different resolution](https://coolwallpapers.me/5008539-whale-fantasy-artist-artwork-digital-art-hd.html)

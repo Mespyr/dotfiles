@@ -18,14 +18,13 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 -- #############################################################################################################
 
 
-
 -- ######################## Theme ##############################################################################
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
 theme.wallpaper = theme.dir .. "/wall19.jpg"
 -- Font
-theme.font_name = "Hermit"
+theme.font_name = "Jetbrains Mono"
 theme.font = theme.font_name .. " 6"
 -- useless gap
 theme.useless_gap = dpi(0)
@@ -126,8 +125,9 @@ local clock = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        small_spr,
+        spr,
         clocktext,
+        small_spr,
         spr,
         spr,
     },
@@ -163,11 +163,11 @@ local bat = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
         spr,
-        small_spr,
-        wibox.container.margin(baticon, 4, 1, 3, 3),
-        battery,
         spr,
-        small_spr
+        wibox.container.margin(baticon, 4, 2, 2, 3),
+        battery,
+        small_spr,
+        spr
     },
 	widget = wibox.container.background
 }
@@ -228,11 +228,13 @@ function theme.at_screen_connect(s)
     s.mytaglist = wibox.widget {
     	{
             layout = wibox.layout.fixed.horizontal,
-            small_spr,
+            spr,
+            spr,
             spr,
             wibox.container.margin(s.mytaglist, 6, 6, 6, 6),
             spr,
-            small_spr
+            spr,
+            spr
         },
     	widget = wibox.container.background
     }
@@ -262,6 +264,7 @@ function theme.at_screen_connect(s)
         {
             layout = wibox.layout.fixed.horizontal,
             add_styling(bat),
+            spr,
             spr,
             add_styling(s.mylayoutbox),
         }

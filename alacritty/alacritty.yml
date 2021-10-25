@@ -16,17 +16,17 @@ background_opacity: 1.0
 window.dynamic_title: true
 font:
   normal:
-    family: Hermit
+    family: Jetbrains Mono
     style: Regular
-  bold:
-    family: Hermit
-    style: Bold
-  italic:
-    family: Hermit
-    style: Italic
-  bold_italic:
-    family: Hermit
-    style: Bold Italic
+  # bold:
+  #   family: cozette
+  #   style: Bold
+  # italic:
+  #   family: Hermit
+  #   style: Italic
+  # bold_italic:
+  #   family: Hermit
+  #   style: Bold Italic
   size: 8
   offset:
     x: 0

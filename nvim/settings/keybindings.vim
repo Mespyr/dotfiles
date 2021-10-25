@@ -8,11 +8,9 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
 endfor
 
 " NvimTree
-nnoremap <C-n> :NvimTreeOpen<CR>
-nnoremap <C-e> :NvimTreeToggle<CR>
-nnoremap <C-f> :NvimTreeFindFile<CR>
-
-""" Text manipulation
+nnoremap <silent> <C-n> :NvimTreeOpen<CR>
+nnoremap <silent> <C-e> :NvimTreeToggle<CR>
+nnoremap <silent> <C-f> :NvimTreeFindFile<CR>
 
 " tab line over
 nmap e 0i<Tab><esc>h^

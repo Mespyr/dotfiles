@@ -29,10 +29,11 @@ alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
 alias autoremove='sudo pacman -Rsn $(pacman -Qdtq)'
-alias ls="exa -lahbs type"
+alias ls="exa -labs type"
 alias cat="bat"
 alias rm="rm -I"
 alias v="nvim"
 alias py="python3"
 alias img="mpv --loop=inf --pause"
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+alias dio="gio tree"

@@ -127,12 +127,8 @@ screen.connect_signal("property::geometry", function(s)
     end
 end)
 
-
-
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
-
-
 
 -- Keybindings
 globalkeys = mytable.join(
@@ -356,27 +352,22 @@ root.keys(globalkeys)
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
-    {
-        rule = { },
-        properties = {
-                    border_width = beautiful.border_width,
-                    border_color = beautiful.border_normal,
-                    focus = awful.client.focus.filter,
-                    raise = true,
-                    keys = clientkeys,
-                    buttons = clientbuttons,
-                    screen = awful.screen.preferred,
-                    placement = awful.placement.no_overlap+awful.placement.no_offscreen,
-                    size_hints_honor = false
-        }
-    },
+    { rule = { }, properties = {
+        border_width = beautiful.border_width,
+        border_color = beautiful.border_normal,
+        focus = awful.client.focus.filter,
+        raise = true,
+        keys = clientkeys,
+        buttons = clientbuttons,
+        screen = awful.screen.preferred,
+        placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+        size_hints_honor = false }},
 
-    {
-        rule_any = {
-            type = { "normal", "dialog" }
-        },
-        properties = { titlebars_enabled = false }
-    },
+    -- { rule_any = {type = { "normal", "dialog" }},
+        -- properties = { titlebars_enabled = false }},
+    { rule = { class = "mpv" },
+      properties = { floating = true }}
+
 }
 
 

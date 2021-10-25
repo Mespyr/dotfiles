@@ -15,7 +15,7 @@ local components = {
         {},
         {}
     },
-    inactive = {{}}
+    inactive = {{}, {}, {}}
 }
 
 local colors = {
@@ -66,26 +66,12 @@ local vi_mode_text = {
   NONE = '<>'
 }
 
--- local buffer_not_empty = function()
---   if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
---     return true
---   end
---   return false
--- end
-
--- local checkwidth = function()
---   local squeeze_width  = vim.fn.winwidth(0) / 2
---   if squeeze_width > 40 then
---     return true
---   end
---   return false
--- end
-
 properties.force_inactive.filetypes = {
   'NvimTree',
   'dbui',
-  'packer',
+  'vim-plug',
   'startify',
+  'dashboard',
   'fugitive',
   'fugitiveblame'
 }
@@ -124,7 +110,6 @@ components.active[1][2] = {
 }
 
 -- MIDDLE
-
 -- diagnosticErrors
 components.active[2][1] = {
   provider = 'diagnostic_errors',
@@ -134,13 +119,12 @@ components.active[2][1] = {
     style = 'bold'
   }
 }
-
 -- diagnosticWarn
 components.active[2][2] = {
   provider = 'diagnostic_warnings',
   enabled = function() return lsp.diagnostics_exist('Warning') end,
   hl = {
-    fg = 'yellow',
+    fg = 'violet',
     style = 'bold'
   }
 }
@@ -164,7 +148,6 @@ components.active[2][4] = {
 }
 
 -- RIGHT
-
 -- lineInfo
 components.active[3][1] = {
   provider = 'position',
@@ -175,6 +158,17 @@ components.active[3][1] = {
   },
   right_sep = ' '
 }
+-- -- scrollBar
+-- components.active[3][2] = {
+--   provider = 'line_percentage',
+--   hl = {
+--     fg = 'yellow',
+--     bg = 'bg',
+--     style = 'bold'
+--   },
+--   right_sep = ' '
+-- }
+-- fileType
 components.active[3][2] = {
   provider = 'file_type',
   hl = {
@@ -200,10 +194,8 @@ components.active[3][2] = {
   }
 }
 
-
-
 -- -- linePercent
--- components.right.active[2] = {
+-- components.active[3][3] = {
 --   provider = 'line_percentage',
 --   hl = {
 --     fg = 'white',
@@ -212,19 +204,10 @@ components.active[3][2] = {
 --   },
 --   right_sep = ' '
 -- }
--- -- scrollBar
--- components.right.active[3] = {
---   provider = 'scroll_bar',
---   hl = {
---     fg = 'yellow',
---     bg = 'bg',
---   },
--- }
 
 -- INACTIVE
-
 -- fileType
-components.inactive[1][1] = {
+components.inactive[3][1] = {
   provider = 'file_type',
   hl = {
     fg = 'black',
@@ -246,7 +229,6 @@ components.inactive[1][1] = {
         bg = 'cyan'
       }
     },
-    ' '
   }
 }
 
