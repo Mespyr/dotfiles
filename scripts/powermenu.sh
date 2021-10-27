@@ -9,7 +9,7 @@ logout=" Logout "
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | dmenu -p " power " )"
+chosen="$(echo -e "$options" | dmenu -p " power ")"
 case $chosen in
     $shutdown)
         poweroff

@@ -1,14 +1,6 @@
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 
-local properties = {
-  force_inactive = {
-    filetypes = {},
-    buftypes = {},
-    bufnames = {}
-  }
-}
-
 local components = {
     active = {
         {},
@@ -19,7 +11,7 @@ local components = {
 }
 
 local colors = {
-  bg = '#282E31',
+  bg = '#12191d',
   black = '#12191d',
   yellow = '#EDAF76',
   cyan = '#8B9CB2',
@@ -64,20 +56,6 @@ local vi_mode_text = {
   SHELL = ' SHELL ',
   TERM = ' TERM ',
   NONE = '<>'
-}
-
-properties.force_inactive.filetypes = {
-  'NvimTree',
-  'dbui',
-  'vim-plug',
-  'startify',
-  'dashboard',
-  'fugitive',
-  'fugitiveblame'
-}
-
-properties.force_inactive.buftypes = {
-  'terminal'
 }
 
 -- LEFT
@@ -232,11 +210,16 @@ components.inactive[3][1] = {
   }
 }
 
-require('feline').setup({
+require('feline').setup {
   colors = colors,
   default_bg = colors.bg,
   default_fg = colors.fg,
   vi_mode_colors = vi_mode_colors,
+  force_inactive = {
+      filetypes = {
+          "NvimTree",
+          "dashboard"
+      }
+  },
   components = components,
-  properties = properties,
-})
+}
