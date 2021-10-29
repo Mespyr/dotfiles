@@ -1,6 +1,5 @@
 -- Settings
 local opt = vim.opt
--- local g = vim.g
 
 -- UI settings
 opt.number = true
@@ -8,30 +7,23 @@ opt.numberwidth = 4
 opt.cursorline = true
 opt.termguicolors = true
 
--- tab size
+-- tab and indent
 opt.tabstop = 4
 opt.shiftwidth = 0
 opt.expandtab = true
+opt.smartindent = true
+opt.autoindent = true
 
-vim.cmd [[
+-- other
+opt.wrap = false
+opt.backup = false
+opt.writebackup = false
+opt.errorbells = false
+opt.swapfile = false
+opt.showmode = false
+opt.ignorecase = true
+opt.smartcase = true
+opt.fillchars = 'vert:▏'
+opt.mouse = "a"
 
-    set nowrap
-    set nobackup
-    set nowritebackup
-    set noerrorbells
-    set noswapfile
-    set noshowmode
-    set autoindent
-    set smartindent
-    set ignorecase
-    set smartcase
-    set cursorline
-    set mouse=a
-    set fillchars+=vert:\▏
-
-    set guifont=Jetbrains\ Mono:h8
-    let g:neovide_cursor_vfx_mode = "railgun"
-
-    colorscheme dark 
-
-]]
+vim.cmd [[ colorscheme dark ]]

@@ -16,7 +16,7 @@ HISTFILESIZE=1000
 HISTFILE=~/.config/history
 # update the values of LINES and COLUMNS on window resize
 shopt -s checkwinsize
-# Other
+# prompt
 PS1='\033[1;35m\W/ \e[0m'
 # Path
 export PATH=~/.local/bin:$PATH
@@ -31,10 +31,11 @@ alias gp='git push'
 alias autoremove='sudo pacman -Rsn $(pacman -Qdtq)'
 alias ls="exa -labs type"
 alias cat="bat"
-alias rm="rm -Ir"
 alias v="nvim"
 alias nv="neovide"
 alias py="python3"
+alias rm="rm -Ir"
+alias s="cd; startx"
 alias img="mpv --loop=inf --pause"
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 alias dio="gio tree"
