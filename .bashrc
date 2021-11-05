@@ -32,7 +32,6 @@ alias autoremove='sudo pacman -Rsn $(pacman -Qdtq)'
 alias ls="exa -labs type"
 alias cat="bat"
 alias v="nvim"
-alias nv="neovide"
 alias py="python3"
 alias rm="rm -Ir"
 alias s="cd; startx"

@@ -4,7 +4,6 @@ local vi_mode_utils = require('feline.providers.vi_mode')
 local components = {
     active = {
         {},
-        {},
         {}
     },
     inactive = {{}, {}, {}}
@@ -87,9 +86,8 @@ components.active[1][2] = {
   left_sep = ' '
 }
 
--- MIDDLE
 -- diagnosticErrors
-components.active[2][1] = {
+components.active[1][3] = {
   provider = 'diagnostic_errors',
   enabled = function() return lsp.diagnostics_exist('Error') end,
   hl = {
@@ -98,7 +96,7 @@ components.active[2][1] = {
   }
 }
 -- diagnosticWarn
-components.active[2][2] = {
+components.active[1][4] = {
   provider = 'diagnostic_warnings',
   enabled = function() return lsp.diagnostics_exist('Warning') end,
   hl = {
@@ -107,7 +105,7 @@ components.active[2][2] = {
   }
 }
 -- diagnosticHint
-components.active[2][3] = {
+components.active[1][5] = {
   provider = 'diagnostic_hints',
   enabled = function() return lsp.diagnostics_exist('Hint') end,
   hl = {
@@ -116,7 +114,7 @@ components.active[2][3] = {
   }
 }
 -- diagnosticInfo
-components.active[2][4] = {
+components.active[1][6] = {
   provider = 'diagnostic_info',
   enabled = function() return lsp.diagnostics_exist('Information') end,
   hl = {
@@ -127,7 +125,7 @@ components.active[2][4] = {
 
 -- RIGHT
 -- lineInfo
-components.active[3][1] = {
+components.active[2][1] = {
   provider = 'position',
   hl = {
     fg = 'white',
@@ -147,7 +145,7 @@ components.active[3][1] = {
 --   right_sep = ' '
 -- }
 -- fileType
-components.active[3][2] = {
+components.active[2][2] = {
   provider = 'file_type',
   hl = {
     fg = 'black',

@@ -11,7 +11,7 @@ nnoremap <silent> <A-e> :NvimTreeToggle<CR>
 nnoremap <silent> <A-f> :NvimTreeFindFile<CR>
 
 " reload nvim
-nnoremap <A-w> :source ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <A-w> :source ~/.config/nvim/init.vim<CR>
 
 " tab line over
 nnoremap e 0i<Tab><esc>^

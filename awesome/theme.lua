@@ -164,7 +164,7 @@ local bat = wibox.widget{
         layout = wibox.layout.fixed.horizontal,
         spr,
         spr,
-        wibox.container.margin(baticon, 4, 2, 2, 3),
+        wibox.container.margin(baticon, 4, 2, 3, 4),
         battery,
         small_spr,
         spr

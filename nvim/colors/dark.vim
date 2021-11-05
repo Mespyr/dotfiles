@@ -30,7 +30,7 @@ hi Visual gui=NONE guibg=#282E31
 exe "hi CursorLineNR guifg=" . s:scheme_cursorline_number . " guibg=NONE"
 " line number
 exe "hi CursorLine guibg=" . s:scheme_cursorline
-exe "hi LineNr guifg=" . s:scheme_line_number . " guibg=" . s:scheme_bg
+exe "hi LineNr guifg=" . s:scheme_line_number . " guibg=NONE"
 " error colors
 hi ErrorMsg guifg=#ed7f76 guibg=NONE
 hi WarningMsg guifg=#ed7f76 guibg=NONE
@@ -118,7 +118,7 @@ exe "hi TSConstructor guifg=" . s:scheme_magenta
 exe "hi TSException guifg=" . s:scheme_grey
 exe "hi TSField guifg=" . s:scheme_red
 exe "hi TSFloat guifg=" . s:scheme_grey
-exe "hi TSFunction guifg=" . s:scheme_magenta
+exe "hi TSFunction guifg=" . s:scheme_red
 exe "hi TSFuncBuiltin guifg=" . s:scheme_cyan
 exe "hi TSFuncMacro guifg=" . s:scheme_green
 exe "hi TSInclude guifg=" . s:scheme_magenta
@@ -127,11 +127,11 @@ exe "hi TSKeywordFunction guifg=" . s:scheme_yellow
 exe "hi TsKeywordOperator guifg=" . s:scheme_yellow
 exe "hi TSKeywordReturn guifg=" . s:scheme_cyan
 exe "hi TSLabel guifg=" . s:scheme_blue
-exe "hi TSMethod guifg=" . s:scheme_magenta
+exe "hi TSMethod guifg=" . s:scheme_red
 exe "hi TSNamespace guifg=" . s:scheme_red
 exe "hi TSNumber guifg=" . s:scheme_yellow
-exe "hi TSParameter guifg=" . s:scheme_red
-exe "hi TSParameterReference guifg=" . s:scheme_red
+exe "hi TSParameter guifg=" . s:scheme_magenta
+exe "hi TSParameterReference guifg=" . s:scheme_magenta
 exe "hi TSProperty guifg=" . s:scheme_magenta
 exe "hi TSPunctDelimiter guifg=" . s:scheme_yellow
 exe "hi TSPunctBracket guifg=" . s:scheme_yellow
@@ -160,11 +160,11 @@ exe "hi TSEnvironmentName guifg=" . s:scheme_yellow
 exe "hi TSNote guifg=" . s:scheme_grey
 exe "hi TSWarning guifg=" . s:scheme_bg . " guibg=" . s:scheme_red
 exe "hi TSDanger guifg=" . s:scheme_grey
-exe "hi TSType guifg=" . s:scheme_blue
+exe "hi TSType guifg=" . s:scheme_yellow
 exe "hi TSTypeBuiltin guifg=" . s:scheme_red
-exe "hi TSVariable guifg=" . s:scheme_red
+exe "hi TSVariable guifg=" . s:scheme_magenta
 exe "hi TSVariableBuiltin guifg=" . s:scheme_red
-"Pmenu
+" Pmenu
 exe "hi Pmenu guifg=" . s:scheme_fg . " guibg=" . s:scheme_grey
 exe "hi PMenuSel guibg=" . s:scheme_green . " guifg=" . s:scheme_bg
 
