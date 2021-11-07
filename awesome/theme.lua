@@ -234,7 +234,6 @@ function theme.at_screen_connect(s)
         {
             layout = wibox.layout.fixed.horizontal,
             bat,
-            s.mylayoutbox,
             spr,
         }
     }

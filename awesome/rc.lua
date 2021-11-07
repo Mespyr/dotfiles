@@ -44,8 +44,6 @@ awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9", }
 --Layouts
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.fair,
-    awful.layout.suit.max,
     awful.layout.suit.floating,
 }
 -- Taglist button function
