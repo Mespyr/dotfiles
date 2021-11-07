@@ -1,46 +1,24 @@
---[[
-
-     Awesome WM config
-     github.com/Mespyr
-
---]]
-
-
-
 -- Import Awesome Libraries
-pcall(require, "luarocks.loader")
+                      pcall(require, "luarocks.loader")
 local gears         = require("gears")
 local awful         = require("awful")
                       require("awful.autofocus")
-local wibox         = require("wibox")
 local beautiful     = require("beautiful")
 local dpi           = require("beautiful.xresources").apply_dpi
-
 local naughty       = require("naughty")
 local lain          = require("lain")
---local menubar       = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
-local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
-
-
+local mytable       = awful.util.table or gears.table
 
 -- Notifications
 naughty.config.spacing = dpi(10)
 naughty.config.defaults.margin = dpi(8)
 naughty.config.defaults.border_width = dpi(1)
 naughty.config.padding = dpi(10)
--- naughty.config.defaults.width            = 230
-
-
 
 -- Awesome Errors on startup
 if awesome.startup_errors then
-    -- naughty.notify {
-    --     preset = naughty.config.presets.critical,
-    --     title = "Oops, there were errors during startup!",
-    --     text = awesome.startup_errors
-    -- }
     awful.spawn.with_shell("notify-send -u critical 'Oops, there were errors during startup!' '" .. awesome.startup_errors .. "'")
 end
 do
@@ -48,81 +26,39 @@ do
     awesome.connect_signal("debug::error", function (err)
         if in_error then return end
         in_error = true
-        -- naughty.notify {
-        --     preset = naughty.config.presets.critical,
-        --     title = "Oops, an error happened!",
-        --     text = tostring(err)
-        -- }
         awful.spawn.with_shell("notify-send -u critical 'Oops, an error happened!' '" .. tostring(err) .. "'")
         in_error = false
     end)
 end
 
-
+-- Init Theme
+beautiful.init(string.format("%s/.config/awesome/theme.lua", os.getenv("HOME")))
 
 -- Variables
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "alacritty"
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
-local editor       = os.getenv("nvim") or "nvim"
-awful.util.terminal = terminal
--- awful.util.tagnames = { " dev ", " www ", " chat ", " file ", " img ", " etc " }
--- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
--- awful.util.tagnames = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 ", }
--- awful.util.tagnames = { "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", }
--- awful.util.tagnames = { " ", " ", " ", " ", " ", " ", " ", " ", " ", }
+awful.util.terminal = "alacritty"
 awful.util.tagnames = { "", "", "", "", "", "", "", "", "", }
-
-
-
 
 --Layouts
 awful.layout.layouts = {
     awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.tile,
-    -- awful.layout.suit.tile.left,
+    awful.layout.suit.tile,
+    awful.layout.suit.fair,
     awful.layout.suit.max,
     awful.layout.suit.floating,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
-    --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
-    --awful.layout.suit.corner.ne,
-    --awful.layout.suit.corner.sw,
-    --awful.layout.suit.corner.se,
-    --lain.layout.cascade,
-    --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center
 }
-
-
 -- Taglist button function
 awful.util.taglist_buttons = mytable.join(
     awful.button({ }, 1, function(t) t:view_only() end),
     awful.button({ }, 3, awful.tag.viewtoggle)
 )
 
-
--- Init Theme
-beautiful.init(string.format("%s/.config/awesome/theme.lua", os.getenv("HOME")))
-
-
-
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", function(s)
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
         gears.wallpaper.maximized(wallpaper, s, true)
     end
 end)
@@ -135,47 +71,23 @@ globalkeys = mytable.join(
     -- Show help
     awful.key({ modkey }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
+    -- Standard program
+    awful.key({ modkey,           }, "Return", function () awful.spawn(awful.util.terminal) end,
+              {description = "open a terminal", group = "launcher"}),
     -- Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({ modkey }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
-    awful.key({ modkey }, "Escape", awful.tag.history.restore,
-              {description = "go back", group = "tag"}),
     -- Default client focus
-    awful.key({ modkey }, "j",
-            function ()
-                awful.client.focus.byidx( 1)
-            end, {description = "focus next by index", group = "client"}),
-    awful.key({ modkey }, "k",
-            function ()
-                awful.client.focus.byidx(-1)
-            end, {description = "focus previous by index", group = "client"}),
-    -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
-              {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
-              {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
-              {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
-            function ()
-                if cycle_prev then
-                    awful.client.focus.history.previous()
-                else
-                    awful.client.focus.byidx(-1)
-                end
-                if client.focus then
-                    client.focus:raise()
-                end
-            end, {description = "cycle with previous/go back", group = "client"}),
+    awful.key({ modkey }, "j", function ()
+            awful.client.focus.byidx(1)
+        end, {description = "focus next by index", group = "client"}),
+    awful.key({ modkey }, "k", function ()
+            awful.client.focus.byidx(-1)
+        end, {description = "focus previous by index", group = "client"}),
     -- Show/hide wibox
-    awful.key({ modkey }, "t",
-        function ()
+    awful.key({ modkey }, "t", function ()
             for s in screen do
                 s.mywibox.visible = not s.mywibox.visible
                 if s.mybottomwibox then
@@ -184,29 +96,24 @@ globalkeys = mytable.join(
             end
         end, {description = "toggle wibox", group = "awesome"}),
     -- On-the-fly useless gaps change
-    awful.key({ altkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end,
-              {description = "increment useless gaps", group = "tag"}),
-    awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
-              {description = "decrement useless gaps", group = "tag"}),
+    awful.key({ altkey, "Control" }, "=", function()
+            lain.util.useless_gaps_resize(1)
+        end, {description = "increment useless gaps", group = "tag"}),
+    awful.key({ altkey, "Control" }, "-", function()
+            lain.util.useless_gaps_resize(-1)
+        end, {description = "decrement useless gaps", group = "tag"}),
     -- Dynamic tagging
-    awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
-              {description = "add new tag", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "r", function () lain.util.rename_tag() end,
-              {description = "rename tag", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
-              {description = "move tag to the left", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Right", function () lain.util.move_tag(1) end,
-              {description = "move tag to the right", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "d", function () lain.util.delete_tag() end,
-              {description = "delete tag", group = "tag"}),
-    -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey, "Shift" }, "Left", function()
+            lain.util.move_tag(-1)
+        end, {description = "move tag to the left", group = "tag"}),
+    awful.key({ modkey, "Shift" }, "Right", function()
+            lain.util.move_tag(1)
+        end, {description = "move tag to the right", group = "tag"}),
     -- restart awesome
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     -- clients
-    awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact(0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey, altkey    }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
