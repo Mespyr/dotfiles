@@ -39,7 +39,7 @@ local modkey       = "Mod4"
 local altkey       = "Mod1"
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 awful.util.terminal = "alacritty"
-awful.util.tagnames = { "", "", "", "", "", "", "", "", "", }
+awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9", }
 
 --Layouts
 awful.layout.layouts = {
@@ -346,5 +346,4 @@ run_once({
 awful.spawn.with_shell('setxkbmap -option ctrl:nocaps')
 
 -- Picom
-os.execute('killall -q picom')
 awful.spawn.with_shell("picom")

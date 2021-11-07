@@ -1,11 +1,3 @@
---[[
-
-        Awesome WM theme config
-        github.com/Mespyr
-
--]]
-
-
 -- ##################### Imports ###############################################################################
 local gears = require("gears")
 local lain  = require("lain")
@@ -25,15 +17,15 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome"
 theme.wallpaper = theme.dir .. "/wall19.jpg"
 -- Font
 theme.font_name = "JetBrainsMono Nerd Font"
-theme.font = theme.font_name .. " 6"
+theme.font = theme.font_name .. " 12"
 -- useless gap
 theme.useless_gap = dpi(0)
 -- Colors
 theme.bg_normal = "#12191d"
 theme.bg_focus = "#757676"
-theme.fg_normal = "#FFEFE5"
+theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
-theme.widget_bg = "#33383B"
+theme.widget_bg = theme.bg_normal
 -- Borders
 theme.border_width = dpi(3)
 theme.border_normal = "#33383B"
@@ -43,13 +35,13 @@ theme.border_focus = "#edaf76"
 -- theme.titlebar_bg_focus = theme.border_focus
 -- theme.titlebar_bg_normal = theme.border_normal
 -- Panel
-theme.panel_height = dpi(20)
+theme.panel_height = dpi(35)
 
-theme.taglist_bg_occupied                       = "#ed7f76"
-theme.taglist_fg_occupied                       = theme.fg_focus
-theme.taglist_bg_empty                          = theme.bg_focus
+theme.taglist_bg_occupied                       = theme.widget_bg
+theme.taglist_fg_occupied                       = "#ed7f76"
+theme.taglist_bg_empty                          = theme.widget_bg
 theme.taglist_fg_empty                          = theme.bg_focus
-theme.taglist_bg_focus                          = theme.border_focus
+theme.taglist_bg_focus                          = theme.widget_bg
 theme.taglist_fg_focus                          = theme.border_focus
 -- Icons
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
@@ -84,27 +76,6 @@ theme.widget_mail                               = theme.dir .. "/icons/mail.png"
 theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.png"
 theme.widget_power_btn                          = theme.dir .. "/icons/power.png"
 -- #############################################################################################################
-
-
-
--- ######################## Util ###############################################################################
-local add_styling = function(widget, is_curved)
-    if is_curved then
-        return wibox.container.background(
-            widget,
-            theme.widget_bg,
-            gears.shape.rounded_rect
-        )
-    end
-    return wibox.container.background(
-        widget,
-        theme.widget_bg
-    )
-end
-
--- #############################################################################################################
-
-
 
 
 -- ############################## Widgets ######################################################################
@@ -164,7 +135,6 @@ local bat = wibox.widget{
         layout = wibox.layout.fixed.horizontal,
         spr,
         spr,
-        wibox.container.margin(baticon, 4, 2, 3, 4),
         battery,
         small_spr,
         spr
@@ -194,7 +164,7 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             spr,
             small_spr,
-            wibox.container.margin(awful.widget.layoutbox(s), 1, 1, 3, 3),
+            wibox.container.margin(awful.widget.layoutbox(s), 6, 6, 6, 6),
             small_spr,
             spr,
         },
@@ -231,7 +201,7 @@ function theme.at_screen_connect(s)
             spr,
             spr,
             spr,
-            wibox.container.margin(s.mytaglist, 6, 6, 6, 6),
+            wibox.container.margin(s.mytaglist, 0, 0, 0, 0),
             spr,
             spr,
             spr
@@ -254,19 +224,18 @@ function theme.at_screen_connect(s)
         expand = "none",
         {
             layout = wibox.layout.fixed.horizontal,
-            add_styling(clock),
             spr,
+            s.mytaglist,
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            add_styling(s.mytaglist, true),
+            clock,
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            add_styling(bat),
+            bat,
+            s.mylayoutbox,
             spr,
-            spr,
-            add_styling(s.mylayoutbox),
         }
     }
 end

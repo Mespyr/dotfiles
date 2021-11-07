@@ -4,10 +4,7 @@
 #   
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+case $- in *i*) ;; *) return;; esac
 # history stuff
 HISTCONTROL=ignoreboth
 shopt -s histappend
@@ -30,7 +27,6 @@ alias gc='git commit -m'
 alias gp='git push'
 alias autoremove='sudo pacman -Rsn $(pacman -Qdtq)'
 alias ls="exa -labs type"
-alias cat="bat"
 alias v="nvim"
 alias py="python3"
 alias rm="rm -Ir"
