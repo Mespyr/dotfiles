@@ -43,7 +43,6 @@ awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9", }
 
 --Layouts
 awful.layout.layouts = {
-    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.tile,
     awful.layout.suit.fair,
     awful.layout.suit.max,
@@ -55,13 +54,6 @@ awful.util.taglist_buttons = mytable.join(
     awful.button({ }, 3, awful.tag.viewtoggle)
 )
 
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", function(s)
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end)
 
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
@@ -149,6 +141,7 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "q", function () os.execute("bash ~/.config/scripts/powermenu.sh") end,
             {description = "power menu", group = "launcher"})
 )
+
 clientkeys = mytable.join(
     awful.key({ altkey, "Shift"   }, "m",      lain.util.magnify_client,
               {description = "magnify client", group = "client"}),
@@ -231,8 +224,6 @@ for i = 1, 9 do
                   {description = "toggle focused client on tag #" .. i, group = "tag"})
     )
 end
-
-
 
 -- client buttons
 clientbuttons = mytable.join(

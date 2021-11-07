@@ -164,7 +164,7 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             spr,
             small_spr,
-            wibox.container.margin(awful.widget.layoutbox(s), 6, 6, 6, 6),
+            wibox.container.margin(awful.widget.layoutbox(s), 7, 7, 7, 7),
             small_spr,
             spr,
         },
