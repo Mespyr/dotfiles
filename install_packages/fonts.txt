@@ -1,0 +1,3 @@
+nerd-fonts-jetbrains-mono
+noto-fonts-emoji
+gnu-free-fonts

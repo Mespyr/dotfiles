@@ -1,0 +1,13 @@
+linux-lts
+linux-firmware
+amd-ucode
+base
+base-devel
+grub
+efibootmgr
+dosfstools
+mtools
+sudo
+networkmanager
+git
+neovim

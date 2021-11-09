@@ -1,0 +1,57 @@
+#
+#
+#       Alacritty config       
+#       github.com/Mespyr       
+#
+#
+
+window:
+  padding:
+    x: 18
+    y: 18
+scrolling:
+  history: 10000
+  multiplier: 3
+background_opacity: 1.0 
+window.dynamic_title: true
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  size: 7
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+draw_bold_text_with_bright_colors: true
+colors:
+  primary:
+    background: "#12191d"
+    foreground: "#f1e6d7"
+  normal:
+    black: "#12191d"
+    red: "#ed7f76"
+    green: "#9cb28b"
+    yellow: "#edaf76"
+    blue: "#8b9cb2"
+    magenta: "#a68bb3"
+    cyan: "#8bb3b0"
+    white: "#f1e6d7"
+  bright:
+    black: "#f1e6d7"
+    red: "#ed7f76"
+    green: "#9cb28b"
+    yellow: "#edaf76"
+    blue: "#8b9cb2"
+    magenta: "#a68bb3"
+    cyan: "#8bb3b0"
+    white: "#f1e6d7"
+cursor:
+  style:
+    shape: Block
+  unfocused_hollow: true
+debug:
+  persistent_logging: true
+logging: true

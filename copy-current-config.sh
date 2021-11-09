@@ -1,8 +1,8 @@
 COPY() {
 	echo "Copying $1 from $2"
 	
-	mv $1 bak
-	cp -r $2$1 .
+	mv .config/$1 bak
+	cp -r $2$1 .config/
 	rm -r bak
 }
 
@@ -18,10 +18,9 @@ fi
 
 COPY alacritty ~/.config/
 COPY awesome ~/.config/
-#COPY rofi ~/.config/
-COPY .bashrc ~/ 
+COPY rofi ~/.config/
+COPY .bashrc ~/
+COPY .profile ~/
 COPY picom.conf ~/.config/
-# COPY bookmarks ~/.config/
 COPY nvim ~/.config/
-# COPY scripts ~/.config/
 COPY neofetch ~/.config/
