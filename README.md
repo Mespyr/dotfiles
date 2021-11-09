@@ -8,8 +8,5 @@ Neovim needs the following packages.
 - [clang](https://clangd.llvm.org/) (comes with clangd)
 - [vim-plug](https://github.com/junegunn/vim-plug) 
 
-## Fonts
-- [nerd-fonts-jetbrains-mono](https://aur.archlinux.org/packages/nerd-fonts-jetbrains-mono/)
-
 ## Wallpapers
 For my current wallpaper, I might need a [different resolution](https://coolwallpapers.me/5008539-whale-fantasy-artist-artwork-digital-art-hd.html)
