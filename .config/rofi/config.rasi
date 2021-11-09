@@ -18,7 +18,7 @@ configuration {
 window {
 	transparency:                   "real";
 	border-radius:                  0px;
-	width:			    	30%;
+	width:			    	25%;
 	padding: 			6px;
 	border:				3px;
 	border-color:			#33383B;
@@ -27,7 +27,7 @@ window {
 entry {
 	placeholder:			"Search";
 	expand:                         true;
-	padding:                        0.5%;
+	padding:                        1%;
 	background-color:               @button;
         placeholder-color:              @fg;
 	border:				0px;
@@ -59,7 +59,7 @@ mainbox {
 element {
 	orientation:                    vertical;
 	border-radius:                  0px;
-    padding:			            1% 0.5%;
+    padding:			            1% 1%;
 }
 
 element-text {
