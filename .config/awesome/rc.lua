@@ -51,7 +51,6 @@ awful.util.taglist_buttons = mytable.join(
     awful.button({ }, 3, awful.tag.viewtoggle)
 )
 
-
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 
@@ -167,11 +166,7 @@ clientkeys = mytable.join(
         end, {description = "(un)maximize", group = "client"})
 )
 
-
-
 -- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it work on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
     globalkeys = mytable.join(globalkeys,
         -- View tag only.
@@ -234,12 +229,10 @@ clientbuttons = mytable.join(
     end)
 )
 
--- Set keys
 root.keys(globalkeys)
 
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
-    -- All clients will match this rule.
     { rule = { }, properties = {
         border_width = beautiful.border_width,
         border_color = beautiful.border_normal,
@@ -256,57 +249,7 @@ awful.rules.rules = {
 
 }
 
-
-
--- Signal function to execute when a new client appears.
--- client.connect_signal("manage", function (c)
---     -- Set the windows at the slave,
---     -- i.e. put it at the end of others instead of setting it master.
---     -- if not awesome.startup then awful.client.setslave(c) end
-
--- --     if awesome.startup
--- --       and not c.size_hints.user_position
--- --       and not c.size_hints.program_position then
--- --         -- Prevent clients from being unreachable after screen count changes.
--- --         awful.placement.no_offscreen(c)
--- --     end
-
--- end)
-
--- Add a titlebar if titlebars_enabled is set to true in the rules.
--- client.connect_signal("request::titlebars", function(c)
---     -- Custom
---     if beautiful.titlebar_fun then
---         beautiful.titlebar_fun(c)
---         return
---     end
-
---     -- Default
---     -- buttons for the titlebar
---     local buttons = mytable.join(
---         awful.button({ }, 1, function()
---             c:emit_signal("request::activate", "titlebar", {raise = true})
---             awful.mouse.client.move(c)
---         end),
---         awful.button({ }, 3, function()
---             c:emit_signal("request::activate", "titlebar", {raise = true})
---             awful.mouse.client.resize(c)
---         end)
---     )
-
---     awful.titlebar(c, { size = 20, position = "bottom" }) : setup {
---         buttons = buttons,
---         layout = wibox.layout.align.horizontal
---     }
--- end)
-
--- set border color
--- client.connect_signal("focus", function(c) c.border_color = beautiful.bg_focus end)
--- client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
-
 -- Autostart
--- This function will run once every time Awesome is started
 local function run_once(cmd_arr)
     for _, cmd in ipairs(cmd_arr) do
         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))

@@ -65,14 +65,10 @@ end})
 
 -- screen
 function theme.at_screen_connect(s)
-    -- If wallpaper is a function, call it with the screen
-    local wallpaper = theme.wallpaper
-    gears.wallpaper.maximized(wallpaper, s, true)
+    gears.wallpaper.maximized(theme.wallpaper, s, true)
 
-    -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
-    -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
@@ -86,7 +82,6 @@ function theme.at_screen_connect(s)
         }
     }
 
-    -- Create the wibox
     s.mywibox = awful.wibar {
         position = "top",
         screen = s,
@@ -98,7 +93,6 @@ function theme.at_screen_connect(s)
             top = 10
         }
     }
-
 
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,

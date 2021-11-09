@@ -1,6 +1,6 @@
 # arch linux install guide for me
 
-## install guide
+## installation
 
 ### Connect to internet
 Use `iwctl` to connect to internet.
@@ -47,7 +47,7 @@ pacstrap /mnt base base-devel linux-lts linux-firmware amd-ucode git neovim
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-## configure system
+## Configure system
 
 ### Chroot
 ```
@@ -68,7 +68,7 @@ locale-gen
 
 Make file named /etc/locale.conf and type `LANG=en_US.UTF-8`
 
-### network configuration
+### Network configuration
 Set hostname in `/etc/hostname`
 ```
 myhostname
@@ -87,7 +87,7 @@ pacman -S networkmanager
 systemctl enable NetworkManager
 ```
 
-### set password and add new user
+### Set password and add new user
 ```
 passwd
 useradd -m username
