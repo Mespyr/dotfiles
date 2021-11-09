@@ -8,8 +8,8 @@ suspend=" Suspend "
 logout=" Logout "
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
-
 chosen="$(echo -e "$options" | rofi -dmenu -p " power " -l 5)"
+
 case $chosen in
     $shutdown)
         poweroff
@@ -18,7 +18,7 @@ case $chosen in
         reboot
         ;;
     $lock)
-        i3lock -c 000000
+        i3lock -c 12191d
         ;;
     $suspend)
         systemctl suspend
