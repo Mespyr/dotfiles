@@ -1,6 +1,5 @@
 xorg
 xorg-xinit
-awesome-git
 acpilight
 bash-completion
 exa
@@ -10,7 +9,6 @@ clang
 picom
 htop
 alacritty
-brave-bin
 discord
 lxappearance
 rofi
