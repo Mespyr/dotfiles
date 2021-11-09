@@ -235,12 +235,8 @@ clientbuttons = mytable.join(
     end)
 )
 
-
-
 -- Set keys
 root.keys(globalkeys)
-
-
 
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
@@ -256,8 +252,6 @@ awful.rules.rules = {
         placement = awful.placement.no_overlap + awful.placement.no_offscreen,
         size_hints_honor = false }},
 
-    -- { rule_any = {type = { "normal", "dialog" }},
-        -- properties = { titlebars_enabled = false }},
     { rule = { class = "mpv" },
       properties = { floating = true }}
 
@@ -314,19 +308,15 @@ awful.rules.rules = {
 
 -- Autostart
 -- This function will run once every time Awesome is started
--- local function run_once(cmd_arr)
---     for _, cmd in ipairs(cmd_arr) do
---         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
---     end
--- end
+local function run_once(cmd_arr)
+    for _, cmd in ipairs(cmd_arr) do
+        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
+    end
+end
 
 
-beautiful.notification_icon_size = 80
 
--- run_once({
---     "~/.config/scripts/moniter.sh", -- moniter setup
---     "sh ~/.config/scripts/mouse.sh" -- mouse setup
--- })
-
--- Picom
-awful.spawn.with_shell("picom")
+run_once({
+    "picom",
+    "setxkbmap -option ctrl:nocaps"
+})

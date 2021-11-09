@@ -14,7 +14,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.jpg"
+theme.wallpaper = theme.dir .. "/wall2.jpg"
 -- Font
 theme.font_name = "JetBrainsMono Nerd Font"
 theme.font = theme.font_name .. " 12"
@@ -35,8 +35,10 @@ theme.border_focus = "#edaf76"
 -- theme.titlebar_bg_focus = theme.border_focus
 -- theme.titlebar_bg_normal = theme.border_normal
 -- Panel
-theme.panel_height = dpi(35)
-
+theme.panel_height = dpi(40)
+-- notifications
+theme.notification_icon_size = 80
+-- taglist
 theme.taglist_bg_occupied                       = theme.widget_bg
 theme.taglist_fg_occupied                       = "#ed7f76"
 theme.taglist_bg_empty                          = theme.widget_bg
@@ -98,7 +100,6 @@ local clock = wibox.widget{
         spr,
         spr,
         clocktext,
-        small_spr,
         spr,
         spr,
     },
@@ -230,7 +231,7 @@ function theme.at_screen_connect(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            clock,
+            spr
         },
         {
             layout = wibox.layout.fixed.horizontal,

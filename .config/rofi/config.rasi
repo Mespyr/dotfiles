@@ -19,7 +19,7 @@ window {
 	transparency:                   "real";
 	border-radius:                  0px;
 	width:			    	40%;
-	padding: 			10px;
+	padding: 			7px;
 	border:				3px;
 	border-color:			#33383B;
 }
