@@ -116,7 +116,7 @@ function theme.at_screen_connect(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            clocktext
+            spr
         },
         {
             layout = wibox.layout.fixed.horizontal,
