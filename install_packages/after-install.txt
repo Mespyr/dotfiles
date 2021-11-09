@@ -15,3 +15,5 @@ discord
 lxappearance
 rofi
 mpv
+pulseaudio
+pavucontrol

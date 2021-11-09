@@ -37,7 +37,6 @@ beautiful.init(string.format("%s/.config/awesome/theme.lua", os.getenv("HOME")))
 -- Variables
 local modkey       = "Mod4"
 local altkey       = "Mod1"
--- local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 awful.util.terminal = "alacritty"
 awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 
@@ -57,7 +56,7 @@ awful.util.taglist_buttons = mytable.join(
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 
 -- Keybindings
-globalkeys = mytable.join(
+local globalkeys = mytable.join(
     -- Show help
     awful.key({ modkey }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),

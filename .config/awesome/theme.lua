@@ -1,23 +1,20 @@
--- ##################### Imports ###############################################################################
+-- imports
 local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
--- local center = require("center")
 local os = os
-local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
--- #############################################################################################################
+local my_table = awful.util.table
 
-
--- ######################## Theme ##############################################################################
+-- theme
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
 theme.wallpaper = theme.dir .. "/wall2.jpg"
 -- Font
 theme.font_name = "JetBrainsMono Nerd Font"
-theme.font = theme.font_name .. " 12"
+theme.font = theme.font_name .. " 11"
 -- useless gap
 theme.useless_gap = dpi(8)
 -- Colors
@@ -77,10 +74,8 @@ theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.
 theme.widget_mail                               = theme.dir .. "/icons/mail.png"
 theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.png"
 theme.widget_power_btn                          = theme.dir .. "/icons/power.png"
--- #############################################################################################################
 
-
--- ############################## Widgets ######################################################################
+-- widgets
 local markup = lain.util.markup
 
 local spr = wibox.widget.textbox('  ')
@@ -106,46 +101,28 @@ local clock = wibox.widget{
 	widget = wibox.container.background
 }
 
--- Battery
-local baticon = wibox.widget {
-	widget = wibox.widget.imagebox,
-	image = theme.widget_battery,
-}
-
 local battery = lain.widget.bat({
     settings = function()
         if bat_now.status and bat_now.status ~= "N/A" then
+            local perc = " " .. bat_now.perc .. "% "
             if bat_now.ac_status == 1 then
-                baticon:set_image(theme.widget_ac)
-            elseif not bat_now.perc and tonumber(bat_now.perc) <= 5 then
-                baticon:set_image(theme.widget_battery_empty)
-            elseif not bat_now.perc and tonumber(bat_now.perc) <= 15 then
-                baticon:set_image(theme.widget_battery_low)
-            else
-                baticon:set_image(theme.widget_battery)
+                perc = perc .. "[charging] "
             end
-            widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
+            widget:set_markup(markup.font(theme.font, perc))
         else
             widget:set_markup(markup.font(theme.font, " AC "))
-            baticon:set_image(theme.widget_ac)
         end
-    end})
+end})
 
 local bat = wibox.widget{
 	{
         layout = wibox.layout.fixed.horizontal,
-        spr,
-        spr,
         battery,
         small_spr,
         spr
     },
 	widget = wibox.container.background
 }
-
--- #############################################################################################################
-
-
 
 -- screen
 function theme.at_screen_connect(s)
@@ -218,6 +195,9 @@ function theme.at_screen_connect(s)
         width = 1600,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
+        margins = {
+            top = 10
+        }
     }
 
 
