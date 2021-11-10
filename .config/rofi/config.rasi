@@ -1,5 +1,5 @@
 configuration {
-	modi:				"drun,run";
+	modi:				"run";
 	font:				"JetbrainsMono Nerd Font 11";
 	sidebar-mode: 			false;
 }
@@ -18,8 +18,8 @@ configuration {
 window {
 	transparency:                   "real";
 	border-radius:                  0px;
-	width:			    	25%;
-	padding: 			6px;
+	width:			    	30%;
+	padding: 			7px;
 	border:				3px;
 	border-color:			#33383B;
 }
@@ -44,7 +44,7 @@ inputbar {
 
 listview {
 	columns:                        1;
-	lines:	                        13;
+	lines:	                        12;
 	cycle:                          false;
 	dynamic:                        true;
 	layout:                         vertical;
@@ -72,7 +72,7 @@ element-text {
 element selected {
 	background-color:               @fg;
 	text-color:                     @bg;
-	border-radius:                  10px;
+	border-radius:                  5px;
 }
 
 listview, element, element selected, element-icon, element-text {

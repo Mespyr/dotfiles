@@ -44,7 +44,7 @@ local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
 
 local clocktext = awful.widget.watch(
-    "date +'%a %I:%M'", 60,
+    "date +'%a, %b %d | %I:%M'", 60,
     function(widget, stdout)
         widget:set_markup(" " .. markup.font(theme.font, stdout))
     end
@@ -86,7 +86,7 @@ function theme.at_screen_connect(s)
         position = "top",
         screen = s,
         height = theme.panel_height,
-        width = 1600,
+        width = 1400,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         margins = {
@@ -110,7 +110,7 @@ function theme.at_screen_connect(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            spr
+            wibox.container.margin(clocktext, 1, 1, 1.2, 1.5)
         },
         {
             layout = wibox.layout.fixed.horizontal,
