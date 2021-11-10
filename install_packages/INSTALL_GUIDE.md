@@ -56,7 +56,7 @@ arch-chroot /mnt
 
 ### Time zone
 ```
-ln -sf /usr/share/zoneinfo/America/New_York
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 hwlock --systohc
 ```
 
@@ -104,8 +104,8 @@ EDITOR=nvim visudo
 ### Grub
 ```
 pacman -S grub
-pacman -S efibootmgr dosfstools mtools (if doing UEFI)
-grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck (if doing UEFI)
+pacman -S efibootmgr dosfstools mtools
+grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
