@@ -1,4 +1,4 @@
-# arch linux install guide for me
+# arch linux install guide for me cuz i cant remember things
 
 ## installation
 
@@ -39,7 +39,7 @@ swapon /dev/<SWAP_PARTITION>
 
 ### Pacstrap
 ```
-pacstrap /mnt base base-devel linux-lts linux-firmware amd-ucode git neovim
+pacstrap /mnt base base-devel linux linux-firmware amd-ucode git neovim
 ```
 
 ### Generate Fstab
@@ -71,14 +71,14 @@ Make file named /etc/locale.conf and type `LANG=en_US.UTF-8`
 ### Network configuration
 Set hostname in `/etc/hostname`
 ```
-myhostname
+creativehostname
 ```
 
 configure `/etc/hosts`
 ```
 127.0.0.1   localhost
 ::1         localhost
-127.0.1.1   myhostname.localdomain myhostname
+127.0.1.1   creativehostname.localdomain creativehostname
 ```
 
 Install NetworkManager:
@@ -90,9 +90,9 @@ systemctl enable NetworkManager
 ### Set password and add new user
 ```
 passwd
-useradd -m username
-passwd username
-usermod -aG wheel,audio,video,storage,optical username
+useradd -m mespyr
+passwd mespyr
+usermod -aG wheel,audio,video,storage,optical mespyr
 ```
 
 ### Sudo
@@ -109,7 +109,7 @@ grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## Reboot
+### Reboot
 ```
 exit
 umount /mnt
@@ -117,6 +117,13 @@ reboot
 ```
 
 ## After Install
-Install all packages listed in `after-install.txt`
-Reboot.
 Clone the repository and copy all config files to the right places.
+Install yay.
+Install all packages listed in `after-install.txt` and `yay-packages.txt`.
+Reboot.
+
+### Disable bell in tty
+Edit /etc/inputrc and uncomment line that says:
+```
+set bell-style none
+```
