@@ -1,7 +1,8 @@
 configuration {
 	modi:				"run";
-	font:				"JetbrainsMono Nerd Font 11";
+	font:				"JetbrainsMono Nerd Font 5";
 	sidebar-mode: 			false;
+    dpi:                199;
 }
 
 @theme "/dev/null"

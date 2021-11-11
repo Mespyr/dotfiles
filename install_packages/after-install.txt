@@ -6,7 +6,6 @@ exa
 pyright
 lua-language-server
 clang
-picom
 htop
 alacritty
 discord

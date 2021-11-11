@@ -3,7 +3,6 @@ local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
-local dpi   = require("beautiful.xresources").apply_dpi
 local os = os
 
 -- theme
@@ -13,9 +12,9 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome"
 theme.wallpaper = theme.dir .. "/wall2.jpg"
 -- Font
 theme.font_name = "JetBrainsMono Nerd Font"
-theme.font = theme.font_name .. " 11"
+theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = dpi(8)
+theme.useless_gap = 8
 -- Colors
 theme.bg_normal = "#12191d"
 theme.bg_focus = "#757676"
@@ -23,11 +22,11 @@ theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 theme.widget_bg = theme.bg_normal
 -- Borders
-theme.border_width = dpi(3)
+theme.border_width = 3
 theme.border_normal = "#33383B"
 theme.border_focus = "#edaf76"
 -- Panel
-theme.panel_height = dpi(40)
+theme.panel_height = 45
 -- notifications
 theme.notification_icon_size = 80
 -- taglist
@@ -102,7 +101,6 @@ function theme.at_screen_connect(s)
             spr,
             spr,
             spr,
-            spr,
             s.mytaglist,
             spr,
             spr,
@@ -110,7 +108,7 @@ function theme.at_screen_connect(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(clocktext, 1, 1, 1.2, 1.5)
+            clocktext
         },
         {
             layout = wibox.layout.fixed.horizontal,

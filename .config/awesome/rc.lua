@@ -31,6 +31,9 @@ do
     end)
 end
 
+-- dpi
+awful.screen.set_auto_dpi_enabled(true)
+
 -- Init Theme
 beautiful.init(string.format("%s/.config/awesome/theme.lua", os.getenv("HOME")))
 
@@ -259,6 +262,6 @@ end
 
 
 run_once({
-    "picom",
+    "picom --experimental-backends",
     "setxkbmap -option ctrl:nocaps"
 })
