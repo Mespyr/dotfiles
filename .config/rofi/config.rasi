@@ -2,7 +2,7 @@ configuration {
 	modi:				"run";
 	font:				"JetbrainsMono Nerd Font 5";
 	sidebar-mode: 			false;
-    dpi:                199;
+    dpi:                188;
 }
 
 @theme "/dev/null"

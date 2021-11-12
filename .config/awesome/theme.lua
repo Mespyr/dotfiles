@@ -26,7 +26,7 @@ theme.border_width = 3
 theme.border_normal = "#33383B"
 theme.border_focus = "#edaf76"
 -- Panel
-theme.panel_height = 45
+theme.panel_height = 50
 -- notifications
 theme.notification_icon_size = 80
 -- taglist
@@ -45,7 +45,7 @@ local small_spr = wibox.widget.textbox(' ')
 local clocktext = awful.widget.watch(
     "date +'%a, %b %d | %I:%M'", 60,
     function(widget, stdout)
-        widget:set_markup(" " .. markup.font(theme.font, stdout))
+        widget:set_markup(markup.font(theme.font, stdout))
     end
 )
 
@@ -88,6 +88,8 @@ function theme.at_screen_connect(s)
         width = 1400,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
+        -- border_color = theme.border_normal,
+        -- border_width = 2,
         margins = {
             top = 10
         }
@@ -108,7 +110,7 @@ function theme.at_screen_connect(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            clocktext
+            wibox.container.margin(clocktext, 0, 0, 10, 10)
         },
         {
             layout = wibox.layout.fixed.horizontal,
