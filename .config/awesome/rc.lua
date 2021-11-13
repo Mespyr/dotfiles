@@ -250,7 +250,9 @@ awful.rules.rules = {
         size_hints_honor = false }},
 
     { rule = { class = "mpv" },
-      properties = { floating = true }}
+      properties = { floating = true }},
+    { rule = { class = "Minecraft" },
+      properties = { fullscreen = true }}
 
 }
 
