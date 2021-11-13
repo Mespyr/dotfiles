@@ -251,8 +251,6 @@ awful.rules.rules = {
 
     { rule = { class = "mpv" },
       properties = { floating = true }},
-    { rule = { class = "Minecraft" },
-      properties = { fullscreen = true }}
 
 }
 
@@ -265,5 +263,5 @@ end
 
 run_once({
     "picom --experimental-backends",
-    "setxkbmap -option ctrl:nocaps"
+    "setxkbmap -option ctrl:nocaps",
 })
