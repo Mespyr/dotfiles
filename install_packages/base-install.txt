@@ -1,4 +1,4 @@
-linux-lts
+linux
 linux-firmware
 amd-ucode
 base
