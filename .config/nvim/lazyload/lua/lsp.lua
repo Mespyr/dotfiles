@@ -2,7 +2,6 @@ local lspconfig = require('lspconfig')
 vim.o.completeopt = "menuone,noselect"
 
 -- language servers
-
 -- lua
 local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
 local sumneko_binary = "lua-language-server"

@@ -9,7 +9,7 @@ local os = os
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall2.jpg"
+theme.wallpaper = theme.dir .. "/wall3.jpg"
 -- Font
 theme.font_name = "JetBrainsMono Nerd Font"
 theme.font = theme.font_name .. " 5"
@@ -43,7 +43,7 @@ local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
 
 local clocktext = awful.widget.watch(
-    "date +'%a, %b %d | %I:%M'", 60,
+    "date +'%a %d [%I:%M]'", 60,
     function(widget, stdout)
         widget:set_markup(markup.font(theme.font, stdout))
     end
@@ -62,6 +62,11 @@ local battery = lain.widget.bat({
         end
 end})
 
+-- layout
+-- tag.connect_signal("property::layout", function(t)
+--     awful.spawn.with_shell("notify-send 'Tag " .. t.name .. " is in " .. t.layout.name .. " mode'")
+-- end)
+
 -- screen
 function theme.at_screen_connect(s)
     gears.wallpaper.maximized(theme.wallpaper, s, true)
@@ -72,11 +77,8 @@ function theme.at_screen_connect(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
-        style = {
-            shape = gears.shape.rounded_rect
-        },
         layout = {
-            spacing = 10,
+            spacing = 4,
             layout  = wibox.layout.fixed.horizontal
         }
     }
@@ -88,8 +90,6 @@ function theme.at_screen_connect(s)
         width = 1400,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
-        -- border_color = theme.border_normal,
-        -- border_width = 2,
         margins = {
             top = 10
         }
@@ -104,9 +104,6 @@ function theme.at_screen_connect(s)
             spr,
             spr,
             s.mytaglist,
-            spr,
-            spr,
-            spr,
         },
         {
             layout = wibox.layout.fixed.horizontal,

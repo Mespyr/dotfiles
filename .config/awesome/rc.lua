@@ -12,10 +12,12 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local mytable       = awful.util.table or gears.table
 
 -- Notifications
-naughty.config.spacing = dpi(10)
-naughty.config.defaults.margin = dpi(8)
-naughty.config.defaults.border_width = dpi(1)
+naughty.config.spacing = dpi(20)
+naughty.config.defaults.margin = dpi(15)
+naughty.config.defaults.border_width = dpi(0)
 naughty.config.padding = dpi(10)
+naughty.config.presets.critical.bg = "#ed7f76"
+naughty.config.presets.critical.fg = "#12191d"
 
 -- Awesome Errors on startup
 if awesome.startup_errors then
@@ -258,8 +260,6 @@ local function run_once(cmd_arr)
         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
     end
 end
-
-
 
 run_once({
     "picom --experimental-backends",
