@@ -30,7 +30,7 @@ window {
     border-radius: 					0px;
     padding: 						5;
     width: 							10%;
-    background-color:   @bg;
+    background-color:               @bg;
 }
 
 prompt {

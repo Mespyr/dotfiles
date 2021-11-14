@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # Options
-shutdown=" Shutdown "
-reboot=" Reboot "
-lock=" Lock "
-suspend=" Suspend "
-logout=" Logout "
+shutdown=" ⏻  Shutdown"
+reboot=" ⏻  Reboot"
+lock="   Lock"
+suspend=" ⏻  Suspend"
+logout="   Logout"
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 chosen="$(echo -e "$options" | rofi -dmenu -p " power " -l 5 -i -config ~/.config/rofi/powermenu.rasi)"
