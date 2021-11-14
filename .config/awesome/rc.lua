@@ -33,9 +33,6 @@ do
     end)
 end
 
--- dpi
-awful.screen.set_auto_dpi_enabled(true)
-
 -- Init Theme
 beautiful.init(string.format("%s/.config/awesome/theme.lua", os.getenv("HOME")))
 
@@ -253,6 +250,9 @@ awful.rules.rules = {
       properties = { floating = true }},
 
 }
+
+-- dpi
+awful.screen.set_auto_dpi_enabled(true)
 
 -- Autostart
 local function run_once(cmd_arr)

@@ -8,7 +8,7 @@ suspend=" Suspend "
 logout=" Logout "
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
-chosen="$(echo -e "$options" | rofi -dmenu -p " power " -l 5 -i)"
+chosen="$(echo -e "$options" | rofi -dmenu -p " power " -l 5 -i -config ~/.config/rofi/powermenu.rasi)"
 
 case $chosen in
     $shutdown)
