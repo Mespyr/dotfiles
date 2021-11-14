@@ -9,7 +9,7 @@ local os = os
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall3.jpg"
+theme.wallpaper = theme.dir .. "/wallpapers/wall3.jpg"
 -- Font
 theme.font_name = "JetBrainsMono Nerd Font"
 theme.font = theme.font_name .. " 5"

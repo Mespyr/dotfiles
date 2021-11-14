@@ -18,7 +18,7 @@ configuration {
     dpi:                            188;
 }
 
-@import "colors.rasi"
+@import "~/.config/rofi/config/colors.rasi"
 
 * {
     background-color:             	@bg;
@@ -29,8 +29,8 @@ window {
     border-color: 					@bg;
     border-radius: 					0px;
     padding: 						5;
-    width: 							20%;
-    background-color:   @bg;
+    width: 							10%;
+    background-color:               @bg;
 }
 
 prompt {
@@ -49,7 +49,6 @@ textbox-prompt-colon {
 entry {
     spacing:    					1;
     text-color: 					@fg;
-    placeholder:                    "Search";
 }
 
 case-indicator {
@@ -60,8 +59,8 @@ case-indicator {
 inputbar {
     spacing:    					0px;
     text-color: 					@fg;
-    padding:    					15px;
-    children: 						[ entry ];
+    padding:    					0px;
+    children: 						[ ];
 }
 
 mainbox {
@@ -71,15 +70,15 @@ mainbox {
 }
 
 listview {
-    lines:							15;
+    lines:							3;
     columns:						1;
     fixed-height: 					0;
     border: 						0px;
     border-color: 					@ac;
-    spacing: 						4px;
+    spacing: 						2px;
     scrollbar: 						false;
     cycle:                          false;
-    padding:                        5px 5px 0px 5px;
+    padding:                        2px 2px 0px 2px;
 }
 
 element-text, element-icon {

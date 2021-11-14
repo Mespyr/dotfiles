@@ -18,7 +18,7 @@ configuration {
     dpi:                            188;
 }
 
-@import "colors.rasi"
+@import "~/.config/rofi/config/colors.rasi"
 
 * {
     background-color:             	@bg;
@@ -37,13 +37,6 @@ prompt {
     spacing: 						0;
     border: 						0;
     text-color: 					@fg;
-}
-
-textbox-prompt-colon {
-    expand: 						false;
-    str: 							" ";
-    margin:							0px 4px 0px 0px;
-    text-color: 					inherit;
 }
 
 entry {
@@ -66,11 +59,11 @@ inputbar {
 mainbox {
     border: 						0px;
     border-color: 					@ac;
-    padding: 						6;
+    padding: 						6px;
 }
 
 listview {
-    lines:							15;
+    lines:							2;
     columns:						1;
     fixed-height: 					0;
     border: 						0px;
@@ -78,7 +71,7 @@ listview {
     spacing: 						2px;
     scrollbar: 						false;
     cycle:                          false;
-    padding:                        2px 2px 0px 2px;
+    padding:                        2px 2px 2px 2px;
 }
 
 element-text, element-icon {
@@ -89,6 +82,7 @@ element {
     border: 						0px;
     border-radius: 					4px;
     padding: 						10px;
+    margin:                         2px;
 }
 element normal.normal {
     background-color: 				@bg;
