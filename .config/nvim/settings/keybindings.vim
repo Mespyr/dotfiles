@@ -15,4 +15,4 @@ nnoremap <silent> <A-w> :source ~/.config/nvim/init.vim<CR>
 
 " tab line over
 nnoremap e 0i<Tab><esc>^
-nmap o ^
+nnoremap o ^
