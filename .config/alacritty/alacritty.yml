@@ -51,6 +51,8 @@ cursor:
   style:
     shape: Block
   unfocused_hollow: true
+selection:
+  save_to_clipboard: true
 debug:
   persistent_logging: true
 logging: true

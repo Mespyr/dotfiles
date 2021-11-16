@@ -14,7 +14,7 @@ theme.wallpaper = theme.dir .. "/wallpapers/wall3.jpg"
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = 8
+theme.useless_gap = 5
 -- Colors
 theme.bg_normal = "#12191d"
 theme.bg_focus = "#757676"
@@ -91,7 +91,7 @@ function theme.at_screen_connect(s)
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         margins = {
-            top = 10
+            top = 5
         }
     }
 

@@ -9,6 +9,7 @@
 
 configuration {
     font: 							"SauceCodePro Nerd Font 5";
+    modi:                           "run";
     fixed-num-lines: 				true;
     show-icons: 					false;
     sidebar-mode: 					false;
@@ -29,9 +30,8 @@ window {
     border-color: 					@lac;
     border-radius: 					0px;
     padding: 						5;
-    width: 							15%;
-    height:                         100%;
-    background-color:               @bg;
+    width: 							20%;
+    background-color:   @bg;
 }
 
 prompt {
@@ -50,6 +50,7 @@ textbox-prompt-colon {
 entry {
     spacing:    					1;
     text-color: 					@fg;
+    placeholder:                    "Type Here";
 }
 
 case-indicator {
@@ -60,8 +61,8 @@ case-indicator {
 inputbar {
     spacing:    					0px;
     text-color: 					@fg;
-    padding:    					0px;
-    children: 						[ ];
+    padding:    					15px;
+    children: 						[ entry ];
 }
 
 mainbox {
@@ -71,15 +72,15 @@ mainbox {
 }
 
 listview {
-    lines:							3;
-    columns:						1;
+    lines:							0;
+    columns:						0;
     fixed-height: 					0;
     border: 						0px;
     border-color: 					@ac;
-    spacing: 						2px;
+    spacing: 						4px;
     scrollbar: 						false;
     cycle:                          false;
-    padding:                        2px 2px 0px 2px;
+    padding:                        5px 5px 0px 5px;
 }
 
 element-text, element-icon {

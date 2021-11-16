@@ -28,8 +28,9 @@ window {
     border: 						0px;
     border-color: 					@lac;
     border-radius: 					0px;
-    padding: 						5;
-    width: 							10%;
+    padding: 						5px;
+    width: 							15%;
+    height:                         100%;
     background-color:               @bg;
 }
 
@@ -66,7 +67,7 @@ inputbar {
 mainbox {
     border: 						0px;
     border-color: 					@ac;
-    padding: 						6;
+    padding: 						6px;
 }
 
 listview {

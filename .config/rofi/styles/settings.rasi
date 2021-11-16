@@ -30,6 +30,7 @@ window {
     border-radius: 					0px;
     padding: 						10px;
     width: 							15%;
+    height:                         100%;
     background-color:               @bg;
 }
 

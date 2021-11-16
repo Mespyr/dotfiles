@@ -1,10 +1,12 @@
 POWERMENU="   Power Menu"
 BACKLIGHT="   Backlight"
+RUN="   Run Menu"
 
-OPTIONS="$POWERMENU\n$BACKLIGHT"
-CHOSEN="$(echo -e "$OPTIONS" | rofi -dmenu -p " power " -i \
+OPTIONS="$POWERMENU\n$BACKLIGHT\n$RUN"
+CHOSEN="$(echo -e "$OPTIONS" | rofi -dmenu -i \
     -config ~/.config/rofi/styles/settings.rasi \
-    -mesg "Settings")"
+    -location 8 \
+    -mesg " Settings")"
 
 case $CHOSEN in 
     $POWERMENU)
@@ -12,5 +14,8 @@ case $CHOSEN in
         ;;
     $BACKLIGHT)
         python3 ~/.config/rofi/scripts/backlight.py
+        ;;
+    $RUN)
+        sh ~/.config/rofi/scripts/run.sh
         ;;
 esac
