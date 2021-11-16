@@ -8,7 +8,7 @@
  */
 
 configuration {
-    font: 							"JetBrainsMono Nerd Font 5";
+    font: 							"SauceCodePro Nerd Font 5";
     modi:                           "run";
     fixed-num-lines: 				true;
     show-icons: 					false;
@@ -72,7 +72,7 @@ mainbox {
 }
 
 listview {
-    lines:							15;
+    lines:							20;
     columns:						1;
     fixed-height: 					0;
     border: 						0px;

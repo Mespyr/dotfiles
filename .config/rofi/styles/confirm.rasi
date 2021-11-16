@@ -8,7 +8,7 @@
  */
 
 configuration {
-    font: 							"JetBrainsMono Nerd Font 5";
+    font: 							"SauceCodePro Nerd Font 5";
     fixed-num-lines: 				true;
     show-icons: 					false;
     sidebar-mode: 					false;

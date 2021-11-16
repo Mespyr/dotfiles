@@ -14,40 +14,14 @@ local readlines = function(path)
     return lines
 end
 
--- g.dashboard_custom_header = {
--- 	'┍━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑',
--- 	'│ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠻⣿⣿⣿⡟⣇⠿⣿⢻⠻⢫⣾⡿⠸⢻⣟⡩⣉⡴⢻⣿⡿⠟⣿⣿⣿⣿⣿⣿⣿⣿ │',
--- 	'│ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⣝⠧⠹⠇⣿⣤⣟⣰⣧⣿⡿⣃⣠⢾⣿⣁⢁⣒⣩⣵⠞⣼⣿⣿⣿⣿⣿⣿⣿⣿ │',
--- 	'│ ⣿⣿⣿⣿⣿⠿⠿⠿⠿⠓⠼⣷⣶⣄⡚⢿⣿⣿⣏⣾⣿⣿⣿⣿⣯⣽⣶⠮⠍⢩⣌⣭⠍⣡⣴⣿⣿⣿⣿⣿ │',
--- 	'│ ⣿⣿⣿⣿⡿⠶⣬⡛⢿⣷⣶⣤⠈⣻⢿⣾⣿⣿⣿⣿⣿⣿⣿⣯⣽⡿⣿⣿⣟⠛⠛⠂⠄⢀⣴⣿⣿⣿⣿⣿ │',
--- 	'│ ⣿⣿⣿⣿⣿⣶⣄⡐⠂⣽⣿⣿⣷⣌⣿⣿⣿⣿⣿⡿⠛⠿⣿⣿⣓⠒⠛⢻⣿⣿⣯⣴⣌⣛⣛⣻⣿⣿⣿⣿ │',
--- 	'│ ⠛⠛⠛⠛⡋⣋⣵⣾⡿⢟⣿⣿⣿⢟⣭⣾⣿⣿⣿⣟⣛⡒⠮⢿⣿⣦⡨⣭⣍⠻⠿⠿⠿⢛⣭⣿⣿⣿⣿⣿ │',
--- 	'│ ⠀⠀⠀⠀⠚⠛⠛⠋⢴⡟⣿⣟⣿⡟⣹⣿⣿⣻⡿⠛⡟⠳⣌⠻⣿⣭⣙⠊⢣⣀⠒⠾⠷⠦⠭⣩⣿⣿⣿⣿ │',
--- 	'│ ⢀⠀⠀⠀⠀⠘⣁⣠⣿⡗⣻⡾⡉⠀⠃⠎⣉⠀⣣⠀⠘⢂⠈⠢⡈⠋⠙⠟⠖⡩⠐⢤⠤⢌⡙⠛⣿⣿⣿⣿ │',
--- 	'│ ⠙⠁⠀⠀⠀⠚⠛⠉⠁⣴⡿⠡⠁⠀⠈⠀⠿⡀⡹⠐⡈⢁⡁⠀⠠⣄⠐⣌⡈⠀⣠⠀⡀⢐⣾⣿⣿⣿⣿⣿ │',
--- 	'│ ⠀⠀⠀⠀⠀⣤⢦⣤⡞⠁⠀⠀⢀⡤⣇⠀⠀⣷⣿⣦⣿⣿⡆⠁⠀⢹⣾⡿⢋⠀⠟⢠⣭⣌⣿⣿⣿⣿⣿⣿ │',
--- 	'│ ⠀⢀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠐⢷⣜⡂⢀⡿⣿⣿⣿⣿⣥⣤⣴⣾⠿⡟⠒⢀⠺⣸⣿⣿⣿⣿⠿⠿⣿⣿ │',
--- 	'│ ⠁⠁⠀⠀⠰⠶⠖⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣴⠿⢿⣿⣿⣿⣿⠿⢃⡼⠃⠀⠀⠉⣉⣉⡉⠤⢐⣦⣦⡈⢿ │',
--- 	'│ ⢲⣤⠀⠀⠀⣷⣶⠀⠀⢀⠀⠀⠀⣤⡠⢉⠛⠿⣿⣶⣿⡿⠛⠁⠠⠞⠀⠀⠀⢠⣾⣿⠏⠀⣠⣿⣿⣿⣿⣄ │',
--- 	'│ ⠷⣶⠀⠀⠀⠛⠛⠀⠀⠀⠀⠀⠀⠚⢿⣷⣧⡀⠀⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠏⠀⣰⣿⠟⢋⣴⣾⣿ │',
--- 	'│ ⣾⣟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⢻⣿⣷⡀⠻⣄⠀⠀⠀⠀⠀⠀⠀⢀⣸⡟⠀⠐⠟⣡⡾⢉⣿⣿⣿ │',
--- 	'│ ⣿⣯⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡙⢻⣿⡄⠙⣦⠀⠀⠀⠀⠀⠀⣸⣿⡇⠠⠀⠘⢉⣴⣿⣿⣿⣿ │',
--- 	'│ ⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠉⠉⠀⠈⠀⠀⠀⠀⣀⣼⣿⣿⡇⠐⣀⣴⣿⣿⣿⣿⣿⣿ │',
--- 	'┕━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┙',
--- }
---
 g.dashboard_custom_header = readlines(os.getenv("HOME") .. "/.config/nvim/ascii")
 
 g.dashboard_custom_section = {
-	a = { description = { '  Find File                        ' }, command = 'Telescope find_files' },
-	b = { description = { '  Recents                          ' }, command = 'Telescope oldfiles' },
-	c = { description = { '  Find Word                        ' }, command = 'Telescope live_grep' },
-	d = { description = { 'ﱐ  New File                         ' }, command = 'DashboardNewFile' },
-	e = { description = { '  Bookmarks                        ' }, command = 'Telescope marks' },
-	f = { description = { '  Open Help Doc                    ' }, command = 'view ~/.config/nvim/doc/helpdoc.md' },
+	a = { description = { '  Recents  ' }, command = 'Telescope oldfiles' },
+	b = { description = { 'ﱐ  New File ' }, command = 'DashboardNewFile' },
 }
 
 g.dashboard_custom_footer = {
-	'▷ Neovim UwU ◁',
+	'▷ UwU ◁',
 }
 
