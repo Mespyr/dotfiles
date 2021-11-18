@@ -14,7 +14,7 @@ theme.wallpaper = theme.dir .. "/wallpapers/wall3.jpg"
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = 5
+theme.useless_gap = 3
 -- Colors
 theme.bg_normal = "#12191d"
 theme.bg_focus = "#757676"
@@ -22,7 +22,7 @@ theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 theme.widget_bg = theme.bg_normal
 -- Borders
-theme.border_width = 3
+theme.border_width = 0
 theme.border_normal = "#33383B"
 theme.border_focus = "#edaf76"
 -- Panel
@@ -77,10 +77,10 @@ function theme.at_screen_connect(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
-        layout = {
-            spacing = 4,
-            layout  = wibox.layout.fixed.horizontal
-        }
+        -- layout = {
+        --     spacing = 2,
+        --     layout  = wibox.layout.fixed.horizontal
+        -- }
     }
 
     s.mywibox = awful.wibar {
@@ -91,7 +91,7 @@ function theme.at_screen_connect(s)
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         margins = {
-            top = 5
+            top = 3
         }
     }
 
