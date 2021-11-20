@@ -12,12 +12,12 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local mytable       = awful.util.table or gears.table
 
 -- Notifications
-naughty.config.spacing = dpi(20)
+naughty.config.spacing = dpi(10)
 naughty.config.defaults.margin = dpi(15)
 naughty.config.defaults.border_width = dpi(0)
-naughty.config.padding = dpi(10)
+naughty.config.padding = dpi(30)
 naughty.config.presets.critical.bg = "#ed7f76"
-naughty.config.presets.critical.fg = "#12191d"
+naughty.config.presets.critical.fg = "#0f1214"
 
 -- Awesome Errors on startup
 if awesome.startup_errors then

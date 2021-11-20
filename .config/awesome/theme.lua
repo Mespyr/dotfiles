@@ -77,10 +77,6 @@ function theme.at_screen_connect(s)
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
-        -- layout = {
-        --     spacing = 2,
-        --     layout  = wibox.layout.fixed.horizontal
-        -- }
     }
 
     s.mywibox = awful.wibar {

@@ -1,4 +1,4 @@
 awesome-git
 lain-git
-picom-jonaburg-git
+picom-git
 brave-bin
