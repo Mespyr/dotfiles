@@ -24,7 +24,7 @@ case $chosen in
         fi
         ;;
     $lock)
-        i3lock -c 12191d
+        i3lock -c 0f1214
         ;;
     $suspend)
         if [ "$($confirm)" == "Yes" ]; then
