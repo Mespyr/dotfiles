@@ -1,5 +1,5 @@
 " main colors
-let s:scheme_bg = "#12191d"
+let s:scheme_bg = "#0f1214"
 let s:scheme_fg = "f1e6d7"
 " colors
 let s:scheme_red = "#ed7f76"
@@ -78,18 +78,18 @@ hi Storage guifg=#a68bb3 guibg=NONE
 hi Statement guifg=#8bb3b0 guibg=NONE
 hi Operator guifg=#8bb3b0 guibg=NONE
 
-hi SignColumn guibg=#12191d
+hi SignColumn guibg=#0f1214
 hi Title guifg=#f1e6d7
-hi NonText guifg=#4b4a49 guibg=#12191d
+hi NonText guifg=#4b4a49 guibg=#0f1214
 " comments
 hi Comment guifg=#4b4a49 gui=italic
 hi SpecialComment guifg=#4b4a49 gui=italic guibg=NONE
 " tabline
-hi TabLineFill gui=NONE guibg=#12191d guifg=#B2A08A
+hi TabLineFill gui=NONE guibg=#0f1214 guifg=#B2A08A
 hi TabLine guifg=#edaf76 guibg=#282E31 gui=NONE
 " StatusLine
-hi StatusLine gui=bold guibg=#12191d guifg=#f1e6d7
-hi StatusLineNC gui=NONE guibg=#12191d guifg=#f1e6d7
+hi StatusLine gui=bold guibg=#0f1214 guifg=#f1e6d7
+hi StatusLineNC gui=NONE guibg=#0f1214 guifg=#f1e6d7
 
 hi Search guibg=#4b4a49 guifg=#f1e6d7
 hi VertSplit gui=NONE guifg=#282E31 guibg=NONE

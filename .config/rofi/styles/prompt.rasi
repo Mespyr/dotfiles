@@ -1,12 +1,3 @@
-/*
- *
- * Author  : Aditya Shakya
- * Mail    : adi1090x@gmail.com
- * Github  : @adi1090x
- * Twitter : @adi1090x
- *
- */
-
 configuration {
     font: 							"SauceCodePro Nerd Font 5";
     modi:                           "run";
@@ -172,4 +163,3 @@ message {
 textbox {
     text-color: 					@fg;
 }
-/* vim:ft=css

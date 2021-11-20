@@ -14,8 +14,7 @@ OPTSTRING = OPTSTRING[:-1]
 
 rofi_stdout = subprocess.run(["rofi", "-dmenu", 
     "-config", "~/.config/rofi/styles/backlight.rasi",
-    "-mesg", f" Current Brightness: {current_brightness}%",
-    "-location", "8"],
+    "-mesg", f" Current Brightness: {current_brightness}%", ],
         stdout = subprocess.PIPE,
         input = OPTSTRING.encode("UTF-8"))
 

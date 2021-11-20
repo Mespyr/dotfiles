@@ -9,14 +9,14 @@ local os = os
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall3.jpg"
+theme.wallpaper = theme.dir .. "/wallpapers/wall4.jpg"
 -- Font
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
 -- useless gap
 theme.useless_gap = 3
 -- Colors
-theme.bg_normal = "#12191d"
+theme.bg_normal = "#0f1214"
 theme.bg_focus = "#757676"
 theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
@@ -43,7 +43,7 @@ local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
 
 local clocktext = awful.widget.watch(
-    "date +'%a %d [%I:%M]'", 60,
+    "date +'%a %d, %I:%M'", 60,
     function(widget, stdout)
         widget:set_markup(markup.font(theme.font, stdout))
     end
@@ -54,7 +54,7 @@ local battery = lain.widget.bat({
         if bat_now.status and bat_now.status ~= "N/A" then
             local perc = " " .. bat_now.perc .. "% "
             if bat_now.ac_status == 1 then
-                perc = perc .. "[charging] "
+                perc = perc .. "(charging) "
             end
             widget:set_markup(markup.font(theme.font, perc))
         else
@@ -88,6 +88,7 @@ function theme.at_screen_connect(s)
         screen = s,
         height = theme.panel_height,
         width = 1400,
+        border_color = theme.border_normal,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         margins = {

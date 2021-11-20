@@ -7,9 +7,8 @@ suspend=" ⏻  Suspend"
 logout="   Logout"
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
-chosen="$(echo -e "$options" | rofi -dmenu -mesg " Power" -i \
-    -location 8 \
-    -config ~/.config/rofi/styles/powermenu.rasi)"
+chosen="$(echo -e "$options" | rofi -dmenu -i \
+    -config ~/.config/rofi/styles/powermenu.rasi )"
 
 confirm="sh $HOME/.config/rofi/scripts/confirm.sh"
 

@@ -1,6 +1,5 @@
 local g = vim.g
 
-
 g.nvim_tree_gitignore = 0
 g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
 g.nvim_tree_quit_on_open = 1

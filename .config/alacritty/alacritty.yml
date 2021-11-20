@@ -15,7 +15,7 @@ background_opacity: 1.0
 window.dynamic_title: true
 font:
   normal:
-    family: SauceCodePro Nerd Font
+    family: SauceCodePro Nerd Font Mono
     style: Regular
   size: 6
   offset:
@@ -27,10 +27,10 @@ font:
 draw_bold_text_with_bright_colors: true
 colors:
   primary:
-    background: "#12191d"
+    background: "#0f1214"
     foreground: "#f1e6d7"
   normal:
-    black: "#12191d"
+    black: "#0f1214"
     red: "#ed7f76"
     green: "#9cb28b"
     yellow: "#edaf76"
