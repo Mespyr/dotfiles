@@ -1,0 +1,2 @@
+android-studio
+minecraft-launcher
