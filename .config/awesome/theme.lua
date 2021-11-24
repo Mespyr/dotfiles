@@ -14,7 +14,7 @@ theme.wallpaper = theme.dir .. "/wallpapers/wall4.jpg"
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = 5
+theme.useless_gap = 0
 -- Colors
 theme.bg_normal = "#0c0e0f"
 theme.bg_focus = "#858687"
@@ -80,16 +80,16 @@ function theme.at_screen_connect(s)
     }
 
     s.mywibox = awful.wibar {
-        position = "top",
+        position = "bottom",
         screen = s,
         height = theme.panel_height,
-        width = 1800,
+        -- width = 1800,
         border_color = theme.border_normal,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
-        margins = {
-            top = theme.useless_gap
-        }
+        -- margins = {
+        --     bottom = theme.useless_gap
+        -- }
     }
 
     s.mywibox:setup {
