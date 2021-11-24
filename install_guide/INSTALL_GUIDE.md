@@ -125,5 +125,3 @@ reboot
 Clone the repository and copy all config files to the right places.
 Install yay using script, then install all other packages.
 Create `~/.xinitrc` and put `exec awesome`
-
-
