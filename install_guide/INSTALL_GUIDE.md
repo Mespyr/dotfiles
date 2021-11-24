@@ -109,21 +109,20 @@ grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### Reboot
-```
-exit
-umount /mnt
-reboot
-```
-
 ## After Install
 Clone the repository and copy all config files to the right places.
-Install yay.
-Install all packages listed in `after-install.txt` and `yay-packages.txt`.
-Reboot.
+Install yay using script, then install all other packages.
+Create `~/.xinitrc` and put `exec awesome`
 
 ### Disable bell in tty
 Edit /etc/inputrc and uncomment line that says:
 ```
 set bell-style none
+```
+
+### Reboot
+```
+exit
+umount /mnt
+reboot
 ```

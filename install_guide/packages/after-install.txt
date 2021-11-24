@@ -13,3 +13,4 @@ pulseaudio
 pavucontrol
 i3lock
 scrot
+nasm
