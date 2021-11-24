@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 shutdown=" ⏻  Shutdown"
 reboot=" ⏻  Reboot"
@@ -10,7 +10,7 @@ options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 chosen="$(echo -e "$options" | rofi -dmenu -i \
     -config ~/.config/rofi/styles/powermenu.rasi )"
 
-confirm="sh $HOME/.config/rofi/scripts/confirm.sh"
+confirm="$HOME/.config/rofi/scripts/confirm.sh"
 
 case $chosen in
     $shutdown)

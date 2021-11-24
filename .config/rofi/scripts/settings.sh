@@ -1,3 +1,4 @@
+#!/bin/sh
 POWERMENU="   Power Menu"
 BACKLIGHT="   Backlight"
 RUN="   Run Menu"
@@ -8,12 +9,12 @@ CHOSEN="$(echo -e "$OPTIONS" | rofi -dmenu -i \
 
 case $CHOSEN in 
     $POWERMENU)
-        sh ~/.config/rofi/scripts/powermenu.sh
+        $HOME/.config/rofi/scripts/powermenu.sh
         ;;
     $BACKLIGHT)
-        python3 ~/.config/rofi/scripts/backlight.py
+        $HOME/.config/rofi/scripts/backlight.py
         ;;
     $RUN)
-        sh ~/.config/rofi/scripts/run.sh
+        $HOME/.config/rofi/scripts/run.sh
         ;;
 esac

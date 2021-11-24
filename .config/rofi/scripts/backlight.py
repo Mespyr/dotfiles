@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import subprocess
 
 current_brightness = int(subprocess.check_output(['xbacklight', '-get']))

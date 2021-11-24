@@ -3,9 +3,6 @@ xorg-xinit
 acpilight
 bash-completion
 exa
-pyright
-lua-language-server
-clang
 htop
 alacritty
 discord

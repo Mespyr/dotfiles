@@ -1,3 +1,4 @@
 nerd-fonts-source-code-pro
 noto-fonts-emoji
-gnu-free-fonts
+noto-fonts
+ttf-symbola

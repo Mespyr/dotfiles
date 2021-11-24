@@ -1,5 +1,5 @@
 " main colors
-let s:scheme_bg = "#0f1214"
+let s:scheme_bg = "#0c0e0f"
 let s:scheme_fg = "f1e6d7"
 " colors
 let s:scheme_red = "#ed7f76"
@@ -8,14 +8,14 @@ let s:scheme_yellow = "#edaf76"
 let s:scheme_blue = "#8b9cb2"
 let s:scheme_magenta = "#a68bb3"
 let s:scheme_cyan = "#8bb3b0"
-let s:scheme_grey = "#4b4a49"
+let s:scheme_grey = "#545657"
 " cursorline
-let s:scheme_cursorline = "#282e31"
+let s:scheme_cursorline = "#242626"
 " line number
 let s:scheme_line_number = "#b2a08a"
 let s:scheme_cursorline_number = s:scheme_yellow
 " comments
-let s:scheme_comment = "#4b4a49"
+let s:scheme_comment = "#545657"
 
 hi clear
 syntax reset
@@ -25,7 +25,7 @@ set t_Co=256
 
 " modes
 exe "hi Normal guifg=" . s:scheme_fg . " ctermbg=NONE guibg=" . s:scheme_bg . " gui=NONE"
-hi Visual gui=NONE guibg=#282E31
+hi Visual gui=NONE guibg=#242626
 " cursorline colors
 exe "hi CursorLineNR guifg=" . s:scheme_cursorline_number . " guibg=NONE"
 " line number
@@ -78,21 +78,21 @@ hi Storage guifg=#a68bb3 guibg=NONE
 hi Statement guifg=#8bb3b0 guibg=NONE
 hi Operator guifg=#8bb3b0 guibg=NONE
 
-hi SignColumn guibg=#0f1214
+hi SignColumn guibg=#0c0e0f
 hi Title guifg=#f1e6d7
-hi NonText guifg=#4b4a49 guibg=#0f1214
+hi NonText guifg=#545657 guibg=#0c0e0f
 " comments
-hi Comment guifg=#4b4a49 gui=italic
-hi SpecialComment guifg=#4b4a49 gui=italic guibg=NONE
+hi Comment guifg=#545657 gui=italic
+hi SpecialComment guifg=#545657 gui=italic guibg=NONE
 " tabline
-hi TabLineFill gui=NONE guibg=#0f1214 guifg=#B2A08A
-hi TabLine guifg=#edaf76 guibg=#282E31 gui=NONE
+hi TabLineFill gui=NONE guibg=#0c0e0f guifg=#B2A08A
+hi TabLine guifg=#edaf76 guibg=#242626 gui=NONE
 " StatusLine
-hi StatusLine gui=bold guibg=#0f1214 guifg=#f1e6d7
-hi StatusLineNC gui=NONE guibg=#0f1214 guifg=#f1e6d7
+hi StatusLine gui=bold guibg=#0c0e0f guifg=#f1e6d7
+hi StatusLineNC gui=NONE guibg=#0c0e0f guifg=#f1e6d7
 
-hi Search guibg=#4b4a49 guifg=#f1e6d7
-hi VertSplit gui=NONE guifg=#282E31 guibg=NONE
+hi Search guibg=#545657 guifg=#f1e6d7
+hi VertSplit gui=NONE guifg=#242626 guibg=NONE
 " NvimTree Highlights 
 exe "hi NvimTreeFolderIcon guifg=" . s:scheme_blue
 exe "hi NvimTreeFolderName guifg=" . s:scheme_blue
@@ -103,8 +103,8 @@ exe "hi NvimTreeFileDirty guifg=" . s:scheme_red
 exe "hi NvimTreeExecFile guifg=" . s:scheme_green
 exe "hi NvimTreeGitDirty guifg=" . s:scheme_red
 exe "hi NvimTreeGitDeleted guifg=" . s:scheme_red
-exe "hi NvimTreeRootFolder guifg=" . s:scheme_yellow
-exe "hi NvimTreeIndentMarker guifg=" . s:scheme_cursorline
+exe "hi NvimTreeRootFolder guifg=" . s:scheme_magenta
+exe "hi NvimTreeIndentMarker guifg=" . s:scheme_yellow
 " Nvim-Treesitter Highlights 
 exe "hi TSAttribute guifg=" . s:scheme_blue
 exe "hi TSBoolean guifg=" . s:scheme_magenta

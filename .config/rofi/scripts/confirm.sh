@@ -1,3 +1,4 @@
+#!/bin/sh
 YES="   Yes"
 NO="   No"
 

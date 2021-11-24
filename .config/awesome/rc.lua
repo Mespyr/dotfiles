@@ -59,7 +59,7 @@ awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) 
 -- Keybindings
 local globalkeys = mytable.join(
     -- Show help
-    awful.key({ modkey }, "s", function() os.execute("sh ~/.config/rofi/scripts/settings.sh") end,
+    awful.key({ modkey }, "s", function() os.execute(string.format("%s/.config/rofi/scripts/settings.sh", os.getenv("HOME"))) end,
               {description="settings", group="awesome"}),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(awful.util.terminal) end,
@@ -130,10 +130,10 @@ local globalkeys = mytable.join(
             end, {description = "restore minimized", group = "client"}),
     -- Menus
     -- Run menu
-    awful.key({ modkey }, "d", function () os.execute("sh ~/.config/rofi/scripts/run.sh") end,
+    awful.key({ modkey }, "d", function () os.execute(string.format("%s/.config/rofi/scripts/run.sh", os.getenv("HOME"))) end,
             {description = "run prompt", group = "launcher"}),
     -- Power Menu
-    awful.key({ modkey }, "q", function () os.execute("bash ~/.config/rofi/scripts/powermenu.sh") end,
+    awful.key({ modkey }, "q", function () os.execute(string.format("%s/.config/rofi/scripts/powermenu.sh", os.getenv("HOME"))) end,
             {description = "power menu", group = "launcher"})
 )
 
