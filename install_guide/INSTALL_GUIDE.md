@@ -31,8 +31,8 @@ mkswap /dev/<SWAP_PARTITION>
 
 Mount drives:
 ```
-mkdir /mnt/boot/efi
 mount /dev/<ROOT_PARTITION> /mnt
+mkdir -p /mnt/boot/efi
 mount /dev/<EFI_PARTITION> /mnt/boot/efi
 swapon /dev/<SWAP_PARTITION>
 ```
@@ -103,16 +103,10 @@ EDITOR=nvim visudo
 
 ### Grub
 ```
-pacman -S grub
-pacman -S efibootmgr dosfstools mtools
+pacman -S grub efibootmgr dosfstools mtools
 grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-
-## After Install
-Clone the repository and copy all config files to the right places.
-Install yay using script, then install all other packages.
-Create `~/.xinitrc` and put `exec awesome`
 
 ### Disable bell in tty
 Edit /etc/inputrc and uncomment line that says:
@@ -126,3 +120,10 @@ exit
 umount /mnt
 reboot
 ```
+
+## After Install
+Clone the repository and copy all config files to the right places.
+Install yay using script, then install all other packages.
+Create `~/.xinitrc` and put `exec awesome`
+
+
