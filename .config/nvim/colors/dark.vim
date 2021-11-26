@@ -1,5 +1,5 @@
 " main colors
-let s:scheme_bg = "#0c0e0f"
+let s:scheme_bg = "#0E0F10"
 let s:scheme_fg = "f1e6d7"
 " colors
 let s:scheme_red = "#ed7f76"
@@ -78,18 +78,18 @@ hi Storage guifg=#a68bb3 guibg=NONE
 hi Statement guifg=#8bb3b0 guibg=NONE
 hi Operator guifg=#8bb3b0 guibg=NONE
 
-hi SignColumn guibg=#0c0e0f
+hi SignColumn guibg=#0E0F10
 hi Title guifg=#f1e6d7
-hi NonText guifg=#545657 guibg=#0c0e0f
+hi NonText guifg=#545657 guibg=#0E0F10
 " comments
 hi Comment guifg=#545657 gui=italic
 hi SpecialComment guifg=#545657 gui=italic guibg=NONE
 " tabline
-hi TabLineFill gui=NONE guibg=#0c0e0f guifg=#B2A08A
+hi TabLineFill gui=NONE guibg=#0E0F10 guifg=#B2A08A
 hi TabLine guifg=#edaf76 guibg=#242626 gui=NONE
 " StatusLine
-hi StatusLine gui=bold guibg=#0c0e0f guifg=#f1e6d7
-hi StatusLineNC gui=NONE guibg=#0c0e0f guifg=#f1e6d7
+hi StatusLine gui=bold guibg=#0E0F10 guifg=#f1e6d7
+hi StatusLineNC gui=NONE guibg=#0E0F10 guifg=#f1e6d7
 
 hi Search guibg=#545657 guifg=#f1e6d7
 hi VertSplit gui=NONE guifg=#242626 guibg=NONE
@@ -99,10 +99,10 @@ exe "hi NvimTreeFolderName guifg=" . s:scheme_blue
 exe "hi NvimTreeOpenedFolderName guifg=" . s:scheme_cyan
 exe "hi NvimTreeOpenedFileName guifg=" . s:scheme_cyan
 exe "hi NvimTreeEmptyFolderName guifg=" . s:scheme_cyan
-exe "hi NvimTreeFileDirty guifg=" . s:scheme_red
-exe "hi NvimTreeExecFile guifg=" . s:scheme_green
-exe "hi NvimTreeGitDirty guifg=" . s:scheme_red
-exe "hi NvimTreeGitDeleted guifg=" . s:scheme_red
+exe "hi NvimTreeFileDirty guifg=" . s:scheme_green
+exe "hi NvimTreeExecFile guifg=" . s:scheme_yellow
+exe "hi NvimTreeGitDirty guifg=" . s:scheme_green
+exe "hi NvimTreeGitDeleted guifg=" . s:scheme_green
 exe "hi NvimTreeRootFolder guifg=" . s:scheme_magenta
 exe "hi NvimTreeIndentMarker guifg=" . s:scheme_yellow
 " Nvim-Treesitter Highlights 
@@ -120,7 +120,7 @@ exe "hi TSField guifg=" . s:scheme_red
 exe "hi TSFloat guifg=" . s:scheme_grey
 exe "hi TSFunction guifg=" . s:scheme_red
 exe "hi TSFuncBuiltin guifg=" . s:scheme_cyan
-exe "hi TSFuncMacro guifg=" . s:scheme_green
+exe "hi TSFuncMacro guifg=" . s:scheme_magenta
 exe "hi TSInclude guifg=" . s:scheme_magenta
 exe "hi TSKeyword guifg=" . s:scheme_yellow
 exe "hi TSKeywordFunction guifg=" . s:scheme_yellow

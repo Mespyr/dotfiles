@@ -6,8 +6,8 @@
 #
 window:
   padding:
-    x: 20
-    y: 20
+    x: 30
+    y: 30
 scrolling:
   history: 10000
   multiplier: 3
@@ -27,10 +27,10 @@ font:
 draw_bold_text_with_bright_colors: true
 colors:
   primary:
-    background: "#0c0e0f"
+    background: "#0E0F10"
     foreground: "#f1e6d7"
   normal:
-    black: "#0c0e0f"
+    black: "#0E0F10"
     red: "#ed7f76"
     green: "#9cb28b"
     yellow: "#edaf76"

@@ -8,7 +8,8 @@ logout="   Logout"
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 chosen="$(echo -e "$options" | rofi -dmenu -i \
-    -config ~/.config/rofi/styles/powermenu.rasi )"
+    -config ~/.config/rofi/styles/powermenu.rasi \
+    -selected-row 2 )"
 
 confirm="$HOME/.config/rofi/scripts/confirm.sh"
 
@@ -24,7 +25,7 @@ case $chosen in
         fi
         ;;
     $lock)
-        i3lock -c 0f1214
+        i3lock -c 0e0f10
         ;;
     $suspend)
         if [ "$($confirm)" == "Yes" ]; then

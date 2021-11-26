@@ -9,15 +9,15 @@ local os = os
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall4.jpg"
+theme.wallpaper = theme.dir .. "/wallpapers/wall6.png"
 -- Font
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
 -- useless gap
 theme.useless_gap = 0
 -- Colors
-theme.bg_normal = "#0c0e0f"
-theme.bg_focus = "#858687"
+theme.bg_normal = "#0E0F10"
+theme.bg_focus = "#9e9f9f"
 theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 theme.widget_bg = theme.bg_normal
@@ -26,7 +26,7 @@ theme.border_width = 0
 theme.border_normal = "#33383B"
 theme.border_focus = "#edaf76"
 -- Panel
-theme.panel_height = 50
+theme.panel_height = 55
 -- notifications
 theme.notification_icon_size = 80
 -- taglist
@@ -104,7 +104,7 @@ function theme.at_screen_connect(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(clocktext, 0, 0, 10, 10)
+            wibox.container.margin(clocktext, 0, 0, 15, 15)
         },
         {
             layout = wibox.layout.fixed.horizontal,
