@@ -18,6 +18,8 @@ call plug#begin(stdpath('data') . '/plugged')
 
     Plug 'tpope/vim-commentary'
 
+    Plug 'voldikss/vim-floaterm'
+
 call plug#end()
 
 source $HOME/.config/nvim/plugins/lua/feline.lua
