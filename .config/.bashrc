@@ -32,5 +32,3 @@ alias rm="rm -Ir"
 alias img="mpv --loop=inf --pause"
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 alias dio="gio tree"
-# rust
-. "$HOME/.cargo/env"
