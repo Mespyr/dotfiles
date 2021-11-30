@@ -40,7 +40,7 @@ textbox-prompt-colon {
 
 entry {
     spacing:    					1;
-    text-color: 					@fg;
+    text-color: 					@lac;
     placeholder:                    "Search";
 }
 

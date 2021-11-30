@@ -9,7 +9,7 @@ local os = os
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall9.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall7.png"
 -- Font
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
@@ -17,25 +17,24 @@ theme.font = theme.font_name .. " 5"
 theme.useless_gap = 0
 -- Colors
 theme.bg_normal = "#0E0F10"
-theme.bg_focus = "#9e9f9f"
+theme.bg_focus = "#f2e3d7"
 theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
-theme.widget_bg = theme.bg_normal
 -- Borders
 theme.border_width = 0
-theme.border_normal = "#33383B"
-theme.border_focus = "#edaf76"
 -- Panel
 theme.panel_height = 55
 -- notifications
 theme.notification_icon_size = 80
 -- taglist
-theme.taglist_bg_occupied                       = theme.widget_bg
-theme.taglist_fg_occupied                       = "#ed7f76"
-theme.taglist_bg_empty                          = theme.widget_bg
-theme.taglist_fg_empty                          = theme.bg_focus
-theme.taglist_bg_focus                          = theme.widget_bg
-theme.taglist_fg_focus                          = theme.border_focus
+-- set background color to same as bar
+theme.taglist_bg_occupied                       = theme.bg_normal
+theme.taglist_bg_focus                          = theme.bg_normal
+theme.taglist_bg_empty                          = theme.bg_normal
+-- foreground color of taglist
+theme.taglist_fg_occupied                       = "#8bb3b0"
+theme.taglist_fg_empty                          = theme.fg_normal
+theme.taglist_fg_focus                          = "#ed7f76"
 
 -- widgets
 local markup = lain.util.markup
@@ -43,7 +42,7 @@ local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
 
 local clocktext = awful.widget.watch(
-    "date +'%a %d, %I:%M'", 60,
+    "date +'%I:%M'", 60,
     function(widget, stdout)
         widget:set_markup(markup.font(theme.font, stdout))
     end
