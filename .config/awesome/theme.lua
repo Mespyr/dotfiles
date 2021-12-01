@@ -17,7 +17,7 @@ theme.font = theme.font_name .. " 5"
 theme.useless_gap = 0
 -- Colors
 theme.bg_normal = "#0E0F10"
-theme.bg_focus = "#e6e7e7"
+theme.bg_focus = "#f1e6d7"
 theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 -- Borders

@@ -28,7 +28,7 @@ draw_bold_text_with_bright_colors: true
 colors:
   primary:
     background: "#0E0F10"
-    foreground: "#e6e7e7"
+    foreground: "#f1e6d7"
   normal:
     black: "#0E0F10"
     red: "#ed7f76"
@@ -37,16 +37,16 @@ colors:
     blue: "#8b9cb2"
     magenta: "#a68bb3"
     cyan: "#8bb3b0"
-    white: "#e6e7e7"
+    white: "#f1e6d7"
   bright:
-    black: "#e6e7e7"
+    black: "#f1e6d7"
     red: "#ed7f76"
     green: "#9cb28b"
     yellow: "#edaf76"
     blue: "#8b9cb2"
     magenta: "#a68bb3"
     cyan: "#8bb3b0"
-    white: "#e6e7e7"
+    white: "#f1e6d7"
 cursor:
   style:
     shape: Block

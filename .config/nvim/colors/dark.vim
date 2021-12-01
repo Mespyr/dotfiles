@@ -1,6 +1,6 @@
 " main colors
 let s:scheme_bg = "#0E0F10"
-let s:scheme_fg = "#e6e7e7"
+let s:scheme_fg = "#f1e6d7"
 " colors
 let s:scheme_red = "#ed7f76"
 let s:scheme_green = "#9cb28b"
