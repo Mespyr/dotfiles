@@ -11,7 +11,7 @@ window:
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 1.0 
+background_opacity: 1.0
 window.dynamic_title: true
 font:
   normal:
@@ -28,7 +28,7 @@ draw_bold_text_with_bright_colors: true
 colors:
   primary:
     background: "#0E0F10"
-    foreground: "#f2e3d7"
+    foreground: "#e6e7e7"
   normal:
     black: "#0E0F10"
     red: "#ed7f76"
@@ -37,16 +37,16 @@ colors:
     blue: "#8b9cb2"
     magenta: "#a68bb3"
     cyan: "#8bb3b0"
-    white: "#f2e3d7"
+    white: "#e6e7e7"
   bright:
-    black: "#f2e3d7"
+    black: "#e6e7e7"
     red: "#ed7f76"
     green: "#9cb28b"
     yellow: "#edaf76"
     blue: "#8b9cb2"
     magenta: "#a68bb3"
     cyan: "#8bb3b0"
-    white: "#f2e3d7"
+    white: "#e6e7e7"
 cursor:
   style:
     shape: Block

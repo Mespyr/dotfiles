@@ -9,7 +9,7 @@ local os = os
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall7.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall5.png"
 -- Font
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
@@ -17,13 +17,13 @@ theme.font = theme.font_name .. " 5"
 theme.useless_gap = 0
 -- Colors
 theme.bg_normal = "#0E0F10"
-theme.bg_focus = "#f2e3d7"
+theme.bg_focus = "#e6e7e7"
 theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 -- Borders
 theme.border_width = 0
 -- Panel
-theme.panel_height = 55
+theme.panel_height = 50
 -- notifications
 theme.notification_icon_size = 80
 -- taglist
@@ -32,7 +32,7 @@ theme.taglist_bg_occupied                       = theme.bg_normal
 theme.taglist_bg_focus                          = theme.bg_normal
 theme.taglist_bg_empty                          = theme.bg_normal
 -- foreground color of taglist
-theme.taglist_fg_occupied                       = "#8bb3b0"
+theme.taglist_fg_occupied                       = "#eda676"
 theme.taglist_fg_empty                          = theme.fg_normal
 theme.taglist_fg_focus                          = "#ed7f76"
 
