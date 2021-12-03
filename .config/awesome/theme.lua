@@ -9,15 +9,15 @@ local os = os
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall5.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall6.png"
 -- Font
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
 -- useless gap
 theme.useless_gap = 0
 -- Colors
-theme.bg_normal = "#0E0F10"
-theme.bg_focus = "#f1e6d7"
+theme.bg_normal = "#151515"
+theme.bg_focus = "#e8e8d3"
 theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 -- Borders
@@ -32,9 +32,9 @@ theme.taglist_bg_occupied                       = theme.bg_normal
 theme.taglist_bg_focus                          = theme.bg_normal
 theme.taglist_bg_empty                          = theme.bg_normal
 -- foreground color of taglist
-theme.taglist_fg_occupied                       = "#eda676"
+theme.taglist_fg_occupied                       = "#71b9f8"
 theme.taglist_fg_empty                          = theme.fg_normal
-theme.taglist_fg_focus                          = "#ed7f76"
+theme.taglist_fg_focus                          = "#cf6a4c"
 
 -- widgets
 local markup = lain.util.markup

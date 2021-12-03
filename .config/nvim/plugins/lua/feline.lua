@@ -10,17 +10,17 @@ local components = {
 }
 
 local colors = {
-  bg = '#0e0f10',
-  black = '#0c0e0f',
-  yellow = '#EDAF76',
-  cyan = '#8B9CB2',
-  green = '#9CB28B',
-  orange = '#eda676',
-  violet = '#7D6B97',
-  white = '#F1E6D7',
-  fg = '#F1E6D7',
-  skyblue = '#A2C1CE',
-  red = '#ed7f76',
+  bg = '#151515',
+  black = '#3b3b3b',
+  yellow = '#d8ad4c',
+  cyan = '#71b9f8',
+  green = '#99ad6a',
+  orange = '#cf6a4c',
+  violet = '#a037b0',
+  white = '#adadad',
+  fg = '#adadad',
+  skyblue = '#597bc5',
+  red = '#cf6a4c',
 }
 
 local vi_mode_colors = {

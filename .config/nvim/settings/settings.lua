@@ -26,5 +26,3 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.fillchars = 'vert:▏'
 opt.mouse = "a"
-
-vim.cmd [[ colorscheme dark ]]

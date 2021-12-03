@@ -24,4 +24,3 @@ g.dashboard_custom_section = {
 g.dashboard_custom_footer = {
 	'▷ UwU ◁',
 }
-

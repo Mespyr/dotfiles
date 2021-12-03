@@ -17,6 +17,10 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'onsails/lspkind-nvim'
 
     Plug 'tpope/vim-commentary'
+    
+    " Plug 'nvim-lualine/lualine.nvim'
+    " " If you want to have icons in your statusline choose one of these
+    " Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 

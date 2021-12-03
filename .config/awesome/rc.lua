@@ -7,8 +7,6 @@ local beautiful     = require("beautiful")
 local dpi           = require("beautiful.xresources").apply_dpi
 local naughty       = require("naughty")
 local lain          = require("lain")
-local hotkeys_popup = require("awful.hotkeys_popup")
-                      require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table
 
 -- Notifications

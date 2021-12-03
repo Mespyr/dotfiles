@@ -1,9 +1,3 @@
-#
-#
-#       Alacritty config       
-#       github.com/Mespyr       
-#
-#
 window:
   padding:
     x: 30
@@ -27,26 +21,26 @@ font:
 draw_bold_text_with_bright_colors: true
 colors:
   primary:
-    background: "#0E0F10"
-    foreground: "#f1e6d7"
+    background: "#151515"
+    foreground: "#e8e8d3"
   normal:
-    black: "#0E0F10"
-    red: "#ed7f76"
-    green: "#9cb28b"
-    yellow: "#edaf76"
-    blue: "#8b9cb2"
-    magenta: "#a68bb3"
-    cyan: "#8bb3b0"
-    white: "#f1e6d7"
+    black: "#3b3b3b"
+    red: "#cf6a4c"
+    green: "#99ad6a"
+    yellow: "#d8ad4c"
+    blue: "#597bc5"
+    magenta: "#c6b6ee"
+    cyan: "#71b9f8"
+    white: "#e8e8d3"
   bright:
-    black: "#f1e6d7"
-    red: "#ed7f76"
-    green: "#9cb28b"
-    yellow: "#edaf76"
-    blue: "#8b9cb2"
-    magenta: "#a68bb3"
-    cyan: "#8bb3b0"
-    white: "#f1e6d7"
+    black: "#3b3b3b"
+    red: "#cf6a4c"
+    green: "#99ad6a"
+    yellow: "#d8ad4c"
+    blue: "#597bc5"
+    magenta: "#c6b6ee"
+    cyan: "#71b9f8"
+    white: "#e8e8d3"
 cursor:
   style:
     shape: Block

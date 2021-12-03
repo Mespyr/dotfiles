@@ -1,2 +1,1 @@
-android-studio
 minecraft-launcher
