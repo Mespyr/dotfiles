@@ -648,8 +648,8 @@ hi! NvimTreeOpenedFileName guifg=#8bb3b0
 hi! NvimTreeEmptyFolderName guifg=#8bb3b0
 hi! NvimTreeFileDirty guifg=#cf6a4c
 hi! NvimTreeExecFile guifg=#cf6a4c
-hi! NvimTreeGitDirty guifg=#99ad6a
-hi! NvimTreeGitDeleted guifg=#99ad6a
+hi! NvimTreeGitDirty guifg=#cf6a4c
+hi! NvimTreeGitDeleted guifg=#cf6a4c
 hi! NvimTreeRootFolder guifg=#c6b6ee
 hi! NvimTreeIndentMarker guifg=#adadad
 

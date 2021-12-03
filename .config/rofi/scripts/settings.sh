@@ -1,10 +1,11 @@
 #!/bin/sh
 POWERMENU="   Power Menu"
 BACKLIGHT="   Backlight"
-RUN="   Run Menu"
+RUN="   Run Menu"
 SOUND="   Sound"
+BLUETOOTH="   Bluetooth"
 
-OPTIONS="$POWERMENU\n$BACKLIGHT\n$RUN\n$SOUND"
+OPTIONS="$POWERMENU\n$BACKLIGHT\n$RUN\n$SOUND\n$BLUETOOTH"
 CHOSEN="$(echo -e "$OPTIONS" | rofi -dmenu -i \
     -config ~/.config/rofi/styles/settings.rasi )"
 
@@ -20,5 +21,8 @@ case $CHOSEN in
         ;;
     $SOUND)
         pavucontrol &
+        ;;
+    $BLUETOOTH)
+        blueberry &
         ;;
 esac
