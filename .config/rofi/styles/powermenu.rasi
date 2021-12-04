@@ -19,7 +19,7 @@ window {
     border: 						0px;
     border-color: 					@lac;
     border-radius: 					0px;
-    padding: 						5px;
+    padding: 						10px;
     width: 							15%;
     background-color:               @bg;
 }
