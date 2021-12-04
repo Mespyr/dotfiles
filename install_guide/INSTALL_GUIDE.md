@@ -39,7 +39,7 @@ swapon /dev/<SWAP_PARTITION>
 
 ### Pacstrap
 ```
-pacstrap /mnt base base-devel linux linux-firmware amd-ucode git neovim
+pacstrap /mnt base base-devel linux linux-firmware amd-ucode git neovim grub efibootmgr dosfstools mtools networkmanager sudo
 ```
 
 ### Generate Fstab
@@ -71,19 +71,18 @@ Make file named /etc/locale.conf and type `LANG=en_US.UTF-8`
 ### Network configuration
 Set hostname in `/etc/hostname`
 ```
-creativehostname
+arch-btw
 ```
 
 configure `/etc/hosts`
 ```
 127.0.0.1   localhost
 ::1         localhost
-127.0.1.1   creativehostname.localdomain creativehostname
+127.0.1.1   arch-btw.localdomain arch-btw
 ```
 
 Install NetworkManager:
 ```
-pacman -S networkmanager
 systemctl enable NetworkManager
 ```
 
@@ -97,13 +96,11 @@ usermod -aG wheel,audio,video,storage,optical mespyr
 
 ### Sudo
 ```
-pacman -S sudo
 EDITOR=nvim visudo
 ```
 
 ### Grub
 ```
-pacman -S grub efibootmgr dosfstools mtools
 grub-install --target=x86_64-efi  --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -125,3 +122,19 @@ reboot
 Clone the repository and copy all config files to the right places.
 Install yay using script, then install all other packages.
 Create `~/.xinitrc` and put `exec awesome`
+
+### Bluetooth and Sound
+```
+sudo pacman -S pulseaudio pulseaudio-bluetooth bluez bluez-util blueberry
+sudo systemctl enable bluetooth.service
+```
+
+To enable audio, in /etc/pulse/system.pa, put
+```
+...
+load-module module-bluetooth-policy
+load-module module-bluetooth-discover
+...
+```
+
+In /etc/bluetooth/main.conf, set ControllerMode to `bredr` to be able to pair Airpods.
