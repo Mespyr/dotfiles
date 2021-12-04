@@ -11,9 +11,9 @@ local mytable       = awful.util.table or gears.table
 
 -- Notifications
 naughty.config.spacing = dpi(10)
-naughty.config.defaults.margin = dpi(15)
+naughty.config.defaults.margin = dpi(20)
 naughty.config.defaults.border_width = dpi(0)
-naughty.config.padding = dpi(30)
+naughty.config.padding = dpi(20)
 naughty.config.presets.critical.bg = "#ed7f76"
 naughty.config.presets.critical.fg = "#0f1214"
 
