@@ -10,6 +10,10 @@ lxappearance
 rofi
 mpv
 pulseaudio
+pulseaudio-bluetooth
+bluez
+bluez-utils
+blueberry
 pavucontrol
 i3lock
 scrot

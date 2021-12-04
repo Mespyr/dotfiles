@@ -125,7 +125,7 @@ Create `~/.xinitrc` and put `exec awesome`
 
 ### Bluetooth and Sound
 ```
-sudo pacman -S pulseaudio pulseaudio-bluetooth bluez bluez-util blueberry
+sudo pacman -S pulseaudio pulseaudio-bluetooth bluez bluez-utils blueberry
 sudo systemctl enable bluetooth.service
 ```
 
