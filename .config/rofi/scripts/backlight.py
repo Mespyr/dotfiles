@@ -13,11 +13,14 @@ for i in OPTIONS:
     OPTSTRING += i + "\n"
 OPTSTRING = OPTSTRING[:-1]
 
-rofi_stdout = subprocess.run(["rofi", "-dmenu", 
-    "-config", "~/.config/rofi/styles/backlight.rasi",
-    "-mesg", f" Current Brightness: {current_brightness}%", ],
-        stdout = subprocess.PIPE,
-        input = OPTSTRING.encode("UTF-8"))
+rofi_stdout = subprocess.run([
+        "rofi", "-dmenu", 
+        "-config", "~/.config/rofi/styles/backlight.rasi",
+        "-mesg", f" Current Brightness: {current_brightness}%", 
+        "-selected-row", "1"
+    ],
+    stdout = subprocess.PIPE,
+    input = OPTSTRING.encode("UTF-8"))
 
 opt = rofi_stdout.stdout.decode().strip("\n")
 
