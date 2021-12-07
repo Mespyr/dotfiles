@@ -5,7 +5,7 @@ current_brightness = int(subprocess.check_output(['xbacklight', '-get']))
 
 OPTIONS = [
     "   Up",
-    "   Set",
+    "   Current: " + str(current_brightness),
     "   Down"
 ]
 OPTSTRING = ""
@@ -16,7 +16,6 @@ OPTSTRING = OPTSTRING[:-1]
 rofi_stdout = subprocess.run([
         "rofi", "-dmenu", 
         "-config", "~/.config/rofi/styles/backlight.rasi",
-        "-mesg", f" Current Brightness: {current_brightness}%", 
         "-selected-row", "1"
     ],
     stdout = subprocess.PIPE,

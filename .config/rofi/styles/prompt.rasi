@@ -68,10 +68,10 @@ listview {
     fixed-height: 					0;
     border: 						0px;
     border-color: 					@ac;
-    spacing: 						4px;
+    spacing: 						2px;
     scrollbar: 						false;
     cycle:                          false;
-    padding:                        5px 5px 0px 5px;
+    padding:                        2px 2px 0px 2px;
 }
 
 element-text, element-icon {
@@ -81,7 +81,8 @@ element-text, element-icon {
 element {
     border: 						0px;
     border-radius: 					4px;
-    padding: 						10px;
+    padding: 						14px;
+    margin:                         5px;
 }
 element normal.normal {
     background-color: 				@bg;
