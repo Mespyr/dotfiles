@@ -13,7 +13,7 @@ theme.wallpaper = theme.dir .. "/wallpapers/wall11.png"
 -- Font
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
--- useless gap 
+-- useless gap
 theme.useless_gap = 3
 -- Colors
 theme.bg_normal = "#151515"
@@ -114,10 +114,10 @@ function theme.at_screen_connect(s)
         },
     }
     s.padding = {
-        top = 6,
-        left = 10,
-        right = 10, 
-        bottom = 6,
+        top = 5,
+        left = 9,
+        right = 9,
+        bottom = 5,
     }
 end
 
