@@ -246,8 +246,19 @@ awful.rules.rules = {
 
     { rule = { class = "mpv" },
       properties = { floating = true }},
-
 }
+
+client.connect_signal("manage", function(c)
+    -- c.shape = gears.shape.rounded_rect
+
+    if not awesome.startup then
+        awful.client.setslave(c)
+    end
+
+    if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
+        awful.placement.no_offscreen(c)
+    end
+end)
 
 -- dpi
 awful.screen.set_auto_dpi_enabled(true)

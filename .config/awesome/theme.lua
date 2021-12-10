@@ -13,15 +13,15 @@ theme.wallpaper = theme.dir .. "/wallpapers/wall11.png"
 -- Font
 theme.font_name = "SauceCodePro Nerd Font"
 theme.font = theme.font_name .. " 5"
--- useless gap
-theme.useless_gap = 0
+-- useless gap 
+theme.useless_gap = 3
 -- Colors
 theme.bg_normal = "#151515"
 theme.bg_focus = "#e8e8d3"
 theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 -- Borders
-theme.border_width = 0
+theme.border_width = 2
 -- Panel
 theme.panel_height = 50
 -- notifications
@@ -111,7 +111,13 @@ function theme.at_screen_connect(s)
             spr,
             spr,
             small_spr
-        }
+        },
+    }
+    s.padding = {
+        top = 6,
+        left = 10,
+        right = 10, 
+        bottom = 6,
     }
 end
 

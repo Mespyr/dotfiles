@@ -1,6 +1,5 @@
 configuration {
     font: 							"SauceCodePro Nerd Font 5";
-    modi:                           "run";
     fixed-num-lines: 				true;
     show-icons: 					false;
     sidebar-mode: 					false;
@@ -20,7 +19,7 @@ window {
     border: 						0px;
     border-color: 					@lac;
     border-radius: 					0px;
-    padding: 						10px;
+    padding: 						12px;
     width: 							18%;
     background-color:   @bg;
 }
@@ -82,7 +81,7 @@ element-text, element-icon {
 element {
     border: 						0px;
     border-radius: 					4px;
-    padding: 						14px;
+    padding: 						12px;
     margin:                         5px;
 }
 element normal.normal {

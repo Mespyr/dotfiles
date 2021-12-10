@@ -21,6 +21,6 @@ g.dashboard_custom_section = {
 	b = { description = { 'ﱐ  New File ' }, command = 'DashboardNewFile' },
 }
 
-g.dashboard_custom_footer = {
-	'▷ UwU ◁',
-}
+-- g.dashboard_custom_footer = {
+-- 	'▷ UwU ◁',
+-- }

@@ -19,7 +19,7 @@ window {
     border: 						0px;
     border-color: 					@lac;
     border-radius: 					0px;
-    padding: 						10px;
+    padding: 						12px;
     width: 							15%;
     background-color:               @bg;
 }
@@ -72,7 +72,7 @@ element-text, element-icon {
 element {
     border: 						0px;
     border-radius: 					4px;
-    padding: 						14px;
+    padding: 						12px;
     margin:                         5px;
 }
 element normal.normal {
