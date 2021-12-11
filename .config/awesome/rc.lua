@@ -1,21 +1,13 @@
--- Import Awesome Libraries
-                      pcall(require, "luarocks.loader")
+pcall(require, "luarocks.loader")
 local gears         = require("gears")
 local awful         = require("awful")
                       require("awful.autofocus")
 local beautiful     = require("beautiful")
-local dpi           = require("beautiful.xresources").apply_dpi
-local naughty       = require("naughty")
 local lain          = require("lain")
+local wibox         = require("wibox")
 local mytable       = awful.util.table or gears.table
 
--- Notifications
-naughty.config.spacing = dpi(10)
-naughty.config.defaults.margin = dpi(20)
-naughty.config.defaults.border_width = dpi(0)
-naughty.config.padding = dpi(20)
-naughty.config.presets.critical.bg = "#ed7f76"
-naughty.config.presets.critical.fg = "#0f1214"
+require("theme.notifications")
 
 -- Awesome Errors on startup
 if awesome.startup_errors then
@@ -32,19 +24,20 @@ do
 end
 
 -- Init Theme
-beautiful.init(string.format("%s/.config/awesome/theme.lua", os.getenv("HOME")))
+beautiful.init(string.format("%s/.config/awesome/theme/theme.lua", os.getenv("HOME")))
 
 -- Variables
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 awful.util.terminal = "alacritty"
-awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
+awful.util.tagnames = { "", "", "", "", "", "", "", "", "" }
 
 --Layouts
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
 }
+
 -- Taglist button function
 awful.util.taglist_buttons = mytable.join(
     awful.button({ }, 1, function(t) t:view_only() end),
@@ -242,8 +235,12 @@ awful.rules.rules = {
         buttons = clientbuttons,
         screen = awful.screen.preferred,
         placement = awful.placement.no_overlap + awful.placement.no_offscreen,
-        size_hints_honor = false }},
-
+        size_hints_honor = false,
+    }},
+    -- Add title bars to normal clients and dialogs
+    { rule_any = {type = { "normal", "dialog" }
+        }, properties = { titlebars_enabled = true }
+    },
     { rule = { class = "mpv" },
       properties = { floating = true }},
 }
@@ -254,6 +251,23 @@ client.connect_signal("manage", function(c)
     if not awesome.startup then
         awful.client.setslave(c)
     end
+
+    local tb = awful.titlebar(c,{
+        size = 40,
+        bg_normal = "#3b3b3b",
+        bg_focus = "#99ad6a"
+    })
+    local title = awful.titlebar.widget.titlewidget(c)
+
+    tb : setup {
+        layout = wibox.layout.align.horizontal,
+        -- expand = "none",
+        wibox.widget.textbox("  "),
+        title,
+        {
+            layout = wibox.layout.fixed.horizontal,
+        }
+    }
 
     if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
         awful.placement.no_offscreen(c)

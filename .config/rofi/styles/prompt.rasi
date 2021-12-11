@@ -1,5 +1,5 @@
 configuration {
-    font: 							"SauceCodePro Nerd Font 5";
+    font: 							"SpaceMono Nerd Font 5";
     modi:                           "run";
     fixed-num-lines: 				true;
     show-icons: 					false;

@@ -17,8 +17,8 @@ local colors = {
   green = '#99ad6a',
   orange = '#cf6a4c',
   violet = '#a037b0',
-  white = '#adadad',
-  fg = '#adadad',
+  white = '#e8e8d3',
+  fg = '#e8e8d3',
   skyblue = '#597bc5',
   red = '#cf6a4c',
 }

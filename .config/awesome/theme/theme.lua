@@ -1,27 +1,26 @@
 -- imports
 local gears = require("gears")
-local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
-local os = os
+local lain = require("lain")
 
 -- theme
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall11.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall10.png"
 -- Font
-theme.font_name = "SauceCodePro Nerd Font"
+theme.font_name = "SpaceMono Nerd Font Mono"
 theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = 3
+theme.useless_gap = 4
 -- Colors
 theme.bg_normal = "#151515"
 theme.bg_focus = "#e8e8d3"
 theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 -- Borders
-theme.border_width = 2
+theme.border_width = 0
 -- Panel
 theme.panel_height = 50
 -- notifications
@@ -32,9 +31,10 @@ theme.taglist_bg_occupied                       = theme.bg_normal
 theme.taglist_bg_focus                          = theme.bg_normal
 theme.taglist_bg_empty                          = theme.bg_normal
 -- foreground color of taglist
-theme.taglist_fg_occupied                       = "#71b9f8"
-theme.taglist_fg_empty                          = theme.fg_normal
-theme.taglist_fg_focus                          = "#cf6a4c"
+theme.taglist_fg_occupied                       =  "#99ad6a"
+theme.taglist_fg_empty                          = "#3b3b3b"
+theme.taglist_fg_focus                          = "#71b9f8"
+theme.taglist_font                              = theme.font_name .. " 7"
 
 -- widgets
 local markup = lain.util.markup
@@ -61,33 +61,31 @@ local battery = lain.widget.bat({
         end
 end})
 
--- layout
--- tag.connect_signal("property::layout", function(t)
---     awful.spawn.with_shell("notify-send 'Tag " .. t.name .. " is in " .. t.layout.name .. " mode'")
--- end)
-
 -- screen
 function theme.at_screen_connect(s)
     gears.wallpaper.maximized(theme.wallpaper, s, true)
-
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
     s.mytaglist = awful.widget.taglist {
-        screen  = s,
-        filter  = awful.widget.taglist.filter.all,
+        screen = s,
+        filter = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
+        layout = {
+        spacing = 3,
+            layout = wibox.layout.fixed.horizontal
+        }
     }
 
     s.mywibox = awful.wibar {
         position = "bottom",
         screen = s,
         height = theme.panel_height,
-        -- width = 1800,
-        border_color = theme.border_normal,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         -- margins = {
-        --     bottom = theme.useless_gap
+        --     bottom = 5,
+        --     left = 300,
+        --     right = 300,
         -- }
     }
 
@@ -113,12 +111,12 @@ function theme.at_screen_connect(s)
             small_spr
         },
     }
-    s.padding = {
-        top = 5,
-        left = 9,
-        right = 9,
-        bottom = 5,
-    }
+    -- s.padding = {
+    --     top = 1,
+    --     left = 9,
+    --     right = 9,
+    --     bottom = 1,
+    -- }
 end
 
 return theme

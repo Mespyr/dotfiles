@@ -9,7 +9,7 @@ background_opacity: 1.0
 window.dynamic_title: true
 font:
   normal:
-    family: SauceCodePro Nerd Font Mono
+    family: SpaceMono Nerd Font Mono
     style: Regular
   size: 6
   offset:
