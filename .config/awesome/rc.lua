@@ -4,10 +4,10 @@ local awful         = require("awful")
                       require("awful.autofocus")
 local beautiful     = require("beautiful")
 local lain          = require("lain")
-local wibox         = require("wibox")
 local mytable       = awful.util.table or gears.table
 
 require("theme.notifications")
+require("theme.signals")
 
 -- Awesome Errors on startup
 if awesome.startup_errors then
@@ -245,46 +245,7 @@ awful.rules.rules = {
       properties = { floating = true }},
 }
 
-client.connect_signal("manage", function(c)
-    -- c.shape = gears.shape.rounded_rect
-
-    if not awesome.startup then
-        awful.client.setslave(c)
-    end
-
-    local tb = awful.titlebar(c,{
-        size = 40,
-        bg_normal = "#3b3b3b",
-        bg_focus = "#99ad6a"
-    })
-    local title = awful.titlebar.widget.titlewidget(c)
-
-    tb : setup {
-        layout = wibox.layout.align.horizontal,
-        -- expand = "none",
-        wibox.widget.textbox("  "),
-        title,
-        {
-            layout = wibox.layout.fixed.horizontal,
-        }
-    }
-
-    if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
-        awful.placement.no_offscreen(c)
-    end
-end)
-
 -- dpi
 awful.screen.set_auto_dpi_enabled(true)
 
--- Autostart
-local function run_once(cmd_arr)
-    for _, cmd in ipairs(cmd_arr) do
-        awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
-    end
-end
-
-run_once({
-    "picom --experimental-backends",
-    "setxkbmap -option ctrl:nocaps",
-})
+require("settings.autostart")
