@@ -11,18 +11,40 @@ client.connect_signal("manage", function(c)
 end)
 
 client.connect_signal("request::titlebars", function(c)
+    local buttons = awful.util.table.join(
+        awful.button({ }, 1, function()
+            client.focus = c
+            c:raise()
+            awful.mouse.client.move(c)
+        end),
+        awful.button({ }, 3, function()
+            client.focus = c
+            c:raise()
+            awful.mouse.client.resize(c)
+        end)
+    )
     local tb = awful.titlebar(c,{
         size = 45,
         bg_normal = "#3b3b3b",
-        bg_focus = "#99ad6a"
+        bg_focus = "#99ad6a",
+        fg_normal = "#e8e8d3",
     })
-    tb : setup {
+    tb:setup {
         layout = wibox.layout.align.horizontal,
-        -- expand = "none",
-        wibox.widget.textbox("  "),
-        awful.titlebar.widget.titlewidget(c),
         {
             layout = wibox.layout.fixed.horizontal,
+            wibox.widget.textbox("  "),
+            buttons = buttons
+        },
+        {
+            layout = wibox.layout.fixed.horizontal,
+            awful.titlebar.widget.titlewidget(c),
+            buttons = buttons
+        },
+        {
+            layout = wibox.layout.fixed.horizontal,
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 0, 13, 12),
+            wibox.widget.textbox("  "),
         }
     }
 

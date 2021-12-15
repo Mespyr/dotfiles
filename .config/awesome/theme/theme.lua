@@ -31,10 +31,13 @@ theme.taglist_bg_occupied                       = theme.bg_normal
 theme.taglist_bg_focus                          = theme.bg_normal
 theme.taglist_bg_empty                          = theme.bg_normal
 -- foreground color of taglist
-theme.taglist_fg_occupied                       =  "#99ad6a"
+theme.taglist_fg_occupied                       = "#597bc5"
 theme.taglist_fg_empty                          = "#3b3b3b"
-theme.taglist_fg_focus                          = "#71b9f8"
+theme.taglist_fg_focus                          = "#99ad6a"
 theme.taglist_font                              = theme.font_name .. " 7"
+-- titlebar
+local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
+theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151580")
 
 -- widgets
 local markup = lain.util.markup
@@ -71,7 +74,7 @@ function theme.at_screen_connect(s)
         filter = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         layout = {
-        spacing = 3,
+        spacing = 4,
             layout = wibox.layout.fixed.horizontal
         }
     }
@@ -83,7 +86,7 @@ function theme.at_screen_connect(s)
         bg = theme.bg_normal,
         fg = theme.fg_normal,
         -- margins = {
-        --     bottom = 5,
+        --     bottom = theme.useless_gap,
         --     left = 300,
         --     right = 300,
         -- }
@@ -94,6 +97,7 @@ function theme.at_screen_connect(s)
         expand = "none",
         {
             layout = wibox.layout.fixed.horizontal,
+            spr,
             spr,
             spr,
             spr,

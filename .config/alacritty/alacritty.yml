@@ -2,11 +2,12 @@ window:
   padding:
     x: 30
     y: 30
+  dynamic_padding: false
+  dynamic_title: true
 scrolling:
   history: 10000
   multiplier: 3
 background_opacity: 1.0
-window.dynamic_title: true
 font:
   normal:
     family: SpaceMono Nerd Font Mono
@@ -41,6 +42,9 @@ colors:
     magenta: "#c6b6ee"
     cyan: "#71b9f8"
     white: "#e8e8d3"
+  selection:
+    text: CellForeground
+    background: "#404040"
 cursor:
   style:
     shape: Block

@@ -14,6 +14,7 @@ opt.shiftwidth = 0
 opt.expandtab = true
 opt.smartindent = true
 opt.autoindent = true
+opt.title = true
 
 -- other
 opt.wrap = false

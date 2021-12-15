@@ -137,4 +137,4 @@ load-module module-bluetooth-discover
 ...
 ```
 
-In /etc/bluetooth/main.conf, set ControllerMode to `bredr` to be able to pair Airpods.
+In /etc/bluetooth/main.conf, set ControllerMode to `bredr` to be able to pair airpods.

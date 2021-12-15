@@ -27,6 +27,7 @@ case $CHOSEN in
         blueberry &
         ;;
     $SCREENSHOT)
+        sleep 1;
         scrot ~/Pictures/screenshot.png -z &
         notify-send "Screenshot saved in ~/Pictures/" &
         ;;
