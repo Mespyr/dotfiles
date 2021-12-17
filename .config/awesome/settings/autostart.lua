@@ -9,4 +9,5 @@ end
 run_once({
     "picom --experimental-backends",
     "setxkbmap -option ctrl:nocaps",
+    "xset -b",
 })

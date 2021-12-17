@@ -9,7 +9,6 @@ discord
 lxappearance
 rofi
 mpv
-pulseaudio
 pulseaudio-bluetooth
 bluez
 bluez-utils

@@ -1,11 +1,10 @@
 # Oomox GTK Theme (Numix Fork)
 
-gtk-color-scheme =
-"base_color:#3b3b3b\nbg_color:#151515\ntooltip_bg_color:#151515\nselected_bg_color:#597bc5\ntext_color:#e8e8d3\nfg_color:#e8e8d3\ntooltip_fg_color:#e8e8d3\nselected_fg_color:#ffffff\nmenubar_bg_color:#3b3b3b\nmenubar_fg_color:#e8e8d3\ntoolbar_bg_color:#151515\ntoolbar_fg_color:#e8e8d3\nmenu_bg_color:#3b3b3b\nmenu_fg_color:#e8e8d3\npanel_bg_color:#151515\npanel_fg_color:#e8e8d3\nlink_color:#001fb4\nbtn_bg_color:#3b3b3b\nbtn_fg_color:#e8e8d3\ntitlebar_bg_color:#3b3b3b\ntitlebar_fg_color:#e8e8d3\nprimary_caret_color:#e8e8d3\nsecondary_caret_color:#e8e8d3\naccent_bg_color:#597bc5\n"
+gtk-color-scheme = "base_color:#3b3b3b\nbg_color:#151515\ntooltip_bg_color:#151515\nselected_bg_color:#597bc5\ntext_color:#e8e8d3\nfg_color:#e8e8d3\ntooltip_fg_color:#e8e8d3\nselected_fg_color:#ffffff\nmenubar_bg_color:#3b3b3b\nmenubar_fg_color:#e8e8d3\ntoolbar_bg_color:#151515\ntoolbar_fg_color:#e8e8d3\nmenu_bg_color:#3b3b3b\nmenu_fg_color:#e8e8d3\npanel_bg_color:#151515\npanel_fg_color:#e8e8d3\nlink_color:#001fb4\nbtn_bg_color:#3b3b3b\nbtn_fg_color:#e8e8d3\ntitlebar_bg_color:#3b3b3b\ntitlebar_fg_color:#e8e8d3\nprimary_caret_color:#e8e8d3\nsecondary_caret_color:#e8e8d3\naccent_bg_color:#597bc5\n"
 # Default Style
 
 style "murrine-default" {
-	GtkArrow::arrow-scaling= 0.6
+	GtkArrow::arrow-scaling = 1
 
 	GtkWidget::cursor_color = @primary_caret_color
 	GtkWidget::secondary_cursor_color = @secondary_caret_color
@@ -15,13 +14,14 @@ style "murrine-default" {
 	GtkButton::child-displacement-y = 0
 
 	GtkButton::default-border = { 0, 0, 0, 0 }
-    #GtkButton::inner-border        = { 2, 2, 1, 1 }
-    GtkButton::focus-line-width    = 1
-    #GtkButton::focus-padding       = -4
+    GtkButton::inner-border        = { 0, 0, 0, 0 }
+    GtkButton::focus-line-width    = 0
+    GtkButton::focus-padding       = 2
 
 	GtkButtonBox::child-min-height = 26
 
 	GtkCheckButton::indicator-size = 16
+    GtkOptionMenu::indicator-size = { 3, 2, 1, 1 }
 
 	# The following line hints to gecko (and possibly other appliations)
 	# that the entry should be drawn transparently on the canvas.
@@ -33,27 +33,27 @@ style "murrine-default" {
 
 	GtkImage::x-ayatana-indicator-dynamic = 1
 
-	GtkMenu::horizontal-padding = 0
-	GtkMenu::vertical-padding = 0
+	GtkMenu::horizontal-padding = 5
+    GtkMenu::vertical-padding = 5
 
 	GtkMenuBar::internal-padding = 0
 	GtkMenuBar::window-dragging = 1
 
-	GtkMenuItem::arrow-scaling= 0.5
+	GtkMenuItem::arrow-scaling = 0.5
 
 	GtkPaned::handle-size = 1
 
-	GtkProgressBar::min-horizontal-bar-height = 12
-	GtkProgressBar::min-vertical-bar-width = 12
+	GtkProgressBar::min-horizontal-bar-height = 15
+	GtkProgressBar::min-vertical-bar-width = 15
 
 	GtkRange::trough-border = 0
-	GtkRange::slider-width = 12
-	GtkRange::stepper-size = 12
+	GtkRange::slider-width = 10
+	GtkRange::stepper-size = 10
 	GtkRange::stepper_spacing = 0
 	GtkRange::trough-under-steppers = 1
 
-	GtkScale::slider-length = 16
-	GtkScale::slider-width = 16
+	GtkScale::slider-length = 10
+	GtkScale::slider-width = 10
 	GtkScale::trough-side-details = 1
 
 	GtkScrollbar::activate-slider = 1
@@ -70,12 +70,12 @@ style "murrine-default" {
 
 	GtkSeparatorMenuItem::horizontal-padding = 0
 
-	GtkToolbar::internal-padding = 0
+	GtkToolbar::internal-padding = 5
 
-	GtkTreeView::expander-size = 11
-	GtkTreeView::vertical-separator = 0
+	GtkTreeView::expander-size = 12
+	GtkTreeView::vertical-separator = 12
 
-	GtkWidget::focus-line-width = 1
+	GtkWidget::focus-line-width = 0
 	# The following line prevents the Firefox tabs
 	# from jumping a few pixels when you create a new tab
 	GtkWidget::focus-padding = 0
@@ -127,7 +127,7 @@ style "murrine-default" {
 	text[INSENSITIVE] = mix (0.5, @base_color, @text_color)
 
 	engine "murrine" {
-		animation = FALSE
+		animation = TRUE
 		arrowstyle = 1 # 0 = normal arrows, 1 = filled arrows
 		border_shades = { 1.0, 1.0 } # gradient to draw on border
 		border_colors = { mix(0.2, @fg_color, @bg_color), mix(0.2, @fg_color, @bg_color) }
@@ -159,18 +159,18 @@ style "murrine-default" {
 }
 
 style "murrine-wide" {
-	xthickness = 2
-	ythickness = 2
+	xthickness = 5
+	ythickness = 5
 }
 
 style "murrine-wider" {
-	xthickness = 3
-	ythickness = 3
+	xthickness = 8
+    ythickness = 8
 }
 
 style "murrine-thin" {
-	xthickness = 0
-	ythickness = 0
+	xthickness = 1
+	ythickness = 1
 }
 
 # Notebook
@@ -181,11 +181,11 @@ style "clearlooks-notebook-bg" {
 }
 
 style "clearlooks-notebook" = "clearlooks-notebook-bg" {
-	xthickness = 2
-	ythickness = 2
+	xthickness = 8
+    ythickness = 5
 
 	engine "clearlooks" {
-		radius = 0.1
+		radius = 0.2
 	}
 }
 
@@ -271,7 +271,7 @@ style "murrine-progressbar" = "murrine-thin" {
 
 	engine "murrine" {
 		#roundness = 2
-		roundness = 2
+        roundness = 2
 		border_shades = { 1.2, 1.2 }
 		trough_border_shades = { 0.8, 0.8 }
 	}
