@@ -90,13 +90,13 @@ window, dialog, assistant {
 }
 
 window.csd decoration {
-  box-shadow: 0 0 8px 0 black;
+  box-shadow: 0 0 0px 0 black;
   margin: 8px;
 }
 
 headerbar {
   background: #3b3b3b;
-  padding: 6px;
+  padding: 0px;
 }
 headerbar box.horizontal.right > button.titlebutton:last-child {
   margin-right: -6px;
@@ -204,9 +204,10 @@ button.flat:checked {
 
 combobox button.combo cellview {
   margin: -2px;
+  padding: 3px;
 }
 combobox button.combo arrow {
-  margin: -6px -8px;
+  margin: 3px 1px;
   padding: 8px;
   min-width: 16px;
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
@@ -248,10 +249,10 @@ notebook stack:only-child {
 }
 
 tabs {
-  background: #151515;
+  background: #3b3b3b;
 }
 .top > tabs {
-  border-bottom: 2px solid #3b3b3b;
+  border-bottom: 4px solid #3b3b3b;
 }
 .top > tabs tab {
   border-bottom: 2px solid transparent;
@@ -279,7 +280,7 @@ tabs {
   margin-right: -2px;
 }
 tabs tab {
-  padding: 8px;
+  padding: 5px;
   color: rgba(232, 232, 211, 0.2);
   transition: border-color 100ms ease-in-out;
 }
@@ -445,7 +446,6 @@ toolbar {
 }
 toolbar.osd {
   background: rgba(59, 59, 59, 0.5);
-  padding: 10px;
 }
 
 frame.app-notification border {
@@ -454,7 +454,7 @@ frame.app-notification border {
 }
 
 frame > border, .frame {
-  border: 1px solid #3b3b3b;
+  border: 0px solid #3b3b3b;
 }
 
 scrolledwindow viewport.frame {
@@ -590,9 +590,6 @@ menubar menuitem:hover {
 menu {
   background: rgba(255, 255, 255, 0.1);
 }
-menu menuitem {
-  padding: 5px;
-}
 menu menuitem:hover {
   background: #3b3b3b;
 }
@@ -622,6 +619,9 @@ scrollbar:hover.vertical slider {
   padding: 3px 5px;
 }
 
+label {
+  padding: 5px;
+}
 label.dim-label, label:disabled {
   opacity: 0.3;
 }

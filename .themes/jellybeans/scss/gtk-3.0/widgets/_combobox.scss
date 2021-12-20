@@ -5,9 +5,10 @@ combobox {
     &.combo {
       cellview {
         margin: -2px;
+        padding: 3px;
       }
       arrow {
-        margin: -6px -8px;
+        margin: 3px 1px;
         padding: 8px;
         min-width: 16px;
         -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
