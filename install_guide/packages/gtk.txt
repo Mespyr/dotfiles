@@ -1,2 +1,0 @@
-gtk-engine-murrine
-gtk-clearlooks-compact

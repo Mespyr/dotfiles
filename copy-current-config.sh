@@ -1,15 +1,21 @@
 #!/bin/sh
 set -xe
 
-alias c="cp -r"
+function COPY {
+    [ -f $1 ] && mv $1 .bak
+    [ -d $1 ] && mv $1 .bak     
+    cp ~/$1 $1 -r
+}
 
-c ~/.config/alacritty   .config/
-c ~/.config/awesome     .config/
-c ~/.config/rofi        .config/
-c ~/.bashrc               .
-c ~/.profile              .
-c ~/.config/picom.conf  .config/
-c ~/.config/nvim        .config/
-c ~/.config/neofetch    .config/
-c ~/.themes             .
-c ~/.icons              .
+COPY .config/alacritty/
+COPY .config/awesome/
+COPY .config/rofi/
+COPY .bashrc
+COPY .profile
+COPY .config/picom.conf
+COPY .config/nvim/
+COPY .config/neofetch/
+COPY .themes/
+COPY .icons/
+COPY .config/gtk-3.0/
+rm .bak -r

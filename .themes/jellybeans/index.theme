@@ -1,11 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
 Name=jellybeans
-Comment=A partially sexual act; when a female (of any species; mostly humanoids) rubs the ears/lobes of a male Ferengi, creating sensual emotions and chemical reactions in the male (and sometimes in the female).
+Comment=jellybeans GTK theme based to phocus
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-Name=jellybeans
 GtkTheme=jellybeans
-IconTheme=jellybeans
 MetacityTheme=jellybeans
+IconTheme=gnome
+CursorTheme=DMZ-Black
+ButtonLayout=menu:minimize,maximize,close

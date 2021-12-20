@@ -95,16 +95,16 @@ element normal.active {
     text-color:       				@bg;
 }
 element selected.normal {
-    background-color: 				@fg;
-    text-color:       				@bg;
+    background-color: 				@ac;
+    text-color:       				@fg;
 }
 element selected.urgent {
     background-color: 				@bg;
     text-color:       				@red;
 }
 element selected.active {
-    background-color: 				@fg;
-    text-color:       				@bg;
+    background-color: 				@ac;
+    text-color:       				@fg;
 }
 element alternate.normal {
     background-color: 				@bg;

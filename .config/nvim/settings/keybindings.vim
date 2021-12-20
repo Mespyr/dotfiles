@@ -13,6 +13,6 @@ nnoremap <silent> <A-e> :NvimTreeToggle<CR>
 nnoremap <silent> <A-r> :source ~/.config/nvim/init.vim<CR>
     
 " tab line over
+nnoremap o ^
 nnoremap e >>^
 nnoremap w <<^
-nnoremap o ^

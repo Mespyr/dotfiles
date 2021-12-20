@@ -37,7 +37,7 @@ theme.taglist_fg_focus                          = "#99ad6a"
 theme.taglist_font                              = theme.font_name .. " 7"
 -- titlebar
 local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
-theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151580")
+theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151590")
 
 -- widgets
 local markup = lain.util.markup

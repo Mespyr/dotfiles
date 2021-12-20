@@ -2,9 +2,9 @@
 
 * {
   bg:      #151515;
-  fg:      #adadad;
-  lac:     #adadad;
-  ac:      #adadad;
+  fg:      #e8e8d3;
+  lac:     #404040;
+  ac:      #404040;
 
   red:     #ed7f76;
   green:   #9cb28b;

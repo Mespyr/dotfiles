@@ -2,4 +2,3 @@ awesome-git
 lain-git
 picom-git
 brave-bin
-pulseaudio-gtk2
