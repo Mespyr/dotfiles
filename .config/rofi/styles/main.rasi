@@ -17,7 +17,7 @@ configuration {
 
 window {
     border: 						0px;
-    border-color: 					@lac;
+    border-color: 					@ac;
     border-radius: 					0px;
     padding: 						12px;
     width: 							18%;
@@ -39,7 +39,7 @@ textbox-prompt-colon {
 
 entry {
     spacing:    					1;
-    text-color: 					@lac;
+    text-color: 					@fg;
     placeholder:                    "Search";
     placeholder-color:              @lac;
 }
@@ -98,7 +98,7 @@ element normal.active {
 }
 element selected.normal {
     background-color: 				@ac;
-    text-color:       				@bg;
+    text-color:       				@lac;
 }
 element selected.urgent {
     background-color: 				@bg;
@@ -106,7 +106,7 @@ element selected.urgent {
 }
 element selected.active {
     background-color: 				@ac;
-    text-color:       				@bg;
+    text-color:       				@lac;
 }
 element alternate.normal {
     background-color: 				@bg;

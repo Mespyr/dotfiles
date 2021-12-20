@@ -17,7 +17,7 @@ configuration {
 
 window {
     border: 						0px;
-    border-color: 					@lac;
+    border-color: 					@ac;
     border-radius: 					0px;
     padding: 						12px;
     width: 							15%;
@@ -96,7 +96,7 @@ element normal.active {
 }
 element selected.normal {
     background-color: 				@ac;
-    text-color:       				@fg;
+    text-color:       				@lac;
 }
 element selected.urgent {
     background-color: 				@bg;
@@ -104,7 +104,7 @@ element selected.urgent {
 }
 element selected.active {
     background-color: 				@ac;
-    text-color:       				@fg;
+    text-color:       				@lac;
 }
 element alternate.normal {
     background-color: 				@bg;

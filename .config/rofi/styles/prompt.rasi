@@ -18,7 +18,7 @@ configuration {
 
 window {
     border: 						0px;
-    border-color: 					@lac;
+    border-color: 					@ac;
     border-radius: 					0px;
     padding: 						12px;
     width: 							20%;
