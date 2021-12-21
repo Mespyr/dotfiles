@@ -54,7 +54,7 @@ mainbox {
 }
 
 listview {
-    lines:							6;
+    lines:							7;
     columns:						1;
     fixed-height: 					0;
     border: 						0px;
@@ -72,8 +72,8 @@ element-text, element-icon {
 element {
     border: 						0px;
     border-radius: 					4px;
-    padding: 						12px;
-    margin:                         5px;
+    padding: 						14px;
+    margin:                         6px;
 }
 element normal.normal {
     background-color: 				@bg;

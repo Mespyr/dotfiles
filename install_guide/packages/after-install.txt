@@ -1,5 +1,7 @@
 xorg
 xorg-xinit
+awesome-git
+lain-git
 acpilight
 bash-completion
 exa
@@ -16,3 +18,11 @@ i3lock
 scrot
 nasm
 npm
+picom-git
+brave-bin
+acpi
+nerd-fonts-space-mono
+noto-fonts-emoji
+noto-fonts
+ttf-symbola
+minecraft-launcher

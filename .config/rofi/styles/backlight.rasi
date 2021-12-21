@@ -78,9 +78,9 @@ element-text, element-icon {
 
 element {
     border: 						0px;
-    border-radius: 					4px;
-    padding: 						12px;
-    margin:                         5px;
+    border-radius: 					2px;
+    padding: 						14px;
+    margin:                         6px;
 }
 element normal.normal {
     background-color: 				@bg;

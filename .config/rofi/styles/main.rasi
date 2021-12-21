@@ -19,8 +19,8 @@ window {
     border: 						0px;
     border-color: 					@ac;
     border-radius: 					0px;
-    padding: 						12px;
-    width: 							18%;
+    padding: 						10px;
+    width: 							20%;
     background-color:   @bg;
 }
 
@@ -81,8 +81,8 @@ element-text, element-icon {
 element {
     border: 						0px;
     border-radius: 					4px;
-    padding: 						12px;
-    margin:                         5px;
+    padding: 						14px;
+    margin:                         6px;
 }
 element normal.normal {
     background-color: 				@bg;

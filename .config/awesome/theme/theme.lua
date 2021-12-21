@@ -8,12 +8,12 @@ local lain = require("lain")
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall10.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall15.png"
 -- Font
 theme.font_name = "SpaceMono Nerd Font Mono"
 theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = 4
+theme.useless_gap = 0
 -- Colors
 theme.bg_normal = "#151515"
 theme.bg_focus = "#e8e8d3"
@@ -21,6 +21,7 @@ theme.fg_normal = theme.bg_focus
 theme.fg_focus = theme.bg_normal
 -- Borders
 theme.border_width = 0
+theme.border_normal = "#3b3b3b"
 -- Panel
 theme.panel_height = 50
 -- notifications
@@ -37,7 +38,7 @@ theme.taglist_fg_focus                          = "#99ad6a"
 theme.taglist_font                              = theme.font_name .. " 7"
 -- titlebar
 local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
-theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151590")
+theme.titlebar_close_button_normal = gears.surface.load_from_shape(25, 25, new_shape, "#15151590")
 
 -- widgets
 local markup = lain.util.markup

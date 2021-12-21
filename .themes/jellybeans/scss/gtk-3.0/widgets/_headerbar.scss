@@ -2,23 +2,23 @@
 
 headerbar {
   background: colors.$surface-3;
-  padding: 0px;
+  padding: 5px;
 
   box.horizontal {
-    &.right > button.titlebutton:last-child {
-      margin-right: -6px;
-    }
+    // &.right > button.titlebutton:last-child {
+    //   margin: 2px;
+    // }
 
     &.left > button.titlebutton:first-child {
-      margin-left: -6px;
+      margin-left: 2px;
     }
   }
 
   button.titlebutton:not(.appmenu) {
     background: transparent;
-    margin: -6px 0;
-    padding: 15px 10px;
-    border-radius: 0;
+    margin: -2px -2px;
+    padding: 0px;
+    border-radius: 2;
 
     &:nth-last-child(-n+2) {
       margin-left: -6px;
@@ -36,6 +36,7 @@ headerbar {
         &:hover {
           background-color: $color;
         }
+        margin: 1px;
       }
     }
 

@@ -465,7 +465,7 @@ call s:X("Todo","c7c7c7","","bold","White",s:termBlack)
 
 call s:X("StatusLine","000000","151515","italic","","White")
 call s:X("StatusLineNC","ffffff","151515","italic","White","Black")
-call s:X("VertSplit","777777","151515","",s:termBlack,s:termBlack)
+call s:X("VertSplit","3b3b3b","151515","",s:termBlack,s:termBlack)
 call s:X("WildMenu","f0a0c0","302028","","Magenta","")
 
 call s:X("Folded","a0a8b0","384048","italic",s:termBlack,"")

@@ -96,37 +96,37 @@ window.csd decoration {
 
 headerbar {
   background: #3b3b3b;
-  padding: 0px;
-}
-headerbar box.horizontal.right > button.titlebutton:last-child {
-  margin-right: -6px;
+  padding: 5px;
 }
 headerbar box.horizontal.left > button.titlebutton:first-child {
-  margin-left: -6px;
+  margin-left: 2px;
 }
 headerbar button.titlebutton:not(.appmenu) {
   background: transparent;
-  margin: -6px 0;
-  padding: 15px 10px;
-  border-radius: 0;
+  margin: -2px -2px;
+  padding: 0px;
+  border-radius: 2;
 }
 headerbar button.titlebutton:not(.appmenu):nth-last-child(-n+2) {
   margin-left: -6px;
 }
 headerbar button.titlebutton:not(.appmenu).minimize {
   color: #d8ad4c;
+  margin: 1px;
 }
 headerbar button.titlebutton:not(.appmenu).minimize:hover {
   background-color: #d8ad4c;
 }
 headerbar button.titlebutton:not(.appmenu).maximize {
   color: #99ad6a;
+  margin: 1px;
 }
 headerbar button.titlebutton:not(.appmenu).maximize:hover {
   background-color: #99ad6a;
 }
 headerbar button.titlebutton:not(.appmenu).close {
   color: #cf6a4c;
+  margin: 1px;
 }
 headerbar button.titlebutton:not(.appmenu).close:hover {
   background-color: #cf6a4c;
@@ -204,7 +204,7 @@ button.flat:checked {
 
 combobox button.combo cellview {
   margin: -2px;
-  padding: 3px;
+  padding: 2px;
 }
 combobox button.combo arrow {
   margin: 3px 1px;
@@ -709,5 +709,3 @@ tooltip {
 tooltip label {
   padding: 2px;
 }
-
-/*# sourceMappingURL=gtk.css.map */

@@ -1,4 +1,0 @@
-awesome-git
-lain-git
-picom-git
-brave-bin

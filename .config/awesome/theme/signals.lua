@@ -24,27 +24,28 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
     local tb = awful.titlebar(c,{
-        size = 45,
+        size = 35,
+        position = "left",
         bg_normal = "#3b3b3b",
         bg_focus = "#99ad6a",
         fg_normal = "#e8e8d3",
     })
     tb:setup {
-        layout = wibox.layout.align.horizontal,
+        layout = wibox.layout.align.vertical,
         {
-            layout = wibox.layout.fixed.horizontal,
+            layout = wibox.layout.fixed.vertical,
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 5, 5, 6, 0),
+        },
+        {
+            layout = wibox.layout.fixed.vertical,
+            -- awful.titlebar.widget.titlewidget(c),
             wibox.widget.textbox("  "),
             buttons = buttons
         },
         {
-            layout = wibox.layout.fixed.horizontal,
-            awful.titlebar.widget.titlewidget(c),
-            buttons = buttons
-        },
-        {
-            layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 0, 13, 12),
-            wibox.widget.textbox("  "),
+            layout = wibox.layout.fixed.vertical,
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 5, 5, 0, 6),
+            -- wibox.widget.textbox("  "),
         }
     }
 
