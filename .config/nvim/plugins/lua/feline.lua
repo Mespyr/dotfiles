@@ -82,7 +82,6 @@ components.active[1][2] = {
     bg = 'bg',
     style = 'bold'
   },
-  right_sep = ' ',
   left_sep = ' '
 }
 
@@ -126,13 +125,13 @@ components.active[1][6] = {
 -- RIGHT
 -- lineInfo
 components.active[2][1] = {
-  provider = 'position',
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
+    provider = 'position',
+        hl = {
+            fg = 'white',
+            bg = 'bg',
+            style = 'bold'
+        },
+    right_sep = ' '
 }
 -- -- scrollBar
 -- components.active[3][2] = {

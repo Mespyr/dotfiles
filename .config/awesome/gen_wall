@@ -8,8 +8,8 @@ cb="\033[1;34m"
 #default config variables
 height=1400
 width=2240
-bg="#151515"
-colors="#151515 #e8e8d3 #151515 #e8e8d3"
+bg="#3b3b3b"
+colors="#3b3b3b #e8e8d3 #3b3b3b #e8e8d3"
 shape="circle"
 file="wall.png"
 

@@ -41,7 +41,7 @@ entry {
     spacing:    					1;
     text-color: 					@fg;
     placeholder:                    "Search";
-    placeholder-color:              @lac;
+    placeholder-color:              @ac;
 }
 
 case-indicator {
