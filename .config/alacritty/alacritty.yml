@@ -1,7 +1,7 @@
 window:
   padding:
-    x: 30
-    y: 30
+    x: 25 
+    y: 25
   dynamic_padding: false
   dynamic_title: true
 scrolling:
@@ -12,7 +12,7 @@ font:
   normal:
     family: SpaceMono Nerd Font Mono
     style: Regular
-  size: 6
+  size: 5
   offset:
     x: 0
     y: 0

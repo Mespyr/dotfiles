@@ -26,7 +26,7 @@ theme.border_normal = "#3b3b3b"
 local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
 theme.titlebar_close_button_normal = gears.surface.load_from_shape(25, 25, new_shape, "#15151590")
 theme.titlebar_bg_normal = "#3b3b3b"
-theme.titlebar_bg_focus = "#99ad6a"
+theme.titlebar_bg_focus = "#888888"
 -- Panel
 theme.panel_height = 50
 -- notifications
