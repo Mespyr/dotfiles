@@ -29,7 +29,7 @@ beautiful.init(string.format("%s/.config/awesome/theme/theme.lua", os.getenv("HO
 -- Variables
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-awful.util.terminal = "alacritty"
+awful.util.terminal = "tym"
 awful.util.tagnames = { "", "", "", "", "", "", "", "", "" }
 
 --Layouts

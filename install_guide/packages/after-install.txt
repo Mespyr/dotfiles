@@ -5,7 +5,7 @@ lain-git
 acpilight
 bash-completion
 exa
-alacritty
+tym
 discord
 rofi
 mpv
