@@ -24,7 +24,7 @@ theme.border_width = 0
 theme.border_normal = "#3b3b3b"
 -- titlebar
 local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
-theme.titlebar_close_button_normal = gears.surface.load_from_shape(25, 25, new_shape, "#15151590")
+theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151590")
 theme.titlebar_bg_normal = "#3b3b3b"
 theme.titlebar_fg_normal = "#888888"
 theme.titlebar_bg_focus = "#888888"

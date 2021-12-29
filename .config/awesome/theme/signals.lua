@@ -24,7 +24,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
     local tb = awful.titlebar(c,{
-        size = 40,
+        size = 35,
         position = "top",
         expand = "none"
     })
@@ -43,8 +43,7 @@ client.connect_signal("request::titlebars", function(c)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), 6, 6, 7, 7),
-            -- wibox.widget.textbox("  "),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 6, 7, 7),
         }
     }
 
