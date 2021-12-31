@@ -8,12 +8,12 @@ local lain = require("lain")
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall18.png"
+theme.wallpaper = theme.dir .. "/wall.png"
 -- Font
 theme.font_name = "SpaceMono Nerd Font Mono"
 theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = 0
+theme.useless_gap = 4
 -- Colors
 theme.bg_normal = "#151515"
 theme.bg_focus = "#e8e8d3"
@@ -30,7 +30,7 @@ theme.titlebar_fg_normal = "#888888"
 theme.titlebar_bg_focus = "#888888"
 theme.titlebar_fg_focus = "#151515"
 -- Panel
-theme.panel_height = 50
+theme.panel_height = 40
 -- notifications
 theme.notification_icon_size = 80
 -- taglist
@@ -50,7 +50,7 @@ local spr = wibox.widget.textbox('  ')
 local small_spr = wibox.widget.textbox(' ')
 
 local clocktext = awful.widget.watch(
-    "date +'%I:%M'", 60,
+    "date +'%I%M'", 60,
     function(widget, stdout)
         widget:set_markup(markup.font(theme.font, stdout))
     end
@@ -58,14 +58,21 @@ local clocktext = awful.widget.watch(
 
 local battery = lain.widget.bat({
     settings = function()
-        if bat_now.status and bat_now.status ~= "N/A" then
-            local perc = " " .. bat_now.perc .. "% "
+        if bat_now.status ~= "N/A" then
+            local perc = bat_now.perc
+
             if bat_now.ac_status == 1 then
-                perc = perc .. "(charging) "
+                perc = "ch"
             end
+
+            if perc == 100 then
+                awful.spawn.with_shell("notify-send 1")
+                perc = "ac"
+            end
+
             widget:set_markup(markup.font(theme.font, perc))
         else
-            widget:set_markup(markup.font(theme.font, " AC "))
+            widget:set_markup(markup.font(theme.font, "ac"))
         end
 end})
 
@@ -79,53 +86,42 @@ function theme.at_screen_connect(s)
         filter = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         layout = {
-        spacing = 4,
-            layout = wibox.layout.fixed.horizontal
+            spacing = 2,
+            layout = wibox.layout.fixed.vertical
         }
     }
 
     s.mywibox = awful.wibar {
-        position = "bottom",
+        position = "left",
         screen = s,
-        height = theme.panel_height,
+        width = theme.panel_height,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
-        -- margins = {
-        --     bottom = theme.useless_gap,
-        --     left = 300,
-        --     right = 300,
-        -- }
+        -- margins = {}
     }
 
     s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
+        layout = wibox.layout.align.vertical,
         expand = "none",
         {
-            layout = wibox.layout.fixed.horizontal,
-            spr,
-            spr,
-            spr,
-            spr,
-            s.mytaglist,
+            layout = wibox.layout.fixed.vertical,
+            wibox.container.margin(s.mytaglist, 10, 10, 15, 0),
         },
         {
-            layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(clocktext, 0, 0, 15, 15)
+            layout = wibox.layout.fixed.vertical,
+            wibox.container.margin(clocktext, 10, 10, 0, 0),
         },
         {
-            layout = wibox.layout.fixed.horizontal,
-            battery,
-            spr,
-            spr,
-            small_spr
+            layout = wibox.layout.fixed.vertical,
+            wibox.container.margin(battery, 10, 10, 0, 15),
         },
     }
-    -- s.padding = {
-    --     top = 1,
-    --     left = 9,
-    --     right = 9,
-    --     bottom = 1,
-    -- }
+    s.padding = {
+        top = 1,
+        left = 5,
+        right = 5,
+        bottom = 1,
+    }
 end
 
 return theme

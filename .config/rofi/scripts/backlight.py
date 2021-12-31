@@ -4,9 +4,9 @@ import subprocess
 current_brightness = int(subprocess.check_output(['xbacklight', '-get']))
 
 OPTIONS = [
-    "   Up",
-    "   Current: " + str(current_brightness),
-    "   Down"
+    "   up",
+    "   current: " + str(current_brightness),
+    "   down"
 ]
 OPTSTRING = ""
 for i in OPTIONS:

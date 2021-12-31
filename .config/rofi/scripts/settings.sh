@@ -1,10 +1,10 @@
 #!/bin/sh
-POWERMENU="   Power Menu"
-BACKLIGHT="   Backlight"
-RUN="   Run Menu"
-SOUND="   Sound"
-BLUETOOTH="   Bluetooth"
-SCREENSHOT="   Screenshot"
+POWERMENU="   power menu"
+BACKLIGHT="   backlight"
+RUN="   run menu"
+SOUND="   sound"
+BLUETOOTH="   bluetooth"
+SCREENSHOT="   screenshot"
 
 OPTIONS="$POWERMENU\n$BACKLIGHT\n$RUN\n$SOUND\n$BLUETOOTH\n$SCREENSHOT"
 CHOSEN="$(echo -e "$OPTIONS" | rofi -dmenu -i \

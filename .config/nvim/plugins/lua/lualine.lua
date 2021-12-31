@@ -2,6 +2,8 @@ local custom_colors = require'lualine.themes.jellybeans'
 
 custom_colors.normal.c.bg = "#3b3b3b"
 custom_colors.normal.c.fg = "#e8e8d3"
+custom_colors.inactive.c.fg = "#888888"
+custom_colors.inactive.c.bg = "#3b3b3b"
 
 require'lualine'.setup {
   options = {

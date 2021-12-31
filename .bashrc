@@ -14,7 +14,8 @@ HISTFILE=~/.local/history
 shopt -s checkwinsize
 # prompt
 PS1='\033[1;35m\W/ \e[0m'
-PROMPT_COMMAND='echo -en "\033]0;${PWD##*/}\a"'
+# PROMPT_COMMAND='echo -en "\033]0;${PWD##*/}\a"'
+PROMPT_COMMAND='echo -en "\033]0;$(pwd)\a"'
 # Path
 export PATH=~/.local/bin:$PATH
 export PATH=~/.config/scripts:$PATH

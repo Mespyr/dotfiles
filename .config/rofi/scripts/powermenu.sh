@@ -1,10 +1,10 @@
 #!/bin/sh
 
-shutdown=" ⏻  Shutdown"
-reboot=" ⏻  Reboot"
-lock="   Lock"
-_suspend=" ⏻  Suspend"
-_logout="   Logout"
+shutdown=" ⏻  shutdown"
+reboot=" ⏻  reboot"
+lock="   lock"
+_suspend=" ⏻  suspend"
+_logout="   logout"
 
 options="$shutdown\n$reboot\n$lock\n$_suspend\n$_logout"
 chosen="$(echo -e "$options" | rofi -dmenu -i \

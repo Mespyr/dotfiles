@@ -1,9 +1,9 @@
 #!/bin/sh
-YES="   Yes"
-NO="   No"
+YES="   yes"
+NO="   no"
 
 CHOICE=$(echo -e "$YES\n$NO" | rofi -dmenu -i -config ~/.config/rofi/styles/confirm.rasi \
-    -mesg " Are you sure you want to do this?" \
+    -mesg " are you sure you want to do this?" \
     -selected-row 1 )
 
 if [ "$CHOICE" == "$YES" ]; then

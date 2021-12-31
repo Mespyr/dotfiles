@@ -16,11 +16,11 @@ configuration {
 }
 
 window {
-    border: 						2px;
+    border: 						3px;
     border-color: 					@ac;
     border-radius: 					0px;
-    padding: 						10px;
-    width: 							20%;
+    padding: 						5px;
+    width: 							400px;
     background-color:   @bg;
 }
 
@@ -40,7 +40,7 @@ textbox-prompt-colon {
 entry {
     spacing:    					1;
     text-color: 					@fg;
-    placeholder:                    "Search";
+    placeholder:                    "search";
     placeholder-color:              @ac;
 }
 
@@ -71,7 +71,7 @@ listview {
     spacing: 						2px;
     scrollbar: 						false;
     cycle:                          false;
-    padding:                        2px 2px 0px 2px;
+    padding:                        0px 0px 0px 0px;
 }
 
 element-text, element-icon {
@@ -80,9 +80,9 @@ element-text, element-icon {
 
 element {
     border: 						0px;
-    border-radius: 					4px;
+    border-radius: 					2px;
     padding: 						14px;
-    margin:                         6px;
+    margin:                         5px;
 }
 element normal.normal {
     background-color: 				@bg;
