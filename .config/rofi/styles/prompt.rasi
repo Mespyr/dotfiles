@@ -41,7 +41,7 @@ textbox-prompt-colon {
 entry {
     spacing:    					1;
     text-color: 					@fg;
-    placeholder:                    "Type Here";
+    placeholder:                    "type here";
 }
 
 case-indicator {

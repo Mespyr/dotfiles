@@ -30,7 +30,7 @@ if opt == OPTIONS[0]:
 elif opt == OPTIONS[1]:
     rofi_stdout = subprocess.run(["rofi", "-dmenu", 
         "-config", "~/.config/rofi/styles/prompt.rasi",
-        "-mesg", " Set Brightness"], 
+        "-mesg", " set brightness"], 
             stdout = subprocess.PIPE)
 
     num = rofi_stdout.stdout.decode().strip("\n")

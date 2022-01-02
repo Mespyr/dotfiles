@@ -59,20 +59,22 @@ local clocktext = awful.widget.watch(
 local battery = lain.widget.bat({
     settings = function()
         if bat_now.status ~= "N/A" then
-            local perc = bat_now.perc
+            local perc
 
             if bat_now.ac_status == 1 then
                 perc = "ch"
+            else
+                perc = bat_now.perc
             end
 
-            if perc == 100 then
-                awful.spawn.with_shell("notify-send 1")
+            -- awful.spawn.with_shell("notify-send " .. bat_now.perc .. type(bat_now.perc))
+            if bat_now.perc == 100 then
                 perc = "ac"
             end
 
             widget:set_markup(markup.font(theme.font, perc))
         else
-            widget:set_markup(markup.font(theme.font, "ac"))
+            widget:set_markup(markup.font(theme.font, "na"))
         end
 end})
 
