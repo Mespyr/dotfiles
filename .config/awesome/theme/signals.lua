@@ -3,7 +3,7 @@ local wibox = require("wibox")
 local gears = require("gears")
 
 client.connect_signal("manage", function(c)
-    c.shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 6) end
+    c.shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
 
     if not awesome.startup then
         awful.client.setslave(c)
@@ -27,7 +27,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
     local tb = awful.titlebar(c,{
-        size = 35,
+        size = 30,
         position = "top",
         expand = "none"
     })
@@ -36,8 +36,7 @@ client.connect_signal("request::titlebars", function(c)
         {
             layout = wibox.layout.fixed.horizontal,
             buttons = buttons,
-            wibox.widget.textbox(" "),
-            wibox.container.margin(awful.titlebar.widget.titlewidget(c), 5, 5, 8, 8),
+            wibox.container.margin(awful.titlebar.widget.titlewidget(c), 10, 5, 8, 8),
         },
         {
             layout = wibox.layout.fixed.horizontal,
@@ -45,9 +44,9 @@ client.connect_signal("request::titlebars", function(c)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 6, 8, 8),
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 6, 8, 8),
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 6, 8, 8),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 4, 6, 6),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 4, 6, 6),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 5, 6, 6),
         }
     }
 

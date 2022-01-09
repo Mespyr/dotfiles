@@ -5,5 +5,5 @@ tym.set_config({
     cursor_blink_mode = 'off',
     scale = 100,
     padding_horizontal = 20,
-    padding_vertical = 20
+    padding_vertical = 20 
 })

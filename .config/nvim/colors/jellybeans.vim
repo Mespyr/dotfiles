@@ -652,7 +652,7 @@ hi! NvimTreeExecFile guifg=#d8ad4c
 hi! NvimTreeGitDirty guifg=#cf6a4c
 hi! NvimTreeGitDeleted guifg=#cf6a4c
 hi! NvimTreeRootFolder guifg=#c6b6ee
-hi! NvimTreeIndentMarker guifg=#adadad
+hi! NvimTreeIndentMarker guifg=#404040
 
 " vim-indent-guides
 

@@ -13,18 +13,18 @@ theme.wallpaper = theme.dir .. "/wall.png"
 theme.font_name = "SpaceMono Nerd Font Mono"
 theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = 4
+theme.useless_gap = 5
 -- Colors
 theme.bg_normal = "#151515"
 theme.bg_focus = "#e8e8d3"
-theme.fg_normal = theme.bg_focus
+theme.fg_normal = "#888888"
 theme.fg_focus = theme.bg_normal
 -- Borders
 theme.border_width = 0
 theme.border_normal = "#3b3b3b"
 -- titlebar
 local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
-theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151590")
+theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151599")
 theme.titlebar_bg_normal = "#3b3b3b"
 theme.titlebar_fg_normal = "#888888"
 theme.titlebar_bg_focus = "#888888"
@@ -46,13 +46,18 @@ theme.taglist_font                              = theme.font_name .. " 7"
 
 -- widgets
 local markup = lain.util.markup
-local spr = wibox.widget.textbox('  ')
-local small_spr = wibox.widget.textbox(' ')
+-- local spr = wibox.widget.textbox('  ')
+-- local small_spr = wibox.widget.textbox(' ')
+local widget_seperator = wibox.widget.separator{
+    orientation = "horizontal",
+    forced_height = 20,
+    color = "#3b3b3b"
+}
 
 local clocktext = awful.widget.watch(
     "date +'%I%M'", 60,
     function(widget, stdout)
-        widget:set_markup(markup.font(theme.font, stdout))
+        widget:set_markup(markup.font(theme.font, stdout:gsub("\n", "")))
     end
 )
 
@@ -78,6 +83,27 @@ local battery = lain.widget.bat({
         end
 end})
 
+-- local volume = lain.widget.pulsebar {
+--     width = 20, height = 100,
+--     notification_preset = {
+--         font = theme.font,
+--         layout = wibox.layout.fixed.vertical
+--     }
+-- }
+
+local volume = lain.widget.pulse {
+    settings = function()
+        local vlevel = volume_now.left
+
+        if volume_now.left == "N/A" then vlevel = "na" end
+
+        if volume_now.muted == "yes" then
+            vlevel = "mu"
+        end
+        widget:set_markup(markup.font(theme.font, vlevel))
+    end
+}
+
 -- screen
 function theme.at_screen_connect(s)
     gears.wallpaper.maximized(theme.wallpaper, s, true)
@@ -88,8 +114,10 @@ function theme.at_screen_connect(s)
         filter = awful.widget.taglist.filter.all,
         buttons = awful.util.taglist_buttons,
         layout = {
-            spacing = 2,
-            layout = wibox.layout.fixed.vertical
+            layout = wibox.layout.fixed.vertical,
+        },
+        style = {
+            font = theme.font_name .. " 6",
         }
     }
 
@@ -97,9 +125,15 @@ function theme.at_screen_connect(s)
         position = "left",
         screen = s,
         width = theme.panel_height,
+        -- height = 1350,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
-        -- margins = {}
+        -- border_width = 3,
+        margins = {
+            -- left = 5,
+        },
+        -- border_color = theme.border_normal,
+        -- shape = new_shape
     }
 
     s.mywibox:setup {
@@ -107,22 +141,27 @@ function theme.at_screen_connect(s)
         expand = "none",
         {
             layout = wibox.layout.fixed.vertical,
-            wibox.container.margin(s.mytaglist, 10, 10, 15, 0),
+            wibox.container.margin(s.mytaglist, 11, 11, 15, 5),
         },
         {
             layout = wibox.layout.fixed.vertical,
-            wibox.container.margin(clocktext, 10, 10, 0, 0),
+            widget_seperator,
+            wibox.container.margin(clocktext, 11, 11, 5, 5),
+            widget_seperator,
         },
         {
             layout = wibox.layout.fixed.vertical,
-            wibox.container.margin(battery, 10, 10, 0, 15),
+            widget_seperator,
+            wibox.container.margin(volume, 11, 11, 5, 5),
+            widget_seperator,
+            wibox.container.margin(battery, 11, 11, 5, 18),
         },
     }
     s.padding = {
-        top = 1,
+        -- top = 5,
         left = 5,
         right = 5,
-        bottom = 1,
+        -- bottom = 5,
     }
 end
 
