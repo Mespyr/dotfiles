@@ -10,7 +10,7 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
 theme.wallpaper = theme.dir .. "/wall.png"
 -- Font
-theme.font_name = "SpaceMono Nerd Font Mono"
+theme.font_name = "Space Mono"
 theme.font = theme.font_name .. " 5"
 -- useless gap
 theme.useless_gap = 5
@@ -50,7 +50,7 @@ local markup = lain.util.markup
 -- local small_spr = wibox.widget.textbox(' ')
 local widget_seperator = wibox.widget.separator{
     orientation = "horizontal",
-    forced_height = 20,
+    forced_height = 17,
     color = "#3b3b3b"
 }
 
@@ -136,25 +136,94 @@ function theme.at_screen_connect(s)
         -- shape = new_shape
     }
 
+    s.mylayoutlist = awful.widget.layoutlist {
+        layout = wibox.layout.fixed.vertical,
+        style = {
+            -- disable_name = true,
+            -- disable_icon = false,
+            shape_selected = new_shape,
+            spacing = 12,
+            bg_selected = "#888888"
+        },
+        -- widget_template = {
+        --     {
+        --         {
+        --             id            = 'icon_role',
+        --             forced_height = 22,
+        --             forced_width  = 22,
+        --             widget        = wibox.widget.imagebox,
+        --         },
+        --         margins = 0,
+        --         widget  = wibox.container.margin,
+        --     },
+        --     id              = 'background_role',
+        --     forced_width    = 24,
+        --     forced_height   = 24,
+        --     shape           = new_shape,
+        --     widget          = wibox.container.background,
+        -- },
+    }
+
+--     local p = awful.popup {
+--         widget = wibox.widget {
+--             awful.widget.layoutlist {
+--                 source      = awful.widget.layoutlist.source.default_layouts,
+--                 screen      = s,
+--                 base_layout = wibox.widget {
+--                     spacing         = 10,
+--                     forced_num_cols = 2,
+--                     layout          = wibox.layout.fixed.vertical,
+--                 },
+--                 -- widget_template = {
+--                 --     {
+--                 --         {
+--                 --             id            = 'icon_role',
+--                 --             forced_height = 22,
+--                 --             forced_width  = 22,
+--                 --             widget        = wibox.widget.imagebox,
+--                 --         },
+--                 --         margins = 4,
+--                 --         widget  = wibox.container.margin,
+--                 --     },
+--                 --     id              = 'background_role',
+--                 --     forced_width    = 100,
+--                 --     forced_height   = 24,
+--                 --     shape           = new_shape,
+--                 --     widget          = wibox.container.background,
+--                 -- },
+--             },
+--             margins = 10,
+--             widget  = wibox.container.margin,
+--         },
+--         placement = awful.placement.top_right,
+--         -- border_color      = beautiful.border_color,
+--         -- border_width      = beautiful.border_width,
+--         shape = new_shape,
+--     }
+
+--     p:bind_to_widget(s.mylayoutlist)
+
     s.mywibox:setup {
         layout = wibox.layout.align.vertical,
         expand = "none",
         {
             layout = wibox.layout.fixed.vertical,
-            wibox.container.margin(s.mytaglist, 11, 11, 15, 5),
+            wibox.container.margin(s.mylayoutlist, 11, 11, 18, 18),
+            widget_seperator,
+            wibox.container.margin(s.mytaglist, 11, 11, 18, 18),
+            widget_seperator,
+            wibox.container.margin(clocktext, 11, 11, 10, 10),
+            widget_seperator,
         },
         {
             layout = wibox.layout.fixed.vertical,
-            widget_seperator,
-            wibox.container.margin(clocktext, 11, 11, 5, 5),
-            widget_seperator,
         },
         {
             layout = wibox.layout.fixed.vertical,
             widget_seperator,
             wibox.container.margin(volume, 11, 11, 5, 5),
             widget_seperator,
-            wibox.container.margin(battery, 11, 11, 5, 18),
+            wibox.container.margin(battery, 11, 11, 10, 18),
         },
     }
     s.padding = {

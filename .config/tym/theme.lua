@@ -12,5 +12,13 @@ return {
     color_4  = '#597bc5',
     color_5  = '#c6b6ee',
     color_6  = '#71b9f8',
-    color_7  = fg
+    color_7  = fg,
+    color_8  = '#3b3b3b',
+    color_9  = '#cf6a4c',
+    color_10 = '#99ad6a',
+    color_11 = '#d8ad4c',
+    color_12 = '#597bc5',
+    color_13 = '#c6b6ee',
+    color_14 = '#71b9f8',
+    color_15 = fg
 }
