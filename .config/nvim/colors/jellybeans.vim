@@ -642,14 +642,14 @@ call s:X("DbgBreakPt","","4F0037","","","DarkMagenta")
 
 " nvim-tree
 hi! NvimTreeNormal guibg=#151515
-hi! NvimTreeFolderIcon guifg=#99ad6a
-hi! NvimTreeFolderName guifg=#99ad6a
-hi! NvimTreeOpenedFolderName guifg=#99ad6a
-hi! NvimTreeOpenedFileName guifg=#8bb3b0
-hi! NvimTreeEmptyFolderName guifg=#99ad6a
-hi! NvimTreeFileDirty guifg=#cf6a4c
+hi! NvimTreeFolderIcon guifg=#cf6a4c
+hi! NvimTreeFolderName guifg=#cf6a4c
+hi! NvimTreeOpenedFolderName guifg=#cf6a4c
+" hi! NvimTreeOpenedFileName guifg=#8bb3b0
+hi! NvimTreeEmptyFolderName guifg=#cf6a4c
+hi! NvimTreeFileDirty guifg=#99ad6a
 hi! NvimTreeExecFile guifg=#d8ad4c
-hi! NvimTreeGitDirty guifg=#cf6a4c
+hi! NvimTreeGitDirty guifg=#99ad6a
 hi! NvimTreeGitDeleted guifg=#cf6a4c
 hi! NvimTreeRootFolder guifg=#c6b6ee
 hi! NvimTreeIndentMarker guifg=#404040

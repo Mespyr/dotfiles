@@ -13,7 +13,7 @@ HISTFILE=~/.local/history
 # update the values of LINES and COLUMNS on window resize
 shopt -s checkwinsize
 # prompt
-PS1='\033[1;35m\W/ \e[0m'
+PS1='\033[1;31m\W/ \e[0m'
 # PROMPT_COMMAND='echo -en "\033]0;${PWD##*/}\a"'
 PROMPT_COMMAND='echo -en "\033]0;$(pwd)\a"'
 # Path

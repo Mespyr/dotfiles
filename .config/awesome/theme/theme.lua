@@ -10,7 +10,7 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
 theme.wallpaper = theme.dir .. "/wall.png"
 -- Font
-theme.font_name = "Space Mono"
+theme.font_name = "SpaceMono Nerd Font Mono"
 theme.font = theme.font_name .. " 5"
 -- useless gap
 theme.useless_gap = 5
@@ -43,6 +43,9 @@ theme.taglist_fg_occupied                       = "#597bc5"
 theme.taglist_fg_empty                          = "#3b3b3b"
 theme.taglist_fg_focus                          = "#99ad6a"
 theme.taglist_font                              = theme.font_name .. " 7"
+-- local new_shape2 = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 10) end
+-- theme.layout_floating = gears.surface.load_from_shape(40, 40, gears.shape.rectangle, "#3b3b3b")
+-- theme.layout_tile = gears.surface.load_from_shape(40, 40, new_shape2, "#3b3b3b")
 
 -- widgets
 local markup = lain.util.markup
@@ -145,6 +148,7 @@ function theme.at_screen_connect(s)
             spacing = 12,
             bg_selected = "#888888"
         },
+
         -- widget_template = {
         --     {
         --         {
@@ -162,6 +166,7 @@ function theme.at_screen_connect(s)
         --     shape           = new_shape,
         --     widget          = wibox.container.background,
         -- },
+
     }
 
 --     local p = awful.popup {

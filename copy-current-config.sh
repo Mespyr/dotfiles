@@ -7,7 +7,7 @@ function COPY {
     cp ~/$1 $1 -r
 }
 
-COPY .config/tym/
+COPY .config/alacritty/
 COPY .config/awesome/
 COPY .config/rofi/
 COPY .bashrc

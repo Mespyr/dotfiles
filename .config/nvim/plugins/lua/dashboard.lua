@@ -19,6 +19,8 @@ g.dashboard_custom_header = readlines(os.getenv("HOME") .. "/.config/nvim/ascii"
 g.dashboard_custom_section = {
 	a = { description = { '  Recents  ' }, command = 'Telescope oldfiles' },
 	b = { description = { 'ﱐ  New File ' }, command = 'DashboardNewFile' },
+	c = { description = { 'ﮮ  Update   ' }, command = 'PlugUpdate' },
+	d = { description = { '  Cleanup  ' }, command = 'PlugClean ' },
 }
 
 -- g.dashboard_custom_footer = {
