@@ -39,17 +39,18 @@ client.connect_signal("request::titlebars", function(c)
         {
             layout = wibox.layout.fixed.horizontal,
             buttons = buttons,
-            wibox.container.margin(awful.titlebar.widget.titlewidget(c), 10, 5, m, m),
+            wibox.container.margin(awful.titlebar.widget.titlewidget(c), m, 0, m, m),
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            buttons = buttons
+            buttons = buttons,
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 4, m, m),
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 4, m, m),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 5, m, m),
+            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 5, m, m),
             wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, m, m, m),
+
         }
     }
 

@@ -13,7 +13,7 @@ theme.wallpaper = theme.dir .. "/wall.png"
 theme.font_name = "SpaceMono Nerd Font Mono"
 theme.font = theme.font_name .. " 5"
 -- useless gap
-theme.useless_gap = 5
+theme.useless_gap = 6
 -- Colors
 theme.bg_normal = "#151515"
 theme.bg_focus = "#e8e8d3"
