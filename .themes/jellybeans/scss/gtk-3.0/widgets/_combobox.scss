@@ -1,14 +1,14 @@
 @use '../colors';
 
 combobox {
+  border-radius: 10px;
   button {
     &.combo {
       cellview {
         margin: -2px;
-        padding: 2px;
       }
       arrow {
-        margin: 3px 1px;
+        margin: -6px -8px;
         padding: 8px;
         min-width: 16px;
         -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");

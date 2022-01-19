@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=jellybeans
-Comment=jellybeans GTK theme based to phocus
+Name=phocus
+Comment=the phocus theme
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=jellybeans
-MetacityTheme=jellybeans
+GtkTheme=phocus
+MetacityTheme=phocus
 IconTheme=gnome
 CursorTheme=DMZ-Black
 ButtonLayout=menu:minimize,maximize,close

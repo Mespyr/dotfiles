@@ -1,0 +1,54 @@
+configuration {
+  modi: "drun";
+  display-drun: "";
+  /* drun-display-format: "{icon}"; */
+  /* show-icons: true; */
+  font: "SpaceMono Nerd Font Mono 9";
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #151515;
+  fg: #E8E3E3;
+  al: #3b3b3b;
+  background-color: @bg;
+  text-color: @fg;
+}
+
+window {
+  location: south;
+  width: 100%;
+  children: [ horibox ];
+}
+prompt {
+  font: "SpaceMono Nerd Font Mono 9";
+  background-color: @al;
+  vertical-align: 0.5;
+  padding: 0.5em 0.5em;
+}
+horibox {
+  orientation: horizontal;
+  children: [ prompt, entry, listview ];
+}
+listview {
+  layout: horizontal;
+  spacing: 0.5em;
+  lines: 100;
+}
+entry {
+  placeholder: "Search...";
+  expand: false;
+  width: 25%;
+  padding: 0.65em;
+}
+element {
+  padding: 0.65em 0.75em;
+}
+element selected {
+  background-color: @al;
+}
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}

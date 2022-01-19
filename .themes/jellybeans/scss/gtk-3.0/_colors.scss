@@ -1,24 +1,25 @@
-$surface-1: #151515;
-$surface-2: #3b3b3b; 
-$surface-3: #3b3b3b;
-$surface-4: #3b3b3b;
-$surface-5: #3b3b3b;
+$surface-1: hsl(0, 0%, 8% );  // #151515
+$surface-2: hsl(0, 0%, 13%);  //
+$surface-3: hsl(0, 0%, 18%);  //
+$surface-4: hsl(0, 0%, 23%);  // #3b3b3b
+$surface-5: hsl(0, 0%, 28%);  //
 
-$accent-1: #cf6a4c;
-$accent-2: #d8ad4c;
-$accent-3: #d8ad4c;
-$accent-4: #99ad6a;
-$accent-5: #71b9f8;
-$accent-6: #99ad6a;
-$accent-7: #99ad6a;
-$accent-8: hsl(300,60%,60%);
+$accent-1:  #cf6a4c;
+$accent-2:  #ffb964;
+$accent-3:  #d8ad4c;
+$accent-4:  #99ad6a;
+$accent-5:  #8fbfdc;
+$accent-6:  #597bc5;
+$accent-7:  #c6b6ee;
+$accent-8:  #f0a0c0;
 
-$primary-accent: $accent-4;
-$secondary-accent: $accent-4;
-
+$primary-accent: $accent-6;
+$secondary-accent: $accent-6;
 $foreground-color: #e8e8d3;
 
-$highlight: $accent-4;
+$highlight: rgba(255,255,255,0.15);
 
 // TODO: is there a better way to do this? this is for example used in gnome-calculator for the result top-border
 @define-color borders #{"" +$surface-2};
+
+

@@ -4,14 +4,15 @@ button {
   transition: background-color 100ms ease-in;
   background: transparentize(white, 0.95);
   padding: 8px;
+  border-radius: 5px;
 
   &:hover:not(:active) { background: transparentize(white, 0.9); }
   &:disabled { opacity: 0.3; }
 
   &:checked, &.suggested-action {
-    background: colors.$accent-7;
-    color: lighten(colors.$accent-7, 40%);
-    &:hover:not(:active) { background: darken(colors.$accent-7, 5%); }
+    background: colors.$surface-4;
+    color: lighten(colors.$surface-4, 40%);
+    &:hover:not(:active) { background: darken(colors.$surface-4, 5%); }
   }
 
   &.destructive-action {

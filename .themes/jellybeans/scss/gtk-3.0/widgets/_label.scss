@@ -1,11 +1,11 @@
 @use '../colors';
 
 label {
+  padding: 4px;
   &.dim-label, &:disabled { opacity: 0.3; }
 
   selection {
     background: colors.$primary-accent;
     color: lighten(colors.$foreground-color, 50%);
   }
-  padding: 5px;
 }

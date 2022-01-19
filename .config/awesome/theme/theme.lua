@@ -8,7 +8,7 @@ local lain = require("lain")
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- Wallpaper
-theme.wallpaper = theme.dir .. "/wall.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall20.png"
 -- Font
 theme.font_name = "SpaceMono Nerd Font Mono"
 theme.font = theme.font_name .. " 5"
@@ -44,8 +44,8 @@ theme.taglist_fg_empty                          = "#3b3b3b"
 theme.taglist_fg_focus                          = "#99ad6a"
 theme.taglist_font                              = theme.font_name .. " 7"
 -- local new_shape2 = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 10) end
--- theme.layout_floating = gears.surface.load_from_shape(40, 40, gears.shape.rectangle, "#3b3b3b")
--- theme.layout_tile = gears.surface.load_from_shape(40, 40, new_shape2, "#3b3b3b")
+theme.layout_tile = theme.dir .. "/icons/tile.png"
+theme.layout_floating = theme.dir .. "/icons/floating.png"
 
 -- widgets
 local markup = lain.util.markup
@@ -103,6 +103,9 @@ local volume = lain.widget.pulse {
         if volume_now.muted == "yes" then
             vlevel = "mu"
         end
+
+        if volume_now.left == "100" then vlevel = "fu" end
+
         widget:set_markup(markup.font(theme.font, vlevel))
     end
 }
@@ -145,8 +148,8 @@ function theme.at_screen_connect(s)
             -- disable_name = true,
             -- disable_icon = false,
             shape_selected = new_shape,
-            spacing = 12,
-            bg_selected = "#888888"
+            spacing = 6,
+            bg_selected = "#3b3b3b80"
         },
 
         -- widget_template = {
@@ -213,7 +216,7 @@ function theme.at_screen_connect(s)
         expand = "none",
         {
             layout = wibox.layout.fixed.vertical,
-            wibox.container.margin(s.mylayoutlist, 11, 11, 18, 18),
+            wibox.container.margin(s.mylayoutlist, 5, 5, 18, 8),
             widget_seperator,
             wibox.container.margin(s.mytaglist, 11, 11, 18, 18),
             widget_seperator,

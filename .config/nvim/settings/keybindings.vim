@@ -16,3 +16,4 @@ nnoremap <silent> <A-r> :source ~/.config/nvim/init.vim<CR>
 nnoremap o ^
 nnoremap e >>^
 nnoremap w <<^
+nnoremap f za
