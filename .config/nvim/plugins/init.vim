@@ -15,7 +15,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'onsails/lspkind-nvim'
 
     Plug 'tpope/vim-commentary'
-    
+
     Plug 'nvim-lualine/lualine.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
 

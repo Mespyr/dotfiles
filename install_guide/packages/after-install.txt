@@ -21,7 +21,6 @@ nasm
 fasm
 npm
 
-nerd-fonts-space-mono
 noto-fonts-emoji
 noto-fonts
 ttf-symbola
