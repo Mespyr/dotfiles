@@ -8,7 +8,7 @@ local lain = require("lain")
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall20.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall22.png"
 -- font
 theme.font_name = "Cartograph CF Nerd Font Mono"
 theme.font = theme.font_name .. " 5"

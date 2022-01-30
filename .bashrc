@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 case $- in *i*) ;; *) return;; esac
 # bash completion
-if [[ -f /etc/bash_completion ]]; then 
+if [[ -f /etc/bash_completion ]]; then
     /etc/bash_completion 
 fi
 # history stuff
@@ -11,14 +11,14 @@ HISTSIZE=500
 HISTFILESIZE=1000
 HISTFILE=~/.local/history
 # update the values of LINES and COLUMNS on window resize
-shopt -s checkwinsize
+shopt -s checkwinsize 
 # prompt
 PS1='\033[1;31m\W/ \e[0m'
 # PROMPT_COMMAND='echo -en "\033]0;${PWD##*/}\a"'
 PROMPT_COMMAND='echo -en "\033]0;$(pwd)\a"'
 # Path
 export PATH=~/.local/bin:$PATH
-export PATH=~/.config/scripts:$PATH
+export PATH=~/.config/scripts:$PATH 
 # editor
 export EDITOR="nvim"
 # aliases
