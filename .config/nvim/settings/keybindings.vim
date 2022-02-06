@@ -8,11 +8,10 @@ endfor
 
 " NvimTree
 nnoremap <silent> <A-e> :NvimTreeToggle<CR>
+nnoremap <silent> <A-r> :NvimTreeToggle<CR>
 
-" reload nvim
-nnoremap <silent> <A-r> :source ~/.config/nvim/init.vim<CR>
-    
 nnoremap o ^
+vnoremap o ^
 
 " tab line over
 nnoremap e >>^

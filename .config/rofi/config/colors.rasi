@@ -1,15 +1,15 @@
 /* colors */
 
 * {
-  bg:      #151515;
-  fg:      #888888;
-  lac:     #e8e8d3;
-  ac:      #3b3b3b;
+    bg:      #151515;
+    fg:      #888888;
+    lac:     #e8e8d3;
+    ac:      #3b3b3b;
 
-  red:     #ed7f76;
-  green:   #9cb28b;
-  yellow:  #edaf76;
-  blue:    #8b9cb2;
-  purple:  #a68bb3;
-  cyan:    #8bbcb0;
+    red:     #ed7f76;
+    green:   #9cb28b;
+    yellow:  #edaf76;
+    blue:    #8b9cb2;
+    purple:  #a68bb3;
+    cyan:    #8bbcb0;
 }

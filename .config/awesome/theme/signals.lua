@@ -26,12 +26,12 @@ client.connect_signal("request::titlebars", function(c)
             awful.mouse.client.resize(c)
         end)
     )
-    local tb = awful.titlebar(c,{
+
+    local tb = awful.titlebar(c, {
         size = 38,
         position = "top",
-        expand = "none"
+        expand = "none",
     })
-
     local m = 9;
 
     tb:setup {
@@ -40,6 +40,7 @@ client.connect_signal("request::titlebars", function(c)
             layout = wibox.layout.fixed.horizontal,
             buttons = buttons,
             wibox.container.margin(awful.titlebar.widget.titlewidget(c), m, 0, m, m),
+            -- wibox.container.margin(awful.titlebar.widget.closebutton(c), m, 0, m, m),
         },
         {
             layout = wibox.layout.fixed.horizontal,
@@ -47,11 +48,8 @@ client.connect_signal("request::titlebars", function(c)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            -- wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 5, m, m),
-            -- wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, 5, m, m),
+            -- wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), 0, m, m, m),
             wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, m, m, m),
-
         }
     }
-
 end)

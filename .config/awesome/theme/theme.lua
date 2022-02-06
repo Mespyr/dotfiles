@@ -8,15 +8,15 @@ local lain = require("lain")
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
 -- wallpaper
-theme.wallpaper = theme.dir .. "/wallpapers/wall22.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall24.png"
 -- font
 theme.font_name = "Cartograph CF Nerd Font Mono"
 theme.font = theme.font_name .. " 5"
--- useless gap
-theme.useless_gap = 6
+-- useless gapg
+theme.useless_gap = 5
 -- colors
 theme.bg_normal = "#151515"
-theme.bg_focus = "#e8e8d3"
+theme.bg_focus = "#3b3b3b90"
 theme.fg_normal = "#888888"
 theme.fg_focus = theme.bg_normal
 -- borders
@@ -26,6 +26,7 @@ theme.border_normal = "#3b3b3b"
 local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
 -- theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151599")
 theme.titlebar_close_button_normal = theme.dir .. "/icons/close_normal.png"
+theme.titlebar_maximized_button_normal = theme.dir .. "/icons/maximize_normal.png"
 theme.titlebar_bg_normal = "#3b3b3b"
 theme.titlebar_fg_normal = "#888888"
 theme.titlebar_bg_focus = "#888888"
@@ -87,25 +88,16 @@ local battery = lain.widget.bat({
         end
 end})
 
--- local volume = lain.widget.pulsebar {
---     width = 20, height = 100,
---     notification_preset = {
---         font = theme.font,
---         layout = wibox.layout.fixed.vertical
---     }
--- }
-
 local volume = lain.widget.pulse {
     settings = function()
         local vlevel = volume_now.left
 
         if volume_now.left == "N/A" then vlevel = "na" end
+        if volume_now.left == "100" then vlevel = "fu" end
 
         if volume_now.muted == "yes" then
             vlevel = "mu"
         end
-
-        if volume_now.left == "100" then vlevel = "fu" end
 
         widget:set_markup(markup.font(theme.font, vlevel))
     end
@@ -128,89 +120,49 @@ function theme.at_screen_connect(s)
         }
     }
 
+    s.mytasklist = awful.widget.tasklist {
+        screen   = s,
+        filter   = awful.widget.tasklist.filter.currenttags,
+        layout   = {
+            spacing = 6,
+            layout  = wibox.layout.fixed.vertical
+        },
+        style = {
+            shape = new_shape
+        },
+        widget_template = {
+            {
+                id = "background_role",
+                {
+                    awful.widget.clienticon,
+                    margins = 7,
+                    widget  = wibox.container.margin
+                },
+                widget = wibox.container.background,
+            },
+            nil,
+            nil,
+            layout = wibox.layout.align.vertical,
+        },
+    }
+
+    s.mylayoutlist = awful.widget.layoutlist {
+        screen = s,
+        layout = wibox.layout.fixed.vertical,
+        style = {
+            shape_selected = new_shape,
+            spacing = 6,
+            bg_selected = theme.bg_focus
+        }
+    }
+
     s.mywibox = awful.wibar {
         position = "left",
         screen = s,
         width = theme.panel_height,
-        -- height = 1350,
         bg = theme.bg_normal,
         fg = theme.fg_normal,
-        -- border_width = 3,
-        margins = {
-            -- left = 5,
-        },
-        -- border_color = theme.border_normal,
-        -- shape = new_shape
     }
-
-    s.mylayoutlist = awful.widget.layoutlist {
-        layout = wibox.layout.fixed.vertical,
-        style = {
-            -- disable_name = true,
-            -- disable_icon = false,
-            shape_selected = new_shape,
-            spacing = 6,
-            bg_selected = "#3b3b3b80"
-        },
-
-        -- widget_template = {
-        --     {
-        --         {
-        --             id            = 'icon_role',
-        --             forced_height = 22,
-        --             forced_width  = 22,
-        --             widget        = wibox.widget.imagebox,
-        --         },
-        --         margins = 0,
-        --         widget  = wibox.container.margin,
-        --     },
-        --     id              = 'background_role',
-        --     forced_width    = 24,
-        --     forced_height   = 24,
-        --     shape           = new_shape,
-        --     widget          = wibox.container.background,
-        -- },
-
-    }
-
---     local p = awful.popup {
---         widget = wibox.widget {
---             awful.widget.layoutlist {
---                 source      = awful.widget.layoutlist.source.default_layouts,
---                 screen      = s,
---                 base_layout = wibox.widget {
---                     spacing         = 10,
---                     forced_num_cols = 2,
---                     layout          = wibox.layout.fixed.vertical,
---                 },
---                 -- widget_template = {
---                 --     {
---                 --         {
---                 --             id            = 'icon_role',
---                 --             forced_height = 22,
---                 --             forced_width  = 22,
---                 --             widget        = wibox.widget.imagebox,
---                 --         },
---                 --         margins = 4,
---                 --         widget  = wibox.container.margin,
---                 --     },
---                 --     id              = 'background_role',
---                 --     forced_width    = 100,
---                 --     forced_height   = 24,
---                 --     shape           = new_shape,
---                 --     widget          = wibox.container.background,
---                 -- },
---             },
---             margins = 10,
---             widget  = wibox.container.margin,
---         },
---         placement = awful.placement.top_right,
---         -- border_color      = beautiful.border_color,
---         -- border_width      = beautiful.border_width,
---         shape = new_shape,
---     }
-
---     p:bind_to_widget(s.mylayoutlist)
 
     s.mywibox:setup {
         layout = wibox.layout.align.vertical,
@@ -223,10 +175,9 @@ function theme.at_screen_connect(s)
             widget_seperator,
             wibox.container.margin(clocktext, 11, 11, 10, 10),
             widget_seperator,
+            wibox.container.margin(s.mytasklist, 5, 5, 5, 5),
         },
-        {
-            layout = wibox.layout.fixed.vertical,
-        },
+        nil,
         {
             layout = wibox.layout.fixed.vertical,
             widget_seperator,
@@ -237,8 +188,8 @@ function theme.at_screen_connect(s)
     }
     s.padding = {
         -- top = 5,
-        left = 5,
-        right = 5,
+        left = 10,
+        -- right = 10,
         -- bottom = 5,
     }
 end

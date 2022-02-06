@@ -9,12 +9,13 @@ opt.termguicolors = true
 
 opt.tabstop = 4
 opt.shiftwidth = 0
-opt.expandtab = true
+opt.expandtab = false
 opt.smartindent = true
 opt.autoindent = true
 opt.title = true
 opt.list = true
-opt.listchars:append(",trail:·")
+vim.opt.listchars = {tab = '· ', trail = '·'}
+vim.opt.errorformat = vim.opt.errorformat ^ '%f|%l col %c|%m'
 
 opt.wrap = false
 opt.backup = false

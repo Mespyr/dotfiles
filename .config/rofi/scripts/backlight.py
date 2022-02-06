@@ -8,6 +8,8 @@ OPTIONS = [
     "   current: " + str(current_brightness),
     "   down"
 ]
+
+# create string which is passed into rofi
 OPTSTRING = ""
 for i in OPTIONS:
     OPTSTRING += i + "\n"

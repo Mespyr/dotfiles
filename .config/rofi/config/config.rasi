@@ -1,0 +1,12 @@
+/* general */
+
+configuration {
+    font:                    "Cartograph CF Nerd Font 5";
+    fixed-num-lines:         true;
+    show-icons:              false;
+    sidebar-mode:            false;
+    scroll-method:           0;
+    click-to-exit:           true;
+    combi-hide-mode-prefix:  false;
+    dpi:                     188;
+}
