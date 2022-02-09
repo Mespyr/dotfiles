@@ -14,7 +14,7 @@ opt.smartindent = true
 opt.autoindent = true
 opt.title = true
 opt.list = true
-vim.opt.listchars = {tab = '· ', trail = '·'}
+vim.opt.listchars = {tab = '▏ ', trail = '·'}
 vim.opt.errorformat = vim.opt.errorformat ^ '%f|%l col %c|%m'
 
 opt.wrap = false

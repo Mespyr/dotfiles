@@ -6,9 +6,6 @@ local beautiful     = require("beautiful")
 local lain          = require("lain")
 local mytable       = awful.util.table or gears.table
 
-require("theme.notifications")
-require("theme.signals")
-
 -- Awesome Errors on startup
 if awesome.startup_errors then
     awful.spawn.with_shell("notify-send -u critical 'Oops, there were errors during startup!' '" .. awesome.startup_errors .. "'")
@@ -23,14 +20,18 @@ do
     end)
 end
 
--- Init Theme
-beautiful.init(string.format("%s/.config/awesome/theme/theme.lua", os.getenv("HOME")))
-
 -- Variables
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 awful.util.terminal = "alacritty"
 awful.util.tagnames = { "", "", "", "", "", "", "", "", "" }
+
+-- Init Theme
+beautiful.init(string.format("%s/.config/awesome/theme/theme.lua", os.getenv("HOME")))
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+
+require("theme.notifications")
+require("theme.signals")
 
 --Layouts
 awful.layout.layouts = {

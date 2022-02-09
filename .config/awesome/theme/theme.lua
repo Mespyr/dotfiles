@@ -7,49 +7,44 @@ local lain = require("lain")
 -- theme
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
--- wallpaper
 theme.wallpaper = theme.dir .. "/wallpapers/wall24.png"
--- font
-theme.font_name = "Cartograph CF Nerd Font Mono"
-theme.font = theme.font_name .. " 5"
--- useless gapg
-theme.useless_gap = 5
--- colors
-theme.bg_normal = "#151515"
-theme.bg_focus = "#3b3b3b90"
-theme.fg_normal = "#888888"
+
+theme.font_name    = "Cartograph CF Nerd Font Mono"
+theme.font         = theme.font_name .. " 5"
+theme.taglist_font = theme.font_name .. " 7"
+
+theme.bg_normal           = "#151515"
+theme.bg_focus            = "#2e2e2e"
+theme.fg_normal           = "#888888"
+theme.border_normal       = "#3b3b3b"
+theme.taglist_fg_occupied = "#597bc5"
+theme.taglist_fg_empty    = "#3b3b3b"
+theme.taglist_fg_focus    = "#99ad6a"
+theme.taglist_bg_occupied = theme.bg_normal
+theme.taglist_bg_focus    = theme.bg_normal
+theme.taglist_bg_empty    = theme.bg_normal
+theme.titlebar_bg_normal  = "#2e2e2e"
+theme.titlebar_fg_normal  = "#888888"
+theme.titlebar_bg_focus   = "#3b3b3b"
+theme.titlebar_fg_focus   = "#888888"
+
 theme.fg_focus = theme.bg_normal
--- borders
+theme.useless_gap = 5
 theme.border_width = 0
-theme.border_normal = "#3b3b3b"
--- titlebar
-local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
--- theme.titlebar_close_button_normal = gears.surface.load_from_shape(20, 20, new_shape, "#15151599")
-theme.titlebar_close_button_normal = theme.dir .. "/icons/close_normal.png"
-theme.titlebar_maximized_button_normal = theme.dir .. "/icons/maximize_normal.png"
-theme.titlebar_bg_normal = "#3b3b3b"
-theme.titlebar_fg_normal = "#888888"
-theme.titlebar_bg_focus = "#888888"
-theme.titlebar_fg_focus = "#151515"
--- panel
 theme.panel_height = 40
--- notifications
 theme.notification_icon_size = 80
--- taglist
--- set background color to same as bar
-theme.taglist_bg_occupied                       = theme.bg_normal
-theme.taglist_bg_focus                          = theme.bg_normal
-theme.taglist_bg_empty                          = theme.bg_normal
--- foreground color of taglist
-theme.taglist_fg_occupied                       = "#597bc5"
-theme.taglist_fg_empty                          = "#3b3b3b"
-theme.taglist_fg_focus                          = "#99ad6a"
-theme.taglist_font                              = theme.font_name .. " 7"
--- local new_shape2 = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 10) end
-theme.layout_tile = theme.dir .. "/icons/tile.png"
-theme.layout_floating = theme.dir .. "/icons/floating.png"
+
+theme.layout_tile                                = theme.dir .. "/icons/layouts/tile.png"
+theme.layout_floating                            = theme.dir .. "/icons/layouts/floating.png"
+theme.titlebar_close_button_normal               = theme.dir .. "/icons/titlebar/close.svg"
+theme.titlebar_close_button_focus                = theme.dir .. "/icons/titlebar/close.svg"
+theme.titlebar_maximized_button_normal_inactive  = theme.dir .. "/icons/titlebar/maximize.svg"
+theme.titlebar_maximized_button_focus_inactive   = theme.dir .. "/icons/titlebar/maximize.svg"
+theme.titlebar_maximized_button_normal_active    = theme.dir .. "/icons/titlebar/maximize.svg"
+theme.titlebar_maximized_button_focus_active     = theme.dir .. "/icons/titlebar/maximize.svg"
 
 -- widgets
+local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 4) end
 local markup = lain.util.markup
 -- local spr = wibox.widget.textbox('  ')
 -- local small_spr = wibox.widget.textbox(' ')
@@ -135,7 +130,7 @@ function theme.at_screen_connect(s)
                 id = "background_role",
                 {
                     awful.widget.clienticon,
-                    margins = 7,
+                    margins = 6,
                     widget  = wibox.container.margin
                 },
                 widget = wibox.container.background,
@@ -169,13 +164,13 @@ function theme.at_screen_connect(s)
         expand = "none",
         {
             layout = wibox.layout.fixed.vertical,
-            wibox.container.margin(s.mylayoutlist, 5, 5, 18, 8),
+            wibox.container.margin(s.mylayoutlist, 6, 6, 18, 8),
             widget_seperator,
             wibox.container.margin(s.mytaglist, 11, 11, 18, 18),
             widget_seperator,
             wibox.container.margin(clocktext, 11, 11, 10, 10),
             widget_seperator,
-            wibox.container.margin(s.mytasklist, 5, 5, 5, 5),
+            wibox.container.margin(s.mytasklist, 6, 6, 5, 5),
         },
         nil,
         {
@@ -188,7 +183,7 @@ function theme.at_screen_connect(s)
     }
     s.padding = {
         -- top = 5,
-        left = 10,
+        -- left = 10,
         -- right = 10,
         -- bottom = 5,
     }

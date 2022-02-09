@@ -3,7 +3,7 @@ local wibox = require("wibox")
 local gears = require("gears")
 
 client.connect_signal("manage", function(c)
-    c.shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end
+    c.shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 6) end
 
     if not awesome.startup then
         awful.client.setslave(c)
@@ -27,29 +27,33 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    local tb = awful.titlebar(c, {
-        size = 38,
-        position = "top",
-        expand = "none",
-    })
-    local m = 9;
+    local size_pad = 8;
+    local edge_pad = 8;
 
-    tb:setup {
-        layout = wibox.layout.align.horizontal,
-        {
-            layout = wibox.layout.fixed.horizontal,
-            buttons = buttons,
-            wibox.container.margin(awful.titlebar.widget.titlewidget(c), m, 0, m, m),
-            -- wibox.container.margin(awful.titlebar.widget.closebutton(c), m, 0, m, m),
-        },
-        {
-            layout = wibox.layout.fixed.horizontal,
-            buttons = buttons,
-        },
-        {
-            layout = wibox.layout.fixed.horizontal,
-            -- wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), 0, m, m, m),
-            wibox.container.margin(awful.titlebar.widget.closebutton(c), 0, m, m, m),
-        }
-    }
+    awful.titlebar(c, {
+        size = 35,
+        position = "top",
+        -- expand = "none",
+	}).widget = {
+		layout = wibox.layout.align.horizontal,
+		{
+			layout = wibox.layout.fixed.horizontal,
+			wibox.container.margin(awful.titlebar.widget.closebutton(c), edge_pad, 0, size_pad, size_pad),
+		},
+		{
+			layout = wibox.layout.flex.horizontal,
+			{
+				align = "center",
+				widget = awful.titlebar.widget.titlewidget(c),
+			},
+			buttons = buttons,
+		},
+		{
+			layout = wibox.layout.fixed.horizontal,
+			wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), 0, edge_pad+2, size_pad+1, size_pad+1),
+		}
+	}
+
+
+	-- awful.spawn.with_shell("notify-send \"" .. tostring(awful.titlebar.widget.maximizedbutton(c):im) .. "\"")
 end)

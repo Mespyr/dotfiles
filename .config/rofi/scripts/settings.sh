@@ -28,7 +28,7 @@ case $CHOSEN in
         ;;
     $SCREENSHOT)
         sleep 1;
-        scrot ~/Pictures/screenshot.png -z &
-        notify-send "Screenshot saved in ~/Pictures/" &
+        scrot ~/Screenshots/screenshot.png -z &
+        notify-send "Screenshot saved in ~/Screenshots/" &
         ;;
 esac
