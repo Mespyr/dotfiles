@@ -1,17 +1,5 @@
 local awful = require("awful")
 local wibox = require("wibox")
-local gears = require("gears")
-
-client.connect_signal("manage", function(c)
-    c.shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 6) end
-
-    if not awesome.startup then
-        awful.client.setslave(c)
-    end
-    if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
-        awful.placement.no_offscreen(c)
-    end
-end)
 
 client.connect_signal("request::titlebars", function(c)
     local buttons = awful.util.table.join(
@@ -53,7 +41,4 @@ client.connect_signal("request::titlebars", function(c)
 			wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), 0, edge_pad+2, size_pad+1, size_pad+1),
 		}
 	}
-
-
-	-- awful.spawn.with_shell("notify-send \"" .. tostring(awful.titlebar.widget.maximizedbutton(c):im) .. "\"")
 end)

@@ -10,6 +10,6 @@ source $HOME/.config/nvim/settings/colors.vim
 source $HOME/.config/nvim/settings/keybindings.vim
 source $HOME/.config/nvim/lazyload/init.lua
 
-autocmd BufRead,BufNewFile *.ilu setlocal filetype=ilu syntax=python tabstop=2
+autocmd BufRead,BufNewFile *.ilu setlocal filetype=ilu syntax=ruby tabstop=2
 " autocmd BufLeave           *.ilu set tabstop=4
 " autocmd Filetype ilu setlocal tabstop=2
