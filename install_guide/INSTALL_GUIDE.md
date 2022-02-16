@@ -71,14 +71,14 @@ Make file named /etc/locale.conf and type `LANG=en_US.UTF-8`
 ### Network configuration
 Set hostname in `/etc/hostname`
 ```
-arch-btw
+olympus
 ```
 
 configure `/etc/hosts`
 ```
 127.0.0.1   localhost
 ::1         localhost
-127.0.1.1   arch-btw.localdomain arch-btw
+127.0.1.1   olympus.localdomain olympus
 ```
 
 Install NetworkManager:
@@ -89,9 +89,9 @@ systemctl enable NetworkManager
 ### Set password and add new user
 ```
 passwd
-useradd -m mespyr
-passwd mespyr
-usermod -aG wheel,audio,video,storage,optical mespyr
+useradd -m achlys
+passwd achlys
+usermod -aG wheel,audio,video,storage,optical achlys
 ```
 
 ### Sudo

@@ -19,6 +19,5 @@ COPY .config/nvim/
 COPY .config/neofetch/
 COPY .config/gtk-3.0/
 COPY .themes/
-COPY .icons/
 COPY .fonts/
 rm .bak -r

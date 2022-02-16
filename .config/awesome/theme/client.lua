@@ -2,7 +2,7 @@ local awful = require("awful")
 local gears = require("gears")
 
 client.connect_signal("manage", function(c)
-    c.shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 6) end
+    c.shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 4) end
 
     if not awesome.startup then
         awful.client.setslave(c)

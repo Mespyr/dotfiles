@@ -9,7 +9,7 @@ return function(s)
         screen   = s,
         filter   = awful.widget.tasklist.filter.currenttags,
         layout   = {
-            spacing = 6,
+            spacing = 10,
             layout  = wibox.layout.fixed.vertical
         },
         style = {

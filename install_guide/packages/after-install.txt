@@ -2,7 +2,7 @@ xorg
 xorg-xinit
 awesome-git
 lain-git
-picom-git
+picom-jonaburg-git
 
 alacritty-git
 brave-bin
@@ -16,6 +16,7 @@ bluez
 bluez-utils
 blueberry
 pavucontrol
+papirus-icon-theme
 
 nasm
 fasm

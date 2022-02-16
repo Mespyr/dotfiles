@@ -60,4 +60,3 @@ selection:
 debug:
   persistent_logging: true
 logging: true
-theme: Oxide

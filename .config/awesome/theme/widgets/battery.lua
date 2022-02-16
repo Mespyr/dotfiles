@@ -18,8 +18,8 @@ return lain.widget.bat({
             end
 
             widget:set_markup(markup.font(theme.font, perc))
-        else
-            widget:set_markup(markup.font(theme.font, "na"))
+		-- else
+        --     widget:set_markup(markup.font(theme.font, "na"))
         end
 end})
 

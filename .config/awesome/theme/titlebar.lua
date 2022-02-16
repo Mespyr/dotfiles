@@ -15,30 +15,20 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    local size_pad = 8;
-    local edge_pad = 8;
+    local size_pad = 10;
+    local edge_pad = 10;
 
     awful.titlebar(c, {
-        size = 35,
+        size = 40,
         position = "top",
-        -- expand = "none",
 	}).widget = {
 		layout = wibox.layout.align.horizontal,
 		{
 			layout = wibox.layout.fixed.horizontal,
 			wibox.container.margin(awful.titlebar.widget.closebutton(c), edge_pad, 0, size_pad, size_pad),
+			wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), 10, 0, size_pad+1, size_pad+1),
 		},
-		{
-			layout = wibox.layout.flex.horizontal,
-			{
-				align = "center",
-				widget = awful.titlebar.widget.titlewidget(c),
-			},
-			buttons = buttons,
-		},
-		{
-			layout = wibox.layout.fixed.horizontal,
-			wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), 0, edge_pad+2, size_pad+1, size_pad+1),
-		}
+		{layout = wibox.layout.fixed.horizontal, buttons = buttons},
+		{layout = wibox.layout.fixed.horizontal, buttons = buttons}
 	}
 end)

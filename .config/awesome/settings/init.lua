@@ -4,6 +4,7 @@ local mytable = awful.util.table
 
 awful.util.terminal = "alacritty"
 awful.util.tagnames = { "", "", "", "", "", "", "", "", "" }
+-- awful.util.tagnames = { "●", "●", "●", "●", "●", "●", "●", "●", "●" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
