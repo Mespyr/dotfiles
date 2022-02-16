@@ -26,9 +26,13 @@ client.connect_signal("request::titlebars", function(c)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			wibox.container.margin(awful.titlebar.widget.closebutton(c), edge_pad, 0, size_pad, size_pad),
-			wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), 10, 0, size_pad+1, size_pad+1),
 		},
-		{layout = wibox.layout.fixed.horizontal, buttons = buttons},
-		{layout = wibox.layout.fixed.horizontal, buttons = buttons}
+		{
+			layout = wibox.layout.fixed.horizontal, buttons = buttons
+		},
+		{
+			layout = wibox.layout.fixed.horizontal,
+			wibox.container.margin(awful.titlebar.widget.maximizedbutton(c), 0, edge_pad+2, size_pad+1, size_pad+1),
+		}
 	}
 end)
