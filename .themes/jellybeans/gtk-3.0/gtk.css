@@ -93,48 +93,24 @@ window.csd decoration {
   margin: 8px;
 }
 
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+  margin-top: 10px;
+  /* same as headerbar side padding for nicer proportions */
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 5px;
+}
+
 headerbar {
   background: #2e2e2e;
-  padding: 6px;
-}
-headerbar box.horizontal.right > button.titlebutton:last-child {
-  margin-right: -6px;
-}
-headerbar box.horizontal.left > button.titlebutton:first-child {
-  margin-left: -6px;
-}
-headerbar button.titlebutton:not(.appmenu) {
-  background: transparent;
-  margin: -6px 0;
-  padding: 15px 10px;
-  border-radius: 0;
-}
-headerbar button.titlebutton:not(.appmenu):nth-last-child(-n+2) {
-  margin-left: -6px;
-}
-headerbar button.titlebutton:not(.appmenu).minimize {
-  color: #d8ad4c;
-}
-headerbar button.titlebutton:not(.appmenu).minimize:hover {
-  background-color: #d8ad4c;
-}
-headerbar button.titlebutton:not(.appmenu).maximize {
-  color: #99ad6a;
-}
-headerbar button.titlebutton:not(.appmenu).maximize:hover {
-  background-color: #99ad6a;
-}
-headerbar button.titlebutton:not(.appmenu).close {
-  color: #cf6a4c;
-}
-headerbar button.titlebutton:not(.appmenu).close:hover {
-  background-color: #cf6a4c;
-}
-headerbar button.titlebutton:not(.appmenu):hover {
-  color: rgba(0, 0, 0, 0.5);
-}
-headerbar button.titlebutton.appmenu:not(:active):not(:checked) {
-  background: transparent;
+  min-height: 10px;
+  margin: 0px;
+  /* same as headerbar side padding for nicer proportions */
+  padding: 0px;
 }
 
 entry {
@@ -715,5 +691,3 @@ tooltip {
 tooltip label {
   padding: 2px;
 }
-
-/*# sourceMappingURL=gtk.css.map */

@@ -16,6 +16,7 @@ bluez
 bluez-utils
 blueberry
 pavucontrol
+gtk3-nocsd-git
 papirus-icon-theme
 
 nasm

@@ -7,7 +7,7 @@ local wibox = require("wibox")
 local theme = {}
 theme.dir       = os.getenv("HOME") .. "/.config/awesome"
 theme.icon_dir  = os.getenv("HOME") .. "/.config/awesome/theme/icons"
-theme.wallpaper = theme.dir .. "/wallpapers/wall24.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall27.png"
 
 theme.font_name    = "Cartograph CF Nerd Font Mono"
 theme.font         = theme.font_name .. " 5"
@@ -42,6 +42,10 @@ theme.titlebar_maximized_button_normal_inactive  = theme.icon_dir .. "/titlebar/
 theme.titlebar_maximized_button_focus_inactive   = theme.icon_dir .. "/titlebar/maximize.svg"
 theme.titlebar_maximized_button_normal_active    = theme.icon_dir .. "/titlebar/maximize.svg"
 theme.titlebar_maximized_button_focus_active     = theme.icon_dir .. "/titlebar/maximize.svg"
+theme.titlebar_minimize_button_normal_inactive   = theme.icon_dir .. "/titlebar/minimize.svg"
+theme.titlebar_minimize_button_focus_inactive    = theme.icon_dir .. "/titlebar/minimize.svg"
+theme.titlebar_minimize_button_normal_active     = theme.icon_dir .. "/titlebar/minimize.svg"
+theme.titlebar_minimize_button_focus_active      = theme.icon_dir .. "/titlebar/minimize.svg"
 
 local util            = require("theme.util")
 local clocktext       = require("theme.widgets.clock")
@@ -74,15 +78,11 @@ function theme.at_screen_connect(s)
 				util.spacer,
 				wibox.container.margin(s.mylayoutlist, 6, 6, 0, 0),
 				util.spacer,
-				-- util.seperator,
-				-- util.spacer,
 				util.center(util.widget_background(s.mytaglist, theme.bg_normal)),
 				util.spacer,
-				-- util.seperator,
-				-- util.spacer,
 				util.center(util.widget_background(clocktext, theme.bg_focus)),
-				util.spacer,
-				wibox.container.margin(s.mytasklist, 6, 6, 0, 0),
+				-- util.spacer,
+				-- wibox.container.margin(s.mytasklist, 6, 6, 0, 0),
 			},
 			nil,
 			{

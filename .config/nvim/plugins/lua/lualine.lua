@@ -6,11 +6,11 @@ custom_colors.inactive.c.bg = "#151515"
 custom_colors.inactive.c.fg = "#888888"
 
 -- mode colors
-custom_colors.normal.b.bg = "#212121"
+custom_colors.normal.b.bg = "#2e2e2e"
 custom_colors.normal.b.fg = "#888888"
-custom_colors.visual.b.bg = "#212121"
+custom_colors.visual.b.bg = "#2e2e2e"
 custom_colors.visual.b.fg = "#888888"
-custom_colors.insert.b.bg = "#212121"
+custom_colors.insert.b.bg = "#2e2e2e"
 custom_colors.insert.b.fg = "#888888"
 
 require'lualine'.setup {

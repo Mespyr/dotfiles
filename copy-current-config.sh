@@ -14,6 +14,7 @@ COPY .config/awesome/
 COPY .config/rofi/
 COPY .bashrc
 COPY .profile
+COPY .xinitrc
 COPY .config/picom.conf
 COPY .config/nvim/
 COPY .config/neofetch/

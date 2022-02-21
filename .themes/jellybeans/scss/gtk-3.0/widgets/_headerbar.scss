@@ -1,52 +1,19 @@
-@use '../colors';
+@use "../colors.scss";
+
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+    margin-top: 10px; /* same as headerbar side padding for nicer proportions */
+    margin-bottom: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding: 5px;
+}
 
 headerbar {
-  background: colors.$surface-3;
-  padding: 6px;
-
-  box.horizontal {
-    &.right > button.titlebutton:last-child {
-      margin-right: -6px;
-    }
-
-    &.left > button.titlebutton:first-child {
-      margin-left: -6px;
-    }
-  }
-
-  button.titlebutton:not(.appmenu) {
-    background: transparent;
-    margin: -6px 0;
-    padding: 15px 10px;
-    border-radius: 0;
-
-    &:nth-last-child(-n+2) {
-      margin-left: -6px;
-    }
-
-    $titlebutton_to_color: (
-      minimize: colors.$accent-3,
-      maximize: colors.$accent-4,
-      close: colors.$accent-1
-    );
-
-    @each $type, $color in $titlebutton_to_color {
-      &.#{$type} {
-        color: $color;
-        &:hover {
-          background-color: $color;
-        }
-      }
-    }
-
-    &:hover {
-      color: rgba(0,0,0,0.5);
-    }
-  }
-
-  button.titlebutton.appmenu {
-    &:not(:active):not(:checked) {
-      background: transparent;
-    }
-  }
+	background: colors.$surface-3;
+    min-height: 10px;
+    margin: 0px; /* same as headerbar side padding for nicer proportions */
+    padding: 0px;
 }
