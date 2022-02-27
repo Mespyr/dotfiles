@@ -97,11 +97,8 @@ headerbar entry,
 headerbar spinbutton,
 headerbar button,
 headerbar separator {
-  margin-top: 10px;
+  margin: 10px;
   /* same as headerbar side padding for nicer proportions */
-  margin-bottom: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
   padding: 5px;
 }
 
@@ -110,7 +107,7 @@ headerbar {
   min-height: 10px;
   margin: 0px;
   /* same as headerbar side padding for nicer proportions */
-  padding: 0px;
+  padding-left: 10px;
 }
 
 entry {
@@ -691,3 +688,5 @@ tooltip {
 tooltip label {
   padding: 2px;
 }
+
+/*# sourceMappingURL=gtk.css.map */

@@ -1,13 +1,13 @@
 local wibox = require("wibox")
 local gears = require("gears")
 
-local shape = function(cr, width, height)
+local util = {}
+
+util.shape = function(cr, width, height)
 	gears.shape.rounded_rect(cr, width, height, 4)
 end
 
-local util = {}
-
-util.seperator = wibox.widget.separator{
+util.seperator = wibox.widget.separator {
     orientation = "horizontal",
     forced_height = 1,
     color = "#2e2e2e"
@@ -25,7 +25,7 @@ end
 
 util.widget_background = function(widget, bg)
 	return wibox.container.background(
-		wibox.container.margin(widget, 6, 6, 5, 5), bg, shape
+		wibox.container.margin(widget, 6, 6, 5, 5), bg, util.shape
 	)
 end
 

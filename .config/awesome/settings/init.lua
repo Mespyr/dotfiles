@@ -3,8 +3,11 @@ local beautiful = require("beautiful")
 local mytable = awful.util.table
 
 awful.util.terminal = "alacritty"
-awful.util.tagnames = { "", "", "", "", "", "", "", "", "" }
--- awful.util.tagnames = { "●", "●", "●", "●", "●", "●", "●", "●", "●" }
+-- awful.util.tagnames = { "ﰉ", "ﰉ", "ﰉ", "ﰉ", "ﰉ", "ﰉ" }
+-- awful.util.tagnames = { "●", "●", "●", "●", "●", "●" }
+-- awful.util.tagnames = { "⯁", "⯁", "⯁", "⯁", "⯁", "⯁" }
+-- awful.util.tagnames = { "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ" }
+awful.util.tagnames = { "", "", "", "", "", "" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,

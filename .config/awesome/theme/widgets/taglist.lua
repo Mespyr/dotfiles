@@ -8,6 +8,7 @@ return function(s)
 		buttons = awful.util.taglist_buttons,
 		layout = {
 			layout = wibox.layout.fixed.vertical,
+			spacing = 0,
 		},
 	}
 end

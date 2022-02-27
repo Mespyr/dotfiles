@@ -17,7 +17,7 @@ bluez-utils
 blueberry
 pavucontrol
 gtk3-nocsd-git
-papirus-icon-theme
+tela-circle-icon-theme-git
 
 nasm
 fasm
@@ -28,7 +28,6 @@ noto-fonts
 ttf-symbola
 
 bash-completion
-exa
 acpilight
 i3lock
 scrot

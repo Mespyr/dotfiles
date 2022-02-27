@@ -1,6 +1,6 @@
-local awful = require("awful")
-local lain = require("lain")
-local theme = require("beautiful")
+local awful  = require("awful")
+local lain   = require("lain")
+local theme  = require("beautiful")
 local markup = lain.util.markup
 
 return awful.widget.watch(

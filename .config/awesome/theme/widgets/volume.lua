@@ -1,5 +1,5 @@
-local lain = require("lain")
-local theme = require("beautiful")
+local lain   = require("lain")
+local theme  = require("beautiful")
 local markup = lain.util.markup
 
 return lain.widget.pulse {

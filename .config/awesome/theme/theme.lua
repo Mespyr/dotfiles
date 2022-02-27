@@ -18,7 +18,7 @@ theme.bg_focus            = "#2e2e2e"
 theme.fg_normal           = "#888888"
 theme.fg_focus            = theme.bg_normal
 theme.border_normal       = "#3b3b3b"
-theme.taglist_fg_occupied = "#597bc5"
+theme.taglist_fg_occupied = "#597bc9"
 theme.taglist_fg_empty    = "#3b3b3b"
 theme.taglist_fg_focus    = "#99ad6a"
 theme.taglist_bg_occupied = theme.bg_normal
@@ -29,9 +29,9 @@ theme.titlebar_fg_normal  = "#888888"
 theme.titlebar_bg_focus   = "#3b3b3b"
 theme.titlebar_fg_focus   = "#888888"
 
-theme.useless_gap = 5
+theme.useless_gap  = 8
 theme.border_width = 0
-theme.panel_height = 40
+theme.panel_size   = 40
 theme.notification_icon_size = 80
 
 theme.layout_tile                                = theme.icon_dir .. "/layouts/tile.png"
@@ -67,7 +67,14 @@ function theme.at_screen_connect(s)
     s.mywibox = awful.wibar {
         screen = s,
         position = "left",
-        width = theme.panel_height,
+
+        width = theme.panel_size,
+		height = 1350,
+		shape = util.shape,
+		margins = {
+			left = 10
+		},
+
         bg = theme.bg_normal,
         fg = theme.fg_normal,
 		widget = {
@@ -76,17 +83,18 @@ function theme.at_screen_connect(s)
 			{
 				layout = wibox.layout.fixed.vertical,
 				util.spacer,
-				wibox.container.margin(s.mylayoutlist, 6, 6, 0, 0),
-				util.spacer,
-				util.center(util.widget_background(s.mytaglist, theme.bg_normal)),
-				util.spacer,
 				util.center(util.widget_background(clocktext, theme.bg_focus)),
-				-- util.spacer,
-				-- wibox.container.margin(s.mytasklist, 6, 6, 0, 0),
+				util.spacer,
+				util.center(s.mytaglist),
+				util.spacer,
+				wibox.container.margin(s.mylayoutlist, 6, 6, 0, 0),
 			},
 			nil,
 			{
 				layout = wibox.layout.fixed.vertical,
+				wibox.container.margin(s.mytasklist, 6, 6, 0, 0),
+				util.spacer,
+				util.seperator,
 				util.spacer,
 				util.center(util.widget_background(volume, theme.bg_focus)),
 				util.spacer,
@@ -94,6 +102,13 @@ function theme.at_screen_connect(s)
 				util.spacer,
 			},
 		}
+	}
+
+	s.padding = {
+		top    = 8,
+		bottom = 8,
+		left   = 8,
+		right  = 8
 	}
 end
 

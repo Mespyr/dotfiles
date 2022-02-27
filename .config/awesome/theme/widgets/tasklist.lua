@@ -1,8 +1,6 @@
 local awful = require("awful")
 local wibox = require("wibox")
-local gears = require("gears")
-
-local new_shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 4) end
+local util  = require("theme.util")
 
 return function(s)
 	return awful.widget.tasklist {
@@ -13,20 +11,18 @@ return function(s)
             layout  = wibox.layout.fixed.vertical
         },
         style = {
-            shape = new_shape
+            shape = util.shape
         },
         widget_template = {
             {
                 id = "background_role",
                 {
                     awful.widget.clienticon,
-                    margins = 6,
+                    margins = 7,
                     widget  = wibox.container.margin
                 },
                 widget = wibox.container.background,
             },
-            nil,
-            nil,
             layout = wibox.layout.align.vertical,
         },
     }

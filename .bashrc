@@ -27,7 +27,6 @@ alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
 alias autoremove='yay -Rsn $(yay -Qdtq)'
-alias ls="exa -labs type"
 alias v="nvim"
 alias g="cd ~/git"
 alias py="python"
@@ -35,5 +34,6 @@ alias rm="rm -Ir"
 alias img="mpv --loop=inf --pause"
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 alias dio="gio tree"
+alias ls="ls -DSA1 --color=yes --group-directories-first"
 # other
 shopt -s autocd
