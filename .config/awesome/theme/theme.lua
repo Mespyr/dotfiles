@@ -69,14 +69,12 @@ function theme.at_screen_connect(s)
         position = "left",
 
         width = theme.panel_size,
-		height = 1350,
+		height = 1360,
 		shape = util.shape,
 		margins = {
-			left = 10
+			left = 8
 		},
 
-        bg = theme.bg_normal,
-        fg = theme.fg_normal,
 		widget = {
 			layout = wibox.layout.align.vertical,
 			expand = "none",
@@ -96,19 +94,19 @@ function theme.at_screen_connect(s)
 				util.spacer,
 				util.seperator,
 				util.spacer,
-				util.center(util.widget_background(volume, theme.bg_focus)),
+				util.center(util.widget_background(volume, theme.bg_focus, wibox.widget.textbox("蓼"), "#3b3b3b")),
 				util.spacer,
-				util.center(util.widget_background(battery, theme.bg_focus)),
+				util.center(util.widget_background(battery, theme.bg_focus, wibox.widget.textbox(""), "#3b3b3b")),
 				util.spacer,
 			},
 		}
 	}
 
 	s.padding = {
-		top    = 8,
-		bottom = 8,
-		left   = 8,
-		right  = 8
+		top    = 5,
+		bottom = 5,
+		-- left   = 5,
+		-- right  = 5
 	}
 end
 
