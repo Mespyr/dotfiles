@@ -9,4 +9,5 @@ configuration {
     click-to-exit:           true;
     combi-hide-mode-prefix:  false;
     dpi:                     188;
+	location:                0;
 }

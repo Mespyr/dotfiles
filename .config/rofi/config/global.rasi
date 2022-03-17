@@ -8,7 +8,7 @@ window {
     background-color: @bg;
     border-radius:    0px;
     padding:          2px;
-    width:            350px;
+    width:            400px;
 }
 
 mainbox {

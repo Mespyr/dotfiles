@@ -67,8 +67,9 @@ function theme.at_screen_connect(s)
     s.mywibox = awful.wibar {
         screen = s,
         position = "left",
-
         width = theme.panel_size,
+
+		-- floating bar
 		height = 1360,
 		shape = util.shape,
 		margins = {
