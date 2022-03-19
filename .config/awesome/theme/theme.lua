@@ -7,7 +7,7 @@ local wibox = require("wibox")
 local theme = {}
 theme.dir       = os.getenv("HOME") .. "/.config/awesome"
 theme.icon_dir  = os.getenv("HOME") .. "/.config/awesome/theme/icons"
-theme.wallpaper = theme.dir .. "/wallpapers/wall27.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall24.png"
 
 theme.font_name    = "Cartograph CF Nerd Font Mono"
 theme.font         = theme.font_name .. " 5"
@@ -73,7 +73,7 @@ function theme.at_screen_connect(s)
 		height = 1360,
 		shape = util.shape,
 		margins = {
-			left = 8
+			left = 10
 		},
 
 		widget = {

@@ -3,7 +3,7 @@
 @import "~/.config/rofi/config/config.rasi"
 
 window {
-    border:           3px;
+    border:           0px;
     border-color:     @ac;
     background-color: @bg;
     border-radius:    0px;
@@ -54,7 +54,7 @@ element-text, element-icon {
 
 element {
     border:        0px;
-    border-radius: 2px;
+    border-radius: 4px;
     padding:       14px;
     margin:        6px;
 }

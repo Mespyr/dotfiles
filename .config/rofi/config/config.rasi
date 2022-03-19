@@ -1,6 +1,7 @@
 /* general */
 
 configuration {
+	modi: [run,drun];
     font:                    "Cartograph CF Nerd Font 5";
     fixed-num-lines:         true;
     show-icons:              false;

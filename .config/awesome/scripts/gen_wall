@@ -9,7 +9,7 @@ cb="\033[1;34m"
 height=1400
 width=2240
 bg="#151515"
-colors="#151515 #3b3b3b #151515 #3b3b3b"
+colors="#151515 #2e2e2e #151515 #2e2e2e"
 shape="circle"
 file="wall.png"
 
