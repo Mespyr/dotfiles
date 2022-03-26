@@ -28,18 +28,25 @@ listview {
     padding:      2px 2px 0px 2px;
 }
 
+prompt {
+	background-color: @ac;
+	padding: 8px;
+	border-radius: 4px;
+}
+
 entry {
-    spacing:           1;
+    spacing:           3;
     text-color:        @fg;
     placeholder:       "search";
     placeholder-color: @ac;
+	margin: 8px;
 }
 
 inputbar {
     spacing:    0px;
     text-color: @fg;
-    padding:    15px;
-    children:   [entry];
+    padding:    10px;
+    children:   [ prompt,entry ];
 }
 
 prompt {
@@ -93,12 +100,6 @@ element alternate.urgent {
 element alternate.active {
     background-color: @bg;
     text-color:       @fg;
-}
-
-sidebar {
-    border:        0px;
-    border-color:  @ac;
-    border-radius: 0px;
 }
 
 button {

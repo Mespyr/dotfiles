@@ -8,6 +8,7 @@ awful.util.terminal = "alacritty"
 -- awful.util.tagnames = { "⯁", "⯁", "⯁", "⯁", "⯁", "⯁" }
 -- awful.util.tagnames = { "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ" }
 awful.util.tagnames = { "", "", "", "", "", "" }
+-- awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
 -- awful.util.tagnames = { "", "", "", "", "", "" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
@@ -44,5 +45,5 @@ awful.rules.rules = {
       properties = { floating = true }},
 }
 
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
+awful.screen.connect_for_each_screen(beautiful.at_screen_connect)
 awful.screen.set_auto_dpi_enabled(true)

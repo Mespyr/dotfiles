@@ -18,7 +18,7 @@ return function(s)
                 id = "background_role",
                 {
                     awful.widget.clienticon,
-                    margins = 7,
+                    margins = 6,
                     widget  = wibox.container.margin
                 },
                 widget = wibox.container.background,
