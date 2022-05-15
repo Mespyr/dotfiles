@@ -1,39 +1,47 @@
-local custom_colors = require('lualine.themes.jellybeans')
+local theme = require('lualine.themes.auto')
 
-custom_colors.normal.c.bg = "#151515"
-custom_colors.normal.c.fg = "#888888"
-custom_colors.inactive.c.bg = "#151515"
-custom_colors.inactive.c.fg = "#888888"
+local bg = "#0f0f0f"
+local fg = "#828282"
+
+-- set section_c to always be bg, fg
+theme.normal.c.bg   = bg
+theme.normal.c.fg   = fg
+theme.insert.c.bg   = bg
+theme.insert.c.fg   = fg
+theme.visual.c.bg   = bg
+theme.visual.c.fg   = fg
+theme.command.c.bg  = bg
+theme.command.c.fg  = fg
+theme.inactive.c.bg = bg
+theme.inactive.c.fg = fg
 
 -- mode colors
-local mode_bg = "#2e2e2e"
-local mode_fg = "#888888"
-
-custom_colors.normal.a.bg = mode_bg
-custom_colors.insert.a.bg = mode_bg
-custom_colors.visual.a.bg = mode_bg
-
-custom_colors.normal.a.fg = mode_fg
-custom_colors.visual.a.fg = mode_fg
-custom_colors.insert.a.fg = mode_fg
+bg = "#363636"
+theme.normal.a.bg  = bg
+theme.insert.a.bg  = bg
+theme.visual.a.bg  = bg
+theme.command.a.bg = bg
+theme.normal.a.fg  = fg
+theme.visual.a.fg  = fg
+theme.insert.a.fg  = fg
+theme.command.a.fg = fg
 
 -- filename colors
-local fn_bg = "#212121"
-local fn_fg = "#888888"
-
-custom_colors.normal.b.bg = fn_bg
-custom_colors.insert.b.bg = fn_bg
-custom_colors.visual.b.bg = fn_bg
-
-custom_colors.normal.b.fg = fn_fg
-custom_colors.insert.b.fg = fn_fg
-custom_colors.visual.b.fg = fn_fg
+bg = "#1c1c1c"
+theme.normal.b.bg  = bg
+theme.insert.b.bg  = bg
+theme.visual.b.bg  = bg
+theme.command.b.bg = bg
+theme.normal.b.fg  = fg
+theme.insert.b.fg  = fg
+theme.visual.b.fg  = fg
+theme.command.b.fg = fg
 
 require'lualine'.setup {
   options = {
     icons_enabled = false,
     padding = 1,
-    theme = custom_colors,
+	theme = theme,
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {"dashboard", "NvimTree"},

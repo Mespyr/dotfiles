@@ -15,10 +15,10 @@ client.connect_signal("request::titlebars", function(c)
         end)
 	)
 
-    local size_margin = 4;
+    local size_margin = 5;
 
     awful.titlebar(c, {
-        size = 34,
+        size = 35,
         position = "top",
 	}).widget = {
 		layout = wibox.layout.align.horizontal,
@@ -33,7 +33,7 @@ client.connect_signal("request::titlebars", function(c)
 			layout = wibox.layout.fixed.horizontal,
 			wibox.container.margin(awful.titlebar.widget.minimizebutton  (c),  0, 0, size_margin, size_margin),
 			wibox.container.margin(awful.titlebar.widget.maximizedbutton (c),  0, 0, size_margin, size_margin),
-			wibox.container.margin(awful.titlebar.widget.closebutton     (c), -2, 5, size_margin, size_margin),
+			wibox.container.margin(awful.titlebar.widget.closebutton     (c), -2, 6, size_margin, size_margin),
 		}
 	}
 end)

@@ -6,9 +6,9 @@ awful.util.terminal = "alacritty"
 -- awful.util.tagnames = { "ﰉ", "ﰉ", "ﰉ", "ﰉ", "ﰉ", "ﰉ" }
 -- awful.util.tagnames = { "●", "●", "●", "●", "●", "●" }
 -- awful.util.tagnames = { "⯁", "⯁", "⯁", "⯁", "⯁", "⯁" }
--- awful.util.tagnames = { "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ" }
-awful.util.tagnames = { "", "", "", "", "", "" }
--- awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
+awful.util.tagnames = { "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ" }
+-- awful.util.tagnames = { "", "", "", "", "", "" }
+-- awful.util.tagnames = { "a", "b", "c", "d", "e", "f" }
 -- awful.util.tagnames = { "", "", "", "", "", "" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
@@ -39,7 +39,7 @@ awful.rules.rules = {
     }},
     -- Add title bars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-        }, properties = { titlebars_enabled = true }
+        }, properties = { titlebars_enabled = false }
     },
     { rule = { class = "mpv" },
       properties = { floating = true }},
