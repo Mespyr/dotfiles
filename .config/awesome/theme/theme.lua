@@ -60,7 +60,7 @@ theme.at_screen_connect = function(s)
     gears.wallpaper.maximized(theme.wallpaper, s, true)
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
-    s.mytaglist = make_taglist(s)
+    s.mytaglist   = make_taglist(s)
 
     s.mywibox = awful.wibar {
         screen = s,

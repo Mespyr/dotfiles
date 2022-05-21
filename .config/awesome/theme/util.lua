@@ -4,7 +4,7 @@ local gears = require("gears")
 local util = {}
 
 util.shape = function(cr, width, height)
-	gears.shape.rounded_rect(cr, width, height, 5)
+	gears.shape.rounded_rect(cr, width, height, 8)
 end
 
 util.seperator = wibox.widget.separator {
