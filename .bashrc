@@ -16,25 +16,29 @@ shopt -s checkwinsize
 # PS1='\033[1;31m[\W] \e[0m'
 PS1='\033[1;30m\033[1;43m  \033[1;33m\033[1;40m \W \e[0m '
 # PROMPT_COMMAND='echo -en "\033]0;[${PWD##*/}]\a"'
-PROMPT_COMMAND='echo -en "\033]0;$(pwd)\a"'
+# PROMPT_COMMAND='echo -en "\033]0;$(pwd)\a"'
 # Path
 export PATH=~/.local/bin:$PATH
 export PATH=~/.config/scripts:$PATH 
 # editor
 export EDITOR="nvim"
-# aliases
+# shorten long commands
 alias ga='git add .'
 alias gs='git status'
 alias gc='git commit -m'
 alias gp='git push'
-alias autoremove='yay -Rsn $(yay -Qdtq)'
-alias v="nvim"
 alias g="cd ~/git"
-alias py="python"
-alias rm="rm -Ir"
-alias img="mpv --loop=inf --pause"
-alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+alias autoremove='yay -Rsn $(yay -Qdtq)'
+alias mpv="mpv --loop=inf"
+alias img="\mpv --loop=inf --pause"
 alias dio="gio tree"
-alias ls="ls -DSA1 --color=yes --group-directories-first"
+alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+# options for commands
+alias ls="ls -A --color=yes --group-directories-first"
+alias rm="rm -Ir"
+# shorten name
+alias v="nvim"
+alias py="python"
+alias open="xdg-open"
 # other
 shopt -s autocd

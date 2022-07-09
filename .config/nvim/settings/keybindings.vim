@@ -6,10 +6,15 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
     exec 'inoremap' key '<Nop>'
 endfor
 
+" PLUGINS
+" all keybinds for plugins use <Alt>
 " NvimTree
 nnoremap <silent> <A-e> :NvimTreeToggle<CR>
-nnoremap <silent> <A-r> :NvimTreeToggle<CR>
+" markdown-preview
+nnoremap <silent> <A-o> :MarkdownPreviewToggle<CR>
 
+
+" go to beginning of line (excluding spaces
 nnoremap o ^
 vnoremap o ^
 
@@ -17,7 +22,9 @@ vnoremap o ^
 nnoremap e >>^
 vnoremap e >^
 
+" tab line bacr
 nnoremap w <<^
 vnoremap w <^
 
+" fold
 nnoremap f za

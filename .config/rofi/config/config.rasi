@@ -9,6 +9,6 @@ configuration {
     scroll-method:           0;
     click-to-exit:           true;
     combi-hide-mode-prefix:  false;
-    dpi:                     188;
+    dpi:                     199;
 	location:                0;
 }

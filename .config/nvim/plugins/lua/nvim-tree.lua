@@ -1,16 +1,8 @@
-vim.g.nvim_tree_show_icons = {
-	git = 0,
-	folders = 1,
-	files = 1,
-	folder_arrows = 0,
-}
-
 require'nvim-tree'.setup {
 	disable_netrw      = true,
 	hijack_netrw       = true,
 	open_on_setup      = false,
 	ignore_ft_on_setup = {},
-	auto_close         = true,
 	auto_reload_on_write = true,
 	open_on_tab        = false,
 	hijack_cursor      = false,
@@ -19,14 +11,20 @@ require'nvim-tree'.setup {
 		enable = true,
 		auto_open = true,
 	},
+	renderer = { icons = { show = {
+		git = false,
+		folder = true,
+		file = true,
+		folder_arrow = false,
+	}}},
 	diagnostics = {
 		enable = false,
-		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
-		}
+		-- icons = {
+		-- 	hint = "",
+		-- 	info = "",
+		-- 	warning = "",
+		-- 	error = "",
+		-- }
 	},
 	update_focused_file = {
 		enable     = false,
@@ -51,7 +49,6 @@ require'nvim-tree'.setup {
 		height = 25,
 		hide_root_folder = true,
 		side = 'right',
-		auto_resize = true,
 		mappings = {
 			custom_only = false,
 			list = {}

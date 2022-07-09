@@ -10,7 +10,7 @@ awful.util.tagnames = { "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ" }
 -- awful.util.tagnames = { "", "", "", "", "", "" }
 -- awful.util.tagnames = { "a", "b", "c", "d", "e", "f" }
 -- awful.util.tagnames = { "", "", "", "", "", "" }
-awful.layout.layouts = {
+awful.layout.append_default_layouts {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
 }
@@ -39,7 +39,7 @@ awful.rules.rules = {
     }},
     -- Add title bars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-        }, properties = { titlebars_enabled = false }
+        }, properties = { titlebars_enabled = true }
     },
     { rule = { class = "mpv" },
       properties = { floating = true }},

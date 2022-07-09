@@ -1,8 +1,8 @@
-local g = vim.g
+local db = require('dashboard')
+
 local os = require("os")
 
-g.dashboard_default_executive = 'telescope'
-g.dashboard_diable_statusline = 1
+db.default_executive = 'telescope'
 
 local readlines = function(path)
     local lines = {}
@@ -14,15 +14,17 @@ local readlines = function(path)
     return lines
 end
 
-g.dashboard_custom_header = readlines(os.getenv("HOME") .. "/.config/nvim/ascii")
+db.custom_header = readlines(os.getenv("HOME") .. "/.config/nvim/ascii")
 
-g.dashboard_custom_section = {
-	a = { description = { '  Recents  ' }, command = 'Telescope oldfiles' },
-	b = { description = { 'ﱐ  New File ' }, command = 'DashboardNewFile' },
-	c = { description = { 'ﮮ  Update   ' }, command = 'PlugUpdate' },
-	d = { description = { '  Cleanup  ' }, command = 'PlugClean ' },
+db.custom_center = {
+	{ icon = '', desc = ' Recents ', action = 'Telescope oldfiles' },
+	{ icon = 'ﱐ', desc = ' New File', action = 'DashboardNewFile' },
+	{ icon = 'ﮮ', desc = ' Update  ', action = 'PlugUpdate' },
+	{ icon = '', desc = ' Cleanup ', action = 'PlugClean ' },
 }
 
--- g.dashboard_custom_footer = {
--- 	'▷ UwU ◁',
--- }
+db.custom_footer = {
+	'',
+	'',
+	'▷ UwU ◁',
+}

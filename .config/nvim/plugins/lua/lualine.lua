@@ -16,7 +16,7 @@ theme.inactive.c.bg = bg
 theme.inactive.c.fg = fg
 
 -- mode colors
-bg = "#363636"
+bg = "#262626"
 theme.normal.a.bg  = bg
 theme.insert.a.bg  = bg
 theme.visual.a.bg  = bg
@@ -27,7 +27,7 @@ theme.insert.a.fg  = fg
 theme.command.a.fg = fg
 
 -- filename colors
-bg = "#1c1c1c"
+bg = "#191919"
 theme.normal.b.bg  = bg
 theme.insert.b.bg  = bg
 theme.visual.b.bg  = bg
@@ -56,9 +56,9 @@ require'lualine'.setup {
     lualine_z = {}
   },
   inactive_sections = {
-    lualine_a = {},
+    lualine_a = {'filename'},
     lualine_b = {},
-    lualine_c = {'filename'},
+    lualine_c = {},
     lualine_x = {'location'},
     lualine_y = {},
     lualine_z = {}
