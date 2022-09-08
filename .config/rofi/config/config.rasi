@@ -10,5 +10,5 @@ configuration {
     click-to-exit:           true;
     combi-hide-mode-prefix:  false;
     dpi:                     199;
-	location:                0;
+	location:                8;
 }

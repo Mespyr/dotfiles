@@ -2,14 +2,18 @@ xorg
 xorg-xinit
 awesome-git
 lain-git
-picom-jonaburg-git
+picom-git
 
 alacritty-git
 brave-bin
 discord
 minecraft-launcher
+steam
+musescore
 rofi
 mpv
+openshot
+via
 
 pulseaudio-bluetooth
 bluez
@@ -17,7 +21,7 @@ bluez-utils
 blueberry
 pavucontrol
 gtk3-nocsd-git
-tela-circle-icon-theme-git
+qogir-icon-theme
 
 nasm
 fasm

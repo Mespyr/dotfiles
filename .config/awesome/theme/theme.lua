@@ -11,11 +11,11 @@ local make_taglist    = require("theme.widgets.taglist")
 local theme = {}
 theme.dir       = os.getenv("HOME") .. "/.config/awesome"
 theme.icon_dir  = os.getenv("HOME") .. "/.config/awesome/theme/icons"
-theme.wallpaper = theme.dir .. "/wallpapers/wall45.png"
+theme.wallpaper = theme.dir .. "/wallpapers/wall54.jpg"
 
 theme.font_name    = "Cartograph CF Nerd Font"
 theme.font         = theme.font_name .. " 6"
--- theme.taglist_font = theme.font_name .. " 6"
+theme.taglist_font = theme.font_name .. " 6"
 
 theme.bg_normal           = "#0f0f0f"
 theme.bg_focus            = "#363636"
@@ -43,21 +43,38 @@ theme.panel_size   = 45
 theme.notification_icon_size = 100
 theme.notification_shape = util.shape
 
-theme.layout_tile                                = theme.icon_dir .. "/layouts/tile.png"
-theme.layout_floating                            = theme.icon_dir .. "/layouts/floating.png"
+-- theme.layout_tile                                = theme.icon_dir .. "/layouts/tile.png"
+-- theme.layout_floating                            = theme.icon_dir .. "/layouts/floating.png"
+
+-- svg
+-- -- close
+-- theme.titlebar_close_button_normal               = theme.icon_dir .. "/titlebar/svg/close_normal.svg"
+-- theme.titlebar_close_button_focus                = theme.icon_dir .. "/titlebar/svg/close_focus.svg"
+-- -- maximize
+-- theme.titlebar_maximized_button_normal_inactive  = theme.icon_dir .. "/titlebar/svg/maximize_normal.svg"
+-- theme.titlebar_maximized_button_normal_active    = theme.icon_dir .. "/titlebar/svg/maximize_normal.svg"
+-- theme.titlebar_maximized_button_focus_inactive   = theme.icon_dir .. "/titlebar/svg/maximize_focus.svg"
+-- theme.titlebar_maximized_button_focus_active     = theme.icon_dir .. "/titlebar/svg/maximize_focus.svg"
+-- -- minimize
+-- theme.titlebar_minimize_button_normal_inactive   = theme.icon_dir .. "/titlebar/svg/minimize_normal.svg"
+-- theme.titlebar_minimize_button_normal_active     = theme.icon_dir .. "/titlebar/svg/minimize_normal.svg"
+-- theme.titlebar_minimize_button_focus_inactive    = theme.icon_dir .. "/titlebar/svg/minimize_focus.svg"
+-- theme.titlebar_minimize_button_focus_active      = theme.icon_dir .. "/titlebar/svg/minimize_focus.svg"
+
+-- png
 -- close
-theme.titlebar_close_button_normal               = theme.icon_dir .. "/titlebar/close_normal.svg"
-theme.titlebar_close_button_focus                = theme.icon_dir .. "/titlebar/close_focus.svg"
+theme.titlebar_close_button_normal               = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/close.png", "#363636")
+theme.titlebar_close_button_focus                = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/close.png", "#c49ea0")
 -- maximize
-theme.titlebar_maximized_button_normal_inactive  = theme.icon_dir .. "/titlebar/maximize_normal.svg"
-theme.titlebar_maximized_button_normal_active    = theme.icon_dir .. "/titlebar/maximize_normal.svg"
-theme.titlebar_maximized_button_focus_inactive   = theme.icon_dir .. "/titlebar/maximize_focus.svg"
-theme.titlebar_maximized_button_focus_active     = theme.icon_dir .. "/titlebar/maximize_focus.svg"
+theme.titlebar_maximized_button_normal_inactive  = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/maximize.png", "#363636")
+theme.titlebar_maximized_button_normal_active    = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/maximize.png", "#363636")
+theme.titlebar_maximized_button_focus_inactive   = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/maximize.png", "#c4c19e")
+theme.titlebar_maximized_button_focus_active     = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/maximize.png", "#c4c19e")
 -- minimize
-theme.titlebar_minimize_button_normal_inactive   = theme.icon_dir .. "/titlebar/minimize_normal.svg"
-theme.titlebar_minimize_button_normal_active     = theme.icon_dir .. "/titlebar/minimize_normal.svg"
-theme.titlebar_minimize_button_focus_inactive    = theme.icon_dir .. "/titlebar/minimize_focus.svg"
-theme.titlebar_minimize_button_focus_active      = theme.icon_dir .. "/titlebar/minimize_focus.svg"
+theme.titlebar_minimize_button_normal_inactive   = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/minimize.png", "#363636")
+theme.titlebar_minimize_button_normal_active     = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/minimize.png", "#363636")
+theme.titlebar_minimize_button_focus_inactive    = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/minimize.png", "#9ec49f")
+theme.titlebar_minimize_button_focus_active      = gears.color.recolor_image(theme.icon_dir .. "/titlebar/png/minimize.png", "#9ec49f")
 
 theme.at_screen_connect = function(s)
     gears.wallpaper.maximized(theme.wallpaper, s, true)
@@ -67,7 +84,7 @@ theme.at_screen_connect = function(s)
 
     s.mywibox = awful.wibar {
         screen = s,
-        position = "left",
+		position = "left",
         width = theme.panel_size,
 		height = 600,
 		shape = util.shape,

@@ -15,22 +15,43 @@ client.connect_signal("request::titlebars", function(c)
         end)
 	)
 
-    local size_margin = 7;
 
+	-- left
+    -- local size_margin = 7;
+    -- awful.titlebar(c, {
+    --     size = 40,
+    --     position = "left",
+	-- }).widget = {
+		-- layout = wibox.layout.align.vertical,
+		-- {
+			-- layout = wibox.layout.fixed.vertical,
+			-- wibox.container.margin(awful.titlebar.widget.closebutton     (c), size_margin, size_margin, 8, 0),
+			-- wibox.container.margin(awful.titlebar.widget.maximizedbutton (c), size_margin, size_margin, 0, 0),
+			-- wibox.container.margin(awful.titlebar.widget.minimizebutton  (c), size_margin, size_margin, 0, 0),
+		-- },
+		-- {
+			-- layout = wibox.layout.fixed.vertical, buttons = buttons,
+			-- -- wibox.container.margin(awful.titlebar.widget.titlewidget(c), 10, 0, 0, 0),
+		-- },
+	-- }
+
+	-- top
+    local size_margin = 12;
     awful.titlebar(c, {
         size = 40,
-        position = "left",
+        position = "top",
 	}).widget = {
-		layout = wibox.layout.align.vertical,
+		layout = wibox.layout.align.horizontal,
 		{
-			layout = wibox.layout.fixed.vertical,
-			wibox.container.margin(awful.titlebar.widget.closebutton     (c), size_margin, size_margin, 8, 0),
-			wibox.container.margin(awful.titlebar.widget.maximizedbutton (c), size_margin, size_margin, 0, 0),
-			wibox.container.margin(awful.titlebar.widget.minimizebutton  (c), size_margin, size_margin, 0, 0),
+			layout = wibox.layout.fixed.horizontal,
+			wibox.container.margin(awful.titlebar.widget.closebutton     (c), 12, 0, size_margin, size_margin),
+			wibox.container.margin(awful.titlebar.widget.maximizedbutton (c), 8, 0, size_margin, size_margin),
+			wibox.container.margin(awful.titlebar.widget.minimizebutton  (c), 8, 0, size_margin, size_margin),
 		},
 		{
-			layout = wibox.layout.fixed.vertical, buttons = buttons,
-			-- wibox.container.margin(awful.titlebar.widget.titlewidget(c), 10, 0, 0, 0),
+			layout = wibox.layout.fixed.horizontal, buttons = buttons,
+			-- wibox.container.margin(awful.titlebar.widget.titlewidget(c), 16, 0, size_margin, size_margin),
 		},
 	}
+
 end)

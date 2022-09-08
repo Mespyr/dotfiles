@@ -9,6 +9,8 @@ window {
     border-radius:    0px;
     padding:          2px;
     width:            400px;
+
+    x-offset:         70px;
 }
 
 mainbox {

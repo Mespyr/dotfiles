@@ -1,8 +1,8 @@
 # GENERAL SETTINGS
 window:
   padding:
-    x: 5
-    y: 5
+    x: 10
+    y: 0
   dynamic_padding: false
   dynamic_title: true
 font:
@@ -15,7 +15,7 @@ font:
   bold:
     family: Cartograph CF Nerd Font
     style: Bold
-  size: 6
+  size: 7
   offset:
     x: 0
     y: 0
