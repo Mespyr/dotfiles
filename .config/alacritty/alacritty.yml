@@ -7,7 +7,7 @@ window:
   dynamic_title: true
 font:
   normal:
-    family: Cartograph CF Nerd Font
+    family: Cartograph CF Nerd Font Mono
     style: Normal
   italic:
     family: Cartograph CF Nerd Font
@@ -15,7 +15,7 @@ font:
   bold:
     family: Cartograph CF Nerd Font
     style: Bold
-  size: 7
+  size: 6
   offset:
     x: 0
     y: 0

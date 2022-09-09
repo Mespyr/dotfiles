@@ -18,22 +18,34 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 
 -- setup
-cmp.setup {
-    formatting = {
-        format = function(entry, vim_item)
-            -- fancy icons and a name of kind
-            vim_item.kind = lspkind.presets.default[vim_item.kind] ..
-                                "  " .. vim_item.kind
-            -- set a name for each source
-            vim_item.menu = ({
-                buffer = "[Buffer]",
-                nvim_lsp = "[LSP]",
-            })[entry.source.name]
-            return vim_item
-        end
-    },
-    mapping = {
-        ['<C-Tab>'] = cmp.mapping.select_prev_item(),
+require("cmp").setup({
+	window = {
+		--! This is an extended template of |nvim_open_win|, read it for documentation on window appearance and better understanding!
+		-- Completion window
+		completion = cmp.config.window.bordered({
+			border = "none", -- "rounded" for a rounded window, see |nvim_open_win| for more border options
+			winhighlight = "CursorLine:PmenuSel,Search:None", -- Win highlight, see |nvim_open_win|
+			col_offset = -3,
+		}),
+		-- Documentation window
+		documentation = cmp.config.window.bordered({
+			-- Same options as in the completion window
+			border = "single",
+			winhighlight = "Normal:NoneCursorLine:PmenuSel,Search:None",
+		}),
+	},
+	formatting = {
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = " " .. strings[1] .. " "
+			kind.menu = "   (" .. strings[2] .. ")"
+			return kind
+	end,
+	},
+	mapping = {
+		['<C-Tab>'] = cmp.mapping.select_prev_item(),
         ['<S-Tab>'] = cmp.mapping.select_next_item(),
         -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -42,10 +54,44 @@ cmp.setup {
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
-    },
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  },
-}
+		},
+	},
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'buffer' },
+	},
+
+})
+
+-- cmp.setup {
+--     formatting = {
+--         format = function(entry, vim_item)
+--             -- fancy icons and a name of kind
+--             vim_item.kind = lspkind.presets.default[vim_item.kind] ..
+--                                 "  " .. vim_item.kind
+--             -- set a name for each source
+--             vim_item.menu = ({
+--                 buffer = "[Buffer]",
+--                 nvim_lsp = "[LSP]",
+--             })[entry.source.name]
+--             return vim_item
+--         end
+--     },
+--     mapping = {
+--         ['<C-Tab>'] = cmp.mapping.select_prev_item(),
+--         ['<S-Tab>'] = cmp.mapping.select_next_item(),
+--         -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+--         -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+--         -- ['<C-Space>'] = cmp.mapping.complete(),
+--         ['<C-e>'] = cmp.mapping.close(),
+--         ['<CR>'] = cmp.mapping.confirm {
+--             behavior = cmp.ConfirmBehavior.Replace,
+--             select = true,
+--     },
+--   },
+--   sources = {
+--     { name = 'nvim_lsp' },
+--     { name = 'buffer' },
+--   },
+-- }
+--

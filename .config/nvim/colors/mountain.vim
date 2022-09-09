@@ -217,8 +217,8 @@ call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("CursorLine",    "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("CursorLineNr",  s:gui04, s:gui00, s:cterm04, s:cterm01, "", "")
 call <sid>hi("QuickFixLine",  "", s:gui01, "", s:cterm01, "none", "")
-call <sid>hi("PMenu",         s:gui05, s:gui01, s:cterm05, s:cterm01, "none", "")
-call <sid>hi("PMenuSel",      s:gui01, s:gui05, s:cterm01, s:cterm05, "", "")
+call <sid>hi("PMenu",         s:gui05, s:gui02, s:cterm05, s:cterm01, "none", "")
+call <sid>hi("PMenuSel",      s:gui01, s:gui03, s:cterm01, s:cterm05, "", "")
 call <sid>hi("TabLine",       s:gui03, s:gui00, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineFill",   s:gui03, s:gui00, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineSel",    s:gui01, s:gui0B, s:cterm0B, s:cterm01, "none", "")
@@ -409,6 +409,45 @@ call <sid>hi("DashboardHeader",      s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("DashboardCenter",      s:gui0A, "", s:cterm0A, "", "", "")
 call <sid>hi("DashboardCenterIcon",  s:gui0B, "", s:cterm08, "", "", "")
 call <sid>hi("DashboardFooter",      s:gui08, "", s:cterm09, "", "", "")
+
+" CMP
+highlight!  CmpItemAbbrDeprecated guifg=#8aabac, guibg=NONE
+highlight!  CmpItemAbbrMatch      guifg=#8f8aac, guibg=NONE
+highlight!  CmpItemAbbrMatchFuzzy guifg=#8f8aac, guibg=NONE
+highlight!  CmpItemMenu           guifg=#ac8aac, guibg=NONE
+
+highlight!  CmpItemKindField    guibg=#ac8a8c
+highlight!  CmpItemKindProperty guibg=#ac8a8c
+highlight!  CmpItemKindEvent    guibg=#ac8a8c
+
+highlight!  CmpItemKindText    guibg=#8aac8b
+highlight!  CmpItemKindEnum    guibg=#8aac8b
+highlight!  CmpItemKindKeyword guibg=#8aac8b
+
+highlight!  CmpItemKindConstant    guibg=#aca98a
+highlight!  CmpItemKindConstructor guibg=#aca98a
+highlight!  CmpItemKindReference   guibg=#aca98a
+
+highlight!  CmpItemKindFunction guibg=#ac8aac
+highlight!  CmpItemKindStruct   guibg=#ac8aac
+highlight!  CmpItemKindClass    guibg=#ac8aac
+highlight!  CmpItemKindModule   guibg=#ac8aac
+highlight!  CmpItemKindOperator guibg=#ac8aac
+
+highlight!  CmpItemKindVariable guibg=#8aabac
+highlight!  CmpItemKindFile     guibg=#8aabac
+
+highlight!  CmpItemKindUnit    guibg=#aca98a
+highlight!  CmpItemKindSnippet guibg=#aca98a
+highlight!  CmpItemKindFolder  guibg=#aca98a
+
+highlight!  CmpItemKindMethod     guibg=#8f8aac
+highlight!  CmpItemKindValue      guibg=#8f8aac
+highlight!  CmpItemKindEnumMember guibg=#8f8aac
+
+highlight!  CmpItemKindInterface     guibg=#8aabac
+highlight!  CmpItemKindColor         guibg=#8aabac
+highlight!  CmpItemKindTypeParameter guibg=#8aabac
 
 " Remove functions
 delf <sid>hi
