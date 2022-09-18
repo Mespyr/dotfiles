@@ -13,7 +13,9 @@ musescore
 rofi
 mpv
 openshot
+obs-studio
 via
+krita
 
 pulseaudio-bluetooth
 bluez
@@ -26,6 +28,7 @@ qogir-icon-theme
 nasm
 fasm
 npm
+clang
 
 noto-fonts-emoji
 noto-fonts

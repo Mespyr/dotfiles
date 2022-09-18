@@ -11,12 +11,20 @@ require'nvim-tree'.setup {
 		enable = true,
 		auto_open = true,
 	},
-	renderer = { icons = { show = {
-		git = false,
-		folder = true,
-		file = true,
-		folder_arrow = false,
-	}}},
+	renderer = {
+		group_empty = true,
+		indent_markers = {
+			enable = true,
+		},
+		icons = {
+			show = {
+				git = false,
+				folder = true,
+				file = true,
+				folder_arrow = false,
+			}
+		}
+	},
 	diagnostics = {
 		enable = false,
 		-- icons = {
@@ -41,7 +49,7 @@ require'nvim-tree'.setup {
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		timeout = 500,
 	},
 	view = {

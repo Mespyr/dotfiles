@@ -24,15 +24,17 @@ require("cmp").setup({
 		-- Completion window
 		completion = cmp.config.window.bordered({
 			border = "none", -- "rounded" for a rounded window, see |nvim_open_win| for more border options
-			winhighlight = "CursorLine:PmenuSel,Search:None", -- Win highlight, see |nvim_open_win|
-			col_offset = -3,
+			winhighlight = "CursorLine:PMenuSel", -- Win highlight, see |nvim_open_win|
 		}),
 		-- Documentation window
 		documentation = cmp.config.window.bordered({
 			-- Same options as in the completion window
 			border = "single",
-			winhighlight = "Normal:NoneCursorLine:PmenuSel,Search:None",
+			winhighlight = "Normal:None,CursorLine:PMenuSel",
 		}),
+	},
+	experimental = {
+		ghost_text = true
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
@@ -62,36 +64,3 @@ require("cmp").setup({
 	},
 
 })
-
--- cmp.setup {
---     formatting = {
---         format = function(entry, vim_item)
---             -- fancy icons and a name of kind
---             vim_item.kind = lspkind.presets.default[vim_item.kind] ..
---                                 "  " .. vim_item.kind
---             -- set a name for each source
---             vim_item.menu = ({
---                 buffer = "[Buffer]",
---                 nvim_lsp = "[LSP]",
---             })[entry.source.name]
---             return vim_item
---         end
---     },
---     mapping = {
---         ['<C-Tab>'] = cmp.mapping.select_prev_item(),
---         ['<S-Tab>'] = cmp.mapping.select_next_item(),
---         -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
---         -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
---         -- ['<C-Space>'] = cmp.mapping.complete(),
---         ['<C-e>'] = cmp.mapping.close(),
---         ['<CR>'] = cmp.mapping.confirm {
---             behavior = cmp.ConfirmBehavior.Replace,
---             select = true,
---     },
---   },
---   sources = {
---     { name = 'nvim_lsp' },
---     { name = 'buffer' },
---   },
--- }
---
