@@ -6,6 +6,7 @@ local wibox = require("wibox")
 local util            = require("theme.util")
 local clocktext       = require("theme.widgets.clock")
 local battery         = require("theme.widgets.battery")
+local volume          = require("theme.widgets.volume")
 local make_taglist    = require("theme.widgets.taglist")
 
 local theme = {}
@@ -104,6 +105,8 @@ theme.at_screen_connect = function(s)
 			{
 				layout = wibox.layout.fixed.vertical,
 				util.center(util.widget_background(battery, theme.bg_focus)),
+				util.spacer,
+				util.center(volume),
 				util.spacer,
 				util.center(util.widget_background(clocktext, theme.bg_focus)),
 				util.spacer,

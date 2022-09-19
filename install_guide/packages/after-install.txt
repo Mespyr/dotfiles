@@ -16,6 +16,8 @@ openshot
 obs-studio
 via
 krita
+grapefruit
+wine
 
 pulseaudio-bluetooth
 bluez

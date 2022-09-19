@@ -11,7 +11,7 @@ util.seperator = wibox.widget.separator {
     orientation = "horizontal",
     forced_height = 2,
 	thickness = 2,
-    color = "#1c1c1c"
+    color = "#4c4c4c"
 }
 
 util.center = function(widget)
@@ -25,7 +25,14 @@ util.center = function(widget)
 end
 
 util.widget_background = function(widget, bg)
-	return wibox.container.background(wibox.container.margin(widget, 5, 5, 4, 4), bg, util.shape)
+	return wibox.container.background(wibox.container.margin({
+		layout = wibox.layout.align.horizontal,
+		expand = "none",
+		nil,
+		widget,
+		nil,
+		forced_width = 30;
+	}, 0, 0, 5, 5), bg, util.shape)
 end
 
 util.spacer = wibox.container.margin(nil, 0, 0, 15, 0)
