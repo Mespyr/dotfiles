@@ -2,8 +2,8 @@
 
 * {
     bg:      #0f0f0f;
-    fg:      #828282;
-    lac:     #828282;
+    fg:      #4c4c4c;
+    lac:     #4c4c4c;
     ac:      #262626;
 
     red:     #ac8a8c;
