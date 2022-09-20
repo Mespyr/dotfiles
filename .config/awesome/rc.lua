@@ -6,6 +6,7 @@ beautiful.init(string.format("%s/.config/awesome/theme/theme.lua", os.getenv("HO
 
 -- Signals
 require("theme.signals.volume")
+require("theme.signals.backlight")
 
 require("theme.notif")
 require("theme.client")

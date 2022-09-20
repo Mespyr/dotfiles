@@ -8,17 +8,17 @@ local beautiful = {
 	fg_normal = "#4c4c4c40"
 }
 
-local volume_icon = wibox.widget {
+local backlight_icon = wibox.widget {
     font = "Cartograph CF Nerd Font Mono 10",
     align = "center",
     valign = "center",
     widget = wibox.widget.textbox,
-	text = ""
+	text = ""
 }
 
 local progressbar = wibox.widget({
     {
-        id = "volume_progress",
+        id = "backlight_progress",
         max_value = 100,
         background_color = beautiful.bg_focus,
         color = beautiful.fg_normal,
@@ -31,29 +31,24 @@ local progressbar = wibox.widget({
     layout = wibox.container.rotate,
 })
 
-local volume_progress = progressbar.volume_progress
+local backlight_progress = progressbar.backlight_progress
 
 local update_progress = function()
-    awesome.connect_signal("signal::volume", function(volume, mute)
-        if mute then
-			volume_icon:set_markup("ﳌ")
-        else
-			volume_icon:set_markup("")
-        end
-        volume_progress:set_value(volume)
+    awesome.connect_signal("signal::backlight", function(volume)
+        backlight_progress:set_value(volume)
     end)
 end
 update_progress()
 
-awesome.connect_signal("widget::volume", function()
+awesome.connect_signal("widget::backlight", function()
     update_progress()
 end)
 
-local volume_setting = wibox.widget({
+local backlight_setting = wibox.widget({
     {
         progressbar,
         {
-            volume_icon,
+            backlight_icon,
             fg = beautiful.fg_nromal,
             widget = wibox.container.background,
         },
@@ -64,19 +59,15 @@ local volume_setting = wibox.widget({
     layout = wibox.layout.fixed.vertical,
 })
 
-volume_progress:buttons(gears.table.join(
-    awful.button({ }, 1, nil, function()
-        awful.spawn.with_shell "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-        update_progress()
-    end),
+backlight_progress:buttons(gears.table.join(
     awful.button({ }, 4, nil, function()
-        awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ +3%")
+        awful.spawn.with_shell("xbacklight -inc 3")
         update_progress()
     end),
     awful.button({ }, 5, nil, function()
-        awful.spawn.with_shell("pactl set-sink-volume @DEFAULT_SINK@ -3%")
+        awful.spawn.with_shell("xbacklight -dec 3")
         update_progress()
     end)
 ))
 
-return volume_setting
+return backlight_setting

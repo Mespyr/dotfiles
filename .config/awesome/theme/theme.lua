@@ -7,6 +7,7 @@ local util            = require("theme.util")
 local clocktext       = require("theme.widgets.clock")
 local battery         = require("theme.widgets.battery")
 local volume          = require("theme.widgets.volume")
+local backlight       = require("theme.widgets.backlight")
 local make_taglist    = require("theme.widgets.taglist")
 
 local theme = {}
@@ -19,18 +20,28 @@ theme.font         = theme.font_name .. " 6"
 theme.taglist_font = theme.font_name .. " 6"
 
 theme.bg_normal           = "#0f0f0f"
-theme.bg_focus            = "#363636"
-theme.fg_normal           = "#828282"
+theme.bg_focus            = "#262626"
+theme.fg_normal           = "#4c4c4c"
 theme.fg_focus            = theme.bg_normal
 theme.border_normal       = "#0f0f0f"
 theme.border_focus        = "#0f0f0f"
 
+-- minimal taglist
+-- theme.taglist_fg_occupied = "#363636"
+-- theme.taglist_fg_empty    = "#4c4c4c"
+-- theme.taglist_fg_focus    = "#ac8a8c"
+-- theme.taglist_bg_occupied = theme.bg_normal
+-- theme.taglist_bg_focus    = theme.bg_normal
+-- theme.taglist_bg_empty    = theme.bg_normal
+-- theme.taglist_shape       = util.shape
+
+-- blocked widget
 theme.taglist_fg_occupied = "#363636"
-theme.taglist_fg_empty    = "#1c1c1c"
-theme.taglist_fg_focus    = "#ac8a8c"
-theme.taglist_bg_occupied = theme.bg_normal
-theme.taglist_bg_focus    = theme.bg_normal
-theme.taglist_bg_empty    = theme.bg_normal
+theme.taglist_fg_empty    = "#191919"
+theme.taglist_fg_focus    = "#4c4c4c"
+theme.taglist_bg_occupied = theme.bg_focus
+theme.taglist_bg_focus    = theme.bg_focus
+theme.taglist_bg_empty    = theme.bg_focus
 theme.taglist_shape       = util.shape
 
 theme.titlebar_bg_normal  = "#0f0f0f"
@@ -98,12 +109,14 @@ theme.at_screen_connect = function(s)
 			{
 				layout = wibox.layout.fixed.vertical,
 				util.spacer,
-				util.center(s.mytaglist),
+				util.center(util.widget_background(s.mytaglist, theme.bg_focus)),
 				-- wibox.container.margin(wibox.container.background(s.mylayoutbox, "#272727", util.shape), 5, 5),
 			},
 			nil,
 			{
 				layout = wibox.layout.fixed.vertical,
+				util.center(backlight),
+				util.spacer,
 				util.center(util.widget_background(battery, theme.bg_focus)),
 				util.spacer,
 				util.center(volume),
