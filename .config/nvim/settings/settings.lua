@@ -3,7 +3,7 @@ local opt = vim.opt
 
 opt.number = true
 opt.relativenumber = true
-opt.numberwidth = 2
+opt.numberwidth = 6
 opt.cursorline = true
 opt.termguicolors = true
 opt.tabstop = 4

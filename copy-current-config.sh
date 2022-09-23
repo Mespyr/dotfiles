@@ -25,5 +25,5 @@ rm .config/BetterDiscord/plugins/ -r
 
 COPY .config/gtk-3.0/
 COPY .themes/
-COPY .fonts/
+COPY .local/share/fonts/
 rm .bak -r

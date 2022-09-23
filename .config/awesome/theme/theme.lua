@@ -13,7 +13,7 @@ local make_taglist    = require("theme.widgets.taglist")
 local theme = {}
 theme.dir       = os.getenv("HOME") .. "/.config/awesome"
 theme.icon_dir  = os.getenv("HOME") .. "/.config/awesome/theme/icons"
-theme.wallpaper = theme.dir .. "/wallpapers/wall54.jpg"
+theme.wallpaper = theme.dir .. "/wallpapers/wall56.jpg"
 
 theme.font_name    = "Cartograph CF Nerd Font"
 theme.font         = theme.font_name .. " 6"
@@ -115,9 +115,9 @@ theme.at_screen_connect = function(s)
 			nil,
 			{
 				layout = wibox.layout.fixed.vertical,
-				util.center(backlight),
-				util.spacer,
 				util.center(util.widget_background(battery, theme.bg_focus)),
+				util.spacer,
+				util.center(backlight),
 				util.spacer,
 				util.center(volume),
 				util.spacer,

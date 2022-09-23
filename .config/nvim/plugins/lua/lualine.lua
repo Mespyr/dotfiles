@@ -1,7 +1,7 @@
 local theme = require('lualine.themes.auto')
 
 local bg = "#0f0f0f"
-local fg = "#828282"
+local fg = "#4c4c4c"
 
 -- set section_c to always be bg, fg
 theme.normal.c.bg   = bg
