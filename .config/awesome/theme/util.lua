@@ -35,6 +35,16 @@ util.widget_background = function(widget, bg)
 	}, 0, 0, 5, 5), bg, util.shape)
 end
 
+util.widget_background_horizontal = function(widget, bg)
+	return wibox.container.background(wibox.container.margin({
+		layout = wibox.layout.align.horizontal,
+		expand = "none",
+		nil,
+		widget,
+		nil,
+	}, 0, 0, 5, 5), bg, util.shape)
+end
+
 util.spacer = wibox.container.margin(nil, 0, 0, 15, 0)
 
 return util

@@ -1,5 +1,6 @@
 local awful = require("awful")
 local wibox = require("wibox")
+local util  = require("theme.util")
 
 client.connect_signal("request::titlebars", function(c)
     local buttons = awful.util.table.join(
@@ -36,21 +37,28 @@ client.connect_signal("request::titlebars", function(c)
 	-- }
 
 	-- top
-    local size_margin = 12;
+    local size_margin = 2;
+    local block_margin = 8;
     awful.titlebar(c, {
-        size = 40,
+        size = 45,
         position = "top",
 	}).widget = {
 		layout = wibox.layout.align.horizontal,
 		{
 			layout = wibox.layout.fixed.horizontal,
-			wibox.container.margin(awful.titlebar.widget.closebutton     (c), 12, 0, size_margin, size_margin),
-			wibox.container.margin(awful.titlebar.widget.maximizedbutton (c), 8, 0, size_margin, size_margin),
-			wibox.container.margin(awful.titlebar.widget.minimizebutton  (c), 8, 0, size_margin, size_margin),
+			wibox.container.margin(util.widget_background_horizontal({
+				layout = wibox.layout.fixed.horizontal,
+				wibox.container.margin(awful.titlebar.widget.closebutton     (c), 10, 0, size_margin, size_margin),
+				wibox.container.margin(awful.titlebar.widget.maximizedbutton (c), 8, 0, size_margin, size_margin),
+				wibox.container.margin(awful.titlebar.widget.minimizebutton  (c), 8, 10, size_margin, size_margin),
+			}, "#262626"), block_margin, 0, block_margin, block_margin)
 		},
 		{
 			layout = wibox.layout.fixed.horizontal, buttons = buttons,
-			-- wibox.container.margin(awful.titlebar.widget.titlewidget(c), 16, 0, size_margin, size_margin),
+			wibox.container.margin(util.widget_background_horizontal(
+				wibox.container.margin(
+					awful.titlebar.widget.titlewidget(c), 8, 8, 0, 0),
+				"#262626"), block_margin, block_margin, block_margin, block_margin),
 		},
 	}
 

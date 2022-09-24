@@ -44,6 +44,7 @@ theme.taglist_bg_focus    = theme.bg_focus
 theme.taglist_bg_empty    = theme.bg_focus
 theme.taglist_shape       = util.shape
 
+theme.titlebar_font = theme.font_name .. " 6"
 theme.titlebar_bg_normal  = "#0f0f0f"
 theme.titlebar_fg_normal  = "#8f8f8f"
 theme.titlebar_bg_focus   = "#0f0f0f"
