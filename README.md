@@ -1,6 +1,4 @@
-<p align="center">
-	<b>My Epic Dotfiles</b>
-</p> 
+<h1 align="center">My Epic Dotfiles</h1>
 
 <p align="center"> 
 	<img src="https://img.shields.io/github/stars/Mespyr/dotfiles?color=e5c76b&labelColor=22292b&style=for-the-badge">

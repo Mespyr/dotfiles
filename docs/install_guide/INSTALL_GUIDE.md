@@ -56,7 +56,7 @@ arch-chroot /mnt
 
 ### Time zone
 ```
-ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+ln -sf /usr/share/zoneinfo/EST5EDT /etc/localtime
 hwlock --systohc
 ```
 
@@ -89,9 +89,9 @@ systemctl enable NetworkManager
 ### Set password and add new user
 ```
 passwd
-useradd -m achlys
-passwd achlys
-usermod -aG wheel,audio,video,storage,optical achlys
+useradd -m mespyr
+passwd mespyr
+usermod -aG wheel,audio,video,storage,optical mespyr
 ```
 
 ### Sudo
