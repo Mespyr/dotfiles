@@ -5,8 +5,6 @@ linux-firmware
 amd-ucode
 grub
 efibootmgr
-dosfstools
-mtools
 sudo
 networkmanager
 git

@@ -3,7 +3,7 @@
 ## installation
 
 ### Connect to internet
-Use `iwctl` to connect to internet.
+Use `iwctl` to connect to internet (if using internet)
 ```
 [iwd] device list
 [iwd] station <device> scan
@@ -18,14 +18,14 @@ timedatectl set-ntp true
 
 ### Partition and mount drives
 Partition drive using `cfdisk` like so:
-- EFI System: 260M
+- EFI System: 300M
 - Linux swap: 2G
 - Linux filesystem: rest of drive
 
 Format drives like so:
 ```
 mkfs.vfat /dev/<EFI_PARTITION>
-mkfs.ext4 /dev/<ROOT_PARTITION>
+mkfs.btrfs /dev/<ROOT_PARTITION>
 mkswap /dev/<SWAP_PARTITION>
 ```
 
@@ -39,7 +39,7 @@ swapon /dev/<SWAP_PARTITION>
 
 ### Pacstrap
 ```
-pacstrap /mnt base base-devel linux linux-firmware amd-ucode git neovim grub efibootmgr dosfstools mtools networkmanager sudo
+pacstrap /mnt base base-devel linux linux-firmware amd-ucode git neovim grub efibootmgr networkmanager sudo
 ```
 
 ### Generate Fstab
@@ -71,17 +71,17 @@ Make file named /etc/locale.conf and type `LANG=en_US.UTF-8`
 ### Network configuration
 Set hostname in `/etc/hostname`
 ```
-olympus
+ryzen
 ```
 
 configure `/etc/hosts`
 ```
 127.0.0.1   localhost
 ::1         localhost
-127.0.1.1   olympus.localdomain olympus
+127.0.1.1   ryzen.localdomain ryzen
 ```
 
-Install NetworkManager:
+### Enable NetworkManager:
 ```
 systemctl enable NetworkManager
 ```
@@ -111,14 +111,7 @@ Edit /etc/inputrc and uncomment line that says:
 set bell-style none
 ```
 
-### Reboot
-```
-exit
-umount /mnt
-reboot
-```
-
-## After Install
+### Install packages
 Clone the repository and copy all config files to the right places.
 Install yay using script, then install all other packages.
 Create `~/.xinitrc` and put `exec awesome`
@@ -138,3 +131,10 @@ load-module module-bluetooth-discover
 ```
 
 In /etc/bluetooth/main.conf, set ControllerMode to `bredr` to be able to pair airpods.
+
+### Reboot
+```
+exit
+umount /mnt
+reboot
+```
