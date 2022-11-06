@@ -1,6 +1,11 @@
 local awful = require("awful")
 local wibox = require("wibox")
+local gears = require("gears")
 local util  = require("theme.util")
+
+local widget_shape = function(cr, width, height)
+	gears.shape.rounded_rect(cr, width, height, 5)
+end
 
 client.connect_signal("request::titlebars", function(c)
     local buttons = awful.util.table.join(
@@ -38,9 +43,9 @@ client.connect_signal("request::titlebars", function(c)
 
 	-- top
     local size_margin = 2;
-    local block_margin = 8;
+    local block_margin = 5;
     awful.titlebar(c, {
-        size = 45,
+        size = 35,
         position = "top",
 	}).widget = {
 		layout = wibox.layout.align.horizontal,
@@ -48,17 +53,17 @@ client.connect_signal("request::titlebars", function(c)
 			layout = wibox.layout.fixed.horizontal,
 			wibox.container.margin(util.widget_background_horizontal({
 				layout = wibox.layout.fixed.horizontal,
-				wibox.container.margin(awful.titlebar.widget.closebutton     (c), 10, 0, size_margin, size_margin),
-				wibox.container.margin(awful.titlebar.widget.maximizedbutton (c), 8, 0, size_margin, size_margin),
-				wibox.container.margin(awful.titlebar.widget.minimizebutton  (c), 8, 10, size_margin, size_margin),
-			}, "#262626"), block_margin, 0, block_margin, block_margin)
+				wibox.container.margin(awful.titlebar.widget.closebutton     (c), 8, 0,  size_margin, size_margin),
+				wibox.container.margin(awful.titlebar.widget.maximizedbutton (c), 5, 0,  size_margin, size_margin),
+				wibox.container.margin(awful.titlebar.widget.minimizebutton  (c), 5, 8, size_margin, size_margin),
+			}, "#262626", widget_shape), block_margin, 0, block_margin, block_margin)
 		},
 		{
 			layout = wibox.layout.fixed.horizontal, buttons = buttons,
 			wibox.container.margin(util.widget_background_horizontal(
 				wibox.container.margin(
 					awful.titlebar.widget.titlewidget(c), 8, 8, 0, 0),
-				"#262626"), block_margin, block_margin, block_margin, block_margin),
+				"#262626", widget_shape), block_margin, block_margin, block_margin, block_margin),
 		},
 	}
 

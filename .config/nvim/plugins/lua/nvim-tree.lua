@@ -14,25 +14,25 @@ require'nvim-tree'.setup {
 	renderer = {
 		group_empty = true,
 		indent_markers = {
-			enable = true,
+			enable = false,
 		},
 		icons = {
 			show = {
 				git = false,
-				folder = true,
+				folder = false,
 				file = true,
-				folder_arrow = false,
+				folder_arrow = true,
 			}
 		}
 	},
 	diagnostics = {
 		enable = false,
-		-- icons = {
-		-- 	hint = "",
-		-- 	info = "",
-		-- 	warning = "",
-		-- 	error = "",
-		-- }
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		}
 	},
 	update_focused_file = {
 		enable     = false,
@@ -53,10 +53,9 @@ require'nvim-tree'.setup {
 		timeout = 500,
 	},
 	view = {
-		width = 30,
-		height = 25,
+		width = 40,
 		hide_root_folder = true,
-		side = 'right',
+		side = 'left',
 		mappings = {
 			custom_only = false,
 			list = {}
@@ -78,3 +77,10 @@ require'nvim-tree'.setup {
 		}
 	}
 }
+
+-- local api = require('nvim-tree.api')
+-- local event = api.events.Event
+
+-- api.events.subscribe(event.TreeOpen, function()
+-- 	vim.opt_local.fillchars="eob: ,vert:┃"
+-- end)

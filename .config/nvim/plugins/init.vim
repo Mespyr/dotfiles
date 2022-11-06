@@ -15,6 +15,9 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+	Plug 'lewis6991/gitsigns.nvim'
+	Plug 'jose-elias-alvarez/null-ls.nvim'
 call plug#end()
 
 source $HOME/.config/nvim/plugins/lua/impatient.lua
@@ -23,3 +26,5 @@ source $HOME/.config/nvim/plugins/lua/nvim-tree.lua
 source $HOME/.config/nvim/plugins/lua/dashboard.lua
 source $HOME/.config/nvim/plugins/lua/telescope.lua
 source $HOME/.config/nvim/plugins/lua/md-preview.lua
+source $HOME/.config/nvim/plugins/lua/gitsigns.lua
+source $HOME/.config/nvim/plugins/lua/null-ls.lua

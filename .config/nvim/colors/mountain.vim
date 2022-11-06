@@ -179,6 +179,7 @@ endfun
 
 " Vim editor colors
 call <sid>hi("Normal",        s:gui05, s:gui00, s:cterm05, s:cterm00, "", "")
+call <sid>hi("MsgArea",       s:gui03, s:gui02, s:cterm03, s:cterm02, "", "")
 call <sid>hi("Bold",          "", "", "", "", "bold", "")
 call <sid>hi("Debug",         s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Directory",     s:gui0D, "", s:cterm0D, "", "", "")
@@ -454,6 +455,12 @@ highlight! CmpItemKindTypeParameter guibg=#8aabac
 " NvimTree
 highlight! NvimTreeNormal guibg=#191919
 highlight! NvimTreeIndentMarker guifg=#4c4c4c
+
+" Errors
+highlight! DiagnosticError guifg=#c49ea0
+highlight! DiagnosticVirtualTextError guifg=#c49ea0 guibg=#2F2A2A
+highlight! DiagnosticWarn guifg=#c6a679
+highlight! DiagnosticVirtualTextWarn guifg=#c6a679 guibg=#453D31
 
 " Remove functions
 delf <sid>hi

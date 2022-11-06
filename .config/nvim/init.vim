@@ -13,5 +13,8 @@ source $HOME/.config/nvim/lazyload/init.lua
 autocmd BufRead,BufNewFile *.ach  setlocal syntax=ruby   tabstop=2
 autocmd BufRead,BufNewFile *.lcp  setlocal syntax=python tabstop=2
 autocmd BufRead,BufNewFile *.html setlocal tabstop=2
+autocmd BufRead,BufNewFile *.py   setlocal expandtab!
 " autocmd BufLeave           *.ach set tabstop=4
 " autocmd Filetype ach setlocal tabstop=2
+
+set fillchars=eob:\ " space at end

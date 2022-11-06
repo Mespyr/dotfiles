@@ -8,15 +8,14 @@ window {
     background-color: @bg;
     border-radius:    0px;
     padding:          2px;
-    width:            400px;
-
-    x-offset:         70px;
+    width:            250px;
+    x-offset:         60px;
 }
 
 mainbox {
     border:       0px;
     border-color: @ac;
-    padding:      6px;
+    padding:      0px;
 }
 
 listview {
@@ -32,7 +31,7 @@ listview {
 
 prompt {
 	background-color: @ac;
-	padding: 8px;
+	padding: 4px;
 	border-radius: 4px;
     spacing:    0;
     border:     0;
@@ -44,13 +43,13 @@ entry {
     text-color:        @fg;
     placeholder:       "search";
     placeholder-color: @ac;
-	margin: 8px;
+	margin: 4px;
 }
 
 inputbar {
     spacing:    0px;
     text-color: @fg;
-    padding:    10px;
+    padding:    8px 0px 0px 8px;
     children:   [ prompt,entry ];
 }
 
@@ -61,8 +60,8 @@ element-text, element-icon {
 element {
     border:        0px;
     border-radius: 4px;
-    padding:       14px;
-    margin:        6px;
+    padding:       8px;
+    margin:        5px;
 }
 element normal.normal {
     background-color: @bg;

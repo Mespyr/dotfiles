@@ -13,11 +13,12 @@ local make_taglist    = require("theme.widgets.taglist")
 local theme = {}
 theme.dir       = os.getenv("HOME") .. "/.config/awesome"
 theme.icon_dir  = os.getenv("HOME") .. "/.config/awesome/theme/icons"
-theme.wallpaper = theme.dir .. "/wallpapers/wall56.jpg"
+theme.wallpaper = theme.dir .. "/wallpapers/wall58.jpg"
 
-theme.font_name    = "Cartograph CF Nerd Font"
-theme.font         = theme.font_name .. " 6"
-theme.taglist_font = theme.font_name .. " 6"
+theme.font_name     = "Cartograph CF Nerd Font"
+theme.font          = theme.font_name .. " 9"
+theme.taglist_font  = theme.font_name .. " 9"
+theme.titlebar_font = theme.font_name .. " 9"
 
 theme.bg_normal           = "#0f0f0f"
 theme.bg_focus            = "#262626"
@@ -44,7 +45,6 @@ theme.taglist_bg_focus    = theme.bg_focus
 theme.taglist_bg_empty    = theme.bg_focus
 theme.taglist_shape       = util.shape
 
-theme.titlebar_font = theme.font_name .. " 6"
 theme.titlebar_bg_normal  = "#0f0f0f"
 theme.titlebar_fg_normal  = "#8f8f8f"
 theme.titlebar_bg_focus   = "#0f0f0f"
@@ -52,7 +52,7 @@ theme.titlebar_fg_focus   = "#8f8f8f"
 
 theme.useless_gap  = 8
 theme.border_width = 0
-theme.panel_size   = 45
+theme.panel_size   = 35
 theme.notification_icon_size = 100
 theme.notification_shape = util.shape
 
@@ -93,16 +93,16 @@ theme.at_screen_connect = function(s)
     gears.wallpaper.maximized(theme.wallpaper, s, true)
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
-    s.mytaglist   = make_taglist(s)
+    s.mytaglist = make_taglist(s)
 
     s.mywibox = awful.wibar {
         screen = s,
 		position = "left",
         width = theme.panel_size,
-		height = 600,
+		height = 400,
 		shape = util.shape,
 		margins = {
-			left = 10
+			left = 10,
 		},
 		widget = {
 			layout = wibox.layout.align.vertical,

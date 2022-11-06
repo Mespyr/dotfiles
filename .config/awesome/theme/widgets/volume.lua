@@ -9,7 +9,7 @@ local beautiful = {
 }
 
 local volume_icon = wibox.widget {
-    font = "Cartograph CF Nerd Font Mono 10",
+    font = "Cartograph CF Nerd Font Mono 14",
     align = "center",
     valign = "center",
     widget = wibox.widget.textbox,
@@ -24,7 +24,7 @@ local progressbar = wibox.widget({
         color = beautiful.fg_normal,
         widget = wibox.widget.progressbar,
 		shape = function(cr, width, height)
-			gears.shape.rounded_rect(cr, width, height, 8)
+			gears.shape.rounded_rect(cr, width, height, 5)
 		end
     },
     direction = "east",
@@ -59,8 +59,8 @@ local volume_setting = wibox.widget({
         },
         layout = wibox.layout.stack,
     },
-    forced_height = 100,
-    forced_width = 30,
+    forced_height = 70,
+    forced_width = 25,
     layout = wibox.layout.fixed.vertical,
 })
 

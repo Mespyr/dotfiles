@@ -3,7 +3,7 @@ local opt = vim.opt
 
 opt.number = true
 opt.relativenumber = true
-opt.numberwidth = 6
+opt.numberwidth = 4
 opt.cursorline = true
 opt.termguicolors = true
 opt.tabstop = 4
@@ -24,11 +24,11 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-opt.fillchars = 'vert: '
 opt.mouse = "a"
 opt.hidden = true
 opt.updatetime = 300
 opt.redrawtime = 10000
+opt.cmdheight = 0
 
 opt.listchars:append("tab:▏ ")
 opt.listchars:append("space:·")
