@@ -7,7 +7,7 @@ local function run_once(cmd_arr)
 end
 
 run_once({
-    "picom --experimental-backends",
+    "picom",
     "setxkbmap -option ctrl:nocaps",
     "xset -b",
 })

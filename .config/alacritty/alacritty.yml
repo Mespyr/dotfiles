@@ -2,7 +2,7 @@
 window:
   padding:
     x: 15
-    y: 5
+    y: 10
   dynamic_padding: false
   dynamic_title: true
 font:
@@ -15,7 +15,7 @@ font:
   bold:
     family: Cartograph CF Nerd Font
     style: Bold
-  size: 9
+  size: 10
   offset:
     x: 0
     y: 0
@@ -40,29 +40,45 @@ logging: true
 # COLORS
 draw_bold_text_with_bright_colors: true
 
+base16_colors:
+  base00: &base00 "#161616"
+  base01: &base01 "#262626"
+  base02: &base02 "#393939"
+  base03: &base03 "#525252"
+  base04: &base04 "#dde1e6"
+  base05: &base05 "#f2f4f8"
+  base06: &base06 "#ffffff"
+  base07: &base07 "#08bdba"
+  base08: &base08 "#3ddbd9"
+  base09: &base09 "#78a9ff"
+  base0A: &base0A "#ee5396"
+  base0B: &base0B "#33b1ff"
+  base0C: &base0C "#ff7eb6"
+  base0D: &base0D "#42be65"
+  base0E: &base0E "#be95ff"
+  base0F: &base0F "#82cfff"
+
 colors:
   primary:
-    background: '0x0f0f0f'
-    foreground: '0xf0f0f0'
+    background: *base00
+    foreground: *base06
 
   normal:
-    black:   '0x262626'
-    red:     '0xac8a8c'
-    green:   '0x8aac8b'
-    yellow:  '0xaca98a'
-    blue:    '0x8f8aac'
-    magenta: '0xac8aac'
-    cyan:    '0x8aabac'
-    white:   '0xe7e7e7'
-    orange:  '0xc6a679' #Here for reference
+    black:   *base00
+    red:     *base0B
+    green:   *base0C
+    yellow:  *base0D
+    blue:    *base07
+    magenta: *base0E
+    cyan:    *base09
+    white:   *base04
 
   bright:
-    black:   '0x4c4c4c'
-    red:     '0xc49ea0'
-    green:   '0x9ec49f'
-    yellow:  '0xc4c19e'
-    blue:    '0xa39ec4'
-    magenta: '0xc49ec4'
-    cyan:    '0x9ec3c4'
-    white:   '0xf5f5f5'
-    orange:  '0xceb188' #Here for reference
+    black:   *base03
+    red:     *base0B
+    green:   *base0C
+    yellow:  *base0D
+    blue:    *base08
+    magenta: *base0F
+    cyan:    *base09
+    white:   *base06

@@ -5,7 +5,7 @@ require'nvim-tree'.setup {
 	ignore_ft_on_setup = {},
 	auto_reload_on_write = true,
 	open_on_tab        = false,
-	hijack_cursor      = false,
+	hijack_cursor      = true,
 	update_cwd         = false,
 	hijack_directories = {
 		enable = true,
@@ -18,10 +18,10 @@ require'nvim-tree'.setup {
 		},
 		icons = {
 			show = {
-				git = false,
-				folder = false,
+				git = true,
+				folder = true,
 				file = true,
-				folder_arrow = true,
+				folder_arrow = false,
 			}
 		}
 	},

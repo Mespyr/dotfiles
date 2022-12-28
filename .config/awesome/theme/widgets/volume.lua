@@ -2,10 +2,11 @@ local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
 
-local beautiful = {
-	bg_normal = "#0f0f0f",
-	bg_focus  = "#262626",
-	fg_normal = "#4c4c4c40"
+local theme = {
+	bg = "#262626",
+	fg = "#ff7eb690",
+	bg_focus = "#393939"
+
 }
 
 local volume_icon = wibox.widget {
@@ -20,15 +21,12 @@ local progressbar = wibox.widget({
     {
         id = "volume_progress",
         max_value = 100,
-        background_color = beautiful.bg_focus,
-        color = beautiful.fg_normal,
+        background_color = theme.bg,
+        color = theme.bg_focus,
         widget = wibox.widget.progressbar,
-		shape = function(cr, width, height)
-			gears.shape.rounded_rect(cr, width, height, 5)
-		end
     },
     direction = "east",
-    layout = wibox.container.rotate,
+    layout = wibox.layout.fixed.horizontal,
 })
 
 local volume_progress = progressbar.volume_progress
@@ -54,14 +52,14 @@ local volume_setting = wibox.widget({
         progressbar,
         {
             volume_icon,
-            fg = beautiful.fg_nromal,
+            fg = theme.fg,
             widget = wibox.container.background,
         },
         layout = wibox.layout.stack,
     },
-    forced_height = 70,
-    forced_width = 25,
-    layout = wibox.layout.fixed.vertical,
+    -- forced_height = 20,
+    forced_width = 100,
+    layout = wibox.layout.fixed.horizontal,
 })
 
 volume_progress:buttons(gears.table.join(

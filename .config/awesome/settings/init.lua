@@ -6,10 +6,11 @@ awful.util.terminal = "alacritty"
 -- awful.util.tagnames = { "ﰉ", "ﰉ", "ﰉ", "ﰉ", "ﰉ", "ﰉ" }
 -- awful.util.tagnames = { "●", "●", "●", "●", "●", "●" }
 -- awful.util.tagnames = { "⯁", "⯁", "⯁", "⯁", "⯁", "⯁" }
-awful.util.tagnames = { "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ" }
+-- awful.util.tagnames = { "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ", "ﱣ" }
 -- awful.util.tagnames = { "", "", "", "", "", "" }
 -- awful.util.tagnames = { "a", "b", "c", "d", "e", "f" }
 -- awful.util.tagnames = { "", "", "", "", "", "" }
+awful.util.tagnames = { " [dev]", "[www]", "[chat]", "[games]", "[sys]", "[obs] "}
 awful.layout.append_default_layouts {
     awful.layout.suit.tile,
     awful.layout.suit.floating,

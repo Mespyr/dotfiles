@@ -8,7 +8,6 @@ return function(s)
         screen = s,
         layout = wibox.layout.fixed.vertical,
         style = {
-            shape_selected = util.shape,
             spacing = 4,
             bg_selected = theme.bg_focus
         }

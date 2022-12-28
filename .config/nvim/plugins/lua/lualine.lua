@@ -1,7 +1,7 @@
 local theme = require('lualine.themes.auto')
 
-local bg = "#0f0f0f"
-local fg = "#4c4c4c"
+local bg = "#161616"
+local fg = "#dde1e6"
 
 -- set section_c to always be bg, fg
 theme.normal.c.bg   = bg
@@ -16,7 +16,7 @@ theme.inactive.c.bg = bg
 theme.inactive.c.fg = fg
 
 -- mode colors
-bg = "#262626"
+bg = "#393939"
 theme.normal.a.bg  = bg
 theme.insert.a.bg  = bg
 theme.visual.a.bg  = bg
@@ -27,7 +27,7 @@ theme.insert.a.fg  = fg
 theme.command.a.fg = fg
 
 -- filename colors
-bg = "#191919"
+bg = "#262626"
 theme.normal.b.bg  = bg
 theme.insert.b.bg  = bg
 theme.visual.b.bg  = bg
@@ -45,7 +45,7 @@ require'lualine'.setup {
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {"dashboard", "NvimTree"},
-    always_divide_middle = true,
+	always_divide_middle = true,
   },
   sections = {
     lualine_a = {'mode'},

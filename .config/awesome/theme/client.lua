@@ -1,8 +1,6 @@
 local awful = require("awful")
-local shape = require("theme.util").shape
 
 client.connect_signal("manage", function(c)
-    c.shape = shape
 
     if not awesome.startup then
         awful.client.setslave(c)

@@ -29,7 +29,6 @@ opt.hidden = true
 opt.updatetime = 300
 opt.redrawtime = 10000
 opt.cmdheight = 0
-
 opt.listchars:append("tab:▏ ")
 opt.listchars:append("space:·")
 

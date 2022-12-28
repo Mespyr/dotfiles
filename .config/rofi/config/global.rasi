@@ -7,9 +7,9 @@ window {
     border-color:     @ac;
     background-color: @bg;
     border-radius:    0px;
-    padding:          2px;
-    width:            250px;
-    x-offset:         60px;
+    padding:          5px;
+    width:            350px;
+	y-offset: 30px;
 }
 
 mainbox {
@@ -20,13 +20,12 @@ mainbox {
 
 listview {
     columns:      1;
-    fixed-height: 0;
     border:       0px;
     border-color: @ac;
     spacing:      2px;
     scrollbar:    false;
     cycle:        false;
-    padding:      2px 2px 0px 2px;
+    padding:      2px 2px 0px 10px;
 }
 
 prompt {
@@ -60,7 +59,7 @@ element-text, element-icon {
 element {
     border:        0px;
     border-radius: 4px;
-    padding:       8px;
+    padding:       12px;
     margin:        5px;
 }
 element normal.normal {

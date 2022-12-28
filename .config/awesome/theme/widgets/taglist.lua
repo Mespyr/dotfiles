@@ -7,7 +7,7 @@ return function(s)
 		filter = awful.widget.taglist.filter.all,
 		buttons = awful.util.taglist_buttons,
 		layout = {
-			layout = wibox.layout.fixed.vertical,
+			layout = wibox.layout.fixed.horizontal,
 			spacing = 0,
 		},
 	}
