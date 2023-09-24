@@ -19,10 +19,6 @@ COPY .config/picom.conf
 COPY .config/nvim/
 COPY .config/neofetch/
 
-COPY .config/BetterDiscord/
-rm .config/BetterDiscord/data/ -r
-rm .config/BetterDiscord/plugins/ -r
-
 COPY .config/gtk-3.0/
 COPY .themes/
 COPY .local/share/fonts/

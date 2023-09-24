@@ -1,6 +1,6 @@
-PREFIX = /usr
+PREFIX = .local
 DESTDIR ?=
-INSTALL_DIR ?= $(DESTDIR)$(PREFIX)/share/themes/phocus
+INSTALL_DIR ?= $(DESTDIR)$(PREFIX)/share/themes/mountain
 
 all:
 	npm install && npm run build

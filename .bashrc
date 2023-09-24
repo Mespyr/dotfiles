@@ -41,3 +41,9 @@ alias py="python"
 alias open="xdg-open"
 # other
 shopt -s autocd
+# emsdk
+export PATH=/usr/lib/emsdk:$PATH
+export PATH=/usr/lib/emsdk/upstream/emscripten:$PATH
+export PATH=/usr/lib/emsdk/node/14.18.2_64bit/bin:$PATH
+export EMSDK=/usr/lib/emsdk
+export EMSDK_NODE=/usr/lib/emsdk/node/14.18.2_64bit/bin/node

@@ -1,13 +1,13 @@
 # GENERAL SETTINGS
 window:
   padding:
-    x: 15
-    y: 10
+    x: 20
+    y: 15
   dynamic_padding: false
   dynamic_title: true
 font:
   normal:
-    family: Cartograph CF Nerd Font Mono
+    family: Cartograph CF Nerd Font
     style: Normal
   italic:
     family: Cartograph CF Nerd Font
@@ -40,45 +40,31 @@ logging: true
 # COLORS
 draw_bold_text_with_bright_colors: true
 
-base16_colors:
-  base00: &base00 "#161616"
-  base01: &base01 "#262626"
-  base02: &base02 "#393939"
-  base03: &base03 "#525252"
-  base04: &base04 "#dde1e6"
-  base05: &base05 "#f2f4f8"
-  base06: &base06 "#ffffff"
-  base07: &base07 "#08bdba"
-  base08: &base08 "#3ddbd9"
-  base09: &base09 "#78a9ff"
-  base0A: &base0A "#ee5396"
-  base0B: &base0B "#33b1ff"
-  base0C: &base0C "#ff7eb6"
-  base0D: &base0D "#42be65"
-  base0E: &base0E "#be95ff"
-  base0F: &base0F "#82cfff"
-
 colors:
+  name: Tomorrow (dark)
+  author: Chris Kempson
   primary:
-    background: *base00
-    foreground: *base06
-
+    background: "#1d1f21"
+    foreground: "#c5c8c6"
+  cursor:
+    text: "#1d1f21"
+    cursor: "#c5c8c6"
   normal:
-    black:   *base00
-    red:     *base0B
-    green:   *base0C
-    yellow:  *base0D
-    blue:    *base07
-    magenta: *base0E
-    cyan:    *base09
-    white:   *base04
-
+    black: "#1d1f21"
+    red: "#cc6666"
+    green: "#b5bd68"
+    yellow: "#f0c674"
+    blue: "#81a2be"
+    magenta: "#b294bb"
+    cyan: "#8abeb7"
+    white: "#c5c8c6"
   bright:
-    black:   *base03
-    red:     *base0B
-    green:   *base0C
-    yellow:  *base0D
-    blue:    *base08
-    magenta: *base0F
-    cyan:    *base09
-    white:   *base06
+    black: "#969896"
+    red: "#cc6666"
+    green: "#b5bd68"
+    yellow: "#f0c674"
+    blue: "#81a2be"
+    magenta: "#b294bb"
+    cyan: "#8abeb7"
+    white: "#ffffff"
+theme: Tomorrow.dark
