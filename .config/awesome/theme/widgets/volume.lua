@@ -3,14 +3,14 @@ local awful = require("awful")
 local wibox = require("wibox")
 
 local theme = {
-	bg = "#262626",
-	fg = "#ff7eb690",
-	bg_focus = "#393939"
+	bg = "#3c3e3e50",
+	fg = "#cc666690",
+	bg_focus = "#3c3e3e90"
 
 }
 
 local volume_icon = wibox.widget {
-    font = "Cartograph CF Nerd Font Mono 14",
+    font = "Cartograph CF Nerd Font Mono 13",
     align = "center",
     valign = "center",
     widget = wibox.widget.textbox,

@@ -27,14 +27,14 @@ lspconfig.pyright.setup{
 -- html
 local capabilities_html = vim.lsp.protocol.make_client_capabilities()
 capabilities_html.textDocument.completion.completionItem.snippetSupport = true
-require'lspconfig'.html.setup {
+lspconfig.html.setup {
   capabilities = capabilities_html,
 }
 
 -- css
 local capabilities_css = vim.lsp.protocol.make_client_capabilities()
 capabilities_css.textDocument.completion.completionItem.snippetSupport = true
-require'lspconfig'.cssls.setup {
+lspconfig.cssls.setup {
   capabilities = capabilities_css,
 }
 

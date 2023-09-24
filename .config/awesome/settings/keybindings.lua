@@ -8,6 +8,7 @@ local altkey = "Mod1"
 -- Keybindings
 local globalkeys = mytable.join(
     awful.key({ modkey,           }, "Return", function () awful.spawn(awful.util.terminal) end, {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "w",      function () awful.spawn("emacs") end, {description = "open emacs client", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey }, "t", function ()

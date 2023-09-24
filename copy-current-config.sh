@@ -22,4 +22,6 @@ COPY .config/neofetch/
 COPY .config/gtk-3.0/
 COPY .themes/
 COPY .local/share/fonts/
+
+COPY .emacs.d/init.el
 rm .bak -r

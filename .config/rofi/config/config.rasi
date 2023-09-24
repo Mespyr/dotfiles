@@ -3,11 +3,11 @@
 configuration {
 	modi: [run,drun];
     font:                    "Cartograph CF Nerd Font 10";
-    fixed-num-lines:         false;
+    fixed-num-lines:         true;
     show-icons:              false;
     sidebar-mode:            false;
     scroll-method:           0;
     click-to-exit:           true;
-    combi-hide-mode-prefix:  false;
+    combi-hide-mode-prefix:  true;
 	location:                1;
 }

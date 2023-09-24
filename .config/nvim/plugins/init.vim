@@ -20,6 +20,7 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'jose-elias-alvarez/null-ls.nvim'
 	Plug 'nyoom-engineering/oxocarbon.nvim'
 	Plug 'nvim-lualine/lualine.nvim'
+	Plug 'andweeb/presence.nvim'
 call plug#end()
 
 source $HOME/.config/nvim/plugins/lua/impatient.lua
@@ -30,3 +31,4 @@ source $HOME/.config/nvim/plugins/lua/md-preview.lua
 source $HOME/.config/nvim/plugins/lua/gitsigns.lua
 source $HOME/.config/nvim/plugins/lua/null-ls.lua
 source $HOME/.config/nvim/plugins/lua/lualine.lua
+source $HOME/.config/nvim/plugins/lua/presence.lua

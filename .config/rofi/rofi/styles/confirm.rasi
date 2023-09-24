@@ -1,2 +1,0 @@
-@import "~/.config/rofi/config/global.rasi"
-listview {lines: 2;}
