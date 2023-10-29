@@ -7,20 +7,9 @@ local naughty = require("naughty")
 -- configuration for clients (windows)
 require("theme.client")
 
-local util            = require("theme.util")
-local clockdate            = require("theme.widgets.clockdate")
-local volume          = require("theme.widgets.volume")
-local make_taglist    = require("theme.widgets.taglist")
-
 local theme = {}
 theme.dir       = os.getenv("HOME") .. "/.config/awesome"
-theme.icon_dir  = os.getenv("HOME") .. "/.config/awesome/theme/icons"
 theme.wallpaper = theme.dir .. "/wallpapers/wall69.jpg"
-
-theme.font_name     = "Cartograph CF Nerd Font"
-theme.font          = theme.font_name .. " 8"
-theme.taglist_font  = theme.font_name .. " 8"
-theme.titlebar_font = theme.font_name .. " 9"
 
 theme.bg_normal           = "#1d1f21"
 theme.bg_focus            = "#1d1f21"
@@ -37,9 +26,8 @@ theme.taglist_bg_empty    = theme.bg_focus
 theme.titlebar_bg_normal  = "#1d1f21"
 theme.titlebar_bg_focus   = "#3c3e3e"
 
-theme.useless_gap  = 8
+theme.useless_gap  = 6
 theme.border_width = 0
-theme.panel_size   = 36
 theme.notification_icon_size = 100
 
 -- Notifications
@@ -65,39 +53,6 @@ theme.at_screen_connect = function(s)
 		},
 	}
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
-
-    --s.mytaglist = make_taglist(s)
-	--s.mytasklist = make_tasklist(s)
-
-    --s.mywibox = awful.wibar {
-    --    screen = s,
-	--	position = "bottom",
-    --    height = theme.panel_size,
-	--	width = 600,
-	--	shape = util.shape,
-	--	margins = {
-	--		bottom = 10,
-	--	},
-	--	widget = {
-	--		layout = wibox.layout.align.horizontal,
-	--		expand = "none",
-	--		{
-	--			layout = wibox.layout.fixed.horizontal,
-	--			util.spacer,
-	--			wibox.container.margin(util.rounded(s.mytaglist), 0, 0, 5, 5),
-	--			util.spacer,
-	--			wibox.container.margin(util.rounded(clockdate), 0, 0, 5, 5),
-	--			util.spacer,
-	--			wibox.container.margin(util.rounded(volume), 0, 0, 5, 5),
-	--			--util.spacer,
-	--			--wibox.container.margin(util.rounded(s.mytasklist), 0, 0, 5, 5),
-	--		},
-	--		nil,
-	--		{
-	--			layout = wibox.layout.fixed.horizontal,
-	--		},
-	--	}
-	--}
 end
 
 return theme

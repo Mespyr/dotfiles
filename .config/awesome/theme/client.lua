@@ -24,7 +24,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
 	)
 
-	local border_width = 5;
+	local border_width = 4;
     awful.titlebar(c, {
         size = border_width, position = "left",
 		widget = {layout = wibox.layout.align.horizontal, buttons = buttons}

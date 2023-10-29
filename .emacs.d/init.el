@@ -23,7 +23,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(folding highlight-indent-guides window-end-visible lsp-icons tree-sitter-langs tree-sitter company-box company company-mode lsp-ui c++-mode counsel ivy-rich all-the-icons lsp-mode projectile evil doom-themes doom-modeline ivy use-package)))
+   '(centaur-tabs folding highlight-indent-guides window-end-visible lsp-icons tree-sitter-langs tree-sitter company-box company company-mode lsp-ui c++-mode counsel ivy-rich all-the-icons lsp-mode projectile evil doom-themes doom-modeline ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,7 +50,7 @@
 
 
 ;; *===============* THEME/UI *===================================*
-(set-face-attribute 'default nil :font "Cartograph CF Nerd Font Mono" :height 105)
+(set-face-attribute 'default nil :font "Cartograph CF Nerd Font Mono" :height 110)
 (column-number-mode)
 (global-display-line-numbers-mode t)
 (scroll-bar-mode -1)
