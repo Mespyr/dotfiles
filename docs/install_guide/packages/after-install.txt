@@ -10,7 +10,6 @@ discord
 minecraft-launcher
 steam
 musescore
-rofi
 mpv
 openshot
 obs-studio
@@ -18,6 +17,7 @@ via
 krita
 grapefruit
 wine
+emacs
 
 pulseaudio-bluetooth
 bluez
@@ -26,9 +26,7 @@ blueberry
 pavucontrol
 gtk3-nocsd-git
 
-nasm
 fasm
-npm
 clang
 
 noto-fonts-emoji
