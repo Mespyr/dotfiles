@@ -25,7 +25,6 @@ bluez-utils
 blueberry
 pavucontrol
 gtk3-nocsd-git
-qogir-icon-theme
 
 nasm
 fasm
@@ -37,6 +36,5 @@ noto-fonts
 ttf-symbola
 
 bash-completion
-acpilight
 i3lock
 scrot
