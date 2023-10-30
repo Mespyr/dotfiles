@@ -6,7 +6,7 @@ static const unsigned int snap      = 0;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 6;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 8;        /* vertical padding for statusbar */
+static const int vertpadbar         = 10;        /* vertical padding for statusbar */
 static const char *fonts[]          = { "Cartograph CF Nerd Font:size=10" };
 static const char dmenufont[]       = "Cartograph CF Nerd Font:size=10";
 static const char col1[]       = "#1d1f21";
@@ -22,6 +22,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"xrandr", "--output", "DisplayPort-0", "--off", "--output", "DisplayPort-1", "--off", "--output", "DisplayPort-2", "--primary", "--mode", "2560x1440", "--pos", "1080x240", "--rotate", "normal", "--output", "HDMI-A-0", "--mode", "1920x1080", "--pos", "0x0", "--rotate", "left", NULL,
+	"feh", "--bg-fill", "~/.config/WALLPAPER.jpg", NULL,
 	"picom", NULL,
 	"setxkbmap", "-option", "ctrl:nocaps", NULL,
 	"xset", "-b", NULL,
