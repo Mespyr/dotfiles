@@ -7,7 +7,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 static const int horizpadbar        = 4;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 12;        /* vertical padding for statusbar */
+static const int vertpadbar         = 16;        /* vertical padding for statusbar */
 static const char *fonts[]          = { "Iosevka Nerd Font Mono:size=10" };
 static const char dmenufont[]       = "Iosevka Nerd Font Mono:size=10";
 static const char col1[]       = "#1d1f21";
