@@ -5,10 +5,11 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 0;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int horizpadbar        = 6;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 10;        /* vertical padding for statusbar */
-static const char *fonts[]          = { "Cartograph CF Nerd Font:size=10" };
-static const char dmenufont[]       = "Cartograph CF Nerd Font:size=10";
+static const int focusonwheel       = 0;
+static const int horizpadbar        = 4;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 12;        /* vertical padding for statusbar */
+static const char *fonts[]          = { "Iosevka Nerd Font Mono:size=10" };
+static const char dmenufont[]       = "Iosevka Nerd Font Mono:size=10";
 static const char col1[]       = "#1d1f21";
 static const char col2[]       = "#969896";
 static const char col3[]       = "#c5c8c6";
@@ -22,15 +23,16 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"xrandr", "--output", "DisplayPort-0", "--off", "--output", "DisplayPort-1", "--off", "--output", "DisplayPort-2", "--primary", "--mode", "2560x1440", "--pos", "1080x240", "--rotate", "normal", "--output", "HDMI-A-0", "--mode", "1920x1080", "--pos", "0x0", "--rotate", "left", NULL,
-	"feh", "--bg-fill", "~/.config/WALLPAPER.jpg", NULL,
 	"picom", NULL,
+	"feh", "--bg-fill", "/home/mespyr/.config/WALLPAPER.jpg", NULL,
 	"setxkbmap", "-option", "ctrl:nocaps", NULL,
 	"xset", "-b", NULL,
 	NULL /* terminate */
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "" };
+static const char *tags[] = { "cmd", "www", "steam", "chat", "obs" };
+static const char *alttags[] = { "*cmd", "*www", "*steam", "*chat", "*obs" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,7 +40,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Steam",     NULL,       NULL,       0,            1,           -1 },
+	{ "steam",     NULL,       NULL,       1 << 2,          1,           0 },
 };
 
 /* layout(s) */
@@ -68,11 +70,15 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col1, "-nf", col3, "-sb", col5, "-sf", col4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *editorcmd[]  = { "emacs", NULL };
+
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY, XK_p,      spawn, {.v = dmenucmd } },
+	{ MODKEY, XK_Return, spawn, {.v = termcmd } },
+	{ MODKEY, XK_w,      spawn, {.v = editorcmd } },
+
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -80,9 +86,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -98,6 +104,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
+	TAGKEYS(                        XK_5,                      4)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 

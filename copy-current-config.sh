@@ -15,9 +15,7 @@ COPY .profile
 COPY .xinitrc
 COPY .config/picom.conf
 COPY .config/neofetch/
-
 COPY .config/gtk-3.0/
-COPY .local/share/fonts/
-
 COPY .emacs.d/init.el
+
 rm .bak -r

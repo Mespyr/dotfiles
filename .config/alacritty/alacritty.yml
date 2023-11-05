@@ -7,15 +7,15 @@ window:
   dynamic_title: true
 font:
   normal:
-    family: Cartograph CF Nerd Font
+    family: Iosevka Nerd Font Mono
     style: Normal
   italic:
-    family: Cartograph CF Nerd Font
+    family: Iosevka Nerd Font Mono
     style: Italic
   bold:
-    family: Cartograph CF Nerd Font
+    family: Iosevka Nerd Font Mono
     style: Bold
-  size: 9
+  size: 10
   offset:
     x: 0
     y: 0

@@ -50,7 +50,7 @@
 
 
 ;; *===============* THEME/UI *===================================*
-(set-face-attribute 'default nil :font "Cartograph CF Nerd Font Mono" :height 110)
+(set-face-attribute 'default nil :font "Iosevka Nerd Font Mono" :height 110)
 (column-number-mode)
 (global-display-line-numbers-mode t)
 (scroll-bar-mode -1)

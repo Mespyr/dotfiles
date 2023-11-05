@@ -1,1 +1,1 @@
-exec awesome
+exec dwm
