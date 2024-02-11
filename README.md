@@ -10,12 +10,12 @@
 </br>
 
 My semi-decent linux configs for my computer.
-- Window Manager: AwesomeWM
+- Window Manager: DWM
 - Terminal: Alacritty
 - Text Editor: Emacs
 
 ### Install Guide
 
-Copy the `.config`, `.themes`, and `.local` folders into your home directory.
+Build and install `dwm` and `dmenu`.
+Copy all the config files.
 Run `fc-cache` to update all your fonts.
-Also copy `.bashrc`, `.xinitrc`, and `.profile` into your home directory.
