@@ -22,8 +22,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("89d9dc6f4e9a024737fb8840259c5dd0a140fd440f5ed17b596be43a05d62e67" "8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a" "dc8285f7f4d86c0aebf1ea4b448842a6868553eded6f71d1de52f3dcbc960039" "631c52620e2953e744f2b56d102eae503017047fb43d65ce028e88ef5846ea3b" "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69" "da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738" "c517e98fa036a0c21af481aadd2bdd6f44495be3d4ac2ce9d69201fcb2578533" "bf948e3f55a8cd1f420373410911d0a50be5a04a8886cabe8d8e471ad8fdba8e" "dccf4a8f1aaf5f24d2ab63af1aa75fd9d535c83377f8e26380162e888be0c6a9" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" default))
  '(package-selected-packages
-   '(centaur-tabs folding highlight-indent-guides window-end-visible lsp-icons tree-sitter-langs tree-sitter company-box company company-mode lsp-ui c++-mode counsel ivy-rich all-the-icons lsp-mode projectile evil doom-themes doom-modeline ivy use-package)))
+   '(all-the-icons-nerd-fonts folding highlight-indent-guides window-end-visible lsp-icons tree-sitter-langs tree-sitter company-box company company-mode lsp-ui c++-mode counsel ivy-rich all-the-icons lsp-mode projectile evil doom-themes doom-modeline ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,7 +52,7 @@
 
 
 ;; *===============* THEME/UI *===================================*
-(set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 110)
+(set-face-attribute 'default nil :font "Iosevka NF" :height 110)
 (column-number-mode)
 (global-display-line-numbers-mode t)
 (scroll-bar-mode -1)

@@ -1,0 +1,80 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#969896"
+blue = "#81a2be"
+cyan = "#8abeb7"
+green = "#b5bd68"
+magenta = "#b294bb"
+red = "#cc6666"
+white = "#ffffff"
+yellow = "#f0c674"
+
+[colors.cursor]
+cursor = "#c5c8c6"
+text = "#1d1f21"
+
+[colors.normal]
+black = "#1d1f21"
+blue = "#81a2be"
+cyan = "#8abeb7"
+green = "#b5bd68"
+magenta = "#b294bb"
+red = "#cc6666"
+white = "#c5c8c6"
+yellow = "#f0c674"
+
+[colors.primary]
+background = "#1d1f21"
+foreground = "#c5c8c6"
+
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+shape = "Block"
+
+[debug]
+persistent_logging = true
+
+[font]
+size = 10
+
+[font.bold]
+family = "Iosevka NFM"
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "Iosevka NFM"
+style = "Italic"
+
+[font.normal]
+family = "Iosevka NFM"
+style = "Normal"
+
+[font.offset]
+x = 0
+y = 0
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 5000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[window]
+dynamic_padding = false
+dynamic_title = true
+
+[window.padding]
+x = 15
+y = 10

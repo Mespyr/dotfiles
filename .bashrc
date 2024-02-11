@@ -33,9 +33,11 @@ alias img="\mpv --loop=inf --pause"
 alias dio="gio tree"
 alias rickroll="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 # options for commands
-alias ls="ls -A --color=yes --group-directories-first"
+alias ls="ls --color=yes --group-directories-first"
+alias la="ls -A --color=yes --group-directories-first"
 alias rm="rm -Ir"
 # shorten name
+alias e="emacs . &"
 alias v="nvim"
 alias py="python"
 alias open="xdg-open"
