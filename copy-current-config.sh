@@ -16,7 +16,7 @@ COPY .xinitrc
 COPY .config/picom.conf
 COPY .config/neofetch/
 COPY .config/gtk-3.0/
-COPY .config/WALLPAPER.jpg
+COPY .config/WALLPAPER.png
 COPY .emacs.d/init.el
 
 rm .bak -r

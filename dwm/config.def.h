@@ -1,7 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 0;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -12,23 +13,20 @@ static const int statusvertpadbar   = 12;        /* padding for status specifica
 static const int seltagindheight    = 3;
 static const int seltagindpad       = 4;
 static const char *fonts[]          = { "Iosevka NF:size=10" };
-static const char dmenufont[]       = "Iosevka NF:size=10";
-static const char col1[]       = "#1d1f21";
-static const char col2[]       = "#969896";
-static const char col3[]       = "#c5c8c6";
-static const char col4[]       = "#c5c8c6";
-static const char col5[]       = "#81a2be";
-static const char col6[]       = "#5b5b5b";
+static const char bg[]       = "#212121";
+static const char fg[]       = "#BFC7D5";
+static const char accent[]   = "#82aaff";
+static const char grey[]     = "#585858";
 static const char *colors[][3]      = {
 	/*               fg    bg    border   */
-	[SchemeNorm] = { col3, col1, col1},
-	[SchemeSel]  = { col5, col1,  col6},
+	[SchemeNorm] = { fg,     bg,  bg},
+	[SchemeSel]  = { accent, bg,  grey},
 };
 
 static const char *const autostart[] = {
 	//"eval", statusbarcmd, NULL,
 	"xrandr", "--output", "DisplayPort-0", "--off", "--output", "DisplayPort-1", "--off", "--output", "DisplayPort-2", "--primary", "--mode", "2560x1440", "--pos", "0x240", "--rotate", "normal", "--output", "HDMI-A-0", "--mode", "1920x1080", "--pos", "2560x0", "--rotate", "right", NULL,
-	"feh", "--bg-fill", "/home/mespyr/.config/WALLPAPER.jpg", NULL,
+	"feh", "--bg-fill", "/home/mespyr/.config/WALLPAPER.png", NULL,
 	"picom", NULL,
 	"setxkbmap", "-option", "ctrl:nocaps", NULL,
 	"xset", "-b", NULL,
@@ -54,8 +52,8 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.75; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -77,7 +75,6 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *editorcmd[]  = { "emacs", NULL };
 

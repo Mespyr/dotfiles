@@ -2,38 +2,41 @@
 draw_bold_text_with_bright_colors = true
 
 [colors.bright]
-black = "#969896"
-blue = "#81a2be"
-cyan = "#8abeb7"
-green = "#b5bd68"
-magenta = "#b294bb"
-red = "#cc6666"
-white = "#ffffff"
-yellow = "#f0c674"
+black = "#212121"
+blue = "#82aaff"
+cyan = "#89ddff"
+green = "#c3e88d"
+magenta = "#c792ea"
+red = "#f57373"
+white = "#eeffff"
+yellow = "#ffcb6b"
 
 [colors.cursor]
-cursor = "#c5c8c6"
+cursor = "#ffcb6b"
 text = "#1d1f21"
 
 [colors.normal]
-black = "#1d1f21"
-blue = "#81a2be"
-cyan = "#8abeb7"
-green = "#b5bd68"
-magenta = "#b294bb"
-red = "#cc6666"
-white = "#c5c8c6"
-yellow = "#f0c674"
+black = "#212121"
+blue = "#82aaff"
+cyan = "#89ddff"
+green = "#c3e88d"
+magenta = "#c792ea"
+red = "#f57373"
+white = "#eeffff"
+yellow = "#ffcb6b"
 
 [colors.primary]
-background = "#1d1f21"
-foreground = "#c5c8c6"
+background = "#212121"
+foreground = "#eeffff"
 
 [cursor]
-unfocused_hollow = true
+unfocused_hollow = false
+thickness = 0.4
+blink_interval = 500
 
 [cursor.style]
-shape = "Block"
+shape = "Beam"
+blinking = "Always"
 
 [debug]
 persistent_logging = true

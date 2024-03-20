@@ -9,10 +9,15 @@ static const char *fonts[] = {
 	"Iosevka NF:size=10"
 };
 static const char *prompt      = "  ";      /* -p  option; prompt to the left of input field */
+
+static const char bg[]       = "#212121";
+static const char fg[]       = "#BFC7D5";
+static const char accent[]   = "#82aaff";
+
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#c5c8c6", "#1d1f21" },
-	[SchemeSel] = { "#81a2be", "#1d1f21" },
+	[SchemeNorm] = { fg, bg },
+	[SchemeSel] = { accent, bg },
 	[SchemeOut] = { "#000000", "#00ffff" },
 };
 

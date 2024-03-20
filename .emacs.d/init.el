@@ -1,6 +1,6 @@
-(add-hook 'emacs-startup-hook (lambda ()
-  (message "Emacs loaded in %s with %d garbage collections."
-    (format "%.2f seconds" (float-time (time-subtract after-init-time before-init-time))) gcs-done)))
+;;(add-hook 'emacs-startup-hook (lambda ()
+;;  (message "Emacs loaded in %s with %d garbage collections."
+;;    (format "%.2f seconds" (float-time (time-subtract after-init-time before-init-time))) gcs-done)))
 
 ;; *===============* PACKAGE SETUP *==============================*
 (require 'package)
@@ -16,43 +16,50 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("89d9dc6f4e9a024737fb8840259c5dd0a140fd440f5ed17b596be43a05d62e67" "8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a" "dc8285f7f4d86c0aebf1ea4b448842a6868553eded6f71d1de52f3dcbc960039" "631c52620e2953e744f2b56d102eae503017047fb43d65ce028e88ef5846ea3b" "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69" "da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738" "c517e98fa036a0c21af481aadd2bdd6f44495be3d4ac2ce9d69201fcb2578533" "bf948e3f55a8cd1f420373410911d0a50be5a04a8886cabe8d8e471ad8fdba8e" "dccf4a8f1aaf5f24d2ab63af1aa75fd9d535c83377f8e26380162e888be0c6a9" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" default))
- '(package-selected-packages
-   '(all-the-icons-nerd-fonts folding highlight-indent-guides window-end-visible lsp-icons tree-sitter-langs tree-sitter company-box company company-mode lsp-ui c++-mode counsel ivy-rich all-the-icons lsp-mode projectile evil doom-themes doom-modeline ivy use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 ;; *===============* END PACKAGE SETUP *==========================*
 
 
 ;; *===============* SETTINGS *===================================*
 (setq inhibit-startup-message t)
+(setq inhibit-startup-screen t)
+(setq inhibit-startup-echo-area-message "mespyr")
+(global-auto-revert-mode t)
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
 (setq-default c-basic-offset tab-width)
 (global-so-long-mode 1)
 (setq backup-directory-alist '((".*" . "~/.BACKUP")))
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
 (setq redisplay-dont-pause t
   scroll-margin 8
-  scroll-step 1
-  scroll-conservatively 10000
-  scroll-preserve-screen-position 1)
+  scroll-preserve-screen-position nil)
+(pixel-scroll-precision-mode t)
+(setq pixel-scroll-precision-large-scroll-height 20.0)
+    ;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse t) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+
+;; disable certain warnings from displaying
+(defun my-command-error-function (data context caller)
+  (when (not (memq (car data) '(buffer-read-only
+                                beginning-of-buffer
+                                end-of-buffer)))
+    (command-error-default-function data context caller)))
+(setq command-error-function #'my-command-error-function)
+
+(setq initial-scratch-message "\
+;; Don't Complain!
+
+")
+
 ;; *===============* END SETTINGS *===============================*
 
 
 ;; *===============* THEME/UI *===================================*
-(set-face-attribute 'default nil :font "Iosevka NF" :height 110)
+(set-face-attribute 'default nil :font "Iosevka NF" :height 130)
 (column-number-mode)
 (global-display-line-numbers-mode t)
 (scroll-bar-mode -1)
@@ -60,14 +67,15 @@
 (tooltip-mode -1)
 (set-fringe-mode 0)
 (menu-bar-mode -1)
+(global-visual-line-mode 1)
 
 (use-package doom-themes
-  :init (load-theme 'doom-tomorrow-night t))
+  :init (load-theme 'doom-material-dark t))
 (use-package all-the-icons)
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom
-  (doom-modeline-height 45)
+  (doom-modeline-height 40)
   (doom-modeline-bar-width 6)
   (doom-modeline-major-mode-icon nil)
   (doom-modeline-buffer-encoding nil)
@@ -79,6 +87,22 @@
   (highlight-indent-guides-method 'character)
   (highlight-indent-guides-character-face '▏))
 (use-package folding)
+(use-package ligature
+  :config
+  (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+                                       ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+                                       "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+                                       "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+                                       "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+                                       "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+                                       "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+                                       "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+                                       ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+                                       "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+                                       "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+                                       "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+                                       "\\\\" "://"))
+  (global-ligature-mode 1))
 ;; *===============* END THEME/UI *===============================*
 
 
@@ -129,13 +153,16 @@
   (lsp-keymap-prefix "M-w")
   (lsp-headerline-breadcrumb-enable t)
   (lsp-headerline-breadcrumb-segments
-   '(project file symbols))
+   '(project symbols))
   (lsp-enable-on-type-formatting nil)
   :config
   (setq lsp-headerline-arrow " "))
 
 (use-package lsp-ui
-  :after lsp-mode)
+  :after lsp-mode
+  :custom
+  (lsp-ui-doc-enable t)
+  (lsp-ui-doc-header nil))
 
 (use-package company
   :after lsp-mode
@@ -164,3 +191,51 @@
 
 (add-hook 'c++-mode-hook 'dev-mode)
 ;; *===============* END LANGUAGE SERVER *========================*
+
+
+;; OCHRE
+(defconst ochre-mode-syntax-table
+  (with-syntax-table (copy-syntax-table)
+    ;; Chars are the same as strings
+    (modify-syntax-entry ?' "\"")
+    (syntax-table)))
+
+(defconst ochre-keywords
+  '("case" "else" "while" "import" "fn"
+    "const" "end" "type" "expr"))
+
+(defconst ochre-builtin
+  '("pushfn" "dump" "callfn" "cast" "new" "delete"
+	"call1" "call2" "call3" "call4" "call5" "call6"))
+
+(defconst ochre-types
+  '("I64" "I32" "U64" "U32" "U8" "F64" "F32"))
+
+(defconst ochre-highlights
+  `(("#.*" . font-lock-comment-face)
+	(,(regexp-opt ochre-keywords 'symbols) . font-lock-keyword-face)
+	(,(regexp-opt ochre-builtin 'symbols) . font-lock-builtin-face)
+	(,(regexp-opt ochre-types 'symbols) . font-lock-type-face)
+	))
+
+(use-package highlight-numbers)
+(define-derived-mode ochre-mode prog-mode "Ochre"
+  "Major Mode for editing Ochre source code."
+  :syntax-table ochre-mode-syntax-table
+  (setq font-lock-defaults '(ochre-highlights))
+  (add-hook 'ochre-mode-hook 'highlight-numbers-mode))
+
+(add-to-list 'auto-mode-alist '("\\.och\\'" . ochre-mode))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(ligature tree-sitter-langs projectile lsp-ui ivy-rich highlight-numbers highlight-indent-guides folding evil doom-themes doom-modeline counsel company-box all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

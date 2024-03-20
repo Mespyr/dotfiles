@@ -37,7 +37,9 @@ alias ls="ls --color=yes --group-directories-first"
 alias la="ls -A --color=yes --group-directories-first"
 alias rm="rm -Ir"
 # shorten name
-alias e="emacs . &"
+function e() {
+	emacs $1 &
+}
 alias v="nvim"
 alias py="python"
 alias open="xdg-open"
