@@ -1394,27 +1394,27 @@ void
 resizeclient(Client *c, int x, int y, int w, int h, int bw)
 {
 	XWindowChanges wc;
-	// new
+	/* new
 	unsigned int n;
 	unsigned int gapoffset;
 	unsigned int gapincr;
 	Client *nbc;
-	//
+	*/
 
-	//c->oldx = c->x; c->x = wc.x = x;
-	//c->oldy = c->y; c->y = wc.y = y;
-	//c->oldw = c->w; c->w = wc.width = w;
-	//c->oldh = c->h; c->h = wc.height = h;
+	c->oldx = c->x; c->x = wc.x = x;
+	c->oldy = c->y; c->y = wc.y = y;
+	c->oldw = c->w; c->w = wc.width = w;
+	c->oldh = c->h; c->h = wc.height = h;
 	c->oldbw = c->bw; c->bw = wc.border_width = bw;
 
 	// NEW
 	/* Get number of clients for the client's monitor */
 	/* Do nothing if layout is floating */
+	/*
 	if (c->isfloating || c->mon->lt[c->mon->sellt]->arrange == NULL) {
 		gapincr = gapoffset = 0;
 	} else {
 		for (n = 0, nbc = nexttiled(c->mon->clients); nbc; nbc = nexttiled(nbc->next), n++);
-		/* Remove border and gap if layout is monocle or only one client */
 		if (c->mon->lt[c->mon->sellt]->arrange == monocle) {
 			gapoffset = 0;
 			gapincr = -2 * borderpx;
@@ -1428,6 +1428,7 @@ resizeclient(Client *c, int x, int y, int w, int h, int bw)
 	c->oldy = c->y; c->y = wc.y = y + gapoffset;
 	c->oldw = c->w; c->w = wc.width = w - gapincr;
 	c->oldh = c->h; c->h = wc.height = h - gapincr;
+	*/
 	// NEW //
 
 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
