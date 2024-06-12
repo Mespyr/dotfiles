@@ -31,16 +31,16 @@
 (setq backup-directory-alist '((".*" . "~/.BACKUP")))
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+;; scrolling
 (setq redisplay-dont-pause t
-  scroll-margin 8
-  scroll-preserve-screen-position nil)
+	  scroll-margin 8
+	  scroll-step 1
+	  mouse-wheel-follow-mouse t
+      scroll-preserve-screen-position nil
+	  pixel-scroll-precision-large-scroll-height 50.0
+	  mouse-wheel-scroll-amount '(1 ((shift) . 1))
+	  mouse-wheel-progressive-speed t)
 (pixel-scroll-precision-mode t)
-(setq pixel-scroll-precision-large-scroll-height 20.0)
-    ;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil)
-(setq mouse-wheel-follow-mouse t) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; disable certain warnings from displaying
 (defun my-command-error-function (data context caller)
@@ -59,7 +59,7 @@
 
 
 ;; *===============* THEME/UI *===================================*
-(set-face-attribute 'default nil :font "Iosevka NF" :height 130)
+(set-face-attribute 'default nil :font "Iosevka Term NF" :height 130)
 (column-number-mode)
 (global-display-line-numbers-mode t)
 (scroll-bar-mode -1)
@@ -69,17 +69,26 @@
 (menu-bar-mode -1)
 (global-visual-line-mode 1)
 
-(use-package doom-themes
-  :init (load-theme 'doom-material-dark t))
-(use-package all-the-icons)
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)
+(use-package flexoki-themes
+  :ensure t  ;; or :straight t if using straight.el
+  :config
+  (load-theme 'flexoki-themes-dark t)
   :custom
-  (doom-modeline-height 40)
-  (doom-modeline-bar-width 6)
-  (doom-modeline-major-mode-icon nil)
-  (doom-modeline-buffer-encoding nil)
-  (doom-modeline-persp-name nil))
+  (flexoki-themes-use-bold-keywords t)
+  (flexoki-themes-use-bold-builtins t)
+  (flexoki-themes-use-italic-comments t))
+
+(use-package simple-modeline
+  :hook (after-init . simple-modeline-mode)
+  :custom
+  (simple-modeline-segments
+   '((simple-modeline-segment-modified
+	  simple-modeline-segment-buffer-name
+	  simple-modeline-segment-position)
+	 (simple-modeline-segment-misc-info
+	  simple-modeline-segment-process
+	  simple-modeline-segment-major-mode
+	  (lambda () " ")))))
 
 (use-package highlight-indent-guides
   :hook prog-mode
@@ -151,7 +160,7 @@
   :commands (lsp lsp-deffered)
   :custom
   (lsp-keymap-prefix "M-w")
-  (lsp-headerline-breadcrumb-enable t)
+  (lsp-headerline-breadcrumb-enable nil)
   (lsp-headerline-breadcrumb-segments
    '(project symbols))
   (lsp-enable-on-type-formatting nil)
@@ -190,49 +199,20 @@
   (tree-sitter-hl-mode t))
 
 (add-hook 'c++-mode-hook 'dev-mode)
+(add-hook 'c-mode-hook 'dev-mode)
 ;; *===============* END LANGUAGE SERVER *========================*
 
+(load "~/git/Ochre/ochre.el")
 
-;; OCHRE
-(defconst ochre-mode-syntax-table
-  (with-syntax-table (copy-syntax-table)
-    ;; Chars are the same as strings
-    (modify-syntax-entry ?' "\"")
-    (syntax-table)))
-
-(defconst ochre-keywords
-  '("case" "else" "while" "import" "fn"
-    "const" "end" "type" "expr"))
-
-(defconst ochre-builtin
-  '("pushfn" "dump" "callfn" "cast" "new" "delete"
-	"call1" "call2" "call3" "call4" "call5" "call6"))
-
-(defconst ochre-types
-  '("I64" "I32" "U64" "U32" "U8" "F64" "F32"))
-
-(defconst ochre-highlights
-  `(("#.*" . font-lock-comment-face)
-	(,(regexp-opt ochre-keywords 'symbols) . font-lock-keyword-face)
-	(,(regexp-opt ochre-builtin 'symbols) . font-lock-builtin-face)
-	(,(regexp-opt ochre-types 'symbols) . font-lock-type-face)
-	))
-
-(use-package highlight-numbers)
-(define-derived-mode ochre-mode prog-mode "Ochre"
-  "Major Mode for editing Ochre source code."
-  :syntax-table ochre-mode-syntax-table
-  (setq font-lock-defaults '(ochre-highlights))
-  (add-hook 'ochre-mode-hook 'highlight-numbers-mode))
-
-(add-to-list 'auto-mode-alist '("\\.och\\'" . ochre-mode))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("342f853c3d097d60a01a8e17559d2cc4e6ccd4c8e8c4d32cdfb5d53fdd50ca27" "b5fd9c7429d52190235f2383e47d340d7ff769f141cd8f9e7a4629a81abc6b19" "571661a9d205cb32dfed5566019ad54f5bb3415d2d88f7ea1d00c7c794e70a36" "88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" default))
  '(package-selected-packages
-   '(ligature tree-sitter-langs projectile lsp-ui ivy-rich highlight-numbers highlight-indent-guides folding evil doom-themes doom-modeline counsel company-box all-the-icons)))
+   '(ligature tree-sitter-langs projectile lsp-ui ivy-rich highlight-numbers highlight-indent-guides folding evil counsel company-box)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

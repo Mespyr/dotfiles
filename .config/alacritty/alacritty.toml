@@ -1,38 +1,42 @@
 [colors]
 draw_bold_text_with_bright_colors = true
 
-[colors.bright]
-black = "#212121"
-blue = "#82aaff"
-cyan = "#89ddff"
-green = "#c3e88d"
-magenta = "#c792ea"
-red = "#f57373"
-white = "#eeffff"
-yellow = "#ffcb6b"
-
-[colors.cursor]
-cursor = "#ffcb6b"
-text = "#1d1f21"
-
-[colors.normal]
-black = "#212121"
-blue = "#82aaff"
-cyan = "#89ddff"
-green = "#c3e88d"
-magenta = "#c792ea"
-red = "#f57373"
-white = "#eeffff"
-yellow = "#ffcb6b"
-
+# Default colors
 [colors.primary]
-background = "#212121"
-foreground = "#eeffff"
+background = '#100f0f'
+foreground = '#fffcf0'
+dim_foreground = '#FFFCF0'
+bright_foreground = '#FFFCF0'
+
+# Normal colors
+[colors.normal]
+black   = '#100f0f'
+red     = '#af3029'
+green   = '#66800b'
+yellow  = '#ad8301'
+blue    = '#205ea6'
+magenta = '#a02f6f'
+cyan    = '#24837b'
+white   = '#fffcf0'
+
+# Bright colors
+[colors.bright]
+black   = '#100f0f'
+red     = '#d14d41'
+green   = '#879a39'
+yellow  = '#d0a215'
+blue    = '#4385be'
+magenta = '#ce5d97'
+cyan    = '#3aa99f'
+white   = '#fffcf0'
 
 [cursor]
 unfocused_hollow = false
 thickness = 0.4
 blink_interval = 500
+[colors.cursor]
+text = "#FFFCF0"
+cursor = "#FFFCF0"
 
 [cursor.style]
 shape = "Beam"
@@ -42,10 +46,10 @@ blinking = "Always"
 persistent_logging = true
 
 [font]
-size = 10
+size = 11
 
 [font.bold]
-family = "Iosevka NFM"
+family = "Iosevka Term NFM"
 style = "Bold"
 
 [font.glyph_offset]
@@ -53,11 +57,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "Iosevka NFM"
+family = "Iosevka Term NFM"
 style = "Italic"
 
 [font.normal]
-family = "Iosevka NFM"
+family = "Iosevka Term NFM"
 style = "Normal"
 
 [font.offset]

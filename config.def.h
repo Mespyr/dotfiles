@@ -12,7 +12,7 @@ static const char *prompt      = "  ";      /* -p  option; prompt to the left
 
 static const char bg[]       = "#100f0f";
 static const char fg[]       = "#ffffff";
-static const char accent[]   = "#66800B";
+static const char accent[]   = "#af3029";
 
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
