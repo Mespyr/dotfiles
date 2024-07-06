@@ -2,17 +2,23 @@
 /* Default settings; can be overriden by command line. */
 
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
-static const int user_bh = 10;
+static const int user_bh = 18;
 
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"Iosevka Term NF:size=10"
+	"Iosevka Term NF:size=12"
 };
 static const char *prompt      = "  ";      /* -p  option; prompt to the left of input field */
 
-static const char bg[]       = "#100f0f";
+static const char bg[]       = "#232726";
 static const char fg[]       = "#ffffff";
 static const char accent[]   = "#66800B";
+
+/*
+static const char bg[]       = "#232726";
+static const char fg[]       = "#ffffff";
+static const char accent[]   = "#ce5d97";
+*/
 
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */

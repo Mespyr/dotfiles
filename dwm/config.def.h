@@ -54,10 +54,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "steam",     NULL,       NULL,       1 << 2,          1,           0 },
-	{ "discord",   NULL,       NULL,       1 << 3,          0,           0 },
-	{ "obs",       NULL,       NULL,       1 << 4,          0,           0 },
+	/* class         instance title  tags mask isfloating mon x,y,w,h*/
+	{ "steam",        NULL,    NULL,  1 << 2,   1,         0,  25, 50, 1010, 600 },
+	{ "discord",      NULL,    NULL,  1 << 3,   0,         0,  -1, -1, -1, -1 },
+	{ "obs",          NULL,    NULL,  1 << 4,   0,         0,  -1, -1, -1, -1 },
+	{ "pavucontrol",  NULL,    NULL,  0,        1,         0,  15, 40, 600, 400 },
+	{ "BoltLauncher", NULL,    NULL,  1 << 2,   1,         0,  -1, -1, -1, -1 },
 };
 
 /* layout(s) */
@@ -88,12 +90,14 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *editorcmd[]  = { "emacs", NULL };
+static const char *volumecmd[]  = { "pavucontrol", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY, XK_d,      spawn, {.v = dmenucmd } },
 	{ MODKEY, XK_Return, spawn, {.v = termcmd } },
 	{ MODKEY, XK_w,      spawn, {.v = editorcmd } },
+	{ MODKEY, XK_v,      spawn, {.v = volumecmd } },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

@@ -36,6 +36,9 @@ struct item {
 static char text[BUFSIZ] = "";
 static char *embed;
 static int bh, mw, mh;
+static int dmx = 980;
+static int dmy = 200; //520
+static unsigned int dmw = 600;
 static int inputw = 0, promptw;
 static int lrpad; /* sum of left and right padding */
 static size_t cursor;
@@ -85,7 +88,7 @@ calcoffsets(void)
 	if (lines > 0)
 		n = lines * bh;
 	else
-		n = mw - (promptw + inputw + TEXTW("<") + TEXTW(">"));
+		n = mw - (promptw + inputw + TEXTW("") + TEXTW(" "));
 	/* calculate which items will begin the next page and previous page */
 	for (i = 0, next = curr; next; next = next->right)
 		if ((i += (lines > 0) ? bh : textw_clamp(next->text, n)) > n)
@@ -180,7 +183,7 @@ drawmenu(void)
 	curpos = TEXTW(text) - TEXTW(&text[cursor]);
 	if ((curpos += lrpad / 2 - 1) < w) {
 		drw_setscheme(drw, scheme[SchemeNorm]);
-		drw_rect(drw, x + curpos, 6, 2, bh - 12, 1, 0);
+		drw_rect(drw, x + curpos, 10, 2, bh - 20, 1, 0);
 	}
 
 	if (lines > 0) {
@@ -197,11 +200,11 @@ drawmenu(void)
 		}
 		x += w;
 		for (item = curr; item != next; item = item->right)
-			x = drawitem(item, x, 0, textw_clamp(item->text, mw - x - TEXTW("")));
+			x = drawitem(item, x, 0, textw_clamp(item->text, mw - x - TEXTW(" ")));
 		if (next) {
-			w = TEXTW("");
+			w = TEXTW(" ");
 			drw_setscheme(drw, scheme[SchemeNorm]);
-			drw_text(drw, mw - w, 0, w, bh, lrpad / 2, "", 0);
+			drw_text(drw, mw - w, 0, w, bh, lrpad / 2, " ", 0);
 		}
 	}
 	drw_map(drw, win, 0, 0, mw, mh);
@@ -679,9 +682,13 @@ setup(void)
 				if (INTERSECT(x, y, 1, 1, info[i]) != 0)
 					break;
 
-		x = info[i].x_org;
-		y = info[i].y_org + (topbar ? 0 : info[i].height - mh);
-		mw = info[i].width;
+		//x = info[i].x_org;
+		//y = info[i].y_org + (topbar ? 0 : info[i].height - mh);
+		//mw = info[i].width;
+        x = info[i].x_org + dmx;
+		y = info[i].y_org + (topbar ? dmy : info[i].height - mh - dmy);
+		mw = (dmw>0 ? dmw : info[i].width);;
+
 		XFree(info);
 	} else
 #endif
@@ -689,9 +696,12 @@ setup(void)
 		if (!XGetWindowAttributes(dpy, parentwin, &wa))
 			die("could not get embedding window attributes: 0x%lx",
 			    parentwin);
-		x = 0;
-		y = topbar ? 0 : wa.height - mh;
-		mw = wa.width;
+		//x = 0;
+		//y = topbar ? 0 : wa.height - mh;
+		//mw = wa.width;
+        x = dmx;
+		y = topbar ? dmy : wa.height - mh - dmy;
+		mw = (dmw>0 ? dmw : wa.width);
 	}
 	promptw = (prompt && *prompt) ? TEXTW(prompt) - lrpad / 4 : 0;
 	inputw = mw / 3; /* input width: ~33% of monitor width */
