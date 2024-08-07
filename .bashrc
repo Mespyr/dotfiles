@@ -14,11 +14,10 @@ HISTFILE=~/.local/history
 shopt -s checkwinsize
 # prompt
 PS1='\033[1;31m\W/ \e[0m'
-# PROMPT_COMMAND='echo -en "\033]0;[${PWD##*/}]\a"'
-PROMPT_COMMAND='echo -en "\033]0;$(pwd)\a"'
+#PROMPT_COMMAND='echo -en "\033]0;[${PWD##*/}]\a"'
+PROMPT_COMMAND='echo -en "\033]0;$(dirs)\a"'
 # Path
 export PATH=~/.local/bin:$PATH
-export PATH=~/.config/scripts:$PATH 
 # editor
 export EDITOR="nvim"
 # shorten long commands

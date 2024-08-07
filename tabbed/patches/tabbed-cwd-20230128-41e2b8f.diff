@@ -1,0 +1,128 @@
+From 50753359eb7a760bcadd54611431c0888867c21c Mon Sep 17 00:00:00 2001
+From: Casey Fitzpatrick <kcghost@gmail.com>
+Date: Sat, 28 Jan 2023 09:46:53 -0500
+Subject: [PATCH] Spawn new tabs in working directory of selected clients child
+
+When used with st or xterm the working directory of the new tab
+should be the same as the currently selected tab.
+---
+ tabbed.c | 57 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 56 insertions(+), 1 deletion(-)
+
+diff --git a/tabbed.c b/tabbed.c
+index eafe28a..eb046d0 100644
+--- a/tabbed.c
++++ b/tabbed.c
+@@ -10,6 +10,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <unistd.h>
++#include <linux/limits.h>
+ #include <X11/Xatom.h>
+ #include <X11/Xlib.h>
+ #include <X11/Xproto.h>
+@@ -84,6 +85,7 @@ typedef struct {
+ 	int tabx;
+ 	Bool urgent;
+ 	Bool closed;
++	pid_t pid;
+ } Client;
+ 
+ /* function declarations */
+@@ -168,6 +170,7 @@ static int cmd_append_pos;
+ static char winid[64];
+ static char **cmd;
+ static char *wmname = "tabbed";
++static pid_t nextpid;
+ static const char *geometry;
+ 
+ char *argv0;
+@@ -175,6 +178,49 @@ char *argv0;
+ /* configuration, allows nested code to access above variables */
+ #include "config.h"
+ 
++// Given a pid, return its cwd to buf
++int getpidcwd(pid_t pid, char* buf, size_t bufsiz) {
++	static const int proc_max = 20; // '/proc/4194304/cwd'
++	int sn_ret;
++	ssize_t rl_ret;
++	char path[proc_max];
++
++	sn_ret = snprintf(path, proc_max, "/proc/%d/cwd", pid);
++	if(sn_ret < 0 || sn_ret >= proc_max)
++		return -1;
++
++	rl_ret = readlink(path, buf, bufsiz);
++	if(rl_ret < 0 || rl_ret == bufsiz)
++		return -1;
++
++	buf[rl_ret] = 0;
++	return 0;
++}
++
++// Given a pid, return a reasonable guess at its child pid
++pid_t getchildpid(pid_t pid) {
++	// '/proc/4194304/task/4194304/children'
++	static const int proc_max = 40;
++	int sn_ret;
++	char path[proc_max];
++	FILE* f;
++
++	// guessing tid == pid
++	sn_ret = snprintf(path, proc_max, "/proc/%d/task/%d/children", pid, pid);
++	if (sn_ret < 0 || sn_ret >= proc_max)
++		return -1;
++
++	f = fopen(path, "r");
++	if(f == NULL)
++		return -1;
++
++	// guess first child
++	if(fscanf(f, "%d ", &pid) != 1)
++		return -1;
++
++	return pid;
++}
++
+ void
+ buttonpress(const XEvent *e)
+ {
+@@ -725,6 +771,7 @@ manage(Window w)
+ 
+ 		c = ecalloc(1, sizeof *c);
+ 		c->win = w;
++		c->pid = nextpid;
+ 
+ 		nclients++;
+ 		clients = erealloc(clients, sizeof(Client *) * nclients);
+@@ -1090,11 +1137,17 @@ sigchld(int unused)
+ void
+ spawn(const Arg *arg)
+ {
+-	if (fork() == 0) {
++	char sel_cwd[PATH_MAX];
++
++	pid_t pid = fork();
++	if (pid == 0) {
+ 		if(dpy)
+ 			close(ConnectionNumber(dpy));
+ 
+ 		setsid();
++		if (sel >= 0 && clients[sel] && clients[sel]->pid > 0 && getpidcwd(getchildpid(clients[sel]->pid), sel_cwd, PATH_MAX) == 0) {
++			chdir(sel_cwd);
++		}
+ 		if (arg && arg->v) {
+ 			execvp(((char **)arg->v)[0], (char **)arg->v);
+ 			fprintf(stderr, "%s: execvp %s", argv0,
+@@ -1106,6 +1159,8 @@ spawn(const Arg *arg)
+ 		}
+ 		perror(" failed");
+ 		exit(0);
++	} else {
++		nextpid = pid;
+ 	}
+ }
+ 
+-- 
+2.25.1
+

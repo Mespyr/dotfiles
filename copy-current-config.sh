@@ -18,6 +18,7 @@ COPY .config/neofetch/
 COPY .config/gtk-3.0/
 COPY .config/WALLPAPER.jpg
 COPY .emacs.d/init.el
+COPY .emacs.d/early-init.el
 COPY dwm_bar.sh
 
 rm .bak -r

@@ -88,7 +88,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "tabbed", "alacritty", "--embed", NULL };
 static const char *editorcmd[]  = { "emacs", NULL };
 static const char *volumecmd[]  = { "pavucontrol", NULL };
 

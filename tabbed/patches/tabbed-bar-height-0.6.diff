@@ -1,0 +1,24 @@
+diff --color -up tabbed-0.6-clean/config.def.h tabbed-0.6-modified/config.def.h
+--- tabbed-0.6-clean/config.def.h	2014-01-21 10:22:03.000000000 -0800
++++ tabbed-0.6-modified/config.def.h	2021-03-30 20:23:45.752478278 -0700
+@@ -10,7 +10,7 @@ static const char before[]      = "<";
+ static const char after[]       = ">";
+ static const int  tabwidth      = 200;
+ static const Bool foreground    = True;
+-
++static const int barHeight	= 24;
+ /*
+  * Where to place a new tab when it is opened. When npisrelative is True,
+  * then the current position is changed + newposition. If npisrelative
+diff --color -up tabbed-0.6-clean/tabbed.c tabbed-0.6-modified/tabbed.c
+--- tabbed-0.6-clean/tabbed.c	2014-01-21 10:22:03.000000000 -0800
++++ tabbed-0.6-modified/tabbed.c	2021-03-30 20:24:23.712477426 -0700
+@@ -920,7 +920,7 @@ setup(void) {
+ 	screen = DefaultScreen(dpy);
+ 	root = RootWindow(dpy, screen);
+ 	initfont(font);
+-	bh = dc.h = dc.font.height + 2;
++	bh = dc.h = barHeight;
+ 
+ 	/* init atoms */
+ 	wmatom[WMProtocols] = XInternAtom(dpy, "WM_PROTOCOLS", False);
