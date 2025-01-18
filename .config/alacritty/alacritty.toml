@@ -29,14 +29,10 @@ blue    = '#4385be'
 magenta = '#ce5d97'
 cyan    = '#3aa99f'
 white   = '#fffcf0'
-
 [cursor]
 unfocused_hollow = false
 thickness = 0.4
 blink_interval = 500
-[colors.cursor]
-text = "#FFFCF0"
-cursor = "#FFFCF0"
 
 [cursor.style]
 shape = "Beam"
@@ -46,7 +42,7 @@ blinking = "Always"
 persistent_logging = true
 
 [font]
-size = 11
+size = 14
 
 [font.bold]
 family = "Iosevka Term NFM"

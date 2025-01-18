@@ -6,13 +6,13 @@ static const int user_bh = 18;
 
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"Iosevka Term NF:size=12"
+	"Iosevka Term NF:size=12:style=Bold"
 };
 static const char *prompt      = "  ";      /* -p  option; prompt to the left of input field */
 
-static const char bg[]       = "#232726";
-static const char fg[]       = "#ffffff";
-static const char accent[]   = "#66800B";
+static const char bg[]       = "#100f0f";
+static const char fg[]       = "#fffcf0";
+static const char accent[]   = "#ad8301";
 
 /*
 static const char bg[]       = "#232726";

@@ -7,32 +7,19 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 6;        /* vertical padding for statusbar */
+static const int vertpadbar         = 14;        /* vertical padding for statusbar */
 static const int statusvertpadbar   = vertpadbar;        /* padding for status specifically */
-static const int seltagindheight    = 3; // height of bar under selected tag
+static const int seltagindheight    = 5; // height of bar under selected tag
 static const int seltagindpad       = 4; // amount of padding surrounding selected tag
-static const char *fonts[]          = { "Iosevka Term NF:size=11" };
-/*
-static const char bg[]       = "#212121";
-static const char bg_light[] = "#313031";
-static const char fg[]       = "#BFC7D5";
-static const char accent[]   = "#82aaff";
-static const char grey[]     = "#585858";
-static const char *colors[][3]      = {
-	//               fg    bg    border
-	[SchemeNorm] = { fg,     bg,  bg},
-	[SchemeSel]  = { accent, bg_light,  grey},
-};
-*/
-static const char bg[]       = "#ffffff";
-static const char bg_light[] = "#ffffff";
-static const char fg[]       = "#000000";
-static const char accent[]   = "#000000";
-static const char grey[]     = "#ffffff";
+static const char *fonts[]          = { "Iosevka Term NF:size=11:style=Bold" };
+
+static const char bg[]       = "#100f0f";
+static const char fg[]       = "#fffcf0";
+static const char accent[]   = "#ad8301";
 static const char *colors[][3]      = {
 	/*               fg    bg    border   */
 	[SchemeNorm] = { fg,     bg,  fg},
-	[SchemeSel]  = { accent, bg_light,  grey},
+	[SchemeSel]  = { accent, bg,  accent},
 };
 
 static const char *const autostart[] = {
@@ -56,9 +43,9 @@ static const Rule rules[] = {
 	 */
 	/* class         instance title  tags mask isfloating mon x,y,w,h*/
 	{ "steam",        NULL,    NULL,  1 << 2,   1,         0,  25, 50, 1010, 600 },
-	{ "discord",      NULL,    NULL,  1 << 3,   0,         0,  -1, -1, -1, -1 },
-	{ "obs",          NULL,    NULL,  1 << 4,   0,         0,  -1, -1, -1, -1 },
-	{ "pavucontrol",  NULL,    NULL,  0,        1,         0,  15, 40, 600, 400 },
+	{ "vesktop",      NULL,    NULL,  1 << 3,   1,         1,  -1, -1, -1, -1 },
+	{ "obs",          NULL,    NULL,  1 << 4,   1,         1,  -1, -1, -1, -1 },
+	{ "pavucontrol",  NULL,    NULL,  0,        1,         -1,  15, 40, 600, 400 },
 	{ "BoltLauncher", NULL,    NULL,  1 << 2,   1,         0,  -1, -1, -1, -1 },
 };
 
@@ -133,7 +120,7 @@ static const Key keys[] = {
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	//	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },

@@ -36,8 +36,8 @@ struct item {
 static char text[BUFSIZ] = "";
 static char *embed;
 static int bh, mw, mh;
-static int dmx = 980;
-static int dmy = 200; //520
+static int dmx = 20;
+static int dmy = 50; //520
 static unsigned int dmw = 600;
 static int inputw = 0, promptw;
 static int lrpad; /* sum of left and right padding */
