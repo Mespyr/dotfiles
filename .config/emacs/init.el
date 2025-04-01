@@ -1,5 +1,5 @@
 ;; This is my Emacs config.
-;; It typically takes around 0.25 seconds to load,
+;; It typically takes around 0.22 seconds to load,
 ;; which I achieved by abusing the early-init.el file.
 
 ;; I like knowing how long my Emacs config takes to load.
@@ -16,14 +16,17 @@
 	  ("melpa" . "https://melpa.org/packages/")
 	  ("org" . "https://orgmode.org/elpa/")))
 (package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
 
 ;; Use-package is a wrapper for package.el which gives
 ;; us a clean way to install and configure packages.
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
 ;; Set some reasonable defaults.
 (setq use-package-always-ensure t
-	  package-check-signature nil)
+      package-check-signature nil
+	  package-quickstart t)
 
 ;; Setting our font
 (set-face-attribute 'default nil :font "Iosevka Term NF" :height 160)
@@ -102,7 +105,7 @@
 
 ;; The evil package gives us most of the Vim keybindings
 (use-package evil
-  :demand
+  :defer t
   :hook (evil-mode . rune/evil-hook)
   :init (evil-mode 1)
   :config
@@ -114,13 +117,14 @@
 ;; Vertico adds a vertical completion menu for the minibuffer
 (use-package vertico
   :defer t
-  :init (vertico-mode)
+  :hook (after-init . vertico-mode)
   :custom
   (vertico-cycle t))
 
 ;; Consult provides many functions which help
 ;; speed up writing code and file/buffer navigation
 (use-package consult
+  :defer t
   :custom
   (completion-in-region-function (lambda (&rest args)
 	(apply (if vertico-mode
@@ -155,10 +159,16 @@
   :custom
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-enable-on-type-formatting nil)
-  (lsp-idle-delay 0.750)
+  (lsp-idle-delay 1.0)
   (lsp-log-io nil)
   (lsp-modeline-diagnostics-scope :workspace)
   (lsp-modeline-code-actions-segments nil))
+(use-package lsp-pyright
+  :defer t
+  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp-deferred))))  ; or lsp-deferred
 
 ;; The tree-sitter package makes code highlighting a lot more readable.
 (use-package tree-sitter
@@ -172,7 +182,9 @@
   :hook (vterm-mode . (lambda()
 						(display-line-numbers-mode 0)
 						(setq-local mode-line-format nil)))
-  :bind ("M-t" . vterm-toggle)
+  :bind (("M-t" . vterm-toggle)
+		 :map vterm-mode-map
+		 ("M-t" . vterm-toggle))
   :custom
   (vterm-kill-buffer-on-exit t))
 (use-package vterm-toggle
@@ -195,10 +207,3 @@
 
 ;; These are some custom ELisp files I made.
 (load "~/git/Taro/taro.el" nil t)
-
-;; In the /early-init.el/ file,
-;; I raise the garbage collector's threshold
-;; to 1 GB to speed up the initialization.
-;; Now that Emacs has fully started up,
-;; we have to lower it back down.
-(setq gc-cons-threshold (* 100 1024 1024))

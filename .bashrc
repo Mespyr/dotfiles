@@ -19,7 +19,7 @@ PROMPT_COMMAND='echo -en "\033]0;$(dirs)\a"'
 # Path
 export PATH=~/.local/bin:$PATH
 # editor
-export EDITOR="nvim"
+export EDITOR="emacs"
 # shorten long commands
 alias ga='git add .'
 alias gs='git status'

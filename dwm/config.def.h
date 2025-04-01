@@ -42,7 +42,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class         instance title  tags mask isfloating mon x,y,w,h*/
-	{ "steam",        NULL,    NULL,  1 << 2,   1,         0,  25, 50, 1010, 600 },
+	{ "steam",        NULL,    NULL,  1 << 2,   1,         0,  1100, 520, 1200, 1350 },
 	{ "vesktop",      NULL,    NULL,  1 << 3,   1,         1,  -1, -1, -1, -1 },
 	{ "obs",          NULL,    NULL,  1 << 4,   1,         1,  -1, -1, -1, -1 },
 	{ "pavucontrol",  NULL,    NULL,  0,        1,         -1,  15, 40, 600, 400 },
@@ -105,7 +105,7 @@ static const Key keys[] = {
 	//{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	//{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	/* { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, */
 	//{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
