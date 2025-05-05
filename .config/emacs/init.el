@@ -29,7 +29,7 @@
 	  package-quickstart t)
 
 ;; Setting our font
-(set-face-attribute 'default nil :font "Iosevka Term NF" :height 160)
+(set-face-attribute 'default nil :font "Iosevka Term NF" :height 140)
 
 ;; Line number settings
 (setq display-line-numbers-type 'relative)
@@ -163,12 +163,6 @@
   (lsp-log-io nil)
   (lsp-modeline-diagnostics-scope :workspace)
   (lsp-modeline-code-actions-segments nil))
-(use-package lsp-pyright
-  :defer t
-  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp-deferred))))  ; or lsp-deferred
 
 ;; The tree-sitter package makes code highlighting a lot more readable.
 (use-package tree-sitter
