@@ -50,7 +50,7 @@ export PATH=/usr/lib/emsdk/upstream/emscripten:$PATH
 export PATH=/usr/lib/emsdk/node/14.18.2_64bit/bin:$PATH
 export EMSDK=/usr/lib/emsdk
 export EMSDK_NODE=/usr/lib/emsdk/node/14.18.2_64bit/bin/node
-
+alias cpkey="xclip -selection clipboard < ~/.local/github.key"
 # emacs vterm
 vterm_printf() {
     if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then

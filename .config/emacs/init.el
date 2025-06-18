@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; This is my Emacs config.
 ;; It typically takes around 0.22 seconds to load,
 ;; which I achieved by abusing the early-init.el file.

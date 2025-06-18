@@ -109,7 +109,7 @@ If OFFSET is `non-nil', will goto next term buffer with OFFSET.
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/vertico-20250203.1055/vertico-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/vertico-20250610.2029/vertico-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -412,6 +412,14 @@ disabled.
 
 
 
+ (autoload 'vertico-sort-history-length-alpha "vertico-sort")
+ (autoload 'vertico-sort-history-alpha "vertico-sort")
+ (autoload 'vertico-sort-length-alpha "vertico-sort")
+ (autoload 'vertico-sort-alpha "vertico-sort")
+(register-definition-prefixes "vertico-sort" '("vertico-sort-"))
+
+
+
 (autoload 'vertico-suspend "vertico-suspend" "\
 Suspend the current completion session.
 If the command is invoked from within the Vertico minibuffer, the
@@ -676,7 +684,7 @@ The buffer on focus when the command is called is set as the target buffer." t)
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/tree-sitter-langs-20250206.19/tree-sitter-langs-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/tree-sitter-langs-20250608.1254/tree-sitter-langs-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -857,7 +865,7 @@ Otherwise behave as if called interactively.
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/orderless-20250201.2341/orderless-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/orderless-20250316.2046/orderless-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -905,7 +913,7 @@ Match COMPONENT against the keywords in `orderless-kwd-alist'.
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/markdown-mode-20250228.1513/markdown-mode-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/markdown-mode-20250606.314/markdown-mode-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -956,7 +964,7 @@ disabled.
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/marginalia-20250203.1018/marginalia-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/marginalia-20250604.1545/marginalia-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -992,7 +1000,7 @@ disabled.
 
 (fn &optional ARG)" t)
 (autoload 'marginalia-cycle "marginalia" "\
-Cycle between annotators in `marginalia-annotator-registry'." t)
+Cycle between annotators in `marginalia-annotators'." t)
 (function-put 'marginalia-cycle 'completion-predicate #'(lambda (&rest _) (> (minibuffer-depth) 1)))
 (register-definition-prefixes "marginalia" '("marginalia-"))
 
@@ -1017,7 +1025,7 @@ Cycle between annotators in `marginalia-annotator-registry'." t)
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/dash-20240510.1327/dash-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/dash-20250312.1307/dash-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -1120,7 +1128,7 @@ This allows Dash symbols to be looked up with \\[info-lookup-symbol]." t)
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/lsp-mode-20250228.854/lsp-mode-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/lsp-mode-20250610.1238/lsp-mode-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -1251,7 +1259,7 @@ disabled.
 (autoload 'lsp-copilot-check-status "lsp-copilot" "\
 Checks the status of the Copilot Server" t)
 (autoload 'lsp-copilot-login "lsp-copilot" "\
-Log in with copilot.
+Log in with Copilot.
 
 This function is automatically called during the client initialization if needed" t)
 (register-definition-prefixes "lsp-copilot" '("lsp-copilot-"))
@@ -1822,6 +1830,10 @@ disabled.
 
 
 
+(register-definition-prefixes "lsp-postgres" '("lsp-postgres-"))
+
+
+
 (register-definition-prefixes "lsp-prolog" '("lsp-prolog-server-command"))
 
 
@@ -1843,6 +1855,10 @@ disabled.
 
 
 (register-definition-prefixes "lsp-pylsp" '("lsp-"))
+
+
+
+(register-definition-prefixes "lsp-python-ty" '("lsp-python-ty-clients-server-command"))
 
 
 
@@ -1984,6 +2000,10 @@ disabled.
 
 
 (register-definition-prefixes "lsp-toml" '("lsp-toml-"))
+
+
+
+(register-definition-prefixes "lsp-toml-tombi" '("lsp-tombi-toml-"))
 
 
 
@@ -2146,7 +2166,7 @@ See `goto-last-change' for use of prefix argument.
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/evil-20250302.655/evil-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/evil-20250318.1816/evil-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -2230,7 +2250,7 @@ Searches in `evil-digraphs-table-user' and `evil-digraphs-table'.
 
 
 )
-(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/consult-20250216.1447/consult-autoloads.el")(load-true-file-name load-file-name))
+(let* ((load-file-name "/home/mespyr/.config/emacs/elpa/consult-20250609.1616/consult-autoloads.el")(load-true-file-name load-file-name))
 
 
 
@@ -2293,29 +2313,36 @@ to `consult--buffer-query'.
 
 (fn QUERY &optional INITIAL)" t)
 (autoload 'consult-keep-lines "consult" "\
-Select a subset of the lines in the current buffer with live preview.
+Filter a subset of the lines in the current buffer with live preview.
 
-The selected lines are kept and the other lines are deleted.  When called
-interactively, the lines selected are those that match the minibuffer input.  In
-order to match the inverse of the input, prefix the input with `! '.  When
-called from Elisp, the filtering is performed by a FILTER function.  This
-command obeys narrowing.
+The filtered lines are kept and the other lines are deleted.  When
+called interactively, the lines selected are those that match the
+minibuffer input.  In order to match the inverse of the input, prefix
+the input with `! '.  When called from Elisp, the filtering is performed
+by a FILTER function.  If the buffer is narrowed to a region, the
+command only acts on this region.  See also `consult-focus-lines' which
+uses overlays to display only matching lines, but does not modify the
+buffer.
 
-FILTER is the filter function.
+FILTER is the filter function, called for each line.
 INITIAL is the initial input.
 
 (fn FILTER &optional INITIAL)" t)
 (autoload 'consult-focus-lines "consult" "\
-Hide or show lines using overlays.
+Show only matching lines using overlays.
 
-The selected lines are shown and the other lines hidden.  When called
-interactively, the lines selected are those that match the minibuffer input.  In
-order to match the inverse of the input, prefix the input with `! '.  With
-optional prefix argument SHOW reveal the hidden lines.  Alternatively the
-command can be restarted to reveal the lines.  When called from Elisp, the
-filtering is performed by a FILTER function.  This command obeys narrowing.
+In contrast to `consult-keep-lines' the buffer is not modified.  The
+FILTER selects the lines which are shown.  When called interactively,
+the lines selected are those that match the minibuffer input.  In order
+to match the inverse of the input, prefix the input with `! '.  With
+optional prefix argument SHOW reveal the hidden lines.  Alternatively
+rerun the command and exit the minibuffer directly without input to
+reveal the lines.  When called from Elisp, the filtering is performed by
+a FILTER function.  If the buffer is narrowed to a region, the command
+only acts on this region.
 
-FILTER is the filter function.
+FILTER is the filter function, called for each line.
+SHOW is the prefix argument, if non-nil reveal all hidden lines.
 INITIAL is the initial input.
 
 (fn FILTER &optional SHOW INITIAL)" t)
@@ -2514,9 +2541,12 @@ the asynchronous search.
 (autoload 'consult-compile-error "consult-compile" "\
 Jump to a compilation error in the current buffer.
 
-This command collects entries from compilation buffers and grep
-buffers related to the current buffer.  The command supports
-preview of the currently selected error." t)
+This command collects entries from compilation buffers and grep buffers
+related to the current buffer.  The command supports preview of the
+currently selected error.  With prefix ARG, jump to the error message in
+the compilation buffer, instead of to the actual location of the error.
+
+(fn &optional ARG)" t)
 (register-definition-prefixes "consult-compile" '("consult-compile--"))
 
 
@@ -2557,6 +2587,11 @@ QUERY can be set to a plist according to `consult--buffer-query'.
 Full text search through info MANUALS.
 
 (fn &rest MANUALS)" t)
+(defun consult-info-define (name &rest manuals) "\
+Define `consult-info-NAME' command to search through MANUALS.
+MANUALS is a list of a strings. NAME can be a symbol or a string. If
+NAME is a string, it is added to the MANUALS list. Return name of
+defined command as symbol." (let ((cmd (intern (format "consult-info-%s" name)))) (when (stringp name) (push name manuals)) (defalias cmd (lambda nil (interactive) (apply #'consult-info manuals)) (format "Search via `consult-info' through the manual%s %s:\n\n%s" (if (cdr manuals) "s" "") (mapconcat (lambda (m) (format "\"%s\"" m)) manuals ", ") (mapconcat (lambda (m) (format "  * Info node `(%s)'" m)) manuals "\n"))) cmd))
 (register-definition-prefixes "consult-info" '("consult-info--"))
 
 
@@ -2596,8 +2631,9 @@ Enhanced drop-in replacement for `register-preview'.
 
 BUFFER is the window buffer.
 SHOW-EMPTY must be t if the window should be shown for an empty register list.
+Optional argument PRED specifies the types of register to show.
 
-(fn BUFFER &optional SHOW-EMPTY)")
+(fn BUFFER &optional SHOW-EMPTY PRED)")
 (autoload 'consult-register-format "consult-register" "\
 Enhanced preview of register REG.
 This function can be used as `register-preview-function'.
@@ -2664,9 +2700,9 @@ FETCHER and ALIST arguments.
   (require 'info) (info-initialize)
   (setq Info-directory-list
 		(append
-		 '("/home/mespyr/.config/emacs/elpa/evil-20250302.655"
-		   "/home/mespyr/.config/emacs/elpa/dash-20240510.1327"
-		   "/home/mespyr/.config/emacs/elpa/orderless-20250201.2341")
+		 '("/home/mespyr/.config/emacs/elpa/evil-20250318.1816"
+		   "/home/mespyr/.config/emacs/elpa/dash-20250312.1307"
+		   "/home/mespyr/.config/emacs/elpa/orderless-20250316.2046")
 		 Info-directory-list)))
 
 ;; Local Variables:

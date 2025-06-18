@@ -1,27 +1,26 @@
-/* See LICENSE file for copyright and license details. */
-
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int snap      = 0;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const unsigned int borderpx  = 2; /* border pixel of windows */
+static const unsigned int snap      = 0; /* snap pixel */
+static const int showbar            = 1; /* 0 means no bar */
+static const int topbar             = 1; /* 0 means bottom bar */
 static const int focusonwheel       = 0;
-static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 14;        /* vertical padding for statusbar */
-static const int statusvertpadbar   = vertpadbar;        /* padding for status specifically */
-static const int seltagindheight    = 5; // height of bar under selected tag
+static const int horizpadbar        = 0; /* horizontal padding for statusbar */
+static const int vertpadbar         = 14; /* vertical padding for statusbar */
+static const int statusvertpadbar   = vertpadbar; /* padding for status specifically */
+static const int seltagindheight    = 4; // height of bar under selected tag
 static const int seltagindpad       = 4; // amount of padding surrounding selected tag
-static const char *fonts[]          = { "Iosevka Term NF:size=11:style=Bold" };
 
+static const char *fonts[]          = { "Iosevka Term NF:size=11:style=Bold" };
 static const char bg[]       = "#100f0f";
 static const char fg[]       = "#fffcf0";
 static const char accent[]   = "#ad8301";
 static const char *colors[][3]      = {
 	/*               fg    bg    border   */
-	[SchemeNorm] = { fg,     bg,  fg},
+	[SchemeNorm] = { fg,     bg,  bg},
 	[SchemeSel]  = { accent, bg,  accent},
 };
 
+/* autostart script */
 static const char *const autostart[] = {
 	"feh", "--bg-fill", "/home/mespyr/.config/WALLPAPER.jpg", NULL,
 	"picom", NULL,
@@ -33,7 +32,6 @@ static const char *const autostart[] = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5" };
-//static const char *alttags[] = { "[1]", "[2]", "[3]", "[4]", "[5]" };
 static const char *alttags[] = { "1̰", "2̰", "3̰", "4̰", "5̰" };
 
 static const Rule rules[] = {
@@ -43,24 +41,21 @@ static const Rule rules[] = {
 	 */
 	/* class         instance title  tags mask isfloating mon x,y,w,h*/
 	{ "steam",        NULL,    NULL,  1 << 2,   1,         0,  1100, 520, 1200, 1350 },
-	{ "vesktop",      NULL,    NULL,  1 << 3,   1,         1,  -1, -1, -1, -1 },
-	{ "obs",          NULL,    NULL,  1 << 4,   1,         1,  -1, -1, -1, -1 },
+	{ "vesktop",      NULL,    NULL,  1 << 3,   0,         1,  -1, -1, -1, -1 },
+	{ "obs",          NULL,    NULL,  1 << 4,   0,         1,  -1, -1, -1, -1 },
 	{ "pavucontrol",  NULL,    NULL,  0,        1,         -1,  15, 40, 600, 400 },
 	{ "BoltLauncher", NULL,    NULL,  1 << 2,   1,         0,  -1, -1, -1, -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.65; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
+static const float mfact        = 0.75; /* factor of master area size [0.05..0.95] */
+static const int nmaster        = 1;    /* number of clients in master area */
+static const int resizehints    = 0;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 0;    /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	/* { "",     centeredmaster },    /\* first entry is default *\/ */
-	{ "",     tile},    /* first entry is default */
-	{ "",     NULL },    /* no layout function means floating behavior */
-	// { "[M]",      monocle },
+	{ "", tile},  /* first entry is default */
+	{ "", NULL }, /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -76,7 +71,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-static const char *termcmd[]  = { "tabbed", "alacritty", "--embed", NULL };
+/* static const char *termcmd[]  = { "tabbed", "alacritty", "--embed", NULL }; */
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *editorcmd[]  = { "emacs", NULL };
 static const char *volumecmd[]  = { "pavucontrol", NULL };
 

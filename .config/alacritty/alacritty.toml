@@ -42,7 +42,7 @@ blinking = "Always"
 persistent_logging = true
 
 [font]
-size = 14
+size = 12
 
 [font.bold]
 family = "Iosevka Term NFM"

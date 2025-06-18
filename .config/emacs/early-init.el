@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; Set Garbage Collection threshold high during startup
 (setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.8)
@@ -49,6 +51,6 @@
 
 ;; Customize modeline thickness
 (custom-set-faces
- '(mode-line ((t (:background "#1C1B1A" :box (:line-width 5 :color "#1C1B1A")))))
- '(mode-line-inactive ((t (:background "#1C1B1A" :box (:line-width 5 :color "#1C1B1A")))))
+ '(mode-line ((t (:height 150 :background "#1C1B1A" :box (:line-width 5 :color "#1C1B1A")))))
+ '(mode-line-inactive ((t (:height 150 :background "#1C1B1A" :box (:line-width 5 :color "#1C1B1A")))))
  '(vertical-border ((t (:foreground "#575653")))))
