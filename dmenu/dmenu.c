@@ -138,7 +138,7 @@ drawitem(struct item *item, int x, int y, int w)
 	if (item == sel) {
 		drw_setscheme(drw, scheme[SchemeSel]);
 		int ret = drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
-		drw_rect(drw, x + 4, bh-3, w - (2*4), 3, 1, 0);
+		drw_rect(drw, x + 4, bh-4, w - (2*4), 4, 1, 0);
 		return ret;
 	}
 	else if (item->out) {
@@ -711,9 +711,13 @@ setup(void)
 	swa.override_redirect = True;
 	swa.background_pixel = scheme[SchemeNorm][ColBg].pixel;
 	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask;
-	win = XCreateWindow(dpy, root, x, y, mw, mh, 0,
+	win = XCreateWindow(dpy, root, x, y, mw, mh, border_width,
+	/* win = XCreateWindow(dpy, root, x, y, mw, mh, 0, */
 	                    CopyFromParent, CopyFromParent, CopyFromParent,
 	                    CWOverrideRedirect | CWBackPixel | CWEventMask, &swa);
+	if (border_width)
+		XSetWindowBorder(dpy, win, scheme[SchemeSel][ColFg].pixel);
+
 	XSetClassHint(dpy, win, &ch);
 
 
@@ -785,6 +789,8 @@ main(int argc, char *argv[])
 			colors[SchemeSel][ColFg] = argv[++i];
 		else if (!strcmp(argv[i], "-w"))   /* embedding window id */
 			embed = argv[++i];
+		else if (!strcmp(argv[i], "-bw"))
+			border_width = atoi(argv[++i]); /* border width */
 		else
 			usage();
 

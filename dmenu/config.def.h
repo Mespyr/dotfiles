@@ -12,7 +12,8 @@ static const char *prompt      = "  ";      /* -p  option; prompt to the left
 
 static const char bg[]       = "#100f0f";
 static const char fg[]       = "#fffcf0";
-static const char accent[]   = "#ad8301";
+/* static const char accent[]   = "#ad8301"; */
+static const char accent[]   = "#66800b";
 
 /*
 static const char bg[]       = "#232726";
@@ -35,3 +36,6 @@ static unsigned int lines      = 0;
  * for example: " /?\"&[]"
  */
 static const char worddelimiters[] = " ";
+
+/* window border width */
+static unsigned int border_width = 0;

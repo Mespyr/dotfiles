@@ -1,19 +1,24 @@
 /* appearance */
-static const unsigned int borderpx  = 2; /* border pixel of windows */
+static const unsigned int borderpx  = 2;  /* border pixel of windows */
+static const unsigned int gappx     = 20; /* gap pixel between windows */
 static const unsigned int snap      = 0; /* snap pixel */
 static const int showbar            = 1; /* 0 means no bar */
 static const int topbar             = 1; /* 0 means bottom bar */
 static const int focusonwheel       = 0;
+
+// bar sizing
 static const int horizpadbar        = 0; /* horizontal padding for statusbar */
-static const int vertpadbar         = 14; /* vertical padding for statusbar */
+static const int vertpadbar         = 12; /* vertical padding for statusbar */
 static const int statusvertpadbar   = vertpadbar; /* padding for status specifically */
 static const int seltagindheight    = 4; // height of bar under selected tag
 static const int seltagindpad       = 4; // amount of padding surrounding selected tag
+static const int barsidemargin      = 200;
 
 static const char *fonts[]          = { "Iosevka Term NF:size=11:style=Bold" };
 static const char bg[]       = "#100f0f";
 static const char fg[]       = "#fffcf0";
-static const char accent[]   = "#ad8301";
+/* static const char accent[]   = "#ad8301"; */
+static const char accent[]   = "#66800b";
 static const char *colors[][3]      = {
 	/*               fg    bg    border   */
 	[SchemeNorm] = { fg,     bg,  bg},
@@ -22,11 +27,11 @@ static const char *colors[][3]      = {
 
 /* autostart script */
 static const char *const autostart[] = {
+	"/home/mespyr/dwm_bar.sh", NULL,
 	"feh", "--bg-fill", "/home/mespyr/.config/WALLPAPER.jpg", NULL,
 	"picom", NULL,
 	"setxkbmap", "-option", "ctrl:nocaps", NULL,
 	"xset", "-b", NULL,
-	"/home/mespyr/dwm_bar.sh", NULL,
 	NULL /* terminate */
 };
 
@@ -40,11 +45,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class         instance title  tags mask isfloating mon x,y,w,h*/
-	{ "steam",        NULL,    NULL,  1 << 2,   1,         0,  1100, 520, 1200, 1350 },
-	{ "vesktop",      NULL,    NULL,  1 << 3,   0,         1,  -1, -1, -1, -1 },
-	{ "obs",          NULL,    NULL,  1 << 4,   0,         1,  -1, -1, -1, -1 },
-	{ "pavucontrol",  NULL,    NULL,  0,        1,         -1,  15, 40, 600, 400 },
-	{ "BoltLauncher", NULL,    NULL,  1 << 2,   1,         0,  -1, -1, -1, -1 },
+	{ "steam",        NULL,    NULL,  1 << 2,   0,         0,  -1, -1, -1, -1 },
+	{ "BoltLauncher", NULL,    NULL,  1 << 2,   0,         0,  -1, -1, -1, -1 },
+	{ "vesktop",      NULL,    NULL,  1 << 3,   0,         0,  -1, -1, -1, -1 },
+	{ "obs",          NULL,    NULL,  1 << 4,   0,         0,  -1, -1, -1, -1 },
+	{ "pavucontrol",  NULL,    NULL,  0,        1,         -1,  0, 40, 600, 400 },
 };
 
 /* layout(s) */
@@ -75,6 +80,8 @@ static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *editorcmd[]  = { "emacs", NULL };
 static const char *volumecmd[]  = { "pavucontrol", NULL };
+static const char *lockcmd[]  = { "i3lock", "-c", bg,  NULL };
+static const char *keycmd[]  = { "/bin/sh", "-c", "xclip -selection clipboard < ~/.local/github.key", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -82,6 +89,8 @@ static const Key keys[] = {
 	{ MODKEY, XK_Return, spawn, {.v = termcmd } },
 	{ MODKEY, XK_w,      spawn, {.v = editorcmd } },
 	{ MODKEY, XK_v,      spawn, {.v = volumecmd } },
+	{ MODKEY, XK_p,      spawn, {.v = keycmd} },
+	{ MODKEY|ShiftMask, XK_l, spawn, {.v = lockcmd} },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

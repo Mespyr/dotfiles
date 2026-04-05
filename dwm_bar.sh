@@ -1,33 +1,18 @@
 #!/bin/bash
 
+ACCENT="^c#879a39^"
+
 get_time() {
-	echo "^c#d0a215^$(date '+%I:%M%p')^d^"
+	echo "$ACCENT$(date '+%I:%M%p')^d^"
 }
 
 get_ram() {
 	USED_RAM=$(free -mh --si | awk  {'print $3'} | head -n 2 | tail -1)
-    echo "^c#d0a215^RAM^d^ $USED_RAM"
+    echo "$(echo $ACCENT)RAM^d^ $USED_RAM"
 }
 
-WIFI_FULL_ICON=' '
-WIFI_MID_ICON=' '
-WIFI_LOW_ICON=' '
-NO_WIFI_ICON=''
-get_wifi() {
-    if grep -q wl* "/proc/net/wireless"; then
-		# Wifi quality percentage
-		percentage=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70)}'| xargs)
-		case $percentage in
-			0)                           echo $NO_WIFI_ICON;;
-			100|9[0-9]|8[0-9]|7[0-9])    echo "$WIFI_FULL_ICON" ;;
-			6[0-9]|5[0-9]|4[0-9]|3[0-9]) echo "$WIFI_MID_ICON" ;;
-			2[0-9]|1[0-9]|[0-9])         echo "$WIFI_LOW_ICON" ;;
-		esac
-	fi
-}
-
-VOLUME_ON_ICON='^c#d0a215^  ^d^'
-VOLUME_MUTED_ICON='^c#d0a215^! ^d^'
+VOLUME_ON_ICON="$(echo $ACCENT)  ^d^"
+VOLUME_MUTED_ICON="$(echo $ACCENT)! ^d^"
 
 get_volume() {
     curStatus=$(pactl get-sink-mute @DEFAULT_SINK@)
@@ -42,10 +27,11 @@ get_volume() {
 
 get_uptime() {
     UPTIME=$(echo $(uptime | sed 's/.*up \([^,]*\), .*/\1/'))
-    echo "^c#d0a215^UPTIME^d^ $UPTIME"
+    echo "$(echo $ACCENT)UPTIME^d^ $UPTIME"
 }
 
-S="^c#ad8301^/^d^"
+# S="^c#ad8301^/^d^"
+S="^c#66800b^|^d^"
 while true; do
-	xsetroot -name "$(get_wifi) $S $(get_volume) $S $(get_ram) $S $(get_uptime) $S $(get_time)  " && sleep 2
+	xsetroot -name "$(get_volume) $S $(get_ram) $S $(get_uptime) $S $(get_time)  " && sleep 5
 done
