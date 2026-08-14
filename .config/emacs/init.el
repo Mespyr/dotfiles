@@ -202,4 +202,4 @@
 
 
 ;; These are some custom ELisp files I made.
-(load "~/git/Taro/taro.el" nil t)
+(load "~/git/Riki/riki.el" nil t)

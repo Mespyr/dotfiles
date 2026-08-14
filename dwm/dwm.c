@@ -246,6 +246,8 @@ static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
 static int bh;               /* bar height */
 static int lrpad;            /* sum of left and right padding for text */
+static int vp;               /* vertical padding for bar */
+static int sp;               /* side padding for bar */
 static int (*xerrorxlib)(Display *, XErrorEvent *);
 static unsigned int numlockmask = 0;
 static void (*handler[LASTEvent]) (XEvent *) = {
@@ -619,7 +621,8 @@ configurenotify(XEvent *e)
 				for (c = m->clients; c; c = c->next)
 					if (c->isfullscreen)
 						resizeclient(c, m->mx, m->my, m->mw, m->mh, 0);
-				XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh);
+				/* XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh); */
+				XMoveResizeWindow(dpy, m->barwin, m->wx + sp, m->by + vp, m->ww -  2 * sp, bh);
 			}
 			focus(NULL);
 			arrange(NULL);
@@ -789,7 +792,8 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 	drw_setscheme(drw, scheme[LENGTH(colors)]);
 	drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
 	drw->scheme[ColBg] = scheme[SchemeNorm][ColBg];
-	drw_rect(drw, x, 0, w, bh, 1, 1);
+	/* drw_rect(drw, x, 0, w, bh, 1, 1); */
+	drw_rect(drw, x - 2 * sp, 0, w, bh, 1, 1);
 	x += horizpadbar / 2;
 
 	/* process status text */
@@ -800,7 +804,7 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 
 			text[i] = '\0';
 			w = TEXTW(text) - lrpad;
-			drw_text(drw, x, statusvertpadbar / 2, w, bh - statusvertpadbar, 0, text, 0);
+			drw_text(drw, x - 2 * sp, statusvertpadbar / 2, w, bh - statusvertpadbar, 0, text, 0);
 			x += w;
 
 			/* process code */
@@ -829,7 +833,8 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 					while (text[++i] != ',');
 					int rh = atoi(text + ++i);
 
-					drw_rect(drw, rx + x, ry + statusvertpadbar / 2, rw, rh, 1, 0);
+					drw_rect(drw, rx + x - 2 * sp, ry + statusvertpadbar / 2, rw, rh, 1, 0);
+					/* drw_rect(drw, rx + x - 2 * sp, ry, rw, rh, 1, 0); */
 				} else if (text[i] == 'f') {
 					x += atoi(text + ++i);
 				}
@@ -843,7 +848,7 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 
 	if (!isCode) {
 		w = TEXTW(text) - lrpad;
-		drw_text(drw, x, statusvertpadbar / 2, w, bh - statusvertpadbar, 0, text, 0);
+		drw_text(drw, x - 2 * sp, statusvertpadbar / 2, w, bh - statusvertpadbar, 0, text, 0);
 	}
 
 	drw_setscheme(drw, scheme[SchemeNorm]);
@@ -877,6 +882,12 @@ drawbar(Monitor *m)
 	}
 	x = 0;
 
+	/* Add this block right after x = 0; to fill the padding with your bar color */
+	int tag_padding = 4; 
+	drw_setscheme(drw, scheme[SchemeNorm]);
+	drw_rect(drw, x, 0, tag_padding, bh, 1, 1);
+	x += tag_padding;
+
 	for (i = 0; i < LENGTH(tags); i++) {
 		tagtext = occ & 1 << i ? alttags[i] : tags[i];
 		w = TEXTW(tagtext);
@@ -897,7 +908,8 @@ drawbar(Monitor *m)
 		if (m->sel) {
 			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
 
-			drw_text(drw, x + 6, 0, w - 6, bh, lrpad / 2, m->sel->name, 0);
+			/* drw_text(drw, x + 6, 0, w - 6, bh, lrpad / 2, m->sel->name, 0); */
+			drw_text(drw, x + 6, 0, w - 6 - 2 * sp, bh, lrpad / 2, m->sel->name, 0);
 			/* if (TEXTW(m->sel->name) > w) /\* title is bigger than the width of the title rectangle, don't center *\/ */
 			/* 	drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0); */
 			/* else /\* center window title *\/ */
@@ -907,7 +919,8 @@ drawbar(Monitor *m)
 			//	drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
 		} else {
 			drw_setscheme(drw, scheme[SchemeNorm]);
-			drw_rect(drw, x, 0, w, bh, 1, 1);
+			/* drw_rect(drw, x, 0, w, bh, 1, 1); */
+			drw_rect(drw, x, 0, w - 2 * sp, bh, 1, 1);
 		}
 		// END Window Name
 	}
@@ -1725,6 +1738,8 @@ setup(void)
 		die("no fonts could be loaded.");
 	lrpad = drw->fonts->h + horizpadbar;
 	bh = drw->fonts->h + vertpadbar;
+	sp = sidepad;
+	vp = (topbar == 1) ? vertpad : - vertpad;
 	updategeom();
 	/* init atoms */
 	utf8string = XInternAtom(dpy, "UTF8_STRING", False);
@@ -1912,7 +1927,8 @@ togglebar(const Arg *arg)
 {
 	selmon->showbar = !selmon->showbar;
 	updatebarpos(selmon);
-	XMoveResizeWindow(dpy, selmon->barwin, selmon->wx, selmon->by, selmon->ww, bh);
+	/* XMoveResizeWindow(dpy, selmon->barwin, selmon->wx, selmon->by, selmon->ww, bh); */
+	XMoveResizeWindow(dpy, selmon->barwin, selmon->wx + sp, selmon->by + vp, selmon->ww - 2 * sp, bh);
 	arrange(selmon);
 }
 
@@ -2025,7 +2041,8 @@ updatebars(void)
 	for (m = mons; m; m = m->next) {
 		if (m->barwin)
 			continue;
-		m->barwin = XCreateWindow(dpy, root, m->wx, m->by, m->ww, bh, 0, DefaultDepth(dpy, screen),
+		/* m->barwin = XCreateWindow(dpy, root, m->wx, m->by, m->ww, bh, 0, DefaultDepth(dpy, screen), */
+		m->barwin = XCreateWindow(dpy, root, m->wx + sp, m->by + vp, m->ww - 2 * sp, bh, 0, DefaultDepth(dpy, screen),
 				CopyFromParent, DefaultVisual(dpy, screen),
 				CWOverrideRedirect|CWBackPixmap|CWEventMask, &wa);
 		XDefineCursor(dpy, m->barwin, cursor[CurNormal]->cursor);
@@ -2040,11 +2057,16 @@ updatebarpos(Monitor *m)
 	m->wy = m->my;
 	m->wh = m->mh;
 	if (m->showbar) {
-		m->wh -= bh;
-		m->by = m->topbar ? m->wy : m->wy + m->wh;
-		m->wy = m->topbar ? m->wy + bh : m->wy;
+		/* m->wh -= bh; */
+		/* m->by = m->topbar ? m->wy : m->wy + m->wh; */
+		/* m->wy = m->topbar ? m->wy + bh : m->wy; */
+
+		m->wh = m->wh - vertpad - bh;
+		m->by = m->topbar ? m->wy : m->wy + m->wh + vertpad;
+		m->wy = m->topbar ? m->wy + bh + vp : m->wy;
 	} else
-		m->by = -bh;
+		/* m->by = -bh; */
+		m->by = -bh - vp;
 }
 
 void

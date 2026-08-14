@@ -31,7 +31,7 @@ get_uptime() {
 }
 
 # S="^c#ad8301^/^d^"
-S="^c#66800b^|^d^"
+S="^c#66800b^♦^d^"
 while true; do
 	xsetroot -name "$(get_volume) $S $(get_ram) $S $(get_uptime) $S $(get_time)  " && sleep 5
 done

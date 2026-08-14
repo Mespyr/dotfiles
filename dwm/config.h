@@ -1,17 +1,19 @@
 /* appearance */
-static const unsigned int borderpx  = 2;  /* border pixel of windows */
-static const unsigned int gappx     = 20; /* gap pixel between windows */
+static const unsigned int borderpx  = 1;  /* border pixel of windows */
+static const unsigned int gappx     = 25; /* gap pixel between windows */
 static const unsigned int snap      = 0; /* snap pixel */
 static const int showbar            = 1; /* 0 means no bar */
 static const int topbar             = 1; /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 
 // bar sizing
+static const int vertpad            = 0;       /* vertical padding of bar */
+static const int sidepad            = 300;       /* horizontal padding of bar */
 static const int horizpadbar        = 0; /* horizontal padding for statusbar */
 static const int vertpadbar         = 12; /* vertical padding for statusbar */
 static const int statusvertpadbar   = vertpadbar; /* padding for status specifically */
 static const int seltagindheight    = 4; // height of bar under selected tag
-static const int seltagindpad       = 4; // amount of padding surrounding selected tag
+static const int seltagindpad       = 2; // amount of padding surrounding selected tag
 static const int barsidemargin      = 200;
 
 static const char *fonts[]          = { "Iosevka Term NF:size=11:style=Bold" };
