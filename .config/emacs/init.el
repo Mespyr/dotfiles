@@ -203,3 +203,4 @@
 
 ;; These are some custom ELisp files I made.
 (load "~/git/Riki/riki.el" nil t)
+(load "~/git/Ochre/ochre.el" nil t)

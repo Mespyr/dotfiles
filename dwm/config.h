@@ -8,13 +8,13 @@ static const int focusonwheel       = 0;
 
 // bar sizing
 static const int vertpad            = 0;       /* vertical padding of bar */
-static const int sidepad            = 300;       /* horizontal padding of bar */
+static const int sidepad            = 800;       /* horizontal padding of bar */
 static const int horizpadbar        = 0; /* horizontal padding for statusbar */
 static const int vertpadbar         = 12; /* vertical padding for statusbar */
 static const int statusvertpadbar   = vertpadbar; /* padding for status specifically */
 static const int seltagindheight    = 4; // height of bar under selected tag
 static const int seltagindpad       = 2; // amount of padding surrounding selected tag
-static const int barsidemargin      = 200;
+/* static const int barsidemargin      = 200; */
 
 static const char *fonts[]          = { "Iosevka Term NF:size=11:style=Bold" };
 static const char bg[]       = "#100f0f";
@@ -55,7 +55,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact        = 0.75; /* factor of master area size [0.05..0.95] */
+static const float mfact        = 0.60; /* factor of master area size [0.05..0.95] */
 static const int nmaster        = 1;    /* number of clients in master area */
 static const int resizehints    = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 0;    /* 1 will force focus on the fullscreen window */
