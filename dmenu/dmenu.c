@@ -36,9 +36,9 @@ struct item {
 static char text[BUFSIZ] = "";
 static char *embed;
 static int bh, mw, mh;
-static int dmx = 20;
-static int dmy = 50; //520
-static unsigned int dmw = 600;
+static int dmx = 900;
+static int dmy = 32; //520
+static unsigned int dmw = 700;
 static int inputw = 0, promptw;
 static int lrpad; /* sum of left and right padding */
 static size_t cursor;
@@ -729,6 +729,9 @@ setup(void)
 	                XNClientWindow, win, XNFocusWindow, win, NULL);
 
 	XMapRaised(dpy, win);
+	/* XMapWindow(dpy, win); */
+	/* XLowerWindow(dpy, win); */
+
 	if (embed) {
 		XReparentWindow(dpy, win, parentwin, x, y);
 		XSelectInput(dpy, parentwin, FocusChangeMask | SubstructureNotifyMask);

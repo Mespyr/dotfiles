@@ -18,7 +18,6 @@ COPY .config/picom.conf
 COPY .config/neofetch/
 COPY .config/gtk-3.0/
 COPY .config/WALLPAPER.jpg
-COPY dwm_bar.sh
 
 rm .bak -r
 

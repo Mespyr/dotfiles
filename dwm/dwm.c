@@ -183,6 +183,7 @@ static void killclient(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
 static void mappingnotify(XEvent *e);
 static void maprequest(XEvent *e);
+static void mapnotify(XEvent *e); // NEW
 static void monocle(Monitor *m);
 static void movemouse(const Arg *arg);
 static Client *nexttiled(Client *c);
@@ -261,6 +262,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
 	[KeyPress] = keypress,
 	[MappingNotify] = mappingnotify,
 	[MapRequest] = maprequest,
+	[MapNotify] = mapnotify, // NEW
 	[PropertyNotify] = propertynotify,
 	[UnmapNotify] = unmapnotify
 };
@@ -1254,10 +1256,39 @@ maprequest(XEvent *e)
 	static XWindowAttributes wa;
 	XMapRequestEvent *ev = &e->xmaprequest;
 
-	if (!XGetWindowAttributes(dpy, ev->window, &wa) || wa.override_redirect)
+	if (!XGetWindowAttributes(dpy, ev->window, &wa) || wa.override_redirect) {
 		return;
+	}
 	if (!wintoclient(ev->window))
 		manage(ev->window, &wa);
+}
+
+void
+mapnotify(XEvent *e) // NEW
+{
+    static XClassHint ch;
+    XMapEvent *ev = &e->xmap;
+    Monitor *m;
+
+    if (XGetClassHint(dpy, ev->window, &ch)) {
+        if (ch.res_class && !strcmp(ch.res_class, "dmenu")) {
+            m = selmon; // Use the active monitor
+
+            XWindowChanges wc;
+            wc.stack_mode = Below;
+            wc.sibling = m->barwin;
+
+            /* Force dmenu to map directly below the dwm status bar */
+            XConfigureWindow(dpy, ev->window, CWSibling | CWStackMode, &wc);
+
+            /* Ensure the dwm bar stays on top of dmenu */
+            XRaiseWindow(dpy, m->barwin);
+        }
+        if (ch.res_class)
+            XFree(ch.res_class);
+        if (ch.res_name)
+            XFree(ch.res_name);
+    }
 }
 
 void
@@ -1549,6 +1580,7 @@ restack(Monitor *m)
 				wc.sibling = c->win;
 			}
 	}
+	XRaiseWindow(dpy, m->barwin); // force dwm bar on top of everything else
 	XSync(dpy, False);
 	while (XCheckMaskEvent(dpy, EnterWindowMask, &ev));
 }
