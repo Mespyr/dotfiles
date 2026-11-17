@@ -78,10 +78,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-/* static const char *termcmd[]  = { "tabbed", "alacritty", "--embed", NULL }; */
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "tabbed", "alacritty", "--embed", NULL };
+/* static const char *termcmd[]  = { "alacritty", NULL }; */
 static const char *editorcmd[]  = { "emacs", NULL };
-static const char *volumecmd[]  = { "pavucontrol", NULL };
+/* static const char *volumecmd[]  = { "pavucontrol", NULL }; */
 static const char *syscmd[]  = { "/home/mespyr/git/dotfiles/scripts/sys.sh", bg, NULL };
 
 static const Key keys[] = {
@@ -89,7 +89,7 @@ static const Key keys[] = {
 	{ MODKEY, XK_d,      spawn, {.v = dmenucmd } },
 	{ MODKEY, XK_Return, spawn, {.v = termcmd } },
 	{ MODKEY, XK_w,      spawn, {.v = editorcmd } },
-	{ MODKEY, XK_v,      spawn, {.v = volumecmd } },
+	/* { MODKEY, XK_v,      spawn, {.v = volumecmd } }, */
 	{ MODKEY, XK_q,      spawn, {.v = syscmd } },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

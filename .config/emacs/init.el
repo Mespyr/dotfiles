@@ -171,6 +171,12 @@
   :hook (lsp-mode . tree-sitter-hl-mode))
 (use-package tree-sitter-langs :after tree-sitter)
 
+;; flycheck, for on-line
+(use-package flycheck
+  :hook ((lsp-mode . global-flycheck-mode)
+		 (lsp-mode . global-flycheck-annotate-mode)
+		 (lsp-mode . global-flycheck-lsp-mode)))
+
 ;; Vterm is a very fast terminal
 ;; which I can just toggle when I need it.
 (use-package vterm

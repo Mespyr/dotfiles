@@ -1,11 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "Iosevka Term NF:size=12";
+static const char font[]        = "Iosevka Term NF:size=11:style=Bold";
 static const char* normbgcolor  = "#232726";
 static const char* normfgcolor  = "#6f6e69";
 static const char* selbgcolor   = "#100f0f";
-static const char* selfgcolor   = "#ad8301";
+static const char* selfgcolor   = "#66800b";
 
 static const char* urgbgcolor   = "#111111";
 static const char* urgfgcolor   = "#cc0000";
@@ -16,7 +16,7 @@ static const char titletrim[]   = "...";
 static const int  tabwidth      = 100;
 static const Bool foreground    = True;
 static       Bool urgentswitch  = False;
-static const int  separator     = 4;
+static const int  separator     = 0;
 static const int barheight	= 30;
 /*
  * Where to place a new tab when it is opened. When npisrelative is True,
